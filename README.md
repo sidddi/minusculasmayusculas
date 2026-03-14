@@ -98,5 +98,6 @@ Para ejecutar los tests manuales, abre `tests.html` en el navegador.
 - HTML5, CSS3, JavaScript (vanilla, sin dependencias)
 - Google Analytics 4 (analítica)
 - Google AdSense (publicidad)
+- Cookiebot CMP (gestión de consentimiento de cookies)
 - GitHub Actions (CI/CD)
 - Hetzner (servidor de producción)
