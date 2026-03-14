@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minúsculas y Mayúsculas | Convertidor de texto online gratis</title>
+  <meta name="description" content="Convierte texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitaliza cada palabra. Herramienta online gratuita, rápida y sin registro." />
+  <link rel="canonical" href="https://minusculasmayusculas.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://minusculasmayusculas.com" />
+  <meta property="og:title" content="Minúsculas y Mayúsculas | Convertidor de texto online gratis" />
+  <meta property="og:description" content="Convierte texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitaliza cada palabra. Herramienta online gratuita, rápida y sin registro." />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Minúsculas y Mayúsculas | Convertidor de texto online gratis" />
+  <meta name="twitter:description" content="Convierte texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitaliza cada palabra. Herramienta online gratuita, rápida y sin registro." />
+
+  <script src="converter.js"></script>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary:       #1a73e8;
+      --primary-dark:  #1557b0;
+      --primary-light: #e8f0fe;
+      --primary-mid:   #d2e3fc;
+      --success:       #34a853;
+      --success-dark:  #2d9249;
+      --text:          #202124;
+      --muted:         #5f6368;
+      --border:        #dadce0;
+      --bg:            #ffffff;
+      --radius:        8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+                   'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 14px 0 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 3px;
+    }
+
+    /* ── Tool ── */
+    .tool-section {
+      margin-bottom: 36px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      padding: 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.18s;
+    }
+
+    textarea:focus { border-color: var(--primary); }
+
+    textarea::placeholder { color: #9aa0a6; }
+
+    /* ── Counter ── */
+    .counter {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      min-height: 1.2em;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background 0.14s, border-color 0.14s, color 0.14s, transform 0.08s;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .btn:active { transform: scale(0.96); }
+
+    /* Conversion buttons – 2×2 grid */
+    .conversion-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn-convert {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: var(--primary-light);
+    }
+
+    .btn-convert:hover {
+      background: var(--primary-mid);
+      border-color: var(--primary-mid);
+    }
+
+    /* Action buttons */
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .btn-copied {
+      background: var(--success) !important;
+      border-color: var(--success) !important;
+    }
+
+    .btn-copied:hover {
+      background: var(--success-dark) !important;
+      border-color: var(--success-dark) !important;
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--muted);
+      border-color: var(--border);
+      min-width: 96px;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f3f4;
+      border-color: #bdc1c6;
+    }
+
+    /* ── Content section ── */
+    .content-section {
+      margin-bottom: 32px;
+    }
+
+    .content-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .content-section p:last-child { margin-bottom: 0; }
+
+    /* ── FAQ ── */
+    .faq-section {
+      margin-bottom: 44px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--primary);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    details[open] summary::after { content: '−'; }
+
+    details p {
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: #3c4043;
+      line-height: 1.75;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #f8f9fa;
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer .sep {
+      color: var(--border);
+      font-size: 0.82rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      header h1 { font-size: 1.25rem; }
+      .subtitle  { font-size: 0.82rem; }
+
+      .btn { font-size: 0.82rem; padding: 9px 10px; }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Minúsculas y Mayúsculas</h1>
+      <p class="subtitle">Convierte tu texto al instante, online y gratis</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- ── Tool ── -->
+      <section class="tool-section" aria-label="Convertidor de texto">
+        <textarea
+          id="input"
+          placeholder="Escribe o pega tu texto aquí..."
+          aria-label="Texto a convertir"
+          spellcheck="false"
+        ></textarea>
+
+        <div class="counter" id="counter" aria-live="polite">
+          0 caracteres · 0 palabras
+        </div>
+
+        <div class="conversion-buttons" role="group" aria-label="Opciones de conversión">
+          <button class="btn btn-convert" onclick="aplicar('despuesDePunto')">
+            Mayúsculas después de punto
+          </button>
+          <button class="btn btn-convert" onclick="aplicar('minusculas')">
+            todo minúsculas
+          </button>
+          <button class="btn btn-convert" onclick="aplicar('mayusculas')">
+            TODO MAYÚSCULAS
+          </button>
+          <button class="btn btn-convert" onclick="aplicar('cadaPalabra')">
+            Capitalizar Cada Palabra
+          </button>
+        </div>
+
+        <div class="action-buttons">
+          <button id="copy-btn" class="btn btn-primary" onclick="copiarTexto()">
+            Copiar texto
+          </button>
+          <button class="btn btn-secondary" onclick="limpiar()">
+            Limpiar
+          </button>
+        </div>
+      </section>
+
+      <!-- ── SEO content ── -->
+      <section class="content-section" aria-label="Descripción de la herramienta">
+        <p>
+          Esta herramienta online te permite cambiar el formato de mayúsculas y minúsculas de
+          cualquier texto con un solo clic. Puedes convertir todo el texto a mayúsculas, a
+          minúsculas, capitalizar la primera letra de cada palabra o aplicar las mayúsculas
+          correctas después de cada punto y al inicio de cada párrafo. No necesitas instalar
+          nada ni crear una cuenta: pega tu texto, elige el formato y listo.
+        </p>
+        <p>
+          Es perfecta para corregir textos que han llegado en el formato equivocado, dar
+          formato a títulos, preparar contenidos para redes sociales o simplemente corregir
+          el bloqueo de mayúsculas accidental. Funciona con todos los caracteres del español,
+          incluyendo vocales con tilde (á, é, í, ó, ú), mayúsculas acentuadas (Á, É, Í, Ó, Ú)
+          y la ñ.
+        </p>
+      </section>
+
+      <!-- ── FAQ ── -->
+      <section class="faq-section" aria-label="Preguntas frecuentes">
+        <h2>Preguntas frecuentes</h2>
+
+        <details>
+          <summary>¿Cómo pasar texto a mayúsculas?</summary>
+          <p>
+            Copia tu texto y pégalo en el cuadro de arriba. Después haz clic en el botón
+            <strong>TODO MAYÚSCULAS</strong>. La herramienta convertirá al instante cada letra
+            a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo convertir a minúsculas?</summary>
+          <p>
+            Pega el texto que quieras convertir y pulsa el botón <strong>todo minúsculas</strong>.
+            Toda la cadena de texto pasará a letras minúsculas en un solo clic. Es especialmente
+            útil cuando recibes textos escritos en mayúsculas o con el bloqueo de mayúsculas
+            activado por error.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Qué significa capitalizar un texto?</summary>
+          <p>
+            Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por
+            ejemplo, <em>«hola mundo»</em> se convierte en <em>«Hola Mundo»</em>. Esta opción
+            es ideal para títulos, nombres de personas o de empresas. Nuestra herramienta lo
+            hace automáticamente con el botón <strong>Capitalizar Cada Palabra</strong>.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuándo usar mayúsculas después de punto?</summary>
+          <p>
+            Según la normativa ortográfica del español, tras un punto y seguido o al inicio de
+            un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de
+            texto en minúsculas que no respeta esta regla, usa el botón
+            <strong>Mayúsculas después de punto</strong> para corregirlo automáticamente.
+          </p>
+        </details>
+      </section>
+
+    </div><!-- /container -->
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 minusculasmayusculas.com</p>
+      <nav aria-label="Pie de página">
+        <a href="#">Aviso legal</a>
+        <span class="sep">|</span>
+        <a href="#">Política de privacidad</a>
+        <span class="sep">|</span>
+        <a href="#">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const textarea = document.getElementById('input');
+    const counter  = document.getElementById('counter');
+    const copyBtn  = document.getElementById('copy-btn');
+
+    textarea.addEventListener('input', updateCounter);
+
+    function updateCounter() {
+      const text  = textarea.value;
+      const chars = text.length;
+      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+      counter.textContent = `${chars} caracteres · ${words} palabras`;
+    }
+
+    function aplicar(tipo) {
+      const text = textarea.value;
+      switch (tipo) {
+        case 'despuesDePunto': textarea.value = capitalizarDespuesDePunto(text); break;
+        case 'minusculas':     textarea.value = todoMinusculas(text);             break;
+        case 'mayusculas':     textarea.value = todoMayusculas(text);             break;
+        case 'cadaPalabra':    textarea.value = capitalizarCadaPalabra(text);     break;
+      }
+      updateCounter();
+      textarea.focus();
+    }
+
+    function copiarTexto() {
+      const text = textarea.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = '¡Copiado!';
+        copyBtn.classList.add('btn-copied');
+        setTimeout(function () {
+          copyBtn.textContent = 'Copiar texto';
+          copyBtn.classList.remove('btn-copied');
+        }, 2000);
+      }).catch(function () {
+        // Fallback for older browsers
+        textarea.select();
+        document.execCommand('copy');
+        copyBtn.textContent = '¡Copiado!';
+        copyBtn.classList.add('btn-copied');
+        setTimeout(function () {
+          copyBtn.textContent = 'Copiar texto';
+          copyBtn.classList.remove('btn-copied');
+        }, 2000);
+      });
+    }
+
+    function limpiar() {
+      textarea.value = '';
+      updateCounter();
+      textarea.focus();
+    }
+  </script>
+
+</body>
+</html>

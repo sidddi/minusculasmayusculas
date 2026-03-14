@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tests — minusculasmayusculas converter.js</title>
+  <script src="converter.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pass:        #34a853;
+      --pass-bg:     #e6f4ea;
+      --fail:        #d93025;
+      --fail-bg:     #fce8e6;
+      --border:      #dadce0;
+      --text:        #202124;
+      --muted:       #5f6368;
+      --header-bg:   #f8f9fa;
+      --primary:     #1a73e8;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      padding: 32px 20px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 15px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+
+    /* ── Summary bar ── */
+    #summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      background: var(--header-bg);
+    }
+
+    #summary .total   { font-weight: 600; }
+    #summary .passed  { color: var(--pass); font-weight: 600; }
+    #summary .failed  { color: var(--fail); font-weight: 600; }
+
+    .status-badge {
+      margin-left: auto;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-pass { background: var(--pass-bg); color: var(--pass); }
+    .badge-fail { background: var(--fail-bg); color: var(--fail); }
+
+    /* ── Test groups ── */
+    .group {
+      margin-bottom: 28px;
+    }
+
+    .group-title {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 8px 0 6px;
+      border-bottom: 2px solid var(--primary);
+      color: var(--text);
+      margin-bottom: 0;
+    }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    thead th {
+      background: var(--header-bg);
+      text-align: left;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+
+    tbody td {
+      padding: 9px 12px;
+      vertical-align: top;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    tbody td:first-child { border-left: 1px solid var(--border); }
+    tbody td:last-child  { border-right: 1px solid var(--border); }
+
+    tr.pass { background: var(--pass-bg); }
+    tr.fail { background: var(--fail-bg); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-ok  { background: #ceead6; color: #137333; }
+    .badge-err { background: #f5c6c6; color: #9e1b1b; }
+
+    .test-name { font-weight: 500; }
+
+    .code {
+      font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+      font-size: 0.82em;
+      background: rgba(0,0,0,0.04);
+      padding: 1px 4px;
+      border-radius: 3px;
+      word-break: break-all;
+    }
+
+    .error-msg {
+      color: var(--fail);
+      font-size: 0.82rem;
+      margin-top: 4px;
+      white-space: pre-wrap;
+      font-family: 'Menlo', 'Consolas', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tests — converter.js</h1>
+  <p class="meta">Pruebas unitarias de las 4 funciones de conversión</p>
+
+  <div id="summary">Ejecutando tests…</div>
+  <div id="results"></div>
+
+  <script>
+    // ── Tiny test runner ──────────────────────────────────────────────────────
+
+    var allTests = [];
+
+    function test(group, name, fn) {
+      var result = { group: group, name: name };
+      try {
+        fn();
+        result.passed = true;
+      } catch (e) {
+        result.passed = false;
+        result.error  = e.message;
+      }
+      allTests.push(result);
+    }
+
+    function assertEqual(actual, expected, label) {
+      if (actual !== expected) {
+        var msg = (label ? label + '\n' : '')
+          + '  Esperado: ' + JSON.stringify(expected) + '\n'
+          + '  Obtenido: ' + JSON.stringify(actual);
+        throw new Error(msg);
+      }
+    }
+
+    // ── Test definitions ──────────────────────────────────────────────────────
+
+    // ── capitalizarDespuesDePunto ──────────────────────────────────────────
+
+    test('capitalizarDespuesDePunto', 'cadena vacía', function () {
+      assertEqual(capitalizarDespuesDePunto(''), '');
+    });
+
+    test('capitalizarDespuesDePunto', 'texto en minúsculas — capitaliza inicio', function () {
+      assertEqual(capitalizarDespuesDePunto('hola mundo'), 'Hola mundo');
+    });
+
+    test('capitalizarDespuesDePunto', 'texto en mayúsculas — convierte a minúsculas y capitaliza inicio', function () {
+      assertEqual(capitalizarDespuesDePunto('HOLA MUNDO'), 'Hola mundo');
+    });
+
+    test('capitalizarDespuesDePunto', 'mayúsculas mixtas', function () {
+      assertEqual(capitalizarDespuesDePunto('hOlA mUnDo'), 'Hola mundo');
+    });
+
+    test('capitalizarDespuesDePunto', 'capitaliza letra tras punto + espacio', function () {
+      assertEqual(capitalizarDespuesDePunto('hola. mundo'), 'Hola. Mundo');
+    });
+
+    test('capitalizarDespuesDePunto', 'múltiples espacios tras punto', function () {
+      assertEqual(capitalizarDespuesDePunto('hola.  mundo'), 'Hola.  Mundo');
+    });
+
+    test('capitalizarDespuesDePunto', 'varias oraciones', function () {
+      assertEqual(
+        capitalizarDespuesDePunto('primera oración. segunda oración. tercera.'),
+        'Primera oración. Segunda oración. Tercera.'
+      );
+    });
+
+    test('capitalizarDespuesDePunto', 'capitaliza inicio de nueva línea', function () {
+      assertEqual(
+        capitalizarDespuesDePunto('primera línea\nsegunda línea'),
+        'Primera línea\nSegunda línea'
+      );
+    });
+
+    test('capitalizarDespuesDePunto', 'párrafo en blanco entre líneas', function () {
+      assertEqual(
+        capitalizarDespuesDePunto('primera\n\nsegunda'),
+        'Primera\n\nSegunda'
+      );
+    });
+
+    test('capitalizarDespuesDePunto', 'acentos — á, é, í, ó, ú', function () {
+      assertEqual(capitalizarDespuesDePunto('árbol. éxito.'), 'Árbol. Éxito.');
+    });
+
+    test('capitalizarDespuesDePunto', 'ñ no se altera', function () {
+      assertEqual(
+        capitalizarDespuesDePunto('el niño. la niña.'),
+        'El niño. La niña.'
+      );
+    });
+
+    test('capitalizarDespuesDePunto', '! y ? no disparan capitalización', function () {
+      assertEqual(
+        capitalizarDespuesDePunto('hola! mundo. test'),
+        'Hola! mundo. Test'
+      );
+    });
+
+    test('capitalizarDespuesDePunto', 'sin espacio tras punto — no capitaliza', function () {
+      assertEqual(capitalizarDespuesDePunto('sr.smith'), 'Sr.smith');
+    });
+
+    // ── todoMinusculas ─────────────────────────────────────────────────────
+
+    test('todoMinusculas', 'cadena vacía', function () {
+      assertEqual(todoMinusculas(''), '');
+    });
+
+    test('todoMinusculas', 'texto ya en minúsculas', function () {
+      assertEqual(todoMinusculas('hola mundo'), 'hola mundo');
+    });
+
+    test('todoMinusculas', 'texto en mayúsculas', function () {
+      assertEqual(todoMinusculas('HOLA MUNDO'), 'hola mundo');
+    });
+
+    test('todoMinusculas', 'texto mixto', function () {
+      assertEqual(todoMinusculas('Hola Mundo'), 'hola mundo');
+    });
+
+    test('todoMinusculas', 'acentos en mayúscula', function () {
+      assertEqual(todoMinusculas('ÁRBOL NIÑO'), 'árbol niño');
+    });
+
+    test('todoMinusculas', 'texto con números y símbolos', function () {
+      assertEqual(todoMinusculas('CAPÍTULO 1: ¡ÉXITO!'), 'capítulo 1: ¡éxito!');
+    });
+
+    test('todoMinusculas', 'múltiples espacios se conservan', function () {
+      assertEqual(todoMinusculas('HOLA  MUNDO'), 'hola  mundo');
+    });
+
+    // ── todoMayusculas ─────────────────────────────────────────────────────
+
+    test('todoMayusculas', 'cadena vacía', function () {
+      assertEqual(todoMayusculas(''), '');
+    });
+
+    test('todoMayusculas', 'texto en minúsculas', function () {
+      assertEqual(todoMayusculas('hola mundo'), 'HOLA MUNDO');
+    });
+
+    test('todoMayusculas', 'texto ya en mayúsculas', function () {
+      assertEqual(todoMayusculas('HOLA MUNDO'), 'HOLA MUNDO');
+    });
+
+    test('todoMayusculas', 'texto mixto', function () {
+      assertEqual(todoMayusculas('Hola Mundo'), 'HOLA MUNDO');
+    });
+
+    test('todoMayusculas', 'acentos en minúscula', function () {
+      assertEqual(todoMayusculas('árbol niño'), 'ÁRBOL NIÑO');
+    });
+
+    test('todoMayusculas', 'texto con números y símbolos', function () {
+      assertEqual(todoMayusculas('capítulo 1: ¡éxito!'), 'CAPÍTULO 1: ¡ÉXITO!');
+    });
+
+    test('todoMayusculas', 'múltiples espacios se conservan', function () {
+      assertEqual(todoMayusculas('hola  mundo'), 'HOLA  MUNDO');
+    });
+
+    // ── capitalizarCadaPalabra ─────────────────────────────────────────────
+
+    test('capitalizarCadaPalabra', 'cadena vacía', function () {
+      assertEqual(capitalizarCadaPalabra(''), '');
+    });
+
+    test('capitalizarCadaPalabra', 'texto en minúsculas', function () {
+      assertEqual(capitalizarCadaPalabra('hola mundo'), 'Hola Mundo');
+    });
+
+    test('capitalizarCadaPalabra', 'texto en mayúsculas', function () {
+      assertEqual(capitalizarCadaPalabra('HOLA MUNDO'), 'Hola Mundo');
+    });
+
+    test('capitalizarCadaPalabra', 'texto mixto', function () {
+      assertEqual(capitalizarCadaPalabra('hOlA mUnDo'), 'Hola Mundo');
+    });
+
+    test('capitalizarCadaPalabra', 'múltiples espacios se conservan', function () {
+      assertEqual(capitalizarCadaPalabra('hola  mundo'), 'Hola  Mundo');
+    });
+
+    test('capitalizarCadaPalabra', 'acento á inicial', function () {
+      assertEqual(capitalizarCadaPalabra('árbol niño'), 'Árbol Niño');
+    });
+
+    test('capitalizarCadaPalabra', 'acento é intermedio', function () {
+      assertEqual(capitalizarCadaPalabra('el éxito'), 'El Éxito');
+    });
+
+    test('capitalizarCadaPalabra', 'palabra única', function () {
+      assertEqual(capitalizarCadaPalabra('hola'), 'Hola');
+    });
+
+    test('capitalizarCadaPalabra', 'palabra única en mayúscula', function () {
+      assertEqual(capitalizarCadaPalabra('HOLA'), 'Hola');
+    });
+
+    test('capitalizarCadaPalabra', 'texto con números', function () {
+      assertEqual(capitalizarCadaPalabra('capítulo 1 del libro'), 'Capítulo 1 Del Libro');
+    });
+
+    test('capitalizarCadaPalabra', 'saltos de línea', function () {
+      assertEqual(
+        capitalizarCadaPalabra('primera línea\nsegunda línea'),
+        'Primera Línea\nSegunda Línea'
+      );
+    });
+
+    // ── Render results ────────────────────────────────────────────────────────
+
+    (function render() {
+      var totalPassed = allTests.filter(function (t) { return t.passed; }).length;
+      var totalFailed = allTests.length - totalPassed;
+      var allOk       = totalFailed === 0;
+
+      // Summary bar
+      var summary = document.getElementById('summary');
+      summary.innerHTML =
+        '<span class="total">Total: ' + allTests.length + '</span>' +
+        '<span class="passed">✓ Pasados: ' + totalPassed + '</span>' +
+        '<span class="failed">✗ Fallados: ' + totalFailed + '</span>' +
+        '<span class="status-badge ' + (allOk ? 'badge-pass' : 'badge-fail') + '">' +
+          (allOk ? 'ALL PASS' : 'FAILURES') +
+        '</span>';
+
+      // Group tests by function name
+      var groups = {};
+      allTests.forEach(function (t) {
+        if (!groups[t.group]) groups[t.group] = [];
+        groups[t.group].push(t);
+      });
+
+      var container = document.getElementById('results');
+
+      Object.keys(groups).forEach(function (groupName) {
+        var tests   = groups[groupName];
+        var passed  = tests.filter(function (t) { return t.passed; }).length;
+
+        var section = document.createElement('div');
+        section.className = 'group';
+
+        var title = document.createElement('div');
+        title.className   = 'group-title';
+        title.textContent = groupName + '  (' + passed + '/' + tests.length + ')';
+        section.appendChild(title);
+
+        var table = document.createElement('table');
+        table.innerHTML =
+          '<thead><tr>' +
+            '<th style="width:36px">Estado</th>' +
+            '<th>Descripción del test</th>' +
+            '<th style="width:280px">Detalle</th>' +
+          '</tr></thead>';
+
+        var tbody = document.createElement('tbody');
+
+        tests.forEach(function (t) {
+          var tr = document.createElement('tr');
+          tr.className = t.passed ? 'pass' : 'fail';
+
+          var badge = t.passed
+            ? '<span class="badge badge-ok">PASS</span>'
+            : '<span class="badge badge-err">FAIL</span>';
+
+          var detail = '';
+          if (!t.passed && t.error) {
+            // Escape HTML in error message
+            var escaped = t.error
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;');
+            detail = '<div class="error-msg">' + escaped + '</div>';
+          }
+
+          tr.innerHTML =
+            '<td>' + badge + '</td>' +
+            '<td class="test-name">' + escapeHtml(t.name) + '</td>' +
+            '<td>' + detail + '</td>';
+
+          tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        section.appendChild(table);
+        container.appendChild(section);
+      });
+    })();
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+  </script>
+
+</body>
+</html>
