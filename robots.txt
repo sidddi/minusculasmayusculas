@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minusculasmayusculas.com/sitemap.xml
