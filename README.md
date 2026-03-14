@@ -1,102 +1,102 @@
 # minusculasmayusculas.com
 
-Eina online gratuïta per convertir text entre formats tipogràfics: majúscules, minúscules, capitalització per paraula i majúscules després de punt. Sense registre, sense servidor, sense cost.
+Herramienta online gratuita para convertir texto entre distintos formatos tipográficos: mayúsculas, minúsculas, capitalización por palabra y mayúsculas después de punto. Sin registro, sin servidor, sin coste.
 
 **URL:** https://minusculasmayusculas.com
 
 ---
 
-## Estructura del projecte
+## Estructura del proyecto
 
 ```
 minusculasmayusculas.com/
-├── index.html                  # Pàgina principal amb l'eina de conversió
-├── converter.js                # Lògica de conversió de text (client-side)
-├── tests.html                  # Tests manuals de les funcions de converter.js
-├── aviso-legal.html            # Avís legal (LSSICE)
-├── politica-privacidad.html    # Política de privacitat (RGPD)
+├── index.html                  # Página principal con la herramienta de conversión
+├── converter.js                # Lógica de conversión de texto (client-side)
+├── tests.html                  # Tests manuales de las funciones de converter.js
+├── aviso-legal.html            # Aviso legal (LSSICE)
+├── politica-privacidad.html    # Política de privacidad (RGPD)
 ├── politica-cookies.html       # Política de cookies
-├── sitemap.xml                 # Sitemap per a cercadors
-├── robots.txt                  # Directrius per a crawlers
+├── sitemap.xml                 # Sitemap para buscadores
+├── robots.txt                  # Directrices para crawlers
 └── .github/
     └── workflows/
-        └── deploy.yml          # CI/CD: desplegament automàtic a Hetzner
+        └── deploy.yml          # CI/CD: despliegue automático a Hetzner
 ```
 
 ---
 
-## Funcionalitats
+## Funcionalidades
 
-### Eina de conversió (`index.html` + `converter.js`)
+### Herramienta de conversión (`index.html` + `converter.js`)
 
-Quatre modes de conversió, tots processats al navegador sense enviar dades a cap servidor:
+Cuatro modos de conversión, todos procesados en el navegador sin enviar datos a ningún servidor:
 
-| Botó | Funció | Exemple |
-|------|--------|---------|
-| Majúscules després de punt | Capitalitza l'inici de text i la primera lletra després de cada punt | `hola. com estàs` → `Hola. Com estàs` |
-| tot minúscules | Converteix tot el text a minúscules | `HOLA MÓN` → `hola món` |
-| TOT MAJÚSCULES | Converteix tot el text a majúscules | `hola món` → `HOLA MÓN` |
-| Capitalitzar Cada Paraula | Primera lletra de cada paraula en majúscula | `hola món` → `Hola Món` |
+| Botón | Función | Ejemplo |
+|-------|---------|---------|
+| Mayúsculas después de punto | Capitaliza el inicio del texto y la primera letra tras cada punto | `hola. cómo estás` → `Hola. Cómo estás` |
+| todo minúsculas | Convierte todo el texto a minúsculas | `HOLA MUNDO` → `hola mundo` |
+| TODO MAYÚSCULAS | Convierte todo el texto a mayúsculas | `hola mundo` → `HOLA MUNDO` |
+| Capitalizar Cada Palabra | Primera letra de cada palabra en mayúscula | `hola mundo` → `Hola Mundo` |
 
-Funcions addicionals:
-- Comptador de caràcters i paraules en temps real
-- Botó "Copiar text" amb feedback visual
-- Botó "Netejar"
-- Suport complet de caràcters espanyols (á, é, í, ó, ú, ñ, Á, É, Í, Ó, Ú, Ñ)
+Funcionalidades adicionales:
+- Contador de caracteres y palabras en tiempo real
+- Botón "Copiar texto" con feedback visual
+- Botón "Limpiar"
+- Soporte completo de caracteres del español (á, é, í, ó, ú, ñ, Á, É, Í, Ó, Ú, Ñ)
 
-### Pàgines legals
+### Páginas legales
 
-Totes les pàgines legals estan en espanyol, segueixen el disseny de `index.html` (blau `#1a73e8`, font `system-ui`) i inclouen capçalera amb link a l'inici i peu de pàgina idèntic.
+Todas las páginas legales están en español, siguen el diseño de `index.html` (azul `#1a73e8`, fuente `system-ui`) e incluyen cabecera con enlace al inicio y pie de página idéntico.
 
-- **`aviso-legal.html`** — Identificació del titular (Siddharta Navarro Castellar, NIF 52917779T, Sant Climent de Llobregat), condicions d'ús, propietat intel·lectual, limitació de responsabilitat, jurisdicció Barcelona.
-- **`politica-privacidad.html`** — Responsable del tractament, serveis de tercers (Google Analytics 4, Google AdSense), base jurídica (consentiment + interès legítim), drets RGPD (accés, rectificació, supressió, portabilitat, oposició, limitació), contacte AEPD.
-- **`politica-cookies.html`** — Explicació de cookies, taula detallada de cookies usades (`_ga`, `_gid`, `IDE`, `test_cookie`), instruccions de gestió per Chrome/Firefox/Safari/Edge, menció al banner de consentiment granular.
+- **`aviso-legal.html`** — Identificación del titular (Siddharta Navarro Castellar, NIF 52917779T, Sant Climent de Llobregat), condiciones de uso, propiedad intelectual, limitación de responsabilidad, jurisdicción Barcelona.
+- **`politica-privacidad.html`** — Responsable del tratamiento, servicios de terceros (Google Analytics 4, Google AdSense), base jurídica (consentimiento + interés legítimo), derechos RGPD (acceso, rectificación, supresión, portabilidad, oposición, limitación), contacto AEPD.
+- **`politica-cookies.html`** — Explicación de cookies, tabla detallada de cookies usadas (`_ga`, `_gid`, `IDE`, `test_cookie`), instrucciones de gestión por Chrome/Firefox/Safari/Edge, mención al banner de consentimiento granular.
 
 ### SEO
 
-- **`sitemap.xml`** — Inclou totes les URLs públiques (`/`, `/aviso-legal.html`, `/politica-privacidad.html`, `/politica-cookies.html`) amb `lastmod`, `changefreq` i `priority`.
-- **`robots.txt`** — Permet tots els crawlers (`User-agent: *`, `Allow: /`) i apunta al sitemap.
+- **`sitemap.xml`** — Incluye todas las URLs públicas (`/`, `/aviso-legal.html`, `/politica-privacidad.html`, `/politica-cookies.html`) con `lastmod`, `changefreq` y `priority`.
+- **`robots.txt`** — Permite todos los crawlers (`User-agent: *`, `Allow: /`) y apunta al sitemap.
 
 ---
 
-## Desplegament
+## Despliegue
 
-El desplegament és automàtic via **GitHub Actions** cada vegada que es fa push a `main`.
+El despliegue es automático vía **GitHub Actions** cada vez que se hace push a `main`.
 
-**Flux:**
-1. Push a `main` → s'activa el workflow `.github/workflows/deploy.yml`
-2. Connexió SSH al servidor Hetzner
-3. `git pull origin main` al directori `/var/www/minusculasmayusculas.com`
+**Flujo:**
+1. Push a `main` → se activa el workflow `.github/workflows/deploy.yml`
+2. Conexión SSH al servidor Hetzner
+3. `git pull origin main` en el directorio `/var/www/minusculasmayusculas.com`
 
-**Secrets de GitHub necessaris:**
+**Secrets de GitHub necesarios:**
 
-| Secret | Descripció |
-|--------|------------|
-| `SSH_HOST` | IP o domini del servidor Hetzner |
-| `SSH_USER` | Usuari SSH del servidor |
-| `SSH_PRIVATE_KEY` | Clau privada SSH per autenticar-se |
+| Secret | Descripción |
+|--------|-------------|
+| `SSH_HOST` | IP o dominio del servidor Hetzner |
+| `SSH_USER` | Usuario SSH del servidor |
+| `SSH_PRIVATE_KEY` | Clave privada SSH para autenticarse |
 
-No hi ha pas de build: el projecte és HTML/CSS/JS estàtic pur, no requereix compilació ni dependències.
+No hay paso de build: el proyecto es HTML/CSS/JS estático puro, no requiere compilación ni dependencias.
 
 ---
 
-## Desenvolupament local
+## Desarrollo local
 
 ```bash
 git clone git@github.com:sidddi/minusculasmayusculas.git
 cd minusculasmayusculas
-# Obre index.html directament al navegador o usa un servidor local:
+# Abre index.html directamente en el navegador o usa un servidor local:
 npx serve .
 ```
 
-Per executar els tests manuals, obre `tests.html` al navegador.
+Para ejecutar los tests manuales, abre `tests.html` en el navegador.
 
 ---
 
-## Tecnologies
+## Tecnologías
 
-- HTML5, CSS3, JavaScript (vanilla, sense dependències)
+- HTML5, CSS3, JavaScript (vanilla, sin dependencias)
 - Google Analytics 4 (analítica)
-- Google AdSense (publicitat)
+- Google AdSense (publicidad)
 - GitHub Actions (CI/CD)
-- Hetzner (servidor de producció)
+- Hetzner (servidor de producción)
