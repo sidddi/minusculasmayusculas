@@ -16,6 +16,7 @@ minusculasmayusculas.com/
 ├── aviso-legal.html            # Aviso legal (LSSICE)
 ├── politica-privacidad.html    # Política de privacidad (RGPD)
 ├── politica-cookies.html       # Política de cookies
+├── llms.txt                    # Descripción del sitio para IA (GEO: ChatGPT, Claude, Perplexity, Gemini)
 ├── ads.txt                     # Archivo de autorización de vendedores de AdSense
 ├── sitemap.xml                 # Sitemap para buscadores
 ├── robots.txt                  # Directrices para crawlers

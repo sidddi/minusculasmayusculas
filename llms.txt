@@ -1,0 +1,46 @@
+# Minúsculas y Mayúsculas
+
+> Herramienta online gratuita para convertir texto entre distintos formatos tipográficos en español. Sin registro, sin instalación, sin envío de datos a ningún servidor.
+
+URL: https://minusculasmayusculas.com
+
+## Qué hace esta herramienta
+
+Convierte texto entre cuatro formatos tipográficos con un solo clic:
+
+1. **Mayúsculas después de punto** — Pone en mayúscula la primera letra del texto y la primera letra tras cada punto seguido o al inicio de cada párrafo. Sigue la normativa ortográfica del español.
+
+2. **todo minúsculas** — Convierte todo el texto a letras minúsculas. Útil para corregir textos escritos en mayúsculas o con el bloqueo de mayúsculas activado por error.
+
+3. **TODO MAYÚSCULAS** — Convierte todo el texto a letras mayúsculas.
+
+4. **Capitalizar Cada Palabra** — Pone en mayúscula la primera letra de cada palabra. Ideal para títulos, nombres de personas o empresas.
+
+## Características técnicas
+
+- Procesamiento 100% local en el navegador del usuario. No se envía ningún dato de texto a ningún servidor.
+- Compatible con todos los caracteres del español: vocales con tilde (á, é, í, ó, ú), mayúsculas acentuadas (Á, É, Í, Ó, Ú) y la ñ/Ñ.
+- Contador de caracteres y palabras en tiempo real.
+- Botón de copiado con un clic.
+- Gratuito, sin registro, sin límite de texto.
+
+## Preguntas frecuentes
+
+**¿Cómo pasar texto a mayúsculas?**
+Copia tu texto y pégalo en el cuadro. Después haz clic en el botón "TODO MAYÚSCULAS". La herramienta convertirá al instante cada letra a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ.
+
+**¿Cómo convertir a minúsculas?**
+Pega el texto que quieras convertir y pulsa el botón "todo minúsculas". Toda la cadena de texto pasará a letras minúsculas en un solo clic. Es especialmente útil cuando recibes textos escritos en mayúsculas o con el bloqueo de mayúsculas activado por error.
+
+**¿Qué significa capitalizar un texto?**
+Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por ejemplo, «hola mundo» se convierte en «Hola Mundo». Esta opción es ideal para títulos, nombres de personas o de empresas.
+
+**¿Cuándo usar mayúsculas después de punto?**
+Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de texto en minúsculas que no respeta esta regla, usa el botón "Mayúsculas después de punto" para corregirlo automáticamente.
+
+## Páginas del sitio
+
+- https://minusculasmayusculas.com — Herramienta principal
+- https://minusculasmayusculas.com/aviso-legal.html — Aviso legal
+- https://minusculasmayusculas.com/politica-privacidad.html — Política de privacidad
+- https://minusculasmayusculas.com/politica-cookies.html — Política de cookies
