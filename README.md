@@ -16,6 +16,7 @@ minusculasmayusculas.com/
 ├── aviso-legal.html            # Aviso legal (LSSICE)
 ├── politica-privacidad.html    # Política de privacidad (RGPD)
 ├── politica-cookies.html       # Política de cookies
+├── ads.txt                     # Archivo de autorización de vendedores de AdSense
 ├── sitemap.xml                 # Sitemap para buscadores
 ├── robots.txt                  # Directrices para crawlers
 └── .github/
@@ -51,6 +52,10 @@ Todas las páginas legales están en español, siguen el diseño de `index.html`
 - **`aviso-legal.html`** — Identificación del titular (Siddharta Navarro Castellar, NIF 52917779T, Sant Climent de Llobregat), condiciones de uso, propiedad intelectual, limitación de responsabilidad, jurisdicción Barcelona.
 - **`politica-privacidad.html`** — Responsable del tratamiento, servicios de terceros (Google Analytics 4, Google AdSense), base jurídica (consentimiento + interés legítimo), derechos RGPD (acceso, rectificación, supresión, portabilidad, oposición, limitación), contacto AEPD.
 - **`politica-cookies.html`** — Explicación de cookies, tabla detallada de cookies usadas (`_ga`, `_gid`, `IDE`, `test_cookie`), instrucciones de gestión por Chrome/Firefox/Safari/Edge, mención al banner de consentimiento granular.
+
+### ads.txt
+
+Archivo requerido por Google AdSense para autorizar a Google como vendedor directo de publicidad en el dominio. Debe estar accesible en `https://minusculasmayusculas.com/ads.txt`.
 
 ### SEO
 
