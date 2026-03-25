@@ -14,23 +14,21 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minúsculas y Mayúsculas | Convertidor de texto online gratis</title>
-  <meta name="description" content="Convierte texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitaliza cada palabra. Herramienta online gratuita, rápida y sin registro." />
-  <link rel="canonical" href="https://minusculasmayusculas.com" />
+  <title>Contador de Palabras Online | Gratis y al instante</title>
+  <meta name="description" content="Cuenta palabras, caracteres, frases y párrafos al instante. Calcula el tiempo de lectura de cualquier texto. Herramienta gratuita, sin registro." />
+  <link rel="canonical" href="https://minusculasmayusculas.com/contador-palabras.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://minusculasmayusculas.com" />
-  <meta property="og:title" content="Minúsculas y Mayúsculas | Convertidor de texto online gratis" />
-  <meta property="og:description" content="Convierte texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitaliza cada palabra. Herramienta online gratuita, rápida y sin registro." />
+  <meta property="og:url" content="https://minusculasmayusculas.com/contador-palabras.html" />
+  <meta property="og:title" content="Contador de Palabras Online | Gratis y al instante" />
+  <meta property="og:description" content="Cuenta palabras, caracteres, frases y párrafos al instante. Calcula el tiempo de lectura de cualquier texto. Herramienta gratuita, sin registro." />
   <meta property="og:locale" content="es_ES" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Minúsculas y Mayúsculas | Convertidor de texto online gratis" />
-  <meta name="twitter:description" content="Convierte texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitaliza cada palabra. Herramienta online gratuita, rápida y sin registro." />
-
-  <script src="converter.js"></script>
+  <meta name="twitter:title" content="Contador de Palabras Online | Gratis y al instante" />
+  <meta name="twitter:description" content="Cuenta palabras, caracteres, frases y párrafos al instante. Calcula el tiempo de lectura de cualquier texto. Herramienta gratuita, sin registro." />
 
   <style>
     *, *::before, *::after {
@@ -76,6 +74,13 @@
       padding: 14px 0 0;
       border-bottom: 1px solid var(--border);
       margin-bottom: 18px;
+    }
+
+    header .header-top {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     header h1 {
@@ -126,7 +131,7 @@
 
     textarea {
       width: 100%;
-      height: 180px;
+      height: 200px;
       padding: 14px;
       border: 2px solid var(--border);
       border-radius: var(--radius);
@@ -141,17 +146,34 @@
     }
 
     textarea:focus { border-color: var(--primary); }
-
     textarea::placeholder { color: #9aa0a6; }
 
-    /* ── Counter ── */
-    .counter {
-      font-size: 0.78rem;
+    /* ── Stats grid ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0 14px;
+    }
+
+    .stat-card {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 12px;
+      text-align: center;
+    }
+
+    .stat-card .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat-card .stat-label {
+      font-size: 0.75rem;
       color: var(--muted);
-      text-align: right;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      min-height: 1.2em;
+      margin-top: 4px;
     }
 
     /* ── Buttons ── */
@@ -173,26 +195,6 @@
 
     .btn:active { transform: scale(0.96); }
 
-    /* Conversion buttons – 2×2 grid */
-    .conversion-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .btn-convert {
-      background: var(--primary-light);
-      color: var(--primary);
-      border-color: var(--primary-light);
-    }
-
-    .btn-convert:hover {
-      background: var(--primary-mid);
-      border-color: var(--primary-mid);
-    }
-
-    /* Action buttons */
     .action-buttons {
       display: flex;
       gap: 8px;
@@ -351,9 +353,8 @@
     @media (max-width: 520px) {
       header h1 { font-size: 1.25rem; }
       .subtitle  { font-size: 0.82rem; }
-
       .btn { font-size: 0.82rem; padding: 9px 10px; }
-
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
       footer .container {
         flex-direction: column;
         text-align: center;
@@ -367,9 +368,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Minúsculas y Mayúsculas",
-    "url": "https://minusculasmayusculas.com",
-    "description": "Herramienta online gratuita para convertir texto de mayúsculas a minúsculas, minúsculas a mayúsculas o capitalizar cada palabra. Sin registro, sin servidor, funciona directamente en el navegador.",
+    "name": "Contador de Palabras Online",
+    "url": "https://minusculasmayusculas.com/contador-palabras.html",
+    "description": "Herramienta online gratuita para contar palabras, caracteres, frases y párrafos. Calcula el tiempo de lectura estimado. Sin registro, sin servidor, funciona directamente en el navegador.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "All",
     "inLanguage": "es",
@@ -380,11 +381,11 @@
       "priceCurrency": "EUR"
     },
     "featureList": [
-      "Convertir texto a mayúsculas",
-      "Convertir texto a minúsculas",
-      "Capitalizar cada palabra",
-      "Mayúsculas después de punto",
-      "Contador de caracteres y palabras",
+      "Contador de palabras",
+      "Contador de caracteres con y sin espacios",
+      "Contador de frases",
+      "Contador de párrafos",
+      "Tiempo de lectura estimado",
       "Procesamiento local en el navegador sin envío de datos"
     ],
     "publisher": {
@@ -400,34 +401,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Cómo pasar texto a mayúsculas?",
+        "name": "¿Cómo contar palabras online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Copia tu texto y pégalo en el cuadro. Después haz clic en el botón TODO MAYÚSCULAS. La herramienta convertirá al instante cada letra a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ."
+          "text": "Pega o escribe tu texto en el cuadro de arriba y el contador mostrará automáticamente el número de palabras, caracteres, frases y párrafos al instante, sin necesidad de hacer clic en ningún botón."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cómo convertir a minúsculas?",
+        "name": "¿Para qué sirve contar palabras?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega el texto que quieras convertir y pulsa el botón todo minúsculas. Toda la cadena de texto pasará a letras minúsculas en un solo clic. Es especialmente útil cuando recibes textos escritos en mayúsculas o con el bloqueo de mayúsculas activado por error."
+          "text": "Contar palabras es útil para redactores, estudiantes y profesionales que necesitan ajustarse a un límite de palabras en artículos, trabajos académicos, publicaciones en redes sociales o cualquier otro tipo de texto con extensión definida."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Qué significa capitalizar un texto?",
+        "name": "¿Cuántas palabras tiene una página?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por ejemplo, «hola mundo» se convierte en «Hola Mundo». Esta opción es ideal para títulos, nombres de personas o de empresas. La herramienta lo hace automáticamente con el botón Capitalizar Cada Palabra."
+          "text": "Una página estándar en Word o procesador de textos tiene aproximadamente 250-300 palabras con márgenes y espaciado normal. En formato académico (doble espacio) suelen ser unas 250 palabras por página."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cuándo usar mayúsculas después de punto?",
+        "name": "¿Cuántas palabras por minuto se leen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de texto en minúsculas que no respeta esta regla, usa el botón Mayúsculas después de punto para corregirlo automáticamente."
+          "text": "La velocidad lectora media de un adulto es de aproximadamente 200 palabras por minuto en lectura comprensiva. El tiempo de lectura que muestra esta herramienta está calculado con esa referencia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay límite de palabras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. La herramienta no tiene límite de palabras ni de caracteres. Al funcionar directamente en tu navegador, el único límite es la memoria disponible en tu dispositivo, lo que en la práctica permite analizar textos de cualquier longitud habitual."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona con textos en español?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, está optimizado para el español. Reconoce correctamente palabras con tildes (á, é, í, ó, ú), la ñ y otros caracteres propios del idioma. También funciona con cualquier otro idioma basado en alfabeto latino."
         }
       }
     ]
@@ -443,6 +460,12 @@
         "position": 1,
         "name": "Inicio",
         "item": "https://minusculasmayusculas.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contador de Palabras",
+        "item": "https://minusculasmayusculas.com/contador-palabras.html"
       }
     ]
   }
@@ -452,11 +475,13 @@
 
   <header>
     <div class="container">
-      <h1>Minúsculas y Mayúsculas</h1>
-      <p class="subtitle">Convierte tu texto al instante, online y gratis</p>
+      <div class="header-top">
+        <h1>Contador de Palabras</h1>
+      </div>
+      <p class="subtitle">Cuenta palabras, caracteres y más al instante, online y gratis</p>
       <nav class="tool-nav" aria-label="Herramientas">
-        <a href="index.html" class="active">Mayúsculas y Minúsculas</a>
-        <a href="contador-palabras.html">Contador de Palabras</a>
+        <a href="index.html">Mayúsculas y Minúsculas</a>
+        <a href="contador-palabras.html" class="active">Contador de Palabras</a>
       </nav>
     </div>
   </header>
@@ -465,31 +490,39 @@
     <div class="container">
 
       <!-- ── Tool ── -->
-      <section class="tool-section" aria-label="Convertidor de texto">
+      <section class="tool-section" aria-label="Contador de palabras">
         <textarea
           id="input"
           placeholder="Escribe o pega tu texto aquí..."
-          aria-label="Texto a convertir"
+          aria-label="Texto a analizar"
           spellcheck="false"
         ></textarea>
 
-        <div class="counter" id="counter" aria-live="polite">
-          0 caracteres · 0 palabras
-        </div>
-
-        <div class="conversion-buttons" role="group" aria-label="Opciones de conversión">
-          <button class="btn btn-convert" onclick="aplicar('despuesDePunto')">
-            Mayúsculas después de punto
-          </button>
-          <button class="btn btn-convert" onclick="aplicar('minusculas')">
-            todo minúsculas
-          </button>
-          <button class="btn btn-convert" onclick="aplicar('mayusculas')">
-            TODO MAYÚSCULAS
-          </button>
-          <button class="btn btn-convert" onclick="aplicar('cadaPalabra')">
-            Capitalizar Cada Palabra
-          </button>
+        <div class="stats-grid" role="region" aria-live="polite" aria-label="Estadísticas del texto">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-words">0</div>
+            <div class="stat-label">Palabras</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-chars">0</div>
+            <div class="stat-label">Caracteres (con espacios)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-chars-no-space">0</div>
+            <div class="stat-label">Caracteres (sin espacios)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-sentences">0</div>
+            <div class="stat-label">Frases</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-paragraphs">0</div>
+            <div class="stat-label">Párrafos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-reading-time">0 min</div>
+            <div class="stat-label">Tiempo de lectura</div>
+          </div>
         </div>
 
         <div class="action-buttons">
@@ -505,18 +538,16 @@
       <!-- ── SEO content ── -->
       <section class="content-section" aria-label="Descripción de la herramienta">
         <p>
-          Esta herramienta online te permite cambiar el formato de mayúsculas y minúsculas de
-          cualquier texto con un solo clic. Puedes convertir todo el texto a mayúsculas, a
-          minúsculas, capitalizar la primera letra de cada palabra o aplicar las mayúsculas
-          correctas después de cada punto y al inicio de cada párrafo. No necesitas instalar
-          nada ni crear una cuenta: pega tu texto, elige el formato y listo.
+          Este contador de palabras online analiza tu texto al instante y te muestra todas
+          las estadísticas que necesitas: número de palabras, caracteres totales (con y sin
+          espacios), frases, párrafos y el tiempo estimado de lectura. No hace falta instalar
+          nada ni registrarse: pega el texto en el cuadro y los datos se actualizan en tiempo real.
         </p>
         <p>
-          Es perfecta para corregir textos que han llegado en el formato equivocado, dar
-          formato a títulos, preparar contenidos para redes sociales o simplemente corregir
-          el bloqueo de mayúsculas accidental. Funciona con todos los caracteres del español,
-          incluyendo vocales con tilde (á, é, í, ó, ú), mayúsculas acentuadas (Á, É, Í, Ó, Ú)
-          y la ñ.
+          Es la herramienta ideal para redactores, estudiantes, periodistas y cualquier persona
+          que necesite ajustarse a un límite de palabras en un artículo, trabajo académico,
+          publicación en redes sociales o cualquier otro formato. Funciona íntegramente en tu
+          navegador; el texto nunca se envía a ningún servidor.
         </p>
       </section>
 
@@ -525,41 +556,56 @@
         <h2>Preguntas frecuentes</h2>
 
         <details>
-          <summary>¿Cómo pasar texto a mayúsculas?</summary>
+          <summary>¿Cómo contar palabras online?</summary>
           <p>
-            Copia tu texto y pégalo en el cuadro de arriba. Después haz clic en el botón
-            <strong>TODO MAYÚSCULAS</strong>. La herramienta convertirá al instante cada letra
-            a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ.
+            Pega o escribe tu texto en el cuadro de arriba. El contador mostrará automáticamente
+            el número de palabras, caracteres, frases y párrafos al instante, sin necesidad de
+            hacer clic en ningún botón.
           </p>
         </details>
 
         <details>
-          <summary>¿Cómo convertir a minúsculas?</summary>
+          <summary>¿Para qué sirve contar palabras?</summary>
           <p>
-            Pega el texto que quieras convertir y pulsa el botón <strong>todo minúsculas</strong>.
-            Toda la cadena de texto pasará a letras minúsculas en un solo clic. Es especialmente
-            útil cuando recibes textos escritos en mayúsculas o con el bloqueo de mayúsculas
-            activado por error.
+            Contar palabras es útil para redactores, estudiantes y profesionales que necesitan
+            ajustarse a un límite de palabras en artículos, trabajos académicos, publicaciones
+            en redes sociales o cualquier otro tipo de texto con extensión definida.
           </p>
         </details>
 
         <details>
-          <summary>¿Qué significa capitalizar un texto?</summary>
+          <summary>¿Cuántas palabras tiene una página?</summary>
           <p>
-            Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por
-            ejemplo, <em>«hola mundo»</em> se convierte en <em>«Hola Mundo»</em>. Esta opción
-            es ideal para títulos, nombres de personas o de empresas. Nuestra herramienta lo
-            hace automáticamente con el botón <strong>Capitalizar Cada Palabra</strong>.
+            Una página estándar en Word o procesador de textos tiene aproximadamente 250–300
+            palabras con márgenes y espaciado normal. En formato académico (doble espacio) suelen
+            ser unas 250 palabras por página.
           </p>
         </details>
 
         <details>
-          <summary>¿Cuándo usar mayúsculas después de punto?</summary>
+          <summary>¿Cuántas palabras por minuto se leen?</summary>
           <p>
-            Según la normativa ortográfica del español, tras un punto y seguido o al inicio de
-            un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de
-            texto en minúsculas que no respeta esta regla, usa el botón
-            <strong>Mayúsculas después de punto</strong> para corregirlo automáticamente.
+            La velocidad lectora media de un adulto es de aproximadamente 200 palabras por minuto
+            en lectura comprensiva. El tiempo de lectura que muestra esta herramienta está
+            calculado con esa referencia.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Hay límite de palabras?</summary>
+          <p>
+            No. La herramienta no tiene límite de palabras ni de caracteres. Al funcionar
+            directamente en tu navegador, el único límite es la memoria disponible en tu
+            dispositivo, lo que en la práctica permite analizar textos de cualquier longitud habitual.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona con textos en español?</summary>
+          <p>
+            Sí, está optimizado para el español. Reconoce correctamente palabras con tildes
+            (á, é, í, ó, ú), la ñ y otros caracteres propios del idioma. También funciona
+            con cualquier otro idioma basado en alfabeto latino.
           </p>
         </details>
       </section>
@@ -582,28 +628,40 @@
 
   <script>
     const textarea = document.getElementById('input');
-    const counter  = document.getElementById('counter');
     const copyBtn  = document.getElementById('copy-btn');
 
-    textarea.addEventListener('input', updateCounter);
+    textarea.addEventListener('input', updateStats);
 
-    function updateCounter() {
-      const text  = textarea.value;
-      const chars = text.length;
-      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-      counter.textContent = `${chars} caracteres · ${words} palabras`;
-    }
-
-    function aplicar(tipo) {
+    function updateStats() {
       const text = textarea.value;
-      switch (tipo) {
-        case 'despuesDePunto': textarea.value = capitalizarDespuesDePunto(text); break;
-        case 'minusculas':     textarea.value = todoMinusculas(text);             break;
-        case 'mayusculas':     textarea.value = todoMayusculas(text);             break;
-        case 'cadaPalabra':    textarea.value = capitalizarCadaPalabra(text);     break;
-      }
-      updateCounter();
-      textarea.focus();
+
+      // Words
+      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+
+      // Chars
+      const chars = text.length;
+      const charsNoSpace = text.replace(/\s/g, '').length;
+
+      // Sentences: split by . ! ? followed by space or end
+      const sentences = text.trim() === ''
+        ? 0
+        : text.trim().split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+
+      // Paragraphs: split by one or more blank lines
+      const paragraphs = text.trim() === ''
+        ? 0
+        : text.trim().split(/\n+/).filter(p => p.trim().length > 0).length;
+
+      // Reading time (200 wpm)
+      const minutes = Math.ceil(words / 200);
+      const readingTime = words === 0 ? '0 min' : minutes + ' min';
+
+      document.getElementById('stat-words').textContent        = words;
+      document.getElementById('stat-chars').textContent        = chars;
+      document.getElementById('stat-chars-no-space').textContent = charsNoSpace;
+      document.getElementById('stat-sentences').textContent    = sentences;
+      document.getElementById('stat-paragraphs').textContent   = paragraphs;
+      document.getElementById('stat-reading-time').textContent = readingTime;
     }
 
     function copiarTexto() {
@@ -617,7 +675,6 @@
           copyBtn.classList.remove('btn-copied');
         }, 2000);
       }).catch(function () {
-        // Fallback for older browsers
         textarea.select();
         document.execCommand('copy');
         copyBtn.textContent = '¡Copiado!';
@@ -631,7 +688,7 @@
 
     function limpiar() {
       textarea.value = '';
-      updateCounter();
+      updateStats();
       textarea.focus();
     }
   </script>

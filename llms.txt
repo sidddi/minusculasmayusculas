@@ -38,9 +38,24 @@ Capitalizar significa escribir la primera letra de cada palabra en mayúscula. P
 **¿Cuándo usar mayúsculas después de punto?**
 Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de texto en minúsculas que no respeta esta regla, usa el botón "Mayúsculas después de punto" para corregirlo automáticamente.
 
+## Herramienta 2: Contador de Palabras
+
+URL: https://minusculasmayusculas.com/contador-palabras.html
+
+Analiza texto y muestra en tiempo real:
+- Número de palabras
+- Caracteres totales (con espacios)
+- Caracteres sin espacios
+- Número de frases (separadas por . ! ?)
+- Número de párrafos (separados por saltos de línea)
+- Tiempo de lectura estimado (a 200 palabras por minuto)
+
+Mismas características técnicas: procesamiento local, sin envío de datos, soporte completo del español.
+
 ## Páginas del sitio
 
-- https://minusculasmayusculas.com — Herramienta principal
+- https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
+- https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
 - https://minusculasmayusculas.com/aviso-legal.html — Aviso legal
 - https://minusculasmayusculas.com/politica-privacidad.html — Política de privacidad
 - https://minusculasmayusculas.com/politica-cookies.html — Política de cookies

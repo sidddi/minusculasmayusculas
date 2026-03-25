@@ -1,8 +1,10 @@
 # minusculasmayusculas.com
 
-Herramienta online gratuita para convertir texto entre distintos formatos tipográficos: mayúsculas, minúsculas, capitalización por palabra y mayúsculas después de punto. Sin registro, sin servidor, sin coste.
+Suite de herramientas online gratuitas para trabajar con texto: conversión de mayúsculas/minúsculas y contador de palabras. Sin registro, sin servidor, sin coste.
 
-**URL:** https://minusculasmayusculas.com
+**URLs:**
+- https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
+- https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
 
 ---
 
@@ -10,7 +12,8 @@ Herramienta online gratuita para convertir texto entre distintos formatos tipogr
 
 ```
 minusculasmayusculas.com/
-├── index.html                  # Página principal con la herramienta de conversión
+├── index.html                  # Convertidor de mayúsculas y minúsculas
+├── contador-palabras.html      # Contador de palabras, caracteres, frases y tiempo de lectura
 ├── converter.js                # Lógica de conversión de texto (client-side)
 ├── tests.html                  # Tests manuales de las funciones de converter.js
 ├── aviso-legal.html            # Aviso legal (LSSICE)
@@ -28,6 +31,23 @@ minusculasmayusculas.com/
 ---
 
 ## Funcionalidades
+
+### Contador de palabras (`contador-palabras.html`)
+
+Analiza texto en tiempo real y muestra:
+
+| Estadística | Descripción |
+|-------------|-------------|
+| Palabras | Número total de palabras |
+| Caracteres (con espacios) | Longitud total del texto |
+| Caracteres (sin espacios) | Longitud sin contar espacios |
+| Frases | Bloques separados por `.`, `!` o `?` |
+| Párrafos | Bloques separados por saltos de línea |
+| Tiempo de lectura | Calculado a 200 palabras/minuto |
+
+Funcionalidades adicionales: botón "Copiar texto", botón "Limpiar", soporte completo del español.
+
+---
 
 ### Herramienta de conversión (`index.html` + `converter.js`)
 
@@ -60,7 +80,7 @@ Archivo requerido por Google AdSense para autorizar a Google como vendedor direc
 
 ### SEO
 
-- **`sitemap.xml`** — Incluye todas las URLs públicas (`/`, `/aviso-legal.html`, `/politica-privacidad.html`, `/politica-cookies.html`) con `lastmod`, `changefreq` y `priority`.
+- **`sitemap.xml`** — Incluye todas las URLs públicas (`/`, `/contador-palabras.html`, `/aviso-legal.html`, `/politica-privacidad.html`, `/politica-cookies.html`) con `lastmod`, `changefreq` y `priority`.
 - **`robots.txt`** — Permite todos los crawlers (`User-agent: *`, `Allow: /`) y apunta al sitemap.
 
 ---
