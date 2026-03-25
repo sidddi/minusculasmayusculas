@@ -1,0 +1,37 @@
+name: Add www→non-www Nginx redirect
+
+on:
+  workflow_dispatch:
+
+jobs:
+  nginx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check and add www redirect via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            NGINX_CONF="/etc/nginx/sites-available/minusculasmayusculas.com"
+
+            echo "=== Current config ==="
+            cat "$NGINX_CONF"
+
+            if grep -q "www.minusculasmayusculas.com" "$NGINX_CONF"; then
+              echo "=== www redirect already exists, nothing to do ==="
+            else
+              echo "=== Adding www redirect block ==="
+              sudo tee -a "$NGINX_CONF" > /dev/null << 'EOF'
+
+            server {
+                listen 80;
+                listen 443 ssl;
+                server_name www.minusculasmayusculas.com;
+                return 301 https://minusculasmayusculas.com$request_uri;
+            }
+            EOF
+              sudo nginx -t && sudo systemctl reload nginx
+              echo "=== Nginx reloaded successfully ==="
+            fi
