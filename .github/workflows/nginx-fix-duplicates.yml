@@ -1,0 +1,64 @@
+name: Fix Nginx duplicate content (www + index.html)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  nginx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fix via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            MAIN_CONF="/etc/nginx/sites-available/minusculasmayusculas.com"
+            WWW_CONF="/etc/nginx/sites-available/www-redirect-minusculasmayusculas"
+
+            echo "=== Current main config ==="
+            cat "$MAIN_CONF"
+
+            # ── 1. www → non-www redirect (HTTPS) ──────────────────────────
+            if [ -f "$WWW_CONF" ]; then
+              echo "=== www redirect config already exists ==="
+            else
+              echo "=== Creating www redirect config ==="
+              sudo tee "$WWW_CONF" > /dev/null << 'EOF'
+            server {
+                listen 443 ssl;
+                server_name www.minusculasmayusculas.com;
+
+                ssl_certificate /etc/letsencrypt/live/minusculasmayusculas.com/fullchain.pem;
+                ssl_certificate_key /etc/letsencrypt/live/minusculasmayusculas.com/privkey.pem;
+                include /etc/letsencrypt/options-ssl-nginx.conf;
+                ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+                return 301 https://minusculasmayusculas.com$request_uri;
+            }
+            EOF
+              sudo ln -sf "$WWW_CONF" /etc/nginx/sites-enabled/www-redirect-minusculasmayusculas
+              echo "=== www redirect config created and enabled ==="
+            fi
+
+            # ── 2. /index.html → / redirect ────────────────────────────────
+            if grep -q "location = /index.html" "$MAIN_CONF"; then
+              echo "=== index.html redirect already exists ==="
+            else
+              echo "=== Adding index.html redirect to main config ==="
+              sudo sed -i 's|location / {|location = /index.html { return 301 /; }\n\n    location / {|' "$MAIN_CONF"
+              echo "=== index.html redirect added ==="
+            fi
+
+            # ── 3. Test and reload ──────────────────────────────────────────
+            echo "=== Testing nginx config ==="
+            sudo nginx -t
+
+            echo "=== Reloading nginx ==="
+            sudo systemctl reload nginx
+
+            echo "=== Final main config ==="
+            cat "$MAIN_CONF"
+
+            echo "=== Done ==="
