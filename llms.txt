@@ -1,10 +1,17 @@
 # Minúsculas y Mayúsculas
 
-> Herramienta online gratuita para convertir texto entre distintos formatos tipográficos en español. Sin registro, sin instalación, sin envío de datos a ningún servidor.
+> Suite de herramientas online gratuitas para trabajar con texto en español. Sin registro, sin instalación, sin envío de datos a ningún servidor. Todo el procesamiento ocurre en el navegador del usuario.
 
-URL: https://minusculasmayusculas.com
+- **URL principal**: https://minusculasmayusculas.com
+- **Autor**: Siddharta Navarro Castellar
+- **Idioma**: Español
+- **Última actualización**: 2026-04-04
 
-## Qué hace esta herramienta
+---
+
+## Herramienta 1: Convertidor de Mayúsculas y Minúsculas
+
+**URL**: https://minusculasmayusculas.com
 
 Convierte texto entre cuatro formatos tipográficos con un solo clic:
 
@@ -16,46 +23,80 @@ Convierte texto entre cuatro formatos tipográficos con un solo clic:
 
 4. **Capitalizar Cada Palabra** — Pone en mayúscula la primera letra de cada palabra. Ideal para títulos, nombres de personas o empresas.
 
-## Características técnicas
-
-- Procesamiento 100% local en el navegador del usuario. No se envía ningún dato de texto a ningún servidor.
-- Compatible con todos los caracteres del español: vocales con tilde (á, é, í, ó, ú), mayúsculas acentuadas (Á, É, Í, Ó, Ú) y la ñ/Ñ.
-- Contador de caracteres y palabras en tiempo real.
-- Botón de copiado con un clic.
-- Gratuito, sin registro, sin límite de texto.
-
-## Preguntas frecuentes
+### Preguntas frecuentes
 
 **¿Cómo pasar texto a mayúsculas?**
 Copia tu texto y pégalo en el cuadro. Después haz clic en el botón "TODO MAYÚSCULAS". La herramienta convertirá al instante cada letra a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ.
 
 **¿Cómo convertir a minúsculas?**
-Pega el texto que quieras convertir y pulsa el botón "todo minúsculas". Toda la cadena de texto pasará a letras minúsculas en un solo clic. Es especialmente útil cuando recibes textos escritos en mayúsculas o con el bloqueo de mayúsculas activado por error.
+Pega el texto que quieras convertir y pulsa el botón "todo minúsculas". Toda la cadena de texto pasará a letras minúsculas en un solo clic.
 
 **¿Qué significa capitalizar un texto?**
-Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por ejemplo, «hola mundo» se convierte en «Hola Mundo». Esta opción es ideal para títulos, nombres de personas o de empresas.
+Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por ejemplo, «hola mundo» se convierte en «Hola Mundo». Ideal para títulos y nombres propios.
 
 **¿Cuándo usar mayúsculas después de punto?**
-Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de texto en minúsculas que no respeta esta regla, usa el botón "Mayúsculas después de punto" para corregirlo automáticamente.
+Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula.
+
+---
 
 ## Herramienta 2: Contador de Palabras
 
-URL: https://minusculasmayusculas.com/contador-palabras.html
+**URL**: https://minusculasmayusculas.com/contador-palabras.html
 
-Analiza texto y muestra en tiempo real:
+Analiza texto en tiempo real y muestra:
+
 - Número de palabras
 - Caracteres totales (con espacios)
 - Caracteres sin espacios
-- Número de frases (separadas por . ! ?)
+- Número de frases (separadas por `.` `!` `?`)
 - Número de párrafos (separados por saltos de línea)
 - Tiempo de lectura estimado (a 200 palabras por minuto)
 
-Mismas características técnicas: procesamiento local, sin envío de datos, soporte completo del español.
+### Preguntas frecuentes
+
+**¿Cómo contar las palabras de un texto?**
+Pega o escribe tu texto en el cuadro. El contador actualiza los resultados al instante, sin necesidad de hacer clic en ningún botón.
+
+**¿Cómo se calcula el tiempo de lectura?**
+Se divide el número de palabras entre 200 (velocidad media de lectura en español). El resultado se muestra en minutos y segundos.
+
+---
+
+## Herramienta 3: Buscar y Reemplazar
+
+**URL**: https://minusculasmayusculas.com/buscar-reemplazar.html
+
+Busca cualquier palabra o frase en un texto y la sustituye por otra en un solo clic. Opciones disponibles:
+
+- **Distinguir mayúsculas/minúsculas** — La búsqueda es exacta cuando está activada. Por ejemplo, «Casa» no encontrará «casa».
+- **Solo palabra completa** — Ignora coincidencias parciales. Por ejemplo, buscar «sol» no afecta a «solar» ni «parasol».
+- **Contador de coincidencias en tiempo real** — Muestra cuántas veces aparece el texto buscado antes de reemplazar.
+
+### Preguntas frecuentes
+
+**¿Cómo funciona el buscar y reemplazar?**
+Pega tu texto, escribe la palabra que quieres cambiar en el campo «Buscar» y el texto de reemplazo en «Reemplazar por». Pulsa «Reemplazar todo» para sustituir todas las ocurrencias.
+
+**¿Se envía mi texto a algún servidor?**
+No. Toda la operación ocurre en el navegador. El texto nunca sale del dispositivo del usuario.
+
+---
+
+## Características técnicas comunes
+
+- Procesamiento 100% local en el navegador. Ningún texto se envía a servidores externos.
+- Compatible con todos los caracteres del español: á, é, í, ó, ú, ü, ñ y sus versiones en mayúscula.
+- Sin registro, sin límite de texto, sin coste.
+- Diseño adaptativo (responsive), funciona en móvil, tablet y escritorio.
+- Tecnología: HTML5, CSS3, JavaScript vanilla (sin dependencias externas).
+
+---
 
 ## Páginas del sitio
 
 - https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
 - https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
+- https://minusculasmayusculas.com/buscar-reemplazar.html — Buscar y reemplazar texto
 - https://minusculasmayusculas.com/aviso-legal.html — Aviso legal
 - https://minusculasmayusculas.com/politica-privacidad.html — Política de privacidad
 - https://minusculasmayusculas.com/politica-cookies.html — Política de cookies
