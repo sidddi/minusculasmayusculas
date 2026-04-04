@@ -1,10 +1,11 @@
 # minusculasmayusculas.com
 
-Suite de herramientas online gratuitas para trabajar con texto: conversión de mayúsculas/minúsculas y contador de palabras. Sin registro, sin servidor, sin coste.
+Suite de herramientas online gratuitas para trabajar con texto: conversión de mayúsculas/minúsculas, contador de palabras y buscar y reemplazar. Sin registro, sin servidor, sin coste.
 
 **URLs:**
 - https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
 - https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
+- https://minusculasmayusculas.com/buscar-reemplazar.html — Buscar y reemplazar texto
 
 ---
 
@@ -14,6 +15,7 @@ Suite de herramientas online gratuitas para trabajar con texto: conversión de m
 minusculasmayusculas.com/
 ├── index.html                  # Convertidor de mayúsculas y minúsculas
 ├── contador-palabras.html      # Contador de palabras, caracteres, frases y tiempo de lectura
+├── buscar-reemplazar.html      # Buscar y reemplazar texto con opciones avanzadas
 ├── converter.js                # Lógica de conversión de texto (client-side)
 ├── tests.html                  # Tests manuales de las funciones de converter.js
 ├── aviso-legal.html            # Aviso legal (LSSICE)
@@ -66,6 +68,19 @@ Funcionalidades adicionales:
 - Botón "Limpiar"
 - Soporte completo de caracteres del español (á, é, í, ó, ú, ñ, Á, É, Í, Ó, Ú, Ñ)
 
+### Buscar y reemplazar (`buscar-reemplazar.html`)
+
+Motor de búsqueda y sustitución de texto con las siguientes opciones:
+
+| Opción | Descripción |
+|--------|-------------|
+| Distinguir mayúsculas/minúsculas | La búsqueda es case-sensitive cuando está activa |
+| Solo palabra completa | Ignora coincidencias parciales dentro de palabras más largas |
+
+Funcionalidades adicionales: contador de coincidencias en tiempo real, botón "Copiar texto", botón "Limpiar", soporte completo del español (á, é, í, ó, ú, ñ).
+
+---
+
 ### Páginas legales
 
 Todas las páginas legales están en español, siguen el diseño de `index.html` (azul `#1a73e8`, fuente `system-ui`) e incluyen cabecera con enlace al inicio y pie de página idéntico.
@@ -80,7 +95,7 @@ Archivo requerido por Google AdSense para autorizar a Google como vendedor direc
 
 ### SEO
 
-- **`sitemap.xml`** — Incluye todas las URLs públicas (`/`, `/contador-palabras.html`, `/aviso-legal.html`, `/politica-privacidad.html`, `/politica-cookies.html`) con `lastmod`, `changefreq` y `priority`.
+- **`sitemap.xml`** — Incluye todas las URLs públicas (`/`, `/contador-palabras.html`, `/buscar-reemplazar.html`, `/aviso-legal.html`, `/politica-privacidad.html`, `/politica-cookies.html`) con `lastmod`, `changefreq` y `priority`.
 - **`robots.txt`** — Permite todos los crawlers (`User-agent: *`, `Allow: /`) y apunta al sitemap.
 
 ---

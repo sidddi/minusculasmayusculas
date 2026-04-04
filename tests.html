@@ -153,8 +153,8 @@
 </head>
 <body>
 
-  <h1>Tests — converter.js</h1>
-  <p class="meta">Pruebas unitarias de las 4 funciones de conversión</p>
+  <h1>Tests — converter.js + buscar-reemplazar</h1>
+  <p class="meta">Pruebas unitarias de las funciones de conversión y del motor de buscar y reemplazar</p>
 
   <div id="summary">Ejecutando tests…</div>
   <div id="results"></div>
@@ -363,6 +363,123 @@
         capitalizarCadaPalabra('primera línea\nsegunda línea'),
         'Primera Línea\nSegunda Línea'
       );
+    });
+
+    // ── findReplace (motor de buscar-reemplazar.html) ─────────────────────────
+    //
+    // Reimplementa la lógica de buildRegex + replace para poder testearla
+    // sin depender del DOM.
+    //
+    function findReplace(text, search, replacement, caseSensitive, wholeWord) {
+      if (!search) return text;
+      var escaped = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      var pattern = wholeWord
+        ? '(?<![\\wáéíóúüñÁÉÍÓÚÜÑ])' + escaped + '(?![\\wáéíóúüñÁÉÍÓÚÜÑ])'
+        : escaped;
+      var flags = caseSensitive ? 'g' : 'gi';
+      return text.replace(new RegExp(pattern, flags), replacement);
+    }
+
+    function countMatches(text, search, caseSensitive, wholeWord) {
+      if (!search || !text) return 0;
+      var escaped = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      var pattern = wholeWord
+        ? '(?<![\\wáéíóúüñÁÉÍÓÚÜÑ])' + escaped + '(?![\\wáéíóúüñÁÉÍÓÚÜÑ])'
+        : escaped;
+      var flags = caseSensitive ? 'g' : 'gi';
+      var m = text.match(new RegExp(pattern, flags));
+      return m ? m.length : 0;
+    }
+
+    // Reemplazar básico
+    test('findReplace', 'reemplaza una ocurrencia', function () {
+      assertEqual(findReplace('hola mundo', 'mundo', 'terra', false, false), 'hola terra');
+    });
+
+    test('findReplace', 'reemplaza múltiples ocurrencias', function () {
+      assertEqual(findReplace('aa bb aa', 'aa', 'xx', false, false), 'xx bb xx');
+    });
+
+    test('findReplace', 'sin coincidencias — texto sin cambios', function () {
+      assertEqual(findReplace('hola mundo', 'xyz', 'abc', false, false), 'hola mundo');
+    });
+
+    test('findReplace', 'reemplazar por cadena vacía (borrado)', function () {
+      assertEqual(findReplace('hola mundo', 'mundo', '', false, false), 'hola ');
+    });
+
+    test('findReplace', 'buscar cadena vacía — devuelve texto original', function () {
+      assertEqual(findReplace('hola mundo', '', 'xxx', false, false), 'hola mundo');
+    });
+
+    // Case insensitive (por defecto)
+    test('findReplace', 'case insensitive — encuentra mayúsculas', function () {
+      assertEqual(findReplace('Hola Mundo', 'hola', 'hey', false, false), 'hey Mundo');
+    });
+
+    test('findReplace', 'case insensitive — encuentra minúsculas', function () {
+      assertEqual(findReplace('HOLA MUNDO', 'hola', 'hey', false, false), 'hey MUNDO');
+    });
+
+    // Case sensitive
+    test('findReplace', 'case sensitive — no encuentra diferente capitalización', function () {
+      assertEqual(findReplace('Hola Mundo', 'hola', 'hey', true, false), 'Hola Mundo');
+    });
+
+    test('findReplace', 'case sensitive — sí encuentra coincidencia exacta', function () {
+      assertEqual(findReplace('hola Mundo', 'hola', 'hey', true, false), 'hey Mundo');
+    });
+
+    // Palabra completa
+    test('findReplace', 'palabra completa — no reemplaza coincidencia parcial', function () {
+      assertEqual(findReplace('solar sol parasol', 'sol', 'luna', false, true), 'solar luna parasol');
+    });
+
+    test('findReplace', 'palabra completa — reemplaza todas las palabras completas', function () {
+      assertEqual(findReplace('sol y sol', 'sol', 'luna', false, true), 'luna y luna');
+    });
+
+    test('findReplace', 'palabra completa + case insensitive', function () {
+      assertEqual(findReplace('Sol y sol', 'sol', 'luna', false, true), 'luna y luna');
+    });
+
+    test('findReplace', 'palabra completa + case sensitive — no coincide por mayúscula', function () {
+      assertEqual(findReplace('Sol y sol', 'sol', 'luna', true, true), 'Sol y luna');
+    });
+
+    // Caracteres especiales en el texto buscado
+    test('findReplace', 'busca punto literal (sin interpretar como regex)', function () {
+      assertEqual(findReplace('hola.mundo', '.', '-', false, false), 'hola-mundo');
+    });
+
+    test('findReplace', 'busca paréntesis literales', function () {
+      assertEqual(findReplace('precio (IVA)', '(IVA)', '[IVA]', false, false), 'precio [IVA]');
+    });
+
+    // Caracteres del español
+    test('findReplace', 'busca y reemplaza con acentos', function () {
+      assertEqual(findReplace('el árbol y el árbol', 'árbol', 'roble', false, false), 'el roble y el roble');
+    });
+
+    test('findReplace', 'busca ñ', function () {
+      assertEqual(findReplace('el niño y la niña', 'niño', 'chico', false, false), 'el chico y la niña');
+    });
+
+    // countMatches
+    test('countMatches', 'cuenta 0 cuando no hay coincidencias', function () {
+      assertEqual(countMatches('hola mundo', 'xyz', false, false), 0);
+    });
+
+    test('countMatches', 'cuenta múltiples coincidencias', function () {
+      assertEqual(countMatches('aa bb aa cc aa', 'aa', false, false), 3);
+    });
+
+    test('countMatches', 'cuenta 0 con palabra completa cuando solo hay parciales', function () {
+      assertEqual(countMatches('solar parasol', 'sol', false, true), 0);
+    });
+
+    test('countMatches', 'cuenta solo palabras completas', function () {
+      assertEqual(countMatches('sol solar sol', 'sol', false, true), 2);
     });
 
     // ── Render results ────────────────────────────────────────────────────────
