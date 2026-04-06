@@ -1,0 +1,71 @@
+name: Fix www redirect (force non-www)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  nginx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fix www redirect via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            MAIN_CONF="/etc/nginx/sites-available/minusculasmayusculas.com"
+            WWW_CONF="/etc/nginx/sites-available/www-redirect-minusculasmayusculas"
+
+            echo "=== Current main config ==="
+            cat "$MAIN_CONF"
+
+            # ── 1. Remove www from main server_name if present ──────────────
+            if grep -q "www.minusculasmayusculas.com" "$MAIN_CONF"; then
+              echo "=== Removing www from main server_name ==="
+              sudo sed -i 's/server_name www\.minusculasmayusculas\.com minusculasmayusculas\.com;/server_name minusculasmayusculas.com;/' "$MAIN_CONF"
+              sudo sed -i 's/server_name minusculasmayusculas\.com www\.minusculasmayusculas\.com;/server_name minusculasmayusculas.com;/' "$MAIN_CONF"
+              echo "=== www removed from main server_name ==="
+            else
+              echo "=== www not in main server_name, ok ==="
+            fi
+
+            # ── 2. Create/overwrite www redirect config ─────────────────────
+            echo "=== Writing www redirect config ==="
+            sudo tee "$WWW_CONF" > /dev/null << 'NGINXEOF'
+            # HTTP www → HTTPS non-www
+            server {
+                listen 80;
+                server_name www.minusculasmayusculas.com;
+                return 301 https://minusculasmayusculas.com$request_uri;
+            }
+
+            # HTTPS www → HTTPS non-www
+            server {
+                listen 443 ssl;
+                server_name www.minusculasmayusculas.com;
+
+                ssl_certificate /etc/letsencrypt/live/minusculasmayusculas.com/fullchain.pem;
+                ssl_certificate_key /etc/letsencrypt/live/minusculasmayusculas.com/privkey.pem;
+                include /etc/letsencrypt/options-ssl-nginx.conf;
+                ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+                return 301 https://minusculasmayusculas.com$request_uri;
+            }
+            NGINXEOF
+
+            # ── 3. Enable the www redirect config ──────────────────────────
+            sudo ln -sf "$WWW_CONF" /etc/nginx/sites-enabled/www-redirect-minusculasmayusculas
+
+            # ── 4. Test and reload ──────────────────────────────────────────
+            echo "=== Testing nginx config ==="
+            sudo nginx -t
+
+            echo "=== Reloading nginx ==="
+            sudo systemctl reload nginx
+
+            echo "=== Verifying redirects ==="
+            curl -sI http://www.minusculasmayusculas.com/ | grep -E "HTTP|Location"
+            curl -sI https://www.minusculasmayusculas.com/ | grep -E "HTTP|Location"
+
+            echo "=== Done ==="
