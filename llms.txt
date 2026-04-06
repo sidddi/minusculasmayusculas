@@ -92,11 +92,35 @@ No. Toda la operación ocurre en el navegador. El texto nunca sale del dispositi
 
 ---
 
+## Herramienta 4: Ordenar Lista
+
+**URL**: https://minusculasmayusculas.com/ordenar-lista.html
+
+Ordena cualquier lista de texto (un elemento por línea) con cuatro modos:
+
+- **A → Z** — Orden alfabético ascendente, respetando ñ y acentos del español
+- **Z → A** — Orden alfabético descendente
+- **Por longitud** — De la línea más corta a la más larga
+- **Aleatorio** — Baraja el orden aleatoriamente
+
+Opciones adicionales: eliminar duplicados, ignorar mayúsculas al ordenar, eliminar líneas vacías.
+
+### Preguntas frecuentes
+
+**¿Cómo ordenar una lista alfabéticamente online?**
+Pega tu lista con un elemento por línea, selecciona «A → Z» y pulsa «Ordenar». La herramienta respeta la ñ y las letras acentuadas según el alfabeto español.
+
+**¿Cómo eliminar duplicados de una lista?**
+Activa la opción «Eliminar duplicados» antes de pulsar «Ordenar». Se conservará solo una ocurrencia de cada elemento.
+
+---
+
 ## Páginas del sitio
 
 - https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
 - https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
 - https://minusculasmayusculas.com/buscar-reemplazar.html — Buscar y reemplazar texto
+- https://minusculasmayusculas.com/ordenar-lista.html — Ordenar lista de palabras
 - https://minusculasmayusculas.com/aviso-legal.html — Aviso legal
 - https://minusculasmayusculas.com/politica-privacidad.html — Política de privacidad
 - https://minusculasmayusculas.com/politica-cookies.html — Política de cookies
