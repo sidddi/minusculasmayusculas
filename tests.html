@@ -482,6 +482,98 @@
       assertEqual(countMatches('sol solar sol', 'sol', false, true), 2);
     });
 
+    // ── ordenarLineas (motor de ordenar-lista.html) ───────────────────────────
+    //
+    // Reimplementa la lógica de ordenación para testearla sin depender del DOM.
+    //
+    function ordenarLineas(text, mode, dedup, ignCase, trimEmpty) {
+      var lines = text.split('\n');
+      if (trimEmpty) lines = lines.filter(function(l) { return l.trim() !== ''; });
+      if (dedup) {
+        var seen = {};
+        lines = lines.filter(function(l) {
+          var key = ignCase ? l.toLowerCase() : l;
+          if (seen[key]) return false;
+          seen[key] = true;
+          return true;
+        });
+      }
+      if (mode === 'az') {
+        lines.sort(function(a, b) {
+          return ignCase
+            ? a.localeCompare(b, 'es', { sensitivity: 'base' })
+            : a.localeCompare(b, 'es');
+        });
+      } else if (mode === 'za') {
+        lines.sort(function(a, b) {
+          return ignCase
+            ? b.localeCompare(a, 'es', { sensitivity: 'base' })
+            : b.localeCompare(a, 'es');
+        });
+      } else if (mode === 'length') {
+        lines.sort(function(a, b) { return a.length - b.length; });
+      }
+      return lines.join('\n');
+    }
+
+    // Orden A→Z
+    test('ordenarLineas', 'A→Z básico', function () {
+      assertEqual(ordenarLineas('plátano\nmanzana\ncereza', 'az', false, true, true), 'cereza\nmanzana\nplátano');
+    });
+
+    test('ordenarLineas', 'A→Z ignora mayúsculas', function () {
+      assertEqual(ordenarLineas('Zebra\nabc\nMango', 'az', false, true, true), 'abc\nMango\nZebra');
+    });
+
+    test('ordenarLineas', 'A→Z respeta ñ en español', function () {
+      var result = ordenarLineas('oso\nñoño\nnabo', 'az', false, true, true);
+      // ñ va entre n y o en español
+      assertEqual(result, 'nabo\nñoño\noso');
+    });
+
+    test('ordenarLineas', 'A→Z cadena vacía', function () {
+      assertEqual(ordenarLineas('', 'az', false, true, true), '');
+    });
+
+    test('ordenarLineas', 'A→Z una sola línea', function () {
+      assertEqual(ordenarLineas('hola', 'az', false, true, true), 'hola');
+    });
+
+    // Orden Z→A
+    test('ordenarLineas', 'Z→A básico', function () {
+      assertEqual(ordenarLineas('cereza\nmanzana\nplátano', 'za', false, true, true), 'plátano\nmanzana\ncereza');
+    });
+
+    // Por longitud
+    test('ordenarLineas', 'longitud ascendente', function () {
+      assertEqual(ordenarLineas('manzana\nci\nhola', 'length', false, true, true), 'ci\nhola\nmanzana');
+    });
+
+    // Eliminar duplicados
+    test('ordenarLineas', 'elimina duplicados exactos', function () {
+      assertEqual(ordenarLineas('a\nb\na\nc', 'az', true, false, true), 'a\nb\nc');
+    });
+
+    test('ordenarLineas', 'elimina duplicados ignorando mayúsculas', function () {
+      var result = ordenarLineas('Hola\nhola\nMundo', 'az', true, true, true);
+      assertEqual(result, 'Hola\nMundo');
+    });
+
+    test('ordenarLineas', 'sin duplicados — sin cambios', function () {
+      assertEqual(ordenarLineas('a\nb\nc', 'az', true, true, true), 'a\nb\nc');
+    });
+
+    // Eliminar líneas vacías
+    test('ordenarLineas', 'elimina líneas vacías', function () {
+      assertEqual(ordenarLineas('a\n\nb\n\nc', 'az', false, true, true), 'a\nb\nc');
+    });
+
+    test('ordenarLineas', 'conserva líneas vacías si trimEmpty=false', function () {
+      var result = ordenarLineas('b\n\na', 'az', false, true, false);
+      // línea vacía va antes en localeCompare
+      assertEqual(result.split('\n').filter(function(l){ return l !== ''; }).join('\n'), 'a\nb');
+    });
+
     // ── Render results ────────────────────────────────────────────────────────
 
     (function render() {

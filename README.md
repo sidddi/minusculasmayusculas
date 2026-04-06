@@ -1,11 +1,12 @@
 # minusculasmayusculas.com
 
-Suite de herramientas online gratuitas para trabajar con texto: conversión de mayúsculas/minúsculas, contador de palabras y buscar y reemplazar. Sin registro, sin servidor, sin coste.
+Suite de herramientas online gratuitas para trabajar con texto: conversión de mayúsculas/minúsculas, contador de palabras, buscar y reemplazar, y ordenar listas. Sin registro, sin servidor, sin coste.
 
 **URLs:**
 - https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
 - https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
 - https://minusculasmayusculas.com/buscar-reemplazar.html — Buscar y reemplazar texto
+- https://minusculasmayusculas.com/ordenar-lista.html — Ordenar lista de palabras
 
 ---
 
@@ -16,6 +17,7 @@ minusculasmayusculas.com/
 ├── index.html                  # Convertidor de mayúsculas y minúsculas
 ├── contador-palabras.html      # Contador de palabras, caracteres, frases y tiempo de lectura
 ├── buscar-reemplazar.html      # Buscar y reemplazar texto con opciones avanzadas
+├── ordenar-lista.html          # Ordenar lista A-Z, Z-A, por longitud o aleatoriamente
 ├── converter.js                # Lógica de conversión de texto (client-side)
 ├── tests.html                  # Tests manuales de las funciones de converter.js
 ├── aviso-legal.html            # Aviso legal (LSSICE)
@@ -78,6 +80,21 @@ Motor de búsqueda y sustitución de texto con las siguientes opciones:
 | Solo palabra completa | Ignora coincidencias parciales dentro de palabras más largas |
 
 Funcionalidades adicionales: contador de coincidencias en tiempo real, botón "Copiar texto", botón "Limpiar", soporte completo del español (á, é, í, ó, ú, ñ).
+
+---
+
+### Ordenar lista (`ordenar-lista.html`)
+
+Ordena cualquier lista de texto (un elemento por línea) con cuatro modos:
+
+| Modo | Descripción |
+|------|-------------|
+| A → Z | Orden alfabético ascendente (respeta ñ y acentos del español) |
+| Z → A | Orden alfabético descendente |
+| Por longitud | De la línea más corta a la más larga |
+| Aleatorio | Baraja el orden aleatoriamente |
+
+Opciones adicionales: eliminar duplicados, ignorar mayúsculas al ordenar, eliminar líneas vacías. Botón "Copiar texto" y "Limpiar".
 
 ---
 

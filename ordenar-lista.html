@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="82f67e93-af6b-4ca1-9a41-38ddc2bcd654" data-blockingmode="auto" type="text/javascript"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1180780703286273" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2CEDDK0K4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S2CEDDK0K4');
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordenar Lista Online | Alfabéticamente, A-Z o Z-A, gratis</title>
+  <meta name="description" content="Ordena cualquier lista de palabras o frases alfabéticamente, de Z a A, por longitud o elimina duplicados. Herramienta gratuita, sin registro, al instante." />
+  <link rel="canonical" href="https://minusculasmayusculas.com/ordenar-lista.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://minusculasmayusculas.com/ordenar-lista.html" />
+  <meta property="og:title" content="Ordenar Lista Online | Alfabéticamente, A-Z o Z-A, gratis" />
+  <meta property="og:description" content="Ordena cualquier lista de palabras o frases alfabéticamente, de Z a A, por longitud o elimina duplicados. Herramienta gratuita, sin registro, al instante." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ordenar Lista Online | Alfabéticamente, A-Z o Z-A, gratis" />
+  <meta name="twitter:description" content="Ordena cualquier lista de palabras o frases alfabéticamente, de Z a A, por longitud o elimina duplicados. Herramienta gratuita, sin registro, al instante." />
+  <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary:       #1a73e8;
+      --primary-dark:  #1557b0;
+      --primary-light: #e8f0fe;
+      --primary-mid:   #d2e3fc;
+      --success:       #34a853;
+      --success-dark:  #2d9249;
+      --text:          #202124;
+      --muted:         #5f6368;
+      --border:        #dadce0;
+      --bg:            #ffffff;
+      --radius:        8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+                   'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      padding: 14px 0 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 3px;
+      margin-bottom: 10px;
+    }
+
+    .tool-nav {
+      display: flex;
+      gap: 0;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tool-nav a {
+      display: inline-block;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: color 0.14s, border-color 0.14s;
+    }
+
+    .tool-nav a:hover { color: var(--primary); }
+
+    .tool-nav a.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tool-section { margin-bottom: 36px; }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.18s;
+    }
+
+    textarea:focus { border-color: var(--primary); }
+    textarea::placeholder { color: #9aa0a6; }
+
+    .counter {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      min-height: 1.2em;
+    }
+
+    /* ── Options ── */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .option-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.14s, background 0.14s;
+      user-select: none;
+    }
+
+    .option-card:hover {
+      border-color: var(--primary-mid);
+      background: var(--primary-light);
+    }
+
+    .option-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .option-card input[type="radio"] {
+      accent-color: var(--primary);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .option-card .label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .option-card .desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* Toggle checkboxes */
+    .toggles-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-label input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background 0.14s, border-color 0.14s, color 0.14s, transform 0.08s;
+      line-height: 1.3;
+    }
+
+    .btn:active { transform: scale(0.96); }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .btn-copied {
+      background: var(--success) !important;
+      border-color: var(--success) !important;
+    }
+
+    .btn-copied:hover {
+      background: var(--success-dark) !important;
+      border-color: var(--success-dark) !important;
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--muted);
+      border-color: var(--border);
+      min-width: 96px;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f3f4;
+      border-color: #bdc1c6;
+    }
+
+    /* Status */
+    .status-badge {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 8px;
+      min-height: 1.6em;
+    }
+
+    .status-badge.info    { background: var(--primary-light); color: var(--primary); }
+    .status-badge.success { background: #e6f4ea; color: var(--success); }
+    .status-badge.empty   { opacity: 0; }
+
+    /* Content & FAQ */
+    .content-section {
+      margin-bottom: 32px;
+    }
+
+    .content-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .content-section p:last-child { margin-bottom: 0; }
+
+    .faq-section { margin-bottom: 44px; }
+
+    .faq-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--primary);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    details[open] summary::after { content: '−'; }
+
+    details p {
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: #3c4043;
+      line-height: 1.75;
+    }
+
+    footer {
+      background: #f8f9fa;
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer p { color: var(--muted); font-size: 0.82rem; }
+
+    footer nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+
+    footer a:hover { color: var(--primary); text-decoration: underline; }
+
+    footer .sep { color: var(--border); font-size: 0.82rem; }
+
+    @media (max-width: 520px) {
+      header h1 { font-size: 1.25rem; }
+      .subtitle  { font-size: 0.82rem; }
+      .btn { font-size: 0.82rem; padding: 9px 10px; }
+      .options-grid { grid-template-columns: 1fr; }
+
+      footer .container { flex-direction: column; text-align: center; }
+      footer nav { justify-content: center; }
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Ordenar Lista Online",
+    "url": "https://minusculasmayusculas.com/ordenar-lista.html",
+    "description": "Herramienta online gratuita para ordenar listas de palabras o frases alfabéticamente, de Z a A, por longitud o de forma aleatoria. Sin registro, funciona en el navegador.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "inLanguage": "es",
+    "isAccessibleForFree": true,
+    "dateModified": "2026-04-06",
+    "featureList": [
+      "Ordenar lista de A a Z (alfabéticamente)",
+      "Ordenar lista de Z a A (orden inverso)",
+      "Ordenar por longitud de línea",
+      "Ordenar aleatoriamente (barajar)",
+      "Eliminar líneas duplicadas",
+      "Ignorar mayúsculas al ordenar",
+      "Procesamiento local en el navegador sin envío de datos"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Siddharta Navarro Castellar"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cómo ordenar una lista alfabéticamente online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pega tu lista en el cuadro de texto, con un elemento por línea. Selecciona la opción «A → Z» y pulsa «Ordenar». La herramienta ordenará al instante todas las líneas de forma alfabética, respetando los caracteres del español como la ñ y las letras acentuadas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo eliminar duplicados de una lista?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Activa la opción «Eliminar duplicados» antes de pulsar «Ordenar». La herramienta eliminará automáticamente todas las líneas repetidas, conservando solo una ocurrencia de cada elemento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se tienen en cuenta las mayúsculas al ordenar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Por defecto el orden ignora si las letras son mayúsculas o minúsculas, de modo que «manzana» y «Manzana» se tratan igual. Si quieres que las mayúsculas vayan primero (orden ASCII), desactiva la opción «Ignorar mayúsculas»."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se envían mis datos a algún servidor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Todo el procesamiento ocurre directamente en tu navegador. El texto que introduces nunca sale de tu dispositivo."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://minusculasmayusculas.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Ordenar Lista",
+        "item": "https://minusculasmayusculas.com/ordenar-lista.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Ordenar Lista</h1>
+      <p class="subtitle">Ordena cualquier lista de palabras o frases al instante, online y gratis</p>
+      <nav class="tool-nav" aria-label="Herramientas">
+        <a href="index.html">Mayúsculas y Minúsculas</a>
+        <a href="contador-palabras.html">Contador de Palabras</a>
+        <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+        <a href="ordenar-lista.html" class="active">Ordenar Lista</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section class="tool-section" aria-label="Ordenar lista de texto">
+
+        <textarea
+          id="input"
+          placeholder="Escribe o pega tu lista aquí, un elemento por línea..."
+          aria-label="Lista a ordenar"
+          spellcheck="false"
+        ></textarea>
+
+        <div class="counter" id="counter" aria-live="polite">
+          0 líneas · 0 palabras
+        </div>
+
+        <!-- Sort mode -->
+        <div class="options-grid" role="group" aria-label="Modo de ordenación">
+          <label class="option-card selected" id="card-az">
+            <input type="radio" name="sort" value="az" checked />
+            <div>
+              <div class="label">A → Z</div>
+              <div class="desc">Orden alfabético ascendente</div>
+            </div>
+          </label>
+          <label class="option-card" id="card-za">
+            <input type="radio" name="sort" value="za" />
+            <div>
+              <div class="label">Z → A</div>
+              <div class="desc">Orden alfabético descendente</div>
+            </div>
+          </label>
+          <label class="option-card" id="card-len">
+            <input type="radio" name="sort" value="length" />
+            <div>
+              <div class="label">Por longitud</div>
+              <div class="desc">De más corta a más larga</div>
+            </div>
+          </label>
+          <label class="option-card" id="card-rand">
+            <input type="radio" name="sort" value="random" />
+            <div>
+              <div class="label">Aleatorio</div>
+              <div class="desc">Barajar el orden</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Extra options -->
+        <div class="toggles-row">
+          <label class="toggle-label">
+            <input type="checkbox" id="opt-dedup" />
+            Eliminar duplicados
+          </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="opt-case" checked />
+            Ignorar mayúsculas al ordenar
+          </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="opt-trim" checked />
+            Eliminar líneas vacías
+          </label>
+        </div>
+
+        <div id="status" class="status-badge empty" aria-live="polite"></div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="ordenar()">Ordenar</button>
+          <button id="copy-btn" class="btn btn-primary" onclick="copiarTexto()" style="flex:0; min-width:130px;">
+            Copiar texto
+          </button>
+          <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+        </div>
+      </section>
+
+      <!-- SEO content -->
+      <section class="content-section" aria-label="Descripción de la herramienta">
+        <p>
+          Con esta herramienta puedes ordenar cualquier lista de palabras, nombres, frases o
+          elementos al instante. Pega tu lista con un elemento por línea, elige el tipo de
+          ordenación y pulsa el botón. El resultado aparece en el mismo cuadro, listo para copiar.
+        </p>
+        <p>
+          Es perfecta para ordenar listas de la compra, nombres de personas, etiquetas, resultados
+          de una encuesta o cualquier conjunto de datos de texto. La herramienta respeta los
+          caracteres del español: la ñ se ordena correctamente entre la n y la o, y las
+          letras acentuadas (á, é, í, ó, ú) se tratan según el alfabeto español.
+        </p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section" aria-label="Preguntas frecuentes">
+        <h2>Preguntas frecuentes</h2>
+
+        <details>
+          <summary>¿Cómo ordenar una lista alfabéticamente online?</summary>
+          <p>
+            Pega tu lista en el cuadro de texto, con un elemento por línea. Selecciona
+            la opción <strong>A → Z</strong> y pulsa <strong>Ordenar</strong>. La herramienta
+            ordenará al instante todas las líneas de forma alfabética, respetando los
+            caracteres del español como la ñ y las letras acentuadas.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo eliminar duplicados de una lista?</summary>
+          <p>
+            Activa la opción <strong>Eliminar duplicados</strong> antes de pulsar
+            <strong>Ordenar</strong>. La herramienta eliminará automáticamente todas las
+            líneas repetidas, conservando solo una ocurrencia de cada elemento.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Se tienen en cuenta las mayúsculas al ordenar?</summary>
+          <p>
+            Por defecto el orden ignora si las letras son mayúsculas o minúsculas, de
+            modo que <em>«manzana»</em> y <em>«Manzana»</em> se tratan igual. Si quieres
+            que las mayúsculas vayan primero (orden ASCII), desactiva la opción
+            <strong>Ignorar mayúsculas</strong>.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Se envían mis datos a algún servidor?</summary>
+          <p>
+            No. Todo el procesamiento ocurre directamente en tu navegador. El texto que
+            introduces nunca sale de tu dispositivo.
+          </p>
+        </details>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 minusculasmayusculas.com</p>
+      <nav aria-label="Pie de página">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <span class="sep">|</span>
+        <a href="politica-privacidad.html">Política de privacidad</a>
+        <span class="sep">|</span>
+        <a href="politica-cookies.html">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const textarea = document.getElementById('input');
+    const counterEl = document.getElementById('counter');
+    const statusEl  = document.getElementById('status');
+    const copyBtn   = document.getElementById('copy-btn');
+
+    // Sync option-card selected state
+    document.querySelectorAll('input[name="sort"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        document.querySelectorAll('.option-card').forEach(function(c) { c.classList.remove('selected'); });
+        radio.closest('.option-card').classList.add('selected');
+      });
+    });
+
+    textarea.addEventListener('input', updateCounter);
+
+    function updateCounter() {
+      var text  = textarea.value;
+      var lines = text === '' ? 0 : text.split('\n').filter(function(l) { return l.trim() !== ''; }).length;
+      var words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+      counterEl.textContent = lines + ' líneas · ' + words + ' palabras';
+    }
+
+    function ordenar() {
+      var text = textarea.value;
+      if (!text.trim()) return;
+
+      var mode      = document.querySelector('input[name="sort"]:checked').value;
+      var dedup     = document.getElementById('opt-dedup').checked;
+      var ignCase   = document.getElementById('opt-case').checked;
+      var trimEmpty = document.getElementById('opt-trim').checked;
+
+      var lines = text.split('\n');
+
+      if (trimEmpty) {
+        lines = lines.filter(function(l) { return l.trim() !== ''; });
+      }
+
+      if (dedup) {
+        var seen = {};
+        lines = lines.filter(function(l) {
+          var key = ignCase ? l.toLowerCase() : l;
+          if (seen[key]) return false;
+          seen[key] = true;
+          return true;
+        });
+      }
+
+      if (mode === 'az') {
+        lines.sort(function(a, b) {
+          return ignCase
+            ? a.localeCompare(b, 'es', { sensitivity: 'base' })
+            : a.localeCompare(b, 'es');
+        });
+      } else if (mode === 'za') {
+        lines.sort(function(a, b) {
+          return ignCase
+            ? b.localeCompare(a, 'es', { sensitivity: 'base' })
+            : b.localeCompare(a, 'es');
+        });
+      } else if (mode === 'length') {
+        lines.sort(function(a, b) { return a.length - b.length; });
+      } else if (mode === 'random') {
+        for (var i = lines.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = lines[i]; lines[i] = lines[j]; lines[j] = tmp;
+        }
+      }
+
+      var originalCount = text.split('\n').filter(function(l) { return l.trim() !== ''; }).length;
+      var resultCount   = lines.length;
+      var removed       = originalCount - resultCount;
+
+      textarea.value = lines.join('\n');
+      updateCounter();
+      textarea.focus();
+
+      var msg = resultCount + (resultCount === 1 ? ' elemento ordenado' : ' elementos ordenados');
+      if (removed > 0) msg += ' · ' + removed + ' duplicado' + (removed === 1 ? '' : 's') + ' eliminado' + (removed === 1 ? '' : 's');
+      setStatus(msg, 'success');
+    }
+
+    function setStatus(msg, type) {
+      statusEl.textContent = msg;
+      statusEl.className   = 'status-badge ' + type;
+    }
+
+    function copiarTexto() {
+      var text = textarea.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(showCopied).catch(function() {
+        textarea.select();
+        document.execCommand('copy');
+        showCopied();
+      });
+    }
+
+    function showCopied() {
+      copyBtn.textContent = '¡Copiado!';
+      copyBtn.classList.add('btn-copied');
+      setTimeout(function() {
+        copyBtn.textContent = 'Copiar texto';
+        copyBtn.classList.remove('btn-copied');
+      }, 2000);
+    }
+
+    function limpiar() {
+      textarea.value = '';
+      setStatus('', 'empty');
+      updateCounter();
+      textarea.focus();
+    }
+  </script>
+
+</body>
+</html>
