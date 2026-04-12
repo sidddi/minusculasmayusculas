@@ -354,6 +354,98 @@
       font-size: 0.82rem;
     }
 
+    /* ── How it works ── */
+    .how-section {
+      margin-bottom: 32px;
+    }
+
+    .how-section h2,
+    .use-cases-section h2,
+    .why-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+    }
+
+    .step-body strong { color: var(--text); }
+
+    /* ── Use cases ── */
+    .use-cases-section {
+      margin-bottom: 32px;
+    }
+
+    .use-cases-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .use-cases-list li {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .use-cases-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ── Why section ── */
+    .why-section {
+      margin-bottom: 32px;
+    }
+
+    .why-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .why-section p:last-child { margin-bottom: 0; }
+
     /* ── Responsive ── */
     @media (max-width: 520px) {
       header h1 { font-size: 1.25rem; }
@@ -451,6 +543,38 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Sí, está optimizado para el español. Reconoce correctamente palabras con tildes (á, é, í, ó, ú), la ñ y otros caracteres propios del idioma. También funciona con cualquier otro idioma basado en alfabeto latino."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo calcula el tiempo de lectura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El tiempo de lectura se calcula dividiendo el número de palabras entre 200, que es la velocidad lectora media de un adulto en lectura comprensiva. El resultado se redondea hacia arriba al minuto entero más cercano."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuenta los caracteres con o sin espacios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los dos. La herramienta muestra por separado el total de caracteres incluyendo espacios y el total sin espacios. Esto es útil porque algunas plataformas usan una medida y otras la otra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo cuenta las frases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una frase es cualquier fragmento de texto terminado en punto, signo de exclamación o signo de interrogación. El contador detecta estos signos para dividir el texto en frases y mostrarte cuántas hay en total."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona también para otros idiomas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El contador funciona con cualquier texto en alfabeto latino: inglés, francés, italiano, alemán, portugués, etc. El tiempo de lectura usa la referencia de 200 palabras por minuto, que es válida para la mayoría de idiomas occidentales."
         }
       }
     ]
@@ -559,6 +683,51 @@
         </p>
       </section>
 
+      <!-- ── Cómo funciona ── -->
+      <section class="how-section" aria-label="Cómo funciona">
+        <h2>Cómo funciona</h2>
+        <ol class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            <span class="step-body"><strong>Pega o escribe tu texto</strong> — Copia el contenido que quieres analizar y pégalo en el cuadro. Las estadísticas se actualizan en tiempo real conforme escribes o modificas el texto, sin necesidad de pulsar ningún botón.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span class="step-body"><strong>Consulta las estadísticas</strong> — Verás al instante el número de palabras, caracteres totales, caracteres sin espacios, frases, párrafos y el tiempo estimado de lectura. Todos los datos se recalculan automáticamente con cada cambio en el texto.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span class="step-body"><strong>Ajusta hasta alcanzar tu objetivo</strong> — Si necesitas llegar a un número concreto de palabras, puedes seguir editando el texto directamente en el cuadro y ver cómo cambian los contadores en tiempo real hasta dar con la extensión exacta que buscas.</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ── Casos de uso ── -->
+      <section class="use-cases-section" aria-label="Casos de uso">
+        <h2>Casos de uso habituales</h2>
+        <ul class="use-cases-list">
+          <li><strong>Verificar la extensión de un artículo o post antes de publicar.</strong> Muchas plataformas de contenido tienen límites de palabras o caracteres. Antes de publicar, pega el borrador y comprueba si estás por encima o por debajo del límite sin tener que abrir Word.</li>
+          <li><strong>Controlar la extensión de un trabajo académico.</strong> Las normas de los trabajos fin de grado, máster o artículos científicos especifican un número exacto de palabras. Este contador te dice en tiempo real cuántas llevas mientras redactas.</li>
+          <li><strong>Calcular el tiempo de lectura para una presentación o discurso.</strong> Si tienes que leer un texto en voz alta en un tiempo determinado, el tiempo estimado de lectura te ayuda a calibrar si tienes que recortar o ampliar el contenido antes del día D.</li>
+          <li><strong>Optimizar la extensión de contenido para SEO.</strong> Los artículos de blog con más de 1.000 palabras suelen posicionar mejor en buscadores. Esta herramienta te permite controlar la extensión mientras escribes o revisas el contenido para ajustarlo al objetivo.</li>
+          <li><strong>Comprobar el límite de caracteres de una publicación en redes sociales.</strong> LinkedIn, Twitter y otras plataformas tienen restricciones de caracteres. El contador de caracteres te dice exactamente cuánto espacio ocupas, incluyendo o excluyendo los espacios según la plataforma.</li>
+        </ul>
+      </section>
+
+      <!-- ── Por qué usar ── -->
+      <section class="why-section" aria-label="Por qué usar esta herramienta">
+        <h2>Por qué usar esta herramienta</h2>
+        <p>
+          La mayoría de procesadores de texto tienen contador de palabras, pero no siempre tienes el documento abierto donde lo necesitas. Esta herramienta funciona directamente en el navegador: copias cualquier texto, lo pegas y ves los datos al instante. Sirve para texto copiado de un PDF, de un correo, de una web o de cualquier otra fuente, sin tener que pegarlo en Word primero ni crear ningún archivo.
+        </p>
+        <p>
+          A diferencia de otros contadores, este no solo cuenta palabras sino que te da seis métricas a la vez: palabras, caracteres con y sin espacios, frases, párrafos y tiempo de lectura. Esto es especialmente útil para escritores y redactores que necesitan controlar la estructura y la extensión de sus textos de forma más detallada que con un simple recuento de palabras.
+        </p>
+        <p>
+          Todo el procesamiento es local: el texto nunca sale de tu navegador ni se almacena en ningún servidor. Puedes analizar borradores sin publicar, contratos, informes confidenciales o cualquier tipo de documento privado sin preocuparte por la privacidad. Sin registro, sin límites, sin coste.
+        </p>
+      </section>
+
       <!-- ── FAQ ── -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
@@ -614,6 +783,43 @@
             Sí, está optimizado para el español. Reconoce correctamente palabras con tildes
             (á, é, í, ó, ú), la ñ y otros caracteres propios del idioma. También funciona
             con cualquier otro idioma basado en alfabeto latino.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo calcula el tiempo de lectura?</summary>
+          <p>
+            El tiempo de lectura se calcula dividiendo el número de palabras entre 200, que
+            es la velocidad lectora media de un adulto en lectura comprensiva. El resultado
+            se redondea hacia arriba al minuto entero más cercano, de modo que un texto de
+            50 palabras aparece como 1 min.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuenta los caracteres con o sin espacios?</summary>
+          <p>
+            Los dos. La herramienta muestra por separado el total de caracteres incluyendo
+            espacios y el total sin espacios. Esto es útil porque algunas plataformas usan
+            una medida y otras la otra: Twitter y LinkedIn, por ejemplo, cuentan los espacios.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo cuenta las frases?</summary>
+          <p>
+            Una frase es cualquier fragmento de texto terminado en punto, signo de exclamación
+            o signo de interrogación. El contador detecta estos signos para dividir el texto
+            en frases y mostrarte cuántas hay en total.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona también para otros idiomas?</summary>
+          <p>
+            Sí. El contador funciona con cualquier texto en alfabeto latino: inglés, francés,
+            italiano, alemán, portugués, etc. El tiempo de lectura usa la referencia de 200
+            palabras por minuto, que es válida para la mayoría de idiomas occidentales.
           </p>
         </details>
       </section>

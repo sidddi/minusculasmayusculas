@@ -434,6 +434,100 @@
       font-size: 0.82rem;
     }
 
+    /* ── How it works ── */
+    .how-section {
+      margin-bottom: 32px;
+    }
+
+    .how-section h2,
+    .use-cases-section h2,
+    .why-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+    }
+
+    .step-body strong {
+      color: var(--text);
+    }
+
+    /* ── Use cases ── */
+    .use-cases-section {
+      margin-bottom: 32px;
+    }
+
+    .use-cases-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .use-cases-list li {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .use-cases-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ── Why section ── */
+    .why-section {
+      margin-bottom: 32px;
+    }
+
+    .why-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .why-section p:last-child { margin-bottom: 0; }
+
     /* ── Responsive ── */
     @media (max-width: 520px) {
       header h1 { font-size: 1.25rem; }
@@ -515,6 +609,54 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "No. Toda la operación ocurre en tu navegador. El texto que introduces nunca sale de tu dispositivo, por lo que puedes usar esta herramienta con total privacidad y sin necesidad de conexión una vez cargada la página."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo eliminar una palabra sin poner nada en su lugar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Simplemente deja el campo Reemplazar por en blanco y pulsa Reemplazar todo. La herramienta borrará todas las apariciones del texto buscado sin dejar ningún carácter en su lugar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántas sustituciones puedo hacer en un mismo texto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No hay límite. La herramienta procesa todo el texto de una vez y reemplaza todas las coincidencias encontradas. Si tu texto tiene cientos de repeticiones de la misma palabra, las cambiará todas en un instante."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona bien con acentos, eñes y otros caracteres especiales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. La búsqueda respeta todos los caracteres del español y de otros idiomas: tildes, eñes, diéresis y signos de puntuación. Puedes buscar «añadir», «francés» o cualquier palabra con caracteres especiales sin ningún problema."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo buscar frases enteras, no solo palabras sueltas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Por supuesto. El campo de búsqueda acepta palabras, frases o cualquier fragmento de texto, incluyendo espacios y signos de puntuación. Por ejemplo, puedes buscar «según lo acordado en la reunión» y reemplazarlo por una referencia concreta al documento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay límite en la cantidad de texto que puedo procesar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No hay ningún límite impuesto por la herramienta. El procesamiento depende del navegador y del dispositivo, pero para textos habituales de trabajo —incluso documentos de varios miles de palabras— funciona sin problemas en cualquier ordenador o móvil moderno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona en el móvil o la tableta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, la herramienta está adaptada para pantallas pequeñas. Puedes pegar texto desde el portapapeles del móvil, hacer la búsqueda y el reemplazo, y copiar el resultado. Es especialmente útil para editar textos rápidos cuando no tienes el ordenador a mano."
         }
       }
     ]
@@ -638,6 +780,55 @@
         </p>
       </section>
 
+      <!-- ── Cómo funciona ── -->
+      <section class="how-section" aria-label="Cómo funciona">
+        <h2>Cómo funciona</h2>
+        <ol class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            <span class="step-body"><strong>Pega tu texto</strong> — Copia el contenido que quieres editar y pégalo en el cuadro de texto. Puede ser un correo, un artículo, un contrato o cualquier tipo de documento, sin importar la extensión.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span class="step-body"><strong>Escribe qué quieres cambiar</strong> — En el campo «Buscar» introduce la palabra o frase exacta que aparece en tu texto. La herramienta la localizará en todo el contenido de forma inmediata y te mostrará cuántas coincidencias ha encontrado.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span class="step-body"><strong>Indica el texto nuevo</strong> — En «Reemplazar por» escribe lo que debe aparecer en su lugar. Si lo dejas en blanco, simplemente se eliminará la palabra buscada sin dejar rastro.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span class="step-body"><strong>Pulsa «Reemplazar todo» y copia</strong> — La herramienta hace todas las sustituciones de golpe y confirma cuántas ha realizado. Solo tienes que copiar el resultado con el botón «Copiar texto».</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ── Casos de uso ── -->
+      <section class="use-cases-section" aria-label="Casos de uso">
+        <h2>Casos de uso habituales</h2>
+        <ul class="use-cases-list">
+          <li><strong>Corregir un nombre mal escrito en todo un documento.</strong> Si has escrito «Martínez» cuando debía ser «Martín» a lo largo de un informe largo, con un solo clic lo corriges en todas sus apariciones sin revisar el texto línea a línea.</li>
+          <li><strong>Renombrar un personaje en un relato o guion.</strong> En textos de ficción, si decides cambiar el nombre de un personaje, puedes sustituir todas las menciones de golpe. Lo que antes llevaba media hora repasando, se hace en segundos.</li>
+          <li><strong>Sustituir abreviaturas antes de entregar un documento.</strong> Si mientras redactas usas «dpto.» o «ref.» para ir rápido, puedes expandirlos a «departamento» o «referencia» justo antes de enviarlo a un cliente o compañero.</li>
+          <li><strong>Eliminar muletillas o palabras sobreusadas.</strong> Si detectas que has repetido demasiado «básicamente» o «en definitiva», puedes borrarlas o cambiarlas por alternativas más variadas para mejorar el estilo del texto.</li>
+          <li><strong>Rellenar plantillas con datos reales.</strong> Si tienes un contrato o un email con marcadores como <em>[NOMBRE_CLIENTE]</em> o <em>[FECHA_ENTREGA]</em>, puedes sustituirlos todos de una vez sin buscarlos manualmente uno por uno.</li>
+        </ul>
+      </section>
+
+      <!-- ── Por qué usar ── -->
+      <section class="why-section" aria-label="Por qué usar esta herramienta">
+        <h2>Por qué usar esta herramienta</h2>
+        <p>
+          La mayoría de editores de texto tienen su propia función de buscar y reemplazar, pero requieren tener instalado el programa, abrir un archivo o trabajar con formatos concretos. Esta herramienta funciona directamente en el navegador sin instalar nada: copias el texto, haces los cambios y pegas el resultado donde lo necesites. Sirve para cualquier fuente: un PDF copiado, un correo, un fragmento de código o unas notas de reunión.
+        </p>
+        <p>
+          Una ventaja que marca la diferencia es el control sobre mayúsculas y sobre palabras completas. Si en un texto aparece tanto «web» como «webs» y solo quieres cambiar «web» como término independiente, la opción «Solo palabra completa» lo hace exactamente así. Y si distingues entre «Apple» (la empresa) y «apple» (la manzana), la búsqueda sensible a mayúsculas te da ese nivel de precisión que los editores básicos no ofrecen.
+        </p>
+        <p>
+          Todo el procesamiento ocurre en tu propio navegador. El texto nunca viaja a ningún servidor, lo que significa que puedes usarla con documentos confidenciales, borradores sin publicar o cualquier contenido sensible sin preocuparte por la privacidad. No hace falta registro, no hay límite de uso y no caduca.
+        </p>
+      </section>
+
       <!-- ── FAQ ── -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
@@ -678,6 +869,63 @@
             No. Toda la operación ocurre en tu navegador. El texto que introduces nunca
             sale de tu dispositivo, por lo que puedes usar esta herramienta con total
             privacidad y sin necesidad de conexión una vez cargada la página.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Puedo eliminar una palabra sin poner nada en su lugar?</summary>
+          <p>
+            Sí. Simplemente deja el campo <strong>Reemplazar por</strong> en blanco y pulsa
+            «Reemplazar todo». La herramienta borrará todas las apariciones del texto buscado
+            sin dejar ningún carácter en su lugar.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuántas sustituciones puedo hacer en un mismo texto?</summary>
+          <p>
+            No hay límite. La herramienta procesa todo el texto de una vez y reemplaza todas
+            las coincidencias encontradas. Si tu texto tiene cientos de repeticiones de la
+            misma palabra, las cambiará todas en un instante.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona bien con acentos, eñes y otros caracteres especiales?</summary>
+          <p>
+            Sí. La búsqueda respeta todos los caracteres del español y de otros idiomas:
+            tildes, eñes, diéresis y signos de puntuación. Puedes buscar «añadir», «francés»
+            o cualquier palabra con caracteres especiales sin ningún problema.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Puedo buscar frases enteras, no solo palabras sueltas?</summary>
+          <p>
+            Por supuesto. El campo de búsqueda acepta palabras, frases o cualquier fragmento
+            de texto, incluyendo espacios y signos de puntuación. Por ejemplo, puedes buscar
+            «según lo acordado en la reunión» y reemplazarlo por una referencia concreta al
+            documento donde quedó registrado.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Hay límite en la cantidad de texto que puedo procesar?</summary>
+          <p>
+            No hay ningún límite impuesto por la herramienta. El procesamiento depende del
+            navegador y del dispositivo que uses, pero para textos habituales de trabajo
+            —incluso documentos de varios miles de palabras— funciona sin problemas en
+            cualquier ordenador o móvil moderno.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona en el móvil o la tableta?</summary>
+          <p>
+            Sí, la herramienta está adaptada para pantallas pequeñas. Puedes pegar texto
+            desde el portapapeles del móvil, hacer la búsqueda y el reemplazo, y copiar el
+            resultado. Es especialmente útil para editar textos rápidos cuando no tienes el
+            ordenador a mano.
           </p>
         </details>
       </section>

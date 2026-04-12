@@ -352,6 +352,98 @@
       font-size: 0.82rem;
     }
 
+    /* ── How it works ── */
+    .how-section {
+      margin-bottom: 32px;
+    }
+
+    .how-section h2,
+    .use-cases-section h2,
+    .why-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+    }
+
+    .step-body strong { color: var(--text); }
+
+    /* ── Use cases ── */
+    .use-cases-section {
+      margin-bottom: 32px;
+    }
+
+    .use-cases-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .use-cases-list li {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .use-cases-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ── Why section ── */
+    .why-section {
+      margin-bottom: 32px;
+    }
+
+    .why-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .why-section p:last-child { margin-bottom: 0; }
+
     /* ── Responsive ── */
     @media (max-width: 520px) {
       header h1 { font-size: 1.25rem; }
@@ -434,6 +526,54 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de texto en minúsculas que no respeta esta regla, usa el botón Mayúsculas después de punto para corregirlo automáticamente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona con caracteres del español como la ñ o las tildes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, todas las conversiones tienen en cuenta los caracteres propios del español. La «ñ» se convierte en «Ñ», la «á» en «Á», y así con todas las vocales acentuadas. No hay que hacer ninguna configuración adicional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo aplicar más de una conversión al mismo texto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Puedes, por ejemplo, convertir primero a minúsculas y después aplicar «Mayúsculas después de punto». Cada vez que pulsas un botón, la conversión se aplica sobre el texto que hay en ese momento en el cuadro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué diferencia hay entre «Capitalizar Cada Palabra» y «Mayúsculas después de punto»?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "«Capitalizar Cada Palabra» pone en mayúscula la primera letra de todas las palabras, incluyendo artículos y preposiciones. «Mayúsculas después de punto» solo pone en mayúscula la primera letra de cada frase, que es lo que corresponde gramaticalmente en español."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay límite de texto que puedo convertir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No hay ningún límite impuesto por la herramienta. Al funcionar en el navegador, el rendimiento depende del dispositivo, pero textos de varios miles de palabras se procesan sin ningún problema en cualquier equipo moderno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona en el móvil?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, la herramienta está adaptada para pantallas pequeñas. Puedes pegar texto desde el portapapeles del móvil, aplicar la conversión y copiar el resultado directamente desde el teléfono o la tableta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito estar conectado a internet para usarla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una vez cargada la página en el navegador, la herramienta funciona sin conexión. El procesamiento es completamente local, por lo que incluso si pierdes la conexión a mitad de una sesión de trabajo, seguirá funcionando con normalidad."
         }
       }
     ]
@@ -528,6 +668,55 @@
         </p>
       </section>
 
+      <!-- ── Cómo funciona ── -->
+      <section class="how-section" aria-label="Cómo funciona">
+        <h2>Cómo funciona</h2>
+        <ol class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            <span class="step-body"><strong>Pega tu texto</strong> — Copia el contenido que quieres cambiar y pégalo en el cuadro de texto. Puede ser cualquier tipo de texto: un título, un bloque de párrafos, un email o un listado, sin límite de extensión.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span class="step-body"><strong>Elige el tipo de conversión</strong> — Tienes cuatro opciones: <strong>TODO MAYÚSCULAS</strong>, <strong>todo minúsculas</strong>, <strong>Capitalizar Cada Palabra</strong> y <strong>Mayúsculas después de punto</strong>. Pulsa el botón que necesites y el cambio se aplica al instante.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span class="step-body"><strong>Revisa el resultado</strong> — El texto convertido aparece en el mismo cuadro. Puedes aplicar una segunda conversión si lo necesitas, o editar el resultado manualmente antes de copiarlo.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span class="step-body"><strong>Copia y pega donde necesites</strong> — Pulsa <strong>Copiar texto</strong> y el contenido ya está en tu portapapeles, listo para pegarlo en cualquier aplicación, documento o plataforma.</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ── Casos de uso ── -->
+      <section class="use-cases-section" aria-label="Casos de uso">
+        <h2>Casos de uso habituales</h2>
+        <ul class="use-cases-list">
+          <li><strong>Corregir textos escritos en MAYÚSCULAS por error.</strong> Si alguien te manda un documento con el bloqueo de mayúsculas activado sin querer, convertirlo a minúsculas es cuestión de un clic. Lo que antes requería reescribir cada frase, aquí se resuelve en segundos.</li>
+          <li><strong>Formatear títulos para artículos o presentaciones.</strong> El estilo Title Case, con la primera letra de cada palabra en mayúscula, es habitual en títulos en inglés. Con el botón <em>Capitalizar Cada Palabra</em> puedes aplicarlo a toda una lista de títulos de golpe.</li>
+          <li><strong>Normalizar nombres propios exportados de una base de datos.</strong> Los sistemas de gestión suelen exportar nombres en mayúsculas sostenidas. Capitalizarlos uno a uno llevaría horas; aquí se hace en un solo clic sobre el listado completo.</li>
+          <li><strong>Corregir la puntuación de textos dictados.</strong> Las herramientas de dictado por voz a veces no respetan las mayúsculas al inicio de frase. El botón «Mayúsculas después de punto» recupera esa corrección de forma automática.</li>
+          <li><strong>Estandarizar etiquetas o categorías de un sistema de contenidos.</strong> Si tienes etiquetas mezcladas entre mayúsculas y minúsculas, puedes normalizarlas todas al mismo formato de una sola vez antes de importarlas a tu plataforma.</li>
+        </ul>
+      </section>
+
+      <!-- ── Por qué usar ── -->
+      <section class="why-section" aria-label="Por qué usar esta herramienta">
+        <h2>Por qué usar esta herramienta</h2>
+        <p>
+          Cambiar el formato de mayúsculas en un texto largo a mano es uno de esos trabajos mecánicos que nadie debería tener que hacer. Microsoft Word y Google Docs tienen esa función, pero requieren tener abierto el programa y trabajar con un archivo concreto. Esta herramienta funciona desde cualquier navegador, sin instalar nada: copias el texto de donde sea, lo pegas aquí y obtienes el resultado al instante.
+        </p>
+        <p>
+          A diferencia de soluciones básicas, esta herramienta contempla los caracteres del español de forma correcta. Las vocales con tilde se convierten también a sus versiones en mayúscula (á → Á, é → É, í → Í, ó → Ó, ú → Ú), igual que la ñ → Ñ. Esto marca la diferencia cuando trabajas con nombres propios o textos en castellano que usan estos caracteres con frecuencia.
+        </p>
+        <p>
+          Todo el procesamiento ocurre en tu dispositivo, dentro del navegador. El texto no viaja a ningún servidor ni se almacena en ningún lado. Puedes usarla con borradores sin publicar, datos de trabajo o cualquier contenido sensible sin ninguna preocupación. No requiere registro, no tiene publicidad engañosa y no caduca.
+        </p>
+      </section>
+
       <!-- ── FAQ ── -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
@@ -556,7 +745,7 @@
           <p>
             Capitalizar significa escribir la primera letra de cada palabra en mayúscula. Por
             ejemplo, <em>«hola mundo»</em> se convierte en <em>«Hola Mundo»</em>. Esta opción
-            es ideal para títulos, nombres de personas o de empresas. Nuestra herramienta lo
+            es ideal para títulos, nombres de personas o de empresas. La herramienta lo
             hace automáticamente con el botón <strong>Capitalizar Cada Palabra</strong>.
           </p>
         </details>
@@ -568,6 +757,62 @@
             un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de
             texto en minúsculas que no respeta esta regla, usa el botón
             <strong>Mayúsculas después de punto</strong> para corregirlo automáticamente.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona con caracteres del español como la ñ o las tildes?</summary>
+          <p>
+            Sí, todas las conversiones tienen en cuenta los caracteres propios del español.
+            La «ñ» se convierte en «Ñ», la «á» en «Á», y así con todas las vocales acentuadas.
+            No hay que hacer ninguna configuración adicional: el idioma está incorporado por defecto.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Puedo aplicar más de una conversión al mismo texto?</summary>
+          <p>
+            Sí. Puedes, por ejemplo, convertir primero a minúsculas y después aplicar
+            «Mayúsculas después de punto». Cada vez que pulsas un botón, la conversión se
+            aplica sobre el texto que hay en ese momento en el cuadro, por lo que puedes
+            encadenar varias operaciones.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Qué diferencia hay entre «Capitalizar Cada Palabra» y «Mayúsculas después de punto»?</summary>
+          <p>
+            «Capitalizar Cada Palabra» pone en mayúscula la primera letra de <em>todas</em> las
+            palabras, incluyendo artículos y preposiciones. «Mayúsculas después de punto» solo
+            pone en mayúscula la primera letra de cada frase, que es lo que corresponde
+            gramaticalmente en español.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Hay límite de texto que puedo convertir?</summary>
+          <p>
+            No hay ningún límite impuesto por la herramienta. Al funcionar en el navegador,
+            el rendimiento depende del dispositivo, pero textos de varios miles de palabras
+            se procesan sin ningún problema en cualquier equipo moderno.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona en el móvil?</summary>
+          <p>
+            Sí, la herramienta está adaptada para pantallas pequeñas. Puedes pegar texto
+            desde el portapapeles del móvil, aplicar la conversión y copiar el resultado
+            directamente desde el teléfono o la tableta.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Necesito estar conectado a internet para usarla?</summary>
+          <p>
+            Una vez cargada la página en el navegador, la herramienta funciona sin conexión.
+            El procesamiento es completamente local, por lo que incluso si pierdes la conexión
+            a mitad de una sesión de trabajo, seguirá funcionando con normalidad.
           </p>
         </details>
       </section>

@@ -396,6 +396,98 @@
 
     footer .sep { color: var(--border); font-size: 0.82rem; }
 
+    /* ── How it works ── */
+    .how-section {
+      margin-bottom: 32px;
+    }
+
+    .how-section h2,
+    .use-cases-section h2,
+    .why-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+    }
+
+    .step-body strong { color: var(--text); }
+
+    /* ── Use cases ── */
+    .use-cases-section {
+      margin-bottom: 32px;
+    }
+
+    .use-cases-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .use-cases-list li {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .use-cases-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ── Why section ── */
+    .why-section {
+      margin-bottom: 32px;
+    }
+
+    .why-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .why-section p:last-child { margin-bottom: 0; }
+
     @media (max-width: 520px) {
       header h1 { font-size: 1.25rem; }
       .subtitle  { font-size: 0.82rem; }
@@ -475,6 +567,54 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "No. Todo el procesamiento ocurre directamente en tu navegador. El texto que introduces nunca sale de tu dispositivo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo ordenar frases con varias palabras, no solo palabras sueltas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Cada línea se trata como un elemento único, independientemente de cuántas palabras tenga. Puedes ordenar frases completas, títulos o nombres con apellidos, siempre que cada elemento ocupe su propia línea."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo funciona el orden «Por longitud»?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Con esta opción, los elementos se ordenan de más corto a más largo según el número de caracteres de cada línea. Es útil para ver qué entradas son más concisas o detectar elementos muy largos que quizás conviene acortar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si dos elementos son idénticos salvo por las mayúsculas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si tienes activada la opción «Ignorar mayúsculas», «Manzana» y «manzana» se consideran duplicados y se elimina uno al activar también «Eliminar duplicados». Si «Ignorar mayúsculas» está desactivado, se tratan como elementos distintos y ambos se conservan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo deshacer una ordenación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La herramienta no tiene función de deshacer. Si necesitas volver al orden original, lo más práctico es tener guardada la lista de origen antes de ordenar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay límite en el número de elementos que puedo ordenar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No hay ningún límite en el número de líneas. La ordenación funciona directamente en el navegador y es capaz de manejar listas de miles de elementos sin problemas en cualquier dispositivo moderno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona con listas en otros idiomas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. La herramienta usa el algoritmo de comparación lingüística del navegador, que soporta muchos idiomas. Para listas en español usa específicamente el orden del alfabeto español, con la ñ en su lugar correcto."
         }
       }
     ]
@@ -606,6 +746,55 @@
         </p>
       </section>
 
+      <!-- ── Cómo funciona ── -->
+      <section class="how-section" aria-label="Cómo funciona">
+        <h2>Cómo funciona</h2>
+        <ol class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            <span class="step-body"><strong>Pega tu lista</strong> — Escribe o pega el contenido en el cuadro de texto. Cada elemento debe estar en una línea distinta. Si tienes elementos separados por comas u otro carácter, coloca primero cada uno en su propia línea.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span class="step-body"><strong>Elige el tipo de ordenación</strong> — Puedes ordenar de <strong>A a Z</strong>, de <strong>Z a A</strong>, <strong>por longitud</strong> de línea (de más corta a más larga) o en <strong>orden aleatorio</strong>. Selecciona la opción que necesites.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span class="step-body"><strong>Ajusta las opciones extra</strong> — Activa <strong>Eliminar duplicados</strong> para que no queden repetidos, <strong>Ignorar mayúsculas</strong> para que «Manzana» y «manzana» se traten igual, o <strong>Eliminar líneas vacías</strong> para limpiar la lista antes de ordenar.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span class="step-body"><strong>Ordena y copia</strong> — Pulsa «Ordenar» y la lista aparece reordenada en el mismo cuadro. La herramienta te indica cuántos elementos ha procesado y cuántos duplicados ha eliminado. Usa <strong>Copiar texto</strong> para llevarte el resultado.</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ── Casos de uso ── -->
+      <section class="use-cases-section" aria-label="Casos de uso">
+        <h2>Casos de uso habituales</h2>
+        <ul class="use-cases-list">
+          <li><strong>Ordenar un listado de nombres o asistentes a un evento.</strong> Si tienes los participantes de una reunión, los miembros de un equipo o los contactos de una agenda, ordenarlos alfabéticamente de forma manual lleva tiempo. Aquí se hace en un segundo.</li>
+          <li><strong>Preparar un índice o glosario.</strong> Los índices y glosarios deben estar en orden alfabético. Puedes redactar las entradas en el orden que te surjan y ordenarlas todas al final de una sola vez, sin perder el hilo mientras escribes.</li>
+          <li><strong>Limpiar listas fusionadas con duplicados.</strong> Si has combinado varias listas y sospechas que hay elementos repetidos, activa «Eliminar duplicados» y todos los elementos únicos quedarán con una sola ocurrencia, ordenados y listos para usar.</li>
+          <li><strong>Ordenar etiquetas o palabras clave para un sistema de contenidos.</strong> Si gestionas etiquetas de un blog, palabras clave de una campaña SEO o categorías de un catálogo, tenerlas en orden alfabético facilita la revisión y el mantenimiento del sistema.</li>
+          <li><strong>Barajar preguntas de un examen o cuestionario.</strong> Con la opción «Aleatorio» puedes desordenar una lista de preguntas, opciones de respuesta o elementos para crear variaciones de un cuestionario de forma rápida, sin copiar y pegar manualmente.</li>
+        </ul>
+      </section>
+
+      <!-- ── Por qué usar ── -->
+      <section class="why-section" aria-label="Por qué usar esta herramienta">
+        <h2>Por qué usar esta herramienta</h2>
+        <p>
+          Ordenar una lista en Excel o en un procesador de texto es posible, pero requiere tener esa herramienta abierta, seleccionar la columna correcta y recordar dónde está la función. Esta herramienta es más directa: copias la lista, la pegas, eliges el orden y listo. No hace falta abrir ningún programa, crear ningún archivo ni trabajar con ningún formato concreto.
+        </p>
+        <p>
+          El punto diferencial está en el tratamiento del español. Muchos sistemas usan el orden ASCII por defecto, lo que coloca la «ñ» al final del todo —después de la «z»— y trata los caracteres acentuados de forma incorrecta. Esta herramienta usa la comparación lingüística del español, de modo que «ñ» aparece entre «n» y «o» y los acentos no distorsionan el orden: «árbol» va junto a las demás palabras que empiezan por «a».
+        </p>
+        <p>
+          Si tienes listas con elementos repetidos, el botón «Eliminar duplicados» los detecta y los elimina en el mismo paso que la ordenación. No hace falta una pasada extra. El resultado es una lista ordenada y limpia de una sola vez, todo en el navegador y sin que tus datos salgan de tu dispositivo en ningún momento.
+        </p>
+      </section>
+
       <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
@@ -632,7 +821,7 @@
         <details>
           <summary>¿Se tienen en cuenta las mayúsculas al ordenar?</summary>
           <p>
-            Por defecto el orden ignora si las letras son mayúsculas o minúsculas, de
+            Per defecto el orden ignora si las letras son mayúsculas o minúsculas, de
             modo que <em>«manzana»</em> y <em>«Manzana»</em> se tratan igual. Si quieres
             que las mayúsculas vayan primero (orden ASCII), desactiva la opción
             <strong>Ignorar mayúsculas</strong>.
@@ -643,7 +832,66 @@
           <summary>¿Se envían mis datos a algún servidor?</summary>
           <p>
             No. Todo el procesamiento ocurre directamente en tu navegador. El texto que
-            introduces nunca sale de tu dispositivo.
+            introduces nunca sale de tu dispositivo, por lo que puedes usarla con listas
+            de datos confidenciales sin ninguna preocupación.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Puedo ordenar frases con varias palabras, no solo palabras sueltas?</summary>
+          <p>
+            Sí. Cada línea se trata como un elemento único, independientemente de cuántas
+            palabras tenga. Puedes ordenar frases completas, títulos, nombres con apellidos
+            o cualquier texto de múltiples palabras, siempre que cada elemento ocupe su
+            propia línea.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo funciona el orden «Por longitud»?</summary>
+          <p>
+            Con esta opción, los elementos se ordenan de más corto a más largo según el
+            número de caracteres de cada línea. Es útil para ver qué entradas son más
+            concisas, detectar elementos muy largos que quizás conviene acortar, o
+            simplemente dar a la lista una estructura visual diferente.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si dos elementos son idénticos salvo por las mayúsculas?</summary>
+          <p>
+            Si tienes activada la opción «Ignorar mayúsculas», <em>«Manzana»</em> y
+            <em>«manzana»</em> se consideran duplicados y se elimina uno al activar también
+            «Eliminar duplicados». Si «Ignorar mayúsculas» está desactivado, se tratan como
+            elementos distintos y ambos se conservan.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Puedo deshacer una ordenación?</summary>
+          <p>
+            La herramienta no tiene función de deshacer. Si necesitas volver al orden original,
+            lo más práctico es tener guardada la lista de origen antes de ordenar. Por eso
+            conviene conservar el texto original en otro lugar por si necesitas comparar.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Hay límite en el número de elementos que puedo ordenar?</summary>
+          <p>
+            No hay ningún límite en el número de líneas. La ordenación funciona directamente
+            en el navegador y es capaz de manejar listas de miles de elementos sin problemas
+            en cualquier dispositivo moderno.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Funciona con listas en otros idiomas?</summary>
+          <p>
+            Sí. La herramienta usa el algoritmo de comparación lingüística del navegador,
+            que soporta muchos idiomas. Para listas en español usa específicamente el orden
+            del alfabeto español. Para otros idiomas también ordenará correctamente según
+            sus propias reglas alfabéticas.
           </p>
         </details>
       </section>
