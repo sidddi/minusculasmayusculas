@@ -97,11 +97,31 @@
     }
 
     /* ── Tool nav ── */
+    .brand {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 4px;
+    }
+
+    .brand strong { color: var(--primary); font-weight: 800; }
+
+    .brand:hover strong { color: var(--primary-dark); }
+
     .tool-nav {
       display: flex;
       gap: 0;
       margin-top: 10px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
+
+    .tool-nav::-webkit-scrollbar { display: none; }
 
     .tool-nav a {
       display: inline-block;
@@ -112,6 +132,8 @@
       text-decoration: none;
       border-bottom: 3px solid transparent;
       transition: color 0.14s, border-color 0.14s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .tool-nav a:hover {
@@ -687,6 +709,7 @@
 
   <header>
     <div class="container">
+      <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
       <h1>Buscar y Reemplazar</h1>
       <p class="subtitle">Sustituye palabras o frases en tu texto al instante, online y gratis</p>
       <nav class="tool-nav" aria-label="Herramientas">
@@ -703,6 +726,16 @@
       </nav>
     </div>
   </header>
+  <script>
+    (function() {
+      var nav = document.querySelector('.tool-nav');
+      var active = nav && nav.querySelector('a.active');
+      if (active && nav.scrollWidth > nav.clientWidth) {
+        nav.scrollLeft = active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
+      }
+    })();
+  </script>
+
 
   <main>
     <div class="container">
