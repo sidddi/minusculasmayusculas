@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="82f67e93-af6b-4ca1-9a41-38ddc2bcd654" data-blockingmode="auto" type="text/javascript"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1180780703286273" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2CEDDK0K4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S2CEDDK0K4');
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contador de Caracteres | Contar Letras y Caracteres Online, Gratis</title>
+  <meta name="description" content="Contador de caracteres online gratis. Cuenta letras, caracteres con y sin espacios, palabras, frases y párrafos. Indicadores para Twitter, Instagram, Meta Description y SMS." />
+  <link rel="canonical" href="https://minusculasmayusculas.com/contador-caracteres.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://minusculasmayusculas.com/contador-caracteres.html" />
+  <meta property="og:title" content="Contador de Caracteres | Contar Letras y Caracteres Online, Gratis" />
+  <meta property="og:description" content="Contador de caracteres online gratis. Cuenta letras, caracteres con y sin espacios, palabras, frases y párrafos. Indicadores para Twitter, Instagram, Meta Description y SMS." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contador de Caracteres | Contar Letras y Caracteres Online, Gratis" />
+  <meta name="twitter:description" content="Contador de caracteres online gratis. Cuenta letras, caracteres con y sin espacios, palabras, frases y párrafos. Indicadores para Twitter, Instagram, Meta Description y SMS." />
+  <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary:       #1a73e8;
+      --primary-dark:  #1557b0;
+      --primary-light: #e8f0fe;
+      --primary-mid:   #d2e3fc;
+      --success:       #34a853;
+      --success-dark:  #2d9249;
+      --warning:       #f9ab00;
+      --danger:        #d93025;
+      --text:          #202124;
+      --muted:         #5f6368;
+      --border:        #dadce0;
+      --bg:            #ffffff;
+      --radius:        8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+                   'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      padding: 14px 0 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 3px;
+      margin-bottom: 10px;
+    }
+
+    .tool-nav {
+      display: flex;
+      gap: 0;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tool-nav a {
+      display: inline-block;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: color 0.14s, border-color 0.14s;
+    }
+
+    .tool-nav a:hover { color: var(--primary); }
+
+    .tool-nav a.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tool-section { margin-bottom: 36px; }
+
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.18s;
+      line-height: 1.6;
+    }
+
+    textarea:focus { border-color: var(--primary); }
+    textarea::placeholder { color: #9aa0a6; }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .stat-card {
+      padding: 14px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      background: #f8f9fa;
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Limit bars */
+    .limits-section {
+      margin: 14px 0;
+    }
+
+    .limits-section h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .limit-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .limit-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 60px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .limit-name {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .limit-bar-wrap {
+      height: 8px;
+      background: #e8eaed;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .limit-bar {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.2s ease, background 0.2s ease;
+      background: var(--success);
+    }
+
+    .limit-bar.warn { background: var(--warning); }
+    .limit-bar.over { background: var(--danger); width: 100% !important; }
+
+    .limit-count {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .limit-count.over { color: var(--danger); font-weight: 600; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background 0.14s, border-color 0.14s, color 0.14s, transform 0.08s;
+      line-height: 1.3;
+    }
+
+    .btn:active { transform: scale(0.96); }
+    .btn:disabled { opacity: 0.45; cursor: default; }
+    .btn:disabled:active { transform: none; }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f3f4;
+      border-color: #bdc1c6;
+    }
+
+    /* Content & FAQ */
+    .content-section { margin-bottom: 32px; }
+
+    .content-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .content-section p:last-child { margin-bottom: 0; }
+
+    .faq-section { margin-bottom: 44px; }
+
+    .faq-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--primary);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    details[open] summary::after { content: '−'; }
+
+    details p {
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: #3c4043;
+      line-height: 1.75;
+    }
+
+    .how-section, .use-cases-section, .why-section {
+      margin-bottom: 32px;
+    }
+
+    .how-section h2, .use-cases-section h2, .why-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+    }
+
+    .step-body strong { color: var(--text); }
+
+    .use-cases-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .use-cases-list li {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .use-cases-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .why-section p {
+      font-size: 0.95rem;
+      color: #3c4043;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .why-section p:last-child { margin-bottom: 0; }
+
+    footer {
+      background: #f8f9fa;
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer p { color: var(--muted); font-size: 0.82rem; }
+
+    footer nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+
+    footer a:hover { color: var(--primary); text-decoration: underline; }
+
+    footer .sep { color: var(--border); font-size: 0.82rem; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.25rem; }
+      .subtitle  { font-size: 0.82rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .limit-row { grid-template-columns: 110px 1fr 50px; }
+      .btn { font-size: 0.82rem; padding: 9px 10px; }
+      footer .container { flex-direction: column; text-align: center; }
+      footer nav { justify-content: center; }
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Contador de Caracteres Online",
+    "url": "https://minusculasmayusculas.com/contador-caracteres.html",
+    "description": "Herramienta online gratuita para contar caracteres, letras, palabras, frases y párrafos al instante. Incluye indicadores de límite para Twitter, Instagram, Meta Description y SMS. Sin registro, funciona en el navegador.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "inLanguage": "es",
+    "isAccessibleForFree": true,
+    "dateModified": "2026-06-11",
+    "featureList": [
+      "Contar caracteres con y sin espacios",
+      "Contar palabras, frases y párrafos",
+      "Indicador de límite para Twitter (280 caracteres)",
+      "Indicador de límite para Meta Description SEO (155 caracteres)",
+      "Indicador de límite para SMS (160 caracteres)",
+      "Indicador de límite para Instagram (2200 caracteres)",
+      "Procesamiento local en el navegador sin envío de datos"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Siddharta Navarro Castellar"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cómo contar los caracteres de un texto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pega o escribe tu texto en el campo de esta herramienta. El contador se actualiza al instante y muestra los caracteres totales (con espacios), los caracteres sin espacios, las palabras, las frases y los párrafos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre caracteres con y sin espacios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los caracteres con espacios incluyen todos los espacios en blanco entre palabras. Los caracteres sin espacios cuentan solo las letras, números y signos de puntuación, excluyendo cualquier espacio. Twitter, Instagram y la mayoría de redes sociales cuentan los espacios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos caracteres permite Twitter/X?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Twitter (ahora X) permite un máximo de 280 caracteres por tuit para las cuentas normales. Las cuentas de pago (X Premium) tienen límites más altos. La herramienta muestra en tiempo real cuántos caracteres te quedan o cuántos has superado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos caracteres debe tener una meta description para SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google recorta las meta descriptions que superan aproximadamente 155-160 caracteres. Se recomienda mantenerlas entre 120 y 155 caracteres para que se muestren completas en los resultados de búsqueda. Esta herramienta incluye un indicador específico para este límite."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos caracteres caben en un SMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un SMS estándar tiene un límite de 160 caracteres usando la codificación GSM-7. Si el mensaje incluye caracteres especiales, emojis o letras con acento (en algunas operadoras), el límite baja a 70 caracteres por segmento. Los mensajes más largos se envían en varios SMS y se cobran como mensajes múltiples."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos caracteres permite Instagram en una publicación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Instagram permite hasta 2.200 caracteres en el texto de cada publicación. Sin embargo, solo muestra las primeras 125 caracteres antes del botón «más», por lo que es recomendable poner la información más importante al inicio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se envía mi texto a algún servidor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Todo el recuento se realiza directamente en tu navegador mediante JavaScript. El texto que introduces nunca sale de tu dispositivo ni se almacena en ningún servidor."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://minusculasmayusculas.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contador de Caracteres",
+        "item": "https://minusculasmayusculas.com/contador-caracteres.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Contador de Caracteres</h1>
+      <p class="subtitle">Cuenta letras, caracteres, palabras y frases al instante, online y gratis</p>
+      <nav class="tool-nav" aria-label="Herramientas">
+        <a href="/">Mayúsculas y Minúsculas</a>
+        <a href="contador-palabras.html">Contador de Palabras</a>
+        <a href="contador-caracteres.html" class="active">Contador de Caracteres</a>
+        <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+        <a href="ordenar-lista.html">Ordenar Lista</a>
+        <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
+        <a href="numero-a-letra.html">Número a Letras</a>
+        <a href="invertir-texto.html">Invertir Texto</a>
+        <a href="quitar-acentos.html">Quitar Acentos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section class="tool-section" aria-label="Contador de caracteres">
+
+        <textarea
+          id="main-textarea"
+          placeholder="Escribe o pega tu texto aquí para contar los caracteres al instante…"
+          aria-label="Texto para contar caracteres"
+          oninput="actualizar()"
+          autofocus
+        ></textarea>
+
+        <!-- Stats -->
+        <div class="stats-grid" aria-live="polite" aria-label="Estadísticas del texto">
+          <div class="stat-card">
+            <span class="stat-value" id="stat-chars">0</span>
+            <span class="stat-label">Caracteres</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-chars-no-spaces">0</span>
+            <span class="stat-label">Sin espacios</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-words">0</span>
+            <span class="stat-label">Palabras</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-sentences">0</span>
+            <span class="stat-label">Frases</span>
+          </div>
+        </div>
+
+        <!-- Limits -->
+        <div class="limits-section" aria-label="Límites de caracteres por plataforma">
+          <h3>Límites por plataforma</h3>
+          <div class="limit-rows">
+            <div class="limit-row">
+              <span class="limit-name">Meta Description</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar" id="bar-meta" style="width:0%"></div>
+              </div>
+              <span class="limit-count" id="count-meta">0 / 155</span>
+            </div>
+            <div class="limit-row">
+              <span class="limit-name">SMS</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar" id="bar-sms" style="width:0%"></div>
+              </div>
+              <span class="limit-count" id="count-sms">0 / 160</span>
+            </div>
+            <div class="limit-row">
+              <span class="limit-name">Twitter / X</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar" id="bar-twitter" style="width:0%"></div>
+              </div>
+              <span class="limit-count" id="count-twitter">0 / 280</span>
+            </div>
+            <div class="limit-row">
+              <span class="limit-name">Instagram</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar" id="bar-instagram" style="width:0%"></div>
+              </div>
+              <span class="limit-count" id="count-instagram">0 / 2200</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+        </div>
+      </section>
+
+      <!-- SEO content -->
+      <section class="content-section" aria-label="Descripción de la herramienta">
+        <p>
+          Esta herramienta cuenta al instante los caracteres de cualquier texto. Pega o escribe
+          tu texto en el cuadro y verás de inmediato cuántos caracteres tiene en total, cuántos
+          sin espacios, el número de palabras y el número de frases. No es necesario pulsar
+          ningún botón: el recuento se actualiza solo mientras escribes.
+        </p>
+        <p>
+          Además, los indicadores de plataforma te muestran si tu texto cabe dentro de los
+          límites de Twitter/X (280 caracteres), de una meta description SEO (155 caracteres),
+          de un SMS (160 caracteres) o de una publicación de Instagram (2.200 caracteres). La
+          barra de progreso cambia de verde a naranja cuando te acercas al límite, y a rojo
+          cuando lo superas.
+        </p>
+      </section>
+
+      <!-- Cómo funciona -->
+      <section class="how-section" aria-label="Cómo funciona">
+        <h2>Cómo funciona</h2>
+        <ol class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            <span class="step-body"><strong>Pega o escribe tu texto</strong> — Haz clic en el cuadro de texto y escribe directamente, o pega el contenido con Ctrl+V (Cmd+V en Mac). El recuento se actualiza en tiempo real con cada tecla que pulsas.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span class="step-body"><strong>Lee el panel de estadísticas</strong> — Verás cuatro cifras: los caracteres totales (incluyendo espacios), los caracteres sin espacios (solo letras, números y signos), las palabras y las frases del texto.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span class="step-body"><strong>Comprueba los límites de plataforma</strong> — Las barras de progreso te indican cuánto espacio has usado en cada plataforma. Verde significa que estás dentro del límite; naranja, que te estás acercando; rojo, que lo has superado.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span class="step-body"><strong>Ajusta tu texto hasta cumplir el límite</strong> — Si necesitas reducir caracteres para un tuit o una meta description, edita el texto directamente en el cuadro y el recuento se actualiza al instante para que veas el efecto de cada cambio.</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Casos de uso -->
+      <section class="use-cases-section" aria-label="Casos de uso">
+        <h2>Casos de uso habituales</h2>
+        <ul class="use-cases-list">
+          <li><strong>SEO y meta descriptions.</strong> Google muestra en los resultados de búsqueda solo los primeros 155-160 caracteres de la meta description. Superar ese límite hace que el texto se corte con puntos suspensivos, lo que perjudica el CTR. Con esta herramienta puedes ajustar el texto exactamente al espacio disponible.</li>
+          <li><strong>Tuits y publicaciones en redes sociales.</strong> Twitter/X tiene un límite de 280 caracteres, LinkedIn permite hasta 3.000 en actualizaciones, y Facebook unos 63.000. Saber cuántos caracteres usas te permite optimizar el mensaje para que no quede cortado ni pierda impacto.</li>
+          <li><strong>Campañas de SMS marketing.</strong> Un SMS tiene 160 caracteres; si lo superas, el mensaje se divide en dos SMS y se cobra el doble. Usar el contador antes de enviar tu campaña te evita costes innecesarios y mensajes cortados que confunden al receptor.</li>
+          <li><strong>Textos para aplicaciones y software.</strong> Los campos de formularios, los títulos de botones, las notificaciones push y los textos de interfaz suelen tener límites estrictos. El contador te ayuda a ajustar cada cadena de texto al espacio disponible en la interfaz antes de enviársela al equipo de desarrollo.</li>
+          <li><strong>Documentos académicos y trabajos universitarios.</strong> Muchos resúmenes de TFG, TFM y artículos científicos tienen límites de palabras o caracteres. El contador te permite verificar que cumples el requisito sin tener que confiar en el recuento de Word, que puede variar según la configuración.</li>
+          <li><strong>Ejercicios de escritura cronometrada.</strong> Muchos retos de escritura creativa (microrrelatos, haiku en prosa, loglines de guión) imponen límites de caracteres. El contador te permite practicar con precisión y saber exactamente cuándo has alcanzado el límite.</li>
+        </ul>
+      </section>
+
+      <!-- Por qué usar -->
+      <section class="why-section" aria-label="Por qué usar esta herramienta">
+        <h2>Por qué usar esta herramienta</h2>
+        <p>
+          Los procesadores de texto como Word o Google Docs cuentan palabras y caracteres,
+          pero no muestran los límites de las plataformas digitales más habituales. Esta
+          herramienta combina el recuento estándar con los indicadores de límite más útiles
+          para quien trabaja con contenido digital: SEO, redes sociales y comunicaciones
+          por SMS.
+        </p>
+        <p>
+          A diferencia de otras herramientas similares, el recuento es completamente local:
+          el texto que introduces nunca sale de tu navegador. Esto es especialmente importante
+          cuando trabajas con contenido confidencial, borradores no publicados o comunicaciones
+          internas que no deben filtrarse a servidores externos.
+        </p>
+        <p>
+          El diseño minimalista y la respuesta inmediata permiten centrarse en lo que importa:
+          el texto. No hay anuncios invasivos que interrumpan el flujo de trabajo, ni
+          formularios de registro, ni límites de uso. La herramienta funciona igual en
+          escritorio, tableta o móvil sin necesidad de instalar nada.
+        </p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section" aria-label="Preguntas frecuentes">
+        <h2>Preguntas frecuentes</h2>
+
+        <details>
+          <summary>¿Cómo contar los caracteres de un texto?</summary>
+          <p>
+            Pega o escribe tu texto en el campo de esta herramienta. El contador se actualiza
+            al instante y muestra los caracteres totales (con espacios), los caracteres sin
+            espacios, las palabras, las frases y los párrafos.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la diferencia entre caracteres con y sin espacios?</summary>
+          <p>
+            Los <strong>caracteres con espacios</strong> incluyen todos los espacios en blanco
+            entre palabras. Los <strong>caracteres sin espacios</strong> cuentan solo las letras,
+            números y signos de puntuación, excluyendo cualquier espacio. Twitter, Instagram y la
+            mayoría de redes sociales cuentan los espacios dentro de su límite.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuántos caracteres permite Twitter/X?</summary>
+          <p>
+            Twitter (ahora X) permite un máximo de <strong>280 caracteres</strong> por tuit para
+            las cuentas normales. Las cuentas de pago (X Premium) tienen límites más altos para
+            artículos largos. La herramienta muestra en tiempo real cuántos caracteres te quedan
+            o cuántos has superado.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuántos caracteres debe tener una meta description para SEO?</summary>
+          <p>
+            Google recorta las meta descriptions que superan aproximadamente
+            <strong>155-160 caracteres</strong>. Se recomienda mantenerlas entre 120 y 155
+            caracteres para que se muestren completas en los resultados de búsqueda. Esta
+            herramienta incluye un indicador específico para este límite que te avisa cuando
+            te acercas al máximo.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuántos caracteres caben en un SMS?</summary>
+          <p>
+            Un SMS estándar tiene un límite de <strong>160 caracteres</strong> usando la
+            codificación GSM-7. Si el mensaje incluye caracteres especiales, emojis o algunas
+            letras con acento (dependiendo de la operadora), el límite puede bajar a 70
+            caracteres por segmento. Los mensajes más largos se envían en varios SMS y se
+            cobran como mensajes múltiples.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cuántos caracteres permite Instagram en una publicación?</summary>
+          <p>
+            Instagram permite hasta <strong>2.200 caracteres</strong> en el texto de cada
+            publicación. Sin embargo, solo muestra las primeras 125 caracteres antes del
+            botón «más», por lo que es recomendable poner la información más importante y
+            el gancho al inicio del texto.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Se envía mi texto a algún servidor?</summary>
+          <p>
+            No. Todo el recuento se realiza directamente en tu navegador mediante JavaScript.
+            El texto que introduces nunca sale de tu dispositivo ni se almacena en ningún
+            servidor externo, por lo que puedes usarlo con contenido confidencial sin
+            ninguna preocupación.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo se cuentan las frases?</summary>
+          <p>
+            La herramienta cuenta como frases los segmentos terminados en punto (<strong>.</strong>),
+            signo de exclamación (<strong>!</strong>) o signo de interrogación (<strong>?</strong>).
+            Las abreviaturas y los puntos en números pueden añadir un margen mínimo de error, pero
+            el resultado es fiable para textos de longitud normal.
+          </p>
+        </details>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 minusculasmayusculas.com</p>
+      <nav aria-label="Pie de página">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <span class="sep">|</span>
+        <a href="politica-privacidad.html">Política de privacidad</a>
+        <span class="sep">|</span>
+        <a href="politica-cookies.html">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    var LIMITS = [
+      { id: 'meta',      max: 155,  warnAt: 0.85 },
+      { id: 'sms',       max: 160,  warnAt: 0.85 },
+      { id: 'twitter',   max: 280,  warnAt: 0.85 },
+      { id: 'instagram', max: 2200, warnAt: 0.90 }
+    ];
+
+    function contarPalabras(text) {
+      var trimmed = text.trim();
+      if (!trimmed) return 0;
+      return trimmed.split(/\s+/).length;
+    }
+
+    function contarFrases(text) {
+      var trimmed = text.trim();
+      if (!trimmed) return 0;
+      var matches = trimmed.match(/[.!?]+/g);
+      if (!matches) return 1;
+      return matches.length;
+    }
+
+    function actualizar() {
+      var text = document.getElementById('main-textarea').value;
+      var totalChars = text.length;
+      var charsNoSpaces = text.replace(/\s/g, '').length;
+      var words = contarPalabras(text);
+      var sentences = text.trim() ? contarFrases(text) : 0;
+
+      document.getElementById('stat-chars').textContent = totalChars.toLocaleString('es-ES');
+      document.getElementById('stat-chars-no-spaces').textContent = charsNoSpaces.toLocaleString('es-ES');
+      document.getElementById('stat-words').textContent = words.toLocaleString('es-ES');
+      document.getElementById('stat-sentences').textContent = sentences.toLocaleString('es-ES');
+
+      LIMITS.forEach(function(limit) {
+        var bar = document.getElementById('bar-' + limit.id);
+        var count = document.getElementById('count-' + limit.id);
+        var ratio = totalChars / limit.max;
+        var pct = Math.min(ratio * 100, 100);
+
+        bar.style.width = pct + '%';
+        bar.className = 'limit-bar';
+        count.className = 'limit-count';
+
+        if (ratio > 1) {
+          bar.classList.add('over');
+          count.classList.add('over');
+          count.textContent = totalChars.toLocaleString('es-ES') + ' / ' + limit.max.toLocaleString('es-ES') + ' (−' + (totalChars - limit.max) + ')';
+        } else if (ratio >= limit.warnAt) {
+          bar.classList.add('warn');
+          count.textContent = totalChars.toLocaleString('es-ES') + ' / ' + limit.max.toLocaleString('es-ES');
+        } else {
+          count.textContent = totalChars.toLocaleString('es-ES') + ' / ' + limit.max.toLocaleString('es-ES');
+        }
+      });
+    }
+
+    function limpiar() {
+      document.getElementById('main-textarea').value = '';
+      actualizar();
+      document.getElementById('main-textarea').focus();
+    }
+
+    actualizar();
+  </script>
+
+</body>
+</html>
