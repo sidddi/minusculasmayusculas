@@ -93,50 +93,102 @@
       margin-bottom: 10px;
     }
 
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
     .brand {
-      display: inline-block;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: 0.01em;
       color: var(--muted);
       text-decoration: none;
-      margin-bottom: 4px;
+      white-space: nowrap;
     }
 
     .brand strong { color: var(--primary); font-weight: 800; }
 
     .brand:hover strong { color: var(--primary-dark); }
 
-    .tool-nav {
-      display: flex;
-      gap: 0;
-      margin-top: 10px;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
+    .tools-menu { position: relative; }
 
-    .tool-nav::-webkit-scrollbar { display: none; }
-
-    .tool-nav a {
-      display: inline-block;
-      padding: 8px 16px;
+    .tools-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      font-family: inherit;
       font-size: 0.88rem;
       font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 3px solid transparent;
-      transition: color 0.14s, border-color 0.14s;
-      white-space: nowrap;
-      flex-shrink: 0;
+      color: var(--primary);
+      cursor: pointer;
+      transition: border-color 0.14s, background 0.14s;
     }
 
-    .tool-nav a:hover { color: var(--primary); }
+    .tools-btn:hover {
+      border-color: var(--primary-mid);
+      background: var(--primary-light);
+    }
 
-    .tool-nav a.active {
+    .tools-btn .caret {
+      font-size: 0.65rem;
+      transition: transform 0.14s;
+    }
+
+    .tools-btn[aria-expanded="true"] .caret { transform: rotate(180deg); }
+
+    .tools-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      z-index: 100;
+      min-width: 460px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(60, 64, 67, 0.15);
+      padding: 8px;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .tools-dropdown.open { display: grid; }
+
+    .tools-dropdown a {
+      display: block;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .tools-dropdown a:hover {
+      background: var(--primary-light);
       color: var(--primary);
-      border-bottom-color: var(--primary);
+    }
+
+    .tools-dropdown a.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .tools-dropdown {
+        min-width: 0;
+        width: calc(100vw - 40px);
+        grid-template-columns: 1fr;
+      }
     }
 
     .tool-section { margin-bottom: 36px; }
@@ -582,30 +634,52 @@
 
   <header>
     <div class="container">
-      <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
+      <div class="header-bar">
+        <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
+        <div class="tools-menu">
+          <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
+            Herramientas <span class="caret">&#9662;</span>
+          </button>
+          <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
+            <a href="/">Mayúsculas y Minúsculas</a>
+            <a href="contador-palabras.html">Contador de Palabras</a>
+            <a href="contador-caracteres.html">Contador de Caracteres</a>
+            <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+            <a href="ordenar-lista.html">Ordenar Lista</a>
+            <a href="eliminar-duplicados.html" class="active">Eliminar Duplicados</a>
+            <a href="numero-a-letra.html">Número a Letras</a>
+            <a href="invertir-texto.html">Invertir Texto</a>
+            <a href="quitar-acentos.html">Quitar Acentos</a>
+            <a href="eliminar-espacios.html">Eliminar Espacios</a>
+          
+          </nav>
+        </div>
+      </div>
       <h1>Eliminar Duplicados</h1>
       <p class="subtitle">Elimina líneas repetidas de cualquier lista al instante, online y gratis</p>
-      <nav class="tool-nav" aria-label="Herramientas">
-        <a href="/">Mayúsculas y Minúsculas</a>
-        <a href="contador-palabras.html">Contador de Palabras</a>
-        <a href="contador-caracteres.html">Contador de Caracteres</a>
-        <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
-        <a href="ordenar-lista.html">Ordenar Lista</a>
-        <a href="eliminar-duplicados.html" class="active">Eliminar Duplicados</a>
-        <a href="numero-a-letra.html">Número a Letras</a>
-        <a href="invertir-texto.html">Invertir Texto</a>
-        <a href="quitar-acentos.html">Quitar Acentos</a>
-        <a href="eliminar-espacios.html">Eliminar Espacios</a>
-      </nav>
     </div>
   </header>
   <script>
     (function() {
-      var nav = document.querySelector('.tool-nav');
-      var active = nav && nav.querySelector('a.active');
-      if (active && nav.scrollWidth > nav.clientWidth) {
-        nav.scrollLeft = active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
-      }
+      var btn = document.getElementById('tools-btn');
+      var menu = document.getElementById('tools-dropdown');
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function(e) {
+        if (menu.classList.contains('open') && !menu.contains(e.target)) {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
     })();
   </script>
 
