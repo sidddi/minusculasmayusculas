@@ -570,6 +570,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -735,6 +757,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -858,56 +881,71 @@
         </p>
       </section>
 
-      <!-- ── Cómo funciona ── -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Criterios ── -->
+      <section class="how-section" aria-label="Criterios de ordenación">
+        <h2>Cuatro criterios de ordenación</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Modo</th><th>Qué hace</th><th>Cuándo usarlo</th></tr></thead>
+            <tbody>
+              <tr><td>A → Z</td><td>Orden alfabético ascendente</td><td>Listados de nombres, índices, glosarios</td></tr>
+              <tr><td>Z → A</td><td>Orden alfabético descendente</td><td>Ver el final del alfabeto primero, invertir un orden previo</td></tr>
+              <tr><td>Por longitud</td><td>De la línea más corta a la más larga</td><td>Menús, etiquetas y listas donde la longitud visual importa</td></tr>
+              <tr><td>Aleatorio</td><td>Baraja las líneas</td><td>Sorteos, turnos de exposición, orden de preguntas</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── Orden español ── -->
+      <section class="why-section" aria-label="Orden alfabético español">
+        <h2>Ordenar en español no es trivial</h2>
+        <p>
+          Un ordenador ingenuo ordena por códigos de carácter, y ahí las tildes lo rompen
+          todo: «Álvarez» acabaría después de «Zúñiga», porque la Á vale más que la Z en
+          la tabla de caracteres. Esta herramienta ordena con el criterio alfabético del
+          español: «Álvarez» queda donde esperas, junto a «Alonso», y la ñ ocupa su lugar
+          entre la n y la o.
+        </p>
+        <p>
+          La casilla <strong>«Ignorar mayúsculas al ordenar»</strong> evita el otro clásico:
+          que «zapato» y «Zapato» se separen en la lista por la caja de la inicial. Y si la
+          lista llega con ruido, las casillas de <strong>eliminar duplicados</strong> y
+          <strong>eliminar líneas vacías</strong> la dejan limpia en la misma pasada, sin
+          herramientas adicionales.
+        </p>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Cómo se usa</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega tu lista</strong> — Escribe o pega el contenido en el cuadro de texto. Cada elemento debe estar en una línea distinta. Si tienes elementos separados por comas u otro carácter, coloca primero cada uno en su propia línea.</span>
+            <span class="step-body"><strong>Pega la lista</strong>, con un elemento por línea: nombres, tareas, palabras clave, referencias.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Elige el tipo de ordenación</strong> — Puedes ordenar de <strong>A a Z</strong>, de <strong>Z a A</strong>, <strong>por longitud</strong> de línea (de más corta a más larga) o en <strong>orden aleatorio</strong>. Selecciona la opción que necesites.</span>
+            <span class="step-body"><strong>Elige el criterio</strong> (A→Z, Z→A, longitud o aleatorio) y marca las opciones de limpieza que quieras aplicar de paso.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Ajusta las opciones extra</strong> — Activa <strong>Eliminar duplicados</strong> para que no queden repetidos, <strong>Ignorar mayúsculas</strong> para que «Manzana» y «manzana» se traten igual, o <strong>Eliminar líneas vacías</strong> para limpiar la lista antes de ordenar.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Ordena y copia</strong> — Pulsa «Ordenar» y la lista aparece reordenada en el mismo cuadro. La herramienta te indica cuántos elementos ha procesado y cuántos duplicados ha eliminado. Usa <strong>Copiar texto</strong> para llevarte el resultado.</span>
+            <span class="step-body"><strong>Pulsa «Ordenar» y copia el resultado.</strong> Puedes reordenar con otro criterio sin volver a pegar la lista.</span>
           </li>
         </ol>
       </section>
 
-      <!-- ── Casos de uso ── -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
+      <!-- ── Usos ── -->
+      <section class="use-cases-section" aria-label="Usos típicos">
+        <h2>Listas que se ordenan con frecuencia</h2>
         <ul class="use-cases-list">
-          <li><strong>Ordenar un listado de nombres o asistentes a un evento.</strong> Si tienes los participantes de una reunión, los miembros de un equipo o los contactos de una agenda, ordenarlos alfabéticamente de forma manual lleva tiempo. Aquí se hace en un segundo.</li>
-          <li><strong>Preparar un índice o glosario.</strong> Los índices y glosarios deben estar en orden alfabético. Puedes redactar las entradas en el orden que te surjan y ordenarlas todas al final de una sola vez, sin perder el hilo mientras escribes.</li>
-          <li><strong>Limpiar listas fusionadas con duplicados.</strong> Si has combinado varias listas y sospechas que hay elementos repetidos, activa «Eliminar duplicados» y todos los elementos únicos quedarán con una sola ocurrencia, ordenados y listos para usar.</li>
-          <li><strong>Ordenar etiquetas o palabras clave para un sistema de contenidos.</strong> Si gestionas etiquetas de un blog, palabras clave de una campaña SEO o categorías de un catálogo, tenerlas en orden alfabético facilita la revisión y el mantenimiento del sistema.</li>
-          <li><strong>Barajar preguntas de un examen o cuestionario.</strong> Con la opción «Aleatorio» puedes desordenar una lista de preguntas, opciones de respuesta o elementos para crear variaciones de un cuestionario de forma rápida, sin copiar y pegar manualmente.</li>
+          <li><strong>Listados de personas</strong> para actas, convocatorias o llamamientos, donde el orden alfabético correcto en español es lo esperado.</li>
+          <li><strong>Palabras clave y etiquetas</strong> antes de cargarlas en una herramienta SEO o un gestor de contenidos.</li>
+          <li><strong>Bibliografías y referencias</strong> que deben entregarse ordenadas alfabéticamente.</li>
+          <li><strong>Sorteos y turnos</strong>: el modo aleatorio decide un orden de intervención sin papelitos ni discusiones.</li>
         </ul>
       </section>
 
-      <!-- ── Por qué usar ── -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Ordenar una lista en Excel o en un procesador de texto es posible, pero requiere tener esa herramienta abierta, seleccionar la columna correcta y recordar dónde está la función. Esta herramienta es más directa: copias la lista, la pegas, eliges el orden y listo. No hace falta abrir ningún programa, crear ningún archivo ni trabajar con ningún formato concreto.
-        </p>
-        <p>
-          El punto diferencial está en el tratamiento del español. Muchos sistemas usan el orden ASCII por defecto, lo que coloca la «ñ» al final del todo —después de la «z»— y trata los caracteres acentuados de forma incorrecta. Esta herramienta usa la comparación lingüística del español, de modo que «ñ» aparece entre «n» y «o» y los acentos no distorsionan el orden: «árbol» va junto a las demás palabras que empiezan por «a».
-        </p>
-        <p>
-          Si tienes listas con elementos repetidos, el botón «Eliminar duplicados» los detecta y los elimina en el mismo paso que la ordenación. No hace falta una pasada extra. El resultado es una lista ordenada y limpia de una sola vez, todo en el navegador y sin que tus datos salgan de tu dispositivo en ningún momento.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -1015,6 +1053,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

@@ -528,6 +528,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -669,6 +691,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -792,67 +815,80 @@
         </p>
       </section>
 
-      <!-- Cómo funciona -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Qué mide ── -->
+      <section class="why-section" aria-label="Qué mide el contador">
+        <h2>Qué mide exactamente</h2>
+        <p>
+          El contador muestra cuatro cifras en tiempo real mientras escribes o pegas:
+          <strong>caracteres totales</strong> (incluyendo espacios y saltos de línea),
+          <strong>caracteres sin espacios</strong>, <strong>palabras</strong> y
+          <strong>frases</strong>. No hay que pulsar ningún botón: cada tecla actualiza
+          los números.
+        </p>
+        <p>
+          La distinción entre «con espacios» y «sin espacios» importa más de lo que parece.
+          Los límites de las plataformas (un tuit, un SMS, una meta descripción) cuentan
+          los espacios como caracteres; en cambio, algunas tarifas de traducción y
+          corrección se calculan sobre caracteres sin espacios. Tener ambas cifras a la
+          vista evita sorpresas en los dos escenarios.
+        </p>
+      </section>
+
+      <!-- ── Límites ── -->
+      <section class="how-section" aria-label="Límites de plataformas">
+        <h2>Límites de caracteres que conviene conocer</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Dónde</th><th>Límite orientativo</th></tr></thead>
+            <tbody>
+              <tr><td>Publicación en X (Twitter)</td><td>280 caracteres</td></tr>
+              <tr><td>Biografía de Instagram</td><td>150 caracteres</td></tr>
+              <tr><td>SMS clásico</td><td>160 caracteres</td></tr>
+              <tr><td>Título de página (resultado de Google)</td><td>≈ 60 caracteres visibles</td></tr>
+              <tr><td>Meta descripción (resultado de Google)</td><td>≈ 155 caracteres visibles</td></tr>
+              <tr><td>Titular de perfil de LinkedIn</td><td>220 caracteres</td></tr>
+              <tr><td>Título de vídeo de YouTube</td><td>100 caracteres</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Los límites cambian con el tiempo y algunos no son cortes duros sino puntos donde
+          el texto se trunca con puntos suspensivos, como ocurre en los resultados de
+          Google. La práctica recomendable es quedarse un 5–10&nbsp;% por debajo del límite
+          para no jugársela con la última palabra.
+        </p>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Cómo se usa</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega o escribe tu texto</strong> — Haz clic en el cuadro de texto y escribe directamente, o pega el contenido con Ctrl+V (Cmd+V en Mac). El recuento se actualiza en tiempo real con cada tecla que pulsas.</span>
+            <span class="step-body"><strong>Escribe o pega el texto</strong> en el cuadro. Las cuatro métricas aparecen al instante encima del texto.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Lee el panel de estadísticas</strong> — Verás cuatro cifras: los caracteres totales (incluyendo espacios), los caracteres sin espacios (solo letras, números y signos), las palabras y las frases del texto.</span>
+            <span class="step-body"><strong>Edita hasta entrar en el límite.</strong> Como el recuento es continuo, puedes recortar palabra a palabra y ver el efecto inmediato.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Comprueba los límites de plataforma</strong> — Las barras de progreso te indican cuánto espacio has usado en cada plataforma. Verde significa que estás dentro del límite; naranja, que te estás acercando; rojo, que lo has superado.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Ajusta tu texto hasta cumplir el límite</strong> — Si necesitas reducir caracteres para un tuit o una meta description, edita el texto directamente en el cuadro y el recuento se actualiza al instante para que veas el efecto de cada cambio.</span>
+            <span class="step-body"><strong>Copia la versión final</strong> y pégala en la plataforma de destino con la tranquilidad de que cabe.</span>
           </li>
         </ol>
       </section>
 
-      <!-- Casos de uso -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
+      <!-- ── Para quién ── -->
+      <section class="use-cases-section" aria-label="Para quién es útil">
+        <h2>Quién lo necesita a diario</h2>
         <ul class="use-cases-list">
-          <li><strong>SEO y meta descriptions.</strong> Google muestra en los resultados de búsqueda solo los primeros 155-160 caracteres de la meta description. Superar ese límite hace que el texto se corte con puntos suspensivos, lo que perjudica el CTR. Con esta herramienta puedes ajustar el texto exactamente al espacio disponible.</li>
-          <li><strong>Tuits y publicaciones en redes sociales.</strong> Twitter/X tiene un límite de 280 caracteres, LinkedIn permite hasta 3.000 en actualizaciones, y Facebook unos 63.000. Saber cuántos caracteres usas te permite optimizar el mensaje para que no quede cortado ni pierda impacto.</li>
-          <li><strong>Campañas de SMS marketing.</strong> Un SMS tiene 160 caracteres; si lo superas, el mensaje se divide en dos SMS y se cobra el doble. Usar el contador antes de enviar tu campaña te evita costes innecesarios y mensajes cortados que confunden al receptor.</li>
-          <li><strong>Textos para aplicaciones y software.</strong> Los campos de formularios, los títulos de botones, las notificaciones push y los textos de interfaz suelen tener límites estrictos. El contador te ayuda a ajustar cada cadena de texto al espacio disponible en la interfaz antes de enviársela al equipo de desarrollo.</li>
-          <li><strong>Documentos académicos y trabajos universitarios.</strong> Muchos resúmenes de TFG, TFM y artículos científicos tienen límites de palabras o caracteres. El contador te permite verificar que cumples el requisito sin tener que confiar en el recuento de Word, que puede variar según la configuración.</li>
-          <li><strong>Ejercicios de escritura cronometrada.</strong> Muchos retos de escritura creativa (microrrelatos, haiku en prosa, loglines de guión) imponen límites de caracteres. El contador te permite practicar con precisión y saber exactamente cuándo has alcanzado el límite.</li>
+          <li><strong>Quien gestiona redes sociales</strong> y ajusta cada publicación al límite de la plataforma sin sacrificar el mensaje.</li>
+          <li><strong>Quien hace SEO</strong> y escribe títulos y meta descripciones que deben caber en el resultado de búsqueda sin truncarse.</li>
+          <li><strong>Quien rellena formularios con límite</strong>: resúmenes de candidatura, descripciones de producto, campos de texto con tope estricto.</li>
+          <li><strong>Quien redacta anuncios</strong>, donde cada variante de texto tiene un máximo de caracteres definido por la plataforma publicitaria.</li>
         </ul>
       </section>
 
-      <!-- Por qué usar -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Los procesadores de texto como Word o Google Docs cuentan palabras y caracteres,
-          pero no muestran los límites de las plataformas digitales más habituales. Esta
-          herramienta combina el recuento estándar con los indicadores de límite más útiles
-          para quien trabaja con contenido digital: SEO, redes sociales y comunicaciones
-          por SMS.
-        </p>
-        <p>
-          A diferencia de otras herramientas similares, el recuento es completamente local:
-          el texto que introduces nunca sale de tu navegador. Esto es especialmente importante
-          cuando trabajas con contenido confidencial, borradores no publicados o comunicaciones
-          internas que no deben filtrarse a servidores externos.
-        </p>
-        <p>
-          El diseño minimalista y la respuesta inmediata permiten centrarse en lo que importa:
-          el texto. No hay anuncios invasivos que interrumpan el flujo de trabajo, ni
-          formularios de registro, ni límites de uso. La herramienta funciona igual en
-          escritorio, tableta o móvil sin necesidad de instalar nada.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -945,6 +981,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

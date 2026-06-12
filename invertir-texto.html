@@ -509,6 +509,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -647,6 +669,7 @@
             <a href="invertir-texto.html" class="active">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -753,65 +776,75 @@
         </p>
       </section>
 
-      <!-- Cómo funciona -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Tres modos ── -->
+      <section class="how-section" aria-label="Modos de inversión">
+        <h2>Tres maneras de invertir un texto</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Modo</th><th>Entrada</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>Invertir letras</td><td>hola mundo</td><td>odnum aloh</td></tr>
+              <tr><td>Invertir palabras</td><td>hola mundo cruel</td><td>cruel mundo hola</td></tr>
+              <tr><td>Invertir líneas</td><td>línea 1<br>línea 2<br>línea 3</td><td>línea 3<br>línea 2<br>línea 1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Cada modo opera a una escala distinta: caracteres, palabras o líneas completas.
+          El tercero es el más práctico de los tres: convierte una lista ordenada de más
+          antiguo a más reciente en su versión cronológica inversa sin reescribir nada.
+        </p>
+      </section>
+
+      <!-- ── Palíndromos ── -->
+      <section class="why-section" aria-label="Palíndromos">
+        <h2>Palíndromos: textos que sobreviven a la inversión</h2>
+        <p>
+          Un palíndromo se lee igual de izquierda a derecha que de derecha a izquierda:
+          «reconocer», «anilina», «somos». Los hay célebres con frase completa, como
+          «dábale arroz a la zorra el abad» o «la ruta nos aportó otro paso natural».
+        </p>
+        <p>
+          Puedes comprobar candidatos con el modo «Invertir letras»: si el resultado
+          coincide con el original, tienes un palíndromo. Ten en cuenta la convención: los
+          espacios, las tildes y los signos de puntuación no cuentan, así que «Dábale
+          arroz...» hay que compararlo sin espacios ni tildes para verificarlo. Las
+          herramientas <a href="eliminar-espacios.html">Eliminar Espacios</a> y
+          <a href="quitar-acentos.html">Quitar Acentos</a> hacen exactamente esa
+          preparación.
+        </p>
+      </section>
+
+      <!-- ── Usos ── -->
+      <section class="use-cases-section" aria-label="Usos">
+        <h2>Para qué se usa</h2>
+        <ul class="use-cases-list">
+          <li><strong>Dar la vuelta a listas cronológicas</strong>: un historial pegado de más nuevo a más viejo pasa a orden natural con «Invertir líneas».</li>
+          <li><strong>Juegos y retos de ingenio</strong>: mensajes en espejo, acertijos y dinámicas de aula con textos al revés.</li>
+          <li><strong>Comprobar palíndromos</strong> sin contar letras a mano.</li>
+          <li><strong>Efectos de texto para redes</strong>, donde un nombre o frase invertidos funcionan como guiño visual.</li>
+        </ul>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Cómo se usa</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Escribe o pega el texto</strong> — Introduce el texto que quieres invertir en el campo superior. El resultado se actualiza automáticamente mientras escribes.</span>
+            <span class="step-body"><strong>Pega el texto</strong> en el cuadro: una frase, un párrafo o una lista de líneas.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Elige el modo de inversión</strong> — <strong>Invertir letras</strong> voltea el orden de cada carácter del texto completo. <strong>Invertir palabras</strong> mantiene las letras de cada palabra pero invierte el orden en que aparecen. <strong>Invertir líneas</strong> mantiene cada línea intacta pero las reordena de la última a la primera.</span>
+            <span class="step-body"><strong>Elige la escala de inversión</strong>: letras, palabras o líneas.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Revisa el resultado</strong> — El texto invertido aparece en el campo inferior en tiempo real. Puedes modificar el texto de entrada o cambiar el modo en cualquier momento.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Copia el resultado</strong> — Usa el botón <strong>Copiar texto</strong> para enviar el resultado al portapapeles y pegarlo donde necesites.</span>
+            <span class="step-body"><strong>Copia el resultado.</strong> Aplicar el mismo modo dos veces devuelve el texto original.</span>
           </li>
         </ol>
       </section>
 
-      <!-- Casos de uso -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
-        <ul class="use-cases-list">
-          <li><strong>Mensajes en clave y juegos.</strong> Invertir las letras de un mensaje es una de las formas más sencillas de ocultarlo visualmente. Es ideal para juegos de pistas, escape rooms caseros o mensajes secretos entre amigos.</li>
-          <li><strong>Verificar palíndromos.</strong> ¿Es «radar» un palíndromo? Inviértelo y compruébalo al instante. La herramienta es perfecta para verificar si una palabra o frase se lee igual en ambos sentidos.</li>
-          <li><strong>Efectos visuales en redes sociales.</strong> El texto invertido letra a letra genera un efecto visual llamativo que destaca en publicaciones de Instagram, Twitter o TikTok. Muchos usuarios lo usan para crear bios o subtítulos originales.</li>
-          <li><strong>Invertir listas.</strong> Si tienes una lista ordenada en un documento y necesitas darle la vuelta (por ejemplo, poner lo más reciente primero), el modo «Invertir líneas» lo hace en un segundo sin necesidad de reordenar manualmente.</li>
-          <li><strong>Entretenimiento y curiosidades lingüísticas.</strong> Explorar cómo suenan o se leen las palabras al revés es un ejercicio divertido para amantes de los idiomas. Algunas palabras en español producen otras palabras o combinaciones sorprendentes al invertirse.</li>
-        </ul>
-      </section>
-
-      <!-- Por qué usar -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Invertir texto manualmente es un proceso tedioso y propenso a errores, especialmente con textos
-          largos. Hacerlo letra a letra requiere concentración máxima y el mínimo descuido produce un
-          resultado incorrecto. Esta herramienta elimina ese problema: el algoritmo es preciso al 100%
-          y procesa textos de cualquier longitud en milisegundos.
-        </p>
-        <p>
-          A diferencia de otras soluciones que requieren instalar una aplicación o crear una cuenta,
-          esta herramienta funciona directamente en el navegador. No hay nada que descargar, no hay
-          formularios de registro y no hay límites de uso. Abre la página, pega el texto y obtén
-          el resultado de inmediato.
-        </p>
-        <p>
-          La herramienta distingue correctamente entre tres tipos de inversión que a menudo se confunden:
-          invertir los caracteres uno a uno produce un resultado completamente diferente a invertir el
-          orden de las palabras o el de las líneas. Tener los tres modos en un mismo lugar ahorra
-          tiempo y evita tener que buscar herramientas distintas para cada caso.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -891,6 +924,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

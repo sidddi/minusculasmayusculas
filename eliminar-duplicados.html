@@ -503,6 +503,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -651,6 +673,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -741,64 +764,76 @@
         </p>
       </section>
 
-      <!-- Cómo funciona -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Qué cuenta como duplicado ── -->
+      <section class="why-section" aria-label="Criterio de duplicado">
+        <h2>Qué cuenta como línea duplicada</h2>
+        <p>
+          La comparación se hace línea a línea y de forma literal: dos líneas son
+          duplicadas si su texto coincide exactamente. Se conserva siempre la
+          <strong>primera aparición</strong> y se descartan las siguientes, así que el
+          orden original de la lista se respeta.
+        </p>
+        <p>
+          Dos matices importantes. Primero, la casilla <strong>«Ignorar mayúsculas»</strong>
+          hace que «Madrid» y «madrid» cuenten como la misma línea. Segundo, un espacio
+          invisible al final de una línea la convierte en «distinta» a ojos de cualquier
+          comparador; si tu lista viene de un Excel o un PDF, pásala antes por
+          <a href="eliminar-espacios.html">Eliminar Espacios</a> y te ahorrarás duplicados
+          fantasma.
+        </p>
+      </section>
+
+      <!-- ── Ejemplo ── -->
+      <section class="how-section" aria-label="Ejemplo antes y después">
+        <h2>Un ejemplo antes y después</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Lista original</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>ana@ejemplo.com<br>luis@ejemplo.com<br>ana@ejemplo.com<br>marta@ejemplo.com<br>luis@ejemplo.com</td>
+                <td>ana@ejemplo.com<br>luis@ejemplo.com<br>marta@ejemplo.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          De cinco líneas quedan tres, y cada dirección conserva la posición de su primera
+          aparición. Con la casilla «Ordenar A→Z» activada, el resultado saldría además
+          ordenado alfabéticamente en la misma operación.
+        </p>
+      </section>
+
+      <!-- ── Usos ── -->
+      <section class="use-cases-section" aria-label="Usos habituales">
+        <h2>Dónde aparecen los duplicados</h2>
+        <ul class="use-cases-list">
+          <li><strong>Listas de correo</strong> formadas juntando varias fuentes: los contactos repetidos inflan los envíos y las estadísticas.</li>
+          <li><strong>Palabras clave SEO</strong> exportadas de varias herramientas, donde los términos repetidos distorsionan el análisis.</li>
+          <li><strong>Inventarios y referencias</strong> consolidados de varias hojas de cálculo.</li>
+          <li><strong>Listados de asistentes</strong> con inscripciones duplicadas de la misma persona.</li>
+        </ul>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Cómo se usa</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega tu lista</strong> — Escribe o pega el contenido en el cuadro de texto. Cada elemento debe estar en una línea distinta. Si tienes datos en columnas de Excel, copia la columna directamente y pégala aquí.</span>
+            <span class="step-body"><strong>Pega la lista</strong> con un elemento por línea.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Elige las opciones</strong> — <strong>Ignorar mayúsculas</strong> hace que «Manzana» y «manzana» se traten como el mismo elemento. <strong>Eliminar líneas vacías</strong> descarta las líneas en blanco. <strong>Ordenar A→Z</strong> ordena el resultado alfabéticamente además de eliminar duplicados.</span>
+            <span class="step-body"><strong>Marca las opciones</strong> que apliquen: ignorar mayúsculas, eliminar líneas vacías u ordenar el resultado.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Pulsa «Eliminar duplicados»</strong> — La herramienta procesa la lista y muestra el resultado en el mismo cuadro de texto. Un indicador te dice cuántos duplicados se han eliminado y cuántas líneas únicas quedan.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Copia el resultado</strong> — Usa el botón <strong>Copiar texto</strong> para llevarte la lista limpia al portapapeles y pegarla donde la necesites.</span>
+            <span class="step-body"><strong>Pulsa «Eliminar duplicados»</strong> y copia la lista limpia. La herramienta indica cuántas líneas se han eliminado.</span>
           </li>
         </ol>
       </section>
 
-      <!-- Casos de uso -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
-        <ul class="use-cases-list">
-          <li><strong>Limpiar listas de correos electrónicos.</strong> Cuando combinas suscriptores de diferentes fuentes es habitual acabar con direcciones repetidas. Esta herramienta las detecta y elimina en segundos, aunque la única diferencia sea mayúsculas o minúsculas.</li>
-          <li><strong>Depurar listas de palabras clave SEO.</strong> Al exportar palabras clave de diferentes herramientas y combinarlas en una sola lista, aparecen muchos duplicados. Limpia la lista aquí antes de analizarla para no trabajar con datos redundantes.</li>
-          <li><strong>Unificar bases de datos de nombres o productos.</strong> Si fusionas dos listados de clientes, proveedores o productos y sospechas que hay entradas repetidas, pégalos aquí y obtén solo los registros únicos.</li>
-          <li><strong>Preparar listas para importar a sistemas.</strong> Muchas herramientas de marketing, CRM o ecommerce rechazan importaciones con duplicados. Elimínalos aquí antes de subir el archivo para evitar errores y ahorrarte tiempo.</li>
-          <li><strong>Limpiar resultados de encuestas o formularios.</strong> Si has recopilado respuestas abiertas y quieres ver cuántas opciones únicas han dado los participantes, eliminar duplicados te da una visión clara del abanico de respuestas sin ruido.</li>
-        </ul>
-      </section>
-
-      <!-- Por qué usar -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Excel tiene la función «Quitar duplicados» pero requiere tener el archivo abierto,
-          seleccionar la columna correcta y navegar por el menú. Word no tiene una función
-          equivalente para listas de texto. Esta herramienta funciona directamente en el
-          navegador: copias, pegas y en un clic la lista está limpia.
-        </p>
-        <p>
-          La opción de ignorar mayúsculas es especialmente útil cuando los datos vienen de
-          fuentes distintas: «MADRID», «Madrid» y «madrid» son la misma ciudad pero los
-          sistemas los tratarían como entradas diferentes. Aquí puedes detectarlos y
-          eliminarlos en una sola pasada.
-        </p>
-        <p>
-          Todo el procesamiento ocurre en tu navegador. El texto que introduces no se envía
-          a ningún servidor, lo que lo hace apropiado para limpiar listas con datos sensibles
-          como correos electrónicos, nombres de clientes o información confidencial.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -885,6 +920,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

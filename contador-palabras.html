@@ -530,6 +530,28 @@
       }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data (Schema.org) -->
@@ -694,6 +716,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -794,52 +817,76 @@
         </p>
       </section>
 
-      <!-- ── Cómo funciona ── -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Cómo cuenta ── -->
+      <section class="why-section" aria-label="Criterio de recuento">
+        <h2>Cómo cuenta esta herramienta</h2>
+        <p>
+          Una <strong>palabra</strong> es cualquier secuencia de caracteres separada por
+          espacios o saltos de línea; una <strong>frase</strong> se delimita por puntos,
+          interrogaciones y exclamaciones; y un <strong>párrafo</strong>, por líneas en
+          blanco. El <strong>tiempo de lectura</strong> se estima a 200 palabras por
+          minuto, la velocidad media de un lector adulto en pantalla.
+        </p>
+        <p>
+          Es el mismo criterio que usan los procesadores de texto, así que el resultado
+          coincidirá con el de Word o Google Docs en la práctica totalidad de los casos.
+          Las cifras se actualizan en tiempo real: no hay botón de «contar».
+        </p>
+      </section>
+
+      <!-- ── Extensiones ── -->
+      <section class="how-section" aria-label="Extensiones de referencia">
+        <h2>Extensiones orientativas según el tipo de texto</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Tipo de texto</th><th>Extensión habitual</th></tr></thead>
+            <tbody>
+              <tr><td>Meta descripción para buscadores</td><td>20–25 palabras</td></tr>
+              <tr><td>Publicación de LinkedIn</td><td>150–300 palabras</td></tr>
+              <tr><td>Nota de prensa</td><td>400–600 palabras</td></tr>
+              <tr><td>Artículo de blog con intención SEO</td><td>800–1.500 palabras</td></tr>
+              <tr><td>Ensayo o trabajo académico breve</td><td>1.500–2.500 palabras</td></tr>
+              <tr><td>Capítulo de novela</td><td>2.000–5.000 palabras</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Son rangos orientativos, no reglas. Pero cuando un encargo dice «unas 800
+          palabras» o una convocatoria fija «máximo 2.000», la diferencia entre cumplir o
+          no se decide aquí, no a ojo.
+        </p>
+      </section>
+
+      <!-- ── Quién lo usa ── -->
+      <section class="use-cases-section" aria-label="Perfiles de uso">
+        <h2>Quién lo usa a diario</h2>
+        <ul class="use-cases-list">
+          <li><strong>Estudiantes</strong> que entregan trabajos con extensión mínima o máxima y necesitan comprobar el recuento antes de entregar.</li>
+          <li><strong>Redactores y periodistas</strong> que escriben contra un encargo cerrado: la columna de 500 palabras admite 510, no 700.</li>
+          <li><strong>Traductores</strong> que presupuestan por palabra y necesitan el recuento exacto del texto de origen antes de aceptar un encargo.</li>
+          <li><strong>Opositores y aspirantes</strong> que practican ejercicios con límite de extensión y tiempo, usando además el tiempo de lectura estimado.</li>
+        </ul>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Tres pasos</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega o escribe tu texto</strong> — Copia el contenido que quieres analizar y pégalo en el cuadro. Las estadísticas se actualizan en tiempo real conforme escribes o modificas el texto, sin necesidad de pulsar ningún botón.</span>
+            <span class="step-body"><strong>Pega o escribe el texto</strong> en el cuadro.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Consulta las estadísticas</strong> — Verás al instante el número de palabras, caracteres totales, caracteres sin espacios, frases, párrafos y el tiempo estimado de lectura. Todos los datos se recalculan automáticamente con cada cambio en el texto.</span>
+            <span class="step-body"><strong>Lee las métricas</strong>: palabras, caracteres, frases, párrafos y tiempo de lectura, actualizadas con cada cambio.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Ajusta hasta alcanzar tu objetivo</strong> — Si necesitas llegar a un número concreto de palabras, puedes seguir editando el texto directamente en el cuadro y ver cómo cambian los contadores en tiempo real hasta dar con la extensión exacta que buscas.</span>
+            <span class="step-body"><strong>Ajusta y copia.</strong> Si te pasas del límite, recorta directamente en el cuadro y observa cómo baja el contador.</span>
           </li>
         </ol>
       </section>
 
-      <!-- ── Casos de uso ── -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
-        <ul class="use-cases-list">
-          <li><strong>Verificar la extensión de un artículo o post antes de publicar.</strong> Muchas plataformas de contenido tienen límites de palabras o caracteres. Antes de publicar, pega el borrador y comprueba si estás por encima o por debajo del límite sin tener que abrir Word.</li>
-          <li><strong>Controlar la extensión de un trabajo académico.</strong> Las normas de los trabajos fin de grado, máster o artículos científicos especifican un número exacto de palabras. Este contador te dice en tiempo real cuántas llevas mientras redactas.</li>
-          <li><strong>Calcular el tiempo de lectura para una presentación o discurso.</strong> Si tienes que leer un texto en voz alta en un tiempo determinado, el tiempo estimado de lectura te ayuda a calibrar si tienes que recortar o ampliar el contenido antes del día D.</li>
-          <li><strong>Optimizar la extensión de contenido para SEO.</strong> Los artículos de blog con más de 1.000 palabras suelen posicionar mejor en buscadores. Esta herramienta te permite controlar la extensión mientras escribes o revisas el contenido para ajustarlo al objetivo.</li>
-          <li><strong>Comprobar el límite de caracteres de una publicación en redes sociales.</strong> LinkedIn, Twitter y otras plataformas tienen restricciones de caracteres. El contador de caracteres te dice exactamente cuánto espacio ocupas, incluyendo o excluyendo los espacios según la plataforma.</li>
-        </ul>
-      </section>
-
-      <!-- ── Por qué usar ── -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          La mayoría de procesadores de texto tienen contador de palabras, pero no siempre tienes el documento abierto donde lo necesitas. Esta herramienta funciona directamente en el navegador: copias cualquier texto, lo pegas y ves los datos al instante. Sirve para texto copiado de un PDF, de un correo, de una web o de cualquier otra fuente, sin tener que pegarlo en Word primero ni crear ningún archivo.
-        </p>
-        <p>
-          A diferencia de otros contadores, este no solo cuenta palabras sino que te da seis métricas a la vez: palabras, caracteres con y sin espacios, frases, párrafos y tiempo de lectura. Esto es especialmente útil para escritores y redactores que necesitan controlar la estructura y la extensión de sus textos de forma más detallada que con un simple recuento de palabras.
-        </p>
-        <p>
-          Todo el procesamiento es local: el texto nunca sale de tu navegador ni se almacena en ningún servidor. Puedes analizar borradores sin publicar, contratos, informes confidenciales o cualquier tipo de documento privado sin preocuparte por la privacidad. Sin registro, sin límites, sin coste.
-        </p>
-      </section>
-
-      <!-- ── FAQ ── -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -942,6 +989,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

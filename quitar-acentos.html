@@ -522,6 +522,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -654,6 +676,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html" class="active">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -745,63 +768,80 @@
         </p>
       </section>
 
-      <!-- Cómo funciona -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Qué hace ── -->
+      <section class="why-section" aria-label="Qué hace exactamente">
+        <h2>Qué hace exactamente esta herramienta</h2>
+        <p>
+          Elimina los signos diacríticos del texto: tildes (á, é, í, ó, ú) y diéresis (ü),
+          tanto en minúsculas como en mayúsculas. Técnicamente, descompone cada carácter en
+          su forma Unicode básica y descarta la marca del acento, de modo que «camión» pasa
+          a ser «camion» y «pingüino», «pinguino».
+        </p>
+        <p>
+          Dos opciones controlan el resultado: <strong>«Conservar ñ»</strong> decide si la
+          eñe se mantiene como tal o se convierte en una n simple, y
+          <strong>«Convertir a minúsculas»</strong> normaliza además todo el texto a caja
+          baja, algo habitual cuando el destino es un identificador o una URL.
+        </p>
+      </section>
+
+      <!-- ── Tabla de equivalencias ── -->
+      <section class="how-section" aria-label="Tabla de equivalencias">
+        <h2>Tabla de equivalencias</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Caracteres originales</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>á, é, í, ó, ú</td><td>a, e, i, o, u</td></tr>
+              <tr><td>Á, É, Í, Ó, Ú</td><td>A, E, I, O, U</td></tr>
+              <tr><td>ü, Ü</td><td>u, U</td></tr>
+              <tr><td>ñ, Ñ</td><td>n, N — solo si desactivas «Conservar ñ»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          La eñe merece una mención aparte: no es una n con adorno, sino una letra propia
+          del alfabeto español. Por eso la opción de conservarla existe y conviene tenerla
+          activada salvo que el sistema de destino no admita caracteres fuera del ASCII.
+        </p>
+      </section>
+
+      <!-- ── Cuándo conviene ── -->
+      <section class="use-cases-section" aria-label="Cuándo conviene">
+        <h2>Cuándo conviene quitar los acentos (y cuándo no)</h2>
+        <ul class="use-cases-list">
+          <li><strong>Nombres de archivo.</strong> Un fichero llamado «Informe económico.pdf» puede dar problemas al compartirlo entre sistemas operativos distintos o subirlo a según qué plataformas.</li>
+          <li><strong>URLs y slugs.</strong> Las direcciones web funcionan mejor sin caracteres especiales: «/articulos/educacion-publica» es más robusto y legible que su versión codificada con porcentajes.</li>
+          <li><strong>Sistemas antiguos o restrictivos.</strong> Programas heredados, campos de formularios estrictos o ficheros de intercambio que solo aceptan ASCII plano.</li>
+          <li><strong>Normalizar datos para comparar.</strong> Si en una lista conviven «Pérez» y «Perez», quitar los acentos de ambas columnas permite cruzarlas sin falsos negativos.</li>
+        </ul>
+        <p>
+          ¿Y cuándo no? En cualquier texto destinado a personas: la tilde es ortografía,
+          no decoración. «Práctico» y «practico» son palabras distintas, igual que «sí» y
+          «si». Quitar acentos es una operación técnica para máquinas, no una forma válida
+          de escribir.
+        </p>
+      </section>
+
+      <!-- ── Paso a paso ── -->
+      <section class="how-section" aria-label="Paso a paso">
+        <h2>Paso a paso</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega o escribe el texto</strong> — Introduce el contenido en el cuadro de la izquierda. El resultado sin acentos aparece de inmediato en el cuadro de la derecha conforme escribes, sin necesidad de pulsar ningún botón.</span>
+            <span class="step-body"><strong>Pega el texto</strong> en el cuadro «Texto original». La conversión se hace al instante, sin pulsar nada.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Ajusta las opciones si lo necesitas</strong> — Si el sistema de destino admite la ñ pero no otros diacríticos, activa <strong>Conservar ñ</strong>. Si además necesitas todo en minúsculas (por ejemplo para generar un slug), activa <strong>Convertir a minúsculas</strong>.</span>
+            <span class="step-body"><strong>Ajusta las dos opciones</strong> según el destino: conservar o no la ñ, y pasar o no a minúsculas.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Copia el resultado</strong> — Pulsa el botón <strong>Copiar resultado</strong> para llevar el texto sin acentos directamente al portapapeles. Desde ahí puedes pegarlo donde lo necesites: un campo de formulario, un editor de código, una hoja de cálculo o cualquier otra aplicación.</span>
+            <span class="step-body"><strong>Copia el resultado</strong> desde el cuadro «Texto sin acentos» con el botón «Copiar resultado».</span>
           </li>
         </ol>
       </section>
 
-      <!-- Casos de uso -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
-        <ul class="use-cases-list">
-          <li><strong>Generar URLs y slugs amigables para SEO.</strong> Los navegadores codifican los caracteres acentuados en las URLs (por ejemplo, «café» se convierte en «caf%C3%A9»), lo que hace que los enlaces sean largos y poco legibles. Con esta herramienta obtienes la versión limpia «cafe» en un clic, ideal para URLs y slugs de WordPress, Prestashop o cualquier otro CMS.</li>
-          <li><strong>Crear nombres de archivo seguros.</strong> Algunos sistemas operativos, especialmente en entornos Linux o macOS con configuraciones restrictivas, pueden tener problemas con archivos que contienen tildes o la eñe. Quitar los acentos antes de guardar el archivo evita errores inesperados al compartirlos o subirlos a servidores.</li>
-          <li><strong>Importar datos a bases de datos o hojas de cálculo.</strong> Al importar datos mediante CSV o SQL, los campos de texto con caracteres especiales pueden causar errores de codificación si el sistema no está configurado para UTF-8. Normalizar el texto eliminando los diacríticos antes de la importación previene estos problemas.</li>
-          <li><strong>Preparar datos para sistemas legacy o APIs restrictivas.</strong> Muchos sistemas heredados o APIs externas solo aceptan ASCII básico (letras sin acento, sin eñe, sin diéresis). Si consumes o alimentas un sistema con esa limitación, esta herramienta normaliza el texto de forma rápida y fiable.</li>
-          <li><strong>Comparar o buscar texto de forma insensible a acentos.</strong> Si necesitas hacer búsquedas o comparaciones en texto donde las versiones con y sin acento deben tratarse como equivalentes, normalizar previamente el texto es el paso más sencillo para lograrlo sin modificar la lógica de comparación.</li>
-        </ul>
-      </section>
-
-      <!-- Por qué usar -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Quitar acentos manualmente de un texto largo es tedioso y propenso a errores: hay que
-          revisar cada carácter acentuado y sustituirlo a mano, o confiar en una búsqueda y
-          reemplazo que hay que repetir varias veces (una por cada vocal acentuada). Esta
-          herramienta lo hace en un solo paso para todos los diacríticos del alfabeto latino,
-          incluidos los del español, el francés, el alemán, el portugués, el catalán y otros idiomas.
-        </p>
-        <p>
-          La implementación utiliza la función de normalización Unicode estándar (NFD + eliminación de
-          marcas diacríticas), que es la forma más robusta y completa de tratar este problema. Esto
-          significa que no depende de una lista manual de sustituciones que podría olvidar algún carácter:
-          el método cubre automáticamente tildes agudas, graves, circunflejas, diéresis, cedillas,
-          macrones, ogonek y muchos más.
-        </p>
-        <p>
-          Todo el procesamiento es local y ocurre directamente en tu navegador. No se almacenan datos
-          ni se transmite el texto a ningún servidor externo, por lo que puedes usarla con contenido
-          confidencial, contratos, nombres de clientes o cualquier dato sensible sin ninguna preocupación.
-          Sin registro, sin límites de texto, sin coste.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -900,6 +940,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

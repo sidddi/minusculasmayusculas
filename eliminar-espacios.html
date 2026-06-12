@@ -536,6 +536,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -677,7 +699,8 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html" class="active">Eliminar Espacios</a>
-          
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
+
           </nav>
         </div>
       </div>
@@ -805,67 +828,76 @@
         </p>
       </section>
 
-      <!-- Cómo funciona -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Seis limpiezas ── -->
+      <section class="how-section" aria-label="Opciones de limpieza">
+        <h2>Seis limpiezas en una sola pasada</h2>
+        <p class="step-body" style="margin-bottom:12px">
+          Cada casilla activa una limpieza independiente, y puedes combinarlas a la vez
+          sobre el mismo texto:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Opción</th><th>Qué hace</th></tr></thead>
+            <tbody>
+              <tr><td>Espacios múltiples → uno</td><td>«hola&nbsp;&nbsp;&nbsp;mundo» pasa a «hola mundo»</td></tr>
+              <tr><td>Recortar inicio y final</td><td>Quita los espacios sobrantes al principio y al final de cada línea</td></tr>
+              <tr><td>Eliminar líneas vacías</td><td>Borra las líneas en blanco que separan párrafos</td></tr>
+              <tr><td>Eliminar saltos de línea</td><td>Une todas las líneas en un único párrafo corrido</td></tr>
+              <tr><td>Eliminar tabulaciones</td><td>Sustituye cada tabulador por un espacio normal</td></tr>
+              <tr><td>Eliminar todos los espacios</td><td>«h o l a» pasa a «hola» — útil para códigos y referencias</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── De dónde salen ── -->
+      <section class="why-section" aria-label="Origen de los espacios invisibles">
+        <h2>De dónde salen los espacios que no se ven</h2>
+        <p>
+          El caso más común es copiar texto desde un PDF: el formato guarda los saltos de
+          línea donde el papel cortaba la línea, no donde acaba la frase, así que al pegar
+          aparece un párrafo troceado con saltos a mitad de oración. Lo mismo ocurre al
+          copiar desde presentaciones o desde algunos lectores de correo.
+        </p>
+        <p>
+          Word y las páginas web aportan su propia colección: dobles espacios tras revisar
+          un documento entre varias personas, tabuladores invisibles al copiar celdas de
+          Excel y espacios de no separación que parecen espacios normales pero no lo son.
+          A simple vista el texto se ve bien; el problema aparece al pegarlo en un CMS, un
+          formulario o una hoja de cálculo que esperaba el texto limpio.
+        </p>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo limpiar el texto">
+        <h2>Cómo limpiar tu texto</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega el texto</strong> — Copia el texto problemático desde su origen (PDF, Word, web, correo, Excel) y pégalo en el cuadro «Texto original» con Ctrl+V (Cmd+V en Mac). El procesamiento empieza automáticamente.</span>
+            <span class="step-body"><strong>Pega el texto sucio</strong> en el cuadro «Texto original».</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Marca las opciones de limpieza</strong> — Por defecto están activadas las dos más habituales: <strong>Espacios múltiples → uno</strong> y <strong>Recortar inicio y final</strong>. Activa además las que necesites: eliminar líneas vacías, unir saltos de línea, quitar tabulaciones o eliminar absolutamente todos los espacios.</span>
+            <span class="step-body"><strong>Marca las limpiezas que necesites.</strong> El resultado se recalcula al momento, así que puedes probar combinaciones y ver el efecto de cada casilla.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Revisa el resultado</strong> — El cuadro «Resultado» se actualiza al instante con cada opción que cambias. Debajo verás cuántos caracteres se han eliminado, para que compruebes de un vistazo el efecto de la limpieza.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Copia el texto limpio</strong> — Pulsa <strong>Copiar resultado</strong> y pega el texto donde lo necesites: tu documento, tu hoja de cálculo, tu gestor de contenidos o tu código.</span>
+            <span class="step-body"><strong>Copia el resultado</strong> con el botón «Copiar resultado» y pégalo en su destino.</span>
           </li>
         </ol>
       </section>
 
-      <!-- Casos de uso -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
+      <!-- ── Usos ── -->
+      <section class="use-cases-section" aria-label="Usos frecuentes">
+        <h2>Usos frecuentes</h2>
         <ul class="use-cases-list">
-          <li><strong>Texto copiado de un PDF.</strong> Los PDF insertan un salto de línea al final de cada línea visual, de modo que al pegar el texto en Word o en un correo cada frase queda partida en trozos. Con «Eliminar saltos de línea» el texto vuelve a fluir como un párrafo normal en segundos.</li>
-          <li><strong>Documentos de Word con formato heredado.</strong> Los documentos que han pasado por muchas manos acumulan espacios dobles entre palabras, tabulaciones usadas como sangría y líneas vacías de más. La limpieza automática deja el texto homogéneo antes de darle formato de nuevo.</li>
-          <li><strong>Datos exportados de Excel o de bases de datos.</strong> Las exportaciones suelen incluir espacios de relleno al principio o al final de cada celda y filas en blanco intercaladas. «Recortar inicio y final» y «Eliminar líneas vacías» dejan la lista lista para reimportar o procesar.</li>
-          <li><strong>Números de cuenta, referencias y códigos.</strong> Los IBAN, números de tarjeta, claves de licencia y referencias bancarias se muestran a menudo con espacios agrupando los dígitos. «Eliminar todos los espacios» los compacta para pegarlos en formularios que no admiten espacios.</li>
-          <li><strong>Contenido para web y gestores de contenidos.</strong> Los editores WYSIWYG convierten los espacios múltiples en entidades &amp;nbsp; que rompen el diseño. Limpiar el texto antes de pegarlo en WordPress u otro CMS evita sorpresas de maquetación.</li>
-          <li><strong>Limpieza previa a otras herramientas.</strong> Antes de contar palabras, ordenar una lista o eliminar duplicados, conviene normalizar los espacios: dos líneas idénticas con distinto número de espacios se considerarían diferentes. Esta herramienta es el primer paso natural del flujo de limpieza.</li>
+          <li><strong>Recomponer texto copiado de un PDF</strong> uniendo los saltos de línea artificiales en párrafos normales.</li>
+          <li><strong>Preparar datos para una hoja de cálculo</strong> quitando tabuladores y espacios sobrantes que rompen las columnas.</li>
+          <li><strong>Limpiar un texto antes de traducirlo o maquetarlo</strong>, para que los dobles espacios no acaben en el documento final.</li>
+          <li><strong>Compactar códigos o referencias</strong> que llegaron con espacios intercalados, como números de serie o IBAN escritos «en bloques».</li>
         </ul>
       </section>
 
-      <!-- Por qué usar -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Los espacios sobrantes son invisibles pero causan problemas reales: formularios que
-          rechazan un IBAN válido por un espacio final, búsquedas que no encuentran un texto
-          porque tiene dos espacios donde debería haber uno, tablas que no cuadran por
-          tabulaciones ocultas, o documentos que se ven mal maquetados sin motivo aparente.
-          Corregirlos a mano es lento y propenso a errores, porque precisamente no se ven.
-        </p>
-        <p>
-          Esta herramienta trata también los casos que los editores de texto pasan por alto:
-          los espacios de no separación (el carácter U+00A0 que insertan Word y las páginas web),
-          que se convierten en espacios normales antes de aplicar el resto de reglas. Así, la
-          opción de espacios múltiples funciona aunque los espacios «dobles» sean en realidad
-          una mezcla de espacios normales y de no separación.
-        </p>
-        <p>
-          Todo el procesamiento se realiza en tu navegador: el texto nunca se envía a ningún
-          servidor. Puedes limpiar contratos, datos personales o información confidencial con
-          total tranquilidad, sin registro, sin límite de usos y desde cualquier dispositivo.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -954,6 +986,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

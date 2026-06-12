@@ -529,6 +529,28 @@
       }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data (Schema.org) -->
@@ -687,6 +709,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -779,56 +802,82 @@
         </p>
       </section>
 
-      <!-- ── Cómo funciona ── -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Formatos con ejemplo ── -->
+      <section class="why-section" aria-label="Los cuatro formatos explicados">
+        <h2>Los cuatro formatos, vistos con un ejemplo</h2>
+        <p>
+          La forma más rápida de entender qué hace cada botón es pasar la misma frase por
+          los cuatro formatos. Partimos de un texto escrito de cualquier manera:
+          <em>«ayer LLOVIÓ en madrid. hoy sale el sol.»</em>
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Botón</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>TODO MAYÚSCULAS</td><td>AYER LLOVIÓ EN MADRID. HOY SALE EL SOL.</td></tr>
+              <tr><td>todo minúsculas</td><td>ayer llovió en madrid. hoy sale el sol.</td></tr>
+              <tr><td>Capitalizar Cada Palabra</td><td>Ayer Llovió En Madrid. Hoy Sale El Sol.</td></tr>
+              <tr><td>Mayúsculas después de punto</td><td>Ayer llovió en madrid. Hoy sale el sol.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Un detalle honesto que conviene saber: «Mayúsculas después de punto» normaliza
+          primero todo el texto a minúsculas y después levanta la primera letra de cada
+          oración. Los nombres propios («madrid» en el ejemplo) quedan en minúscula, porque
+          ninguna herramienta automática puede saber con certeza qué palabras son nombres
+          propios. Ese repaso final sigue siendo tuyo.
+        </p>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Tres pasos y listo</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega tu texto</strong> — Copia el contenido que quieres cambiar y pégalo en el cuadro de texto. Puede ser cualquier tipo de texto: un título, un bloque de párrafos, un email o un listado, sin límite de extensión.</span>
+            <span class="step-body"><strong>Pega el texto</strong> en el cuadro: un título, un email entero o un listado. No hay límite de extensión.</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Elige el tipo de conversión</strong> — Tienes cuatro opciones: <strong>TODO MAYÚSCULAS</strong>, <strong>todo minúsculas</strong>, <strong>Capitalizar Cada Palabra</strong> y <strong>Mayúsculas después de punto</strong>. Pulsa el botón que necesites y el cambio se aplica al instante.</span>
+            <span class="step-body"><strong>Pulsa el formato que necesites.</strong> Puedes encadenar conversiones: cada botón se aplica sobre el texto tal y como está en ese momento.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Revisa el resultado</strong> — El texto convertido aparece en el mismo cuadro. Puedes aplicar una segunda conversión si lo necesitas, o editar el resultado manualmente antes de copiarlo.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Copia y pega donde necesites</strong> — Pulsa <strong>Copiar texto</strong> y el contenido ya está en tu portapapeles, listo para pegarlo en cualquier aplicación, documento o plataforma.</span>
+            <span class="step-body"><strong>Copia el resultado</strong> con el botón «Copiar texto» y pégalo donde lo necesites. El contador de caracteres y palabras se actualiza en cada cambio.</span>
           </li>
         </ol>
       </section>
 
-      <!-- ── Casos de uso ── -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
+      <!-- ── Dónde ahorra tiempo ── -->
+      <section class="use-cases-section" aria-label="Situaciones habituales">
+        <h2>Dónde ahorra más tiempo</h2>
         <ul class="use-cases-list">
-          <li><strong>Corregir textos escritos en MAYÚSCULAS por error.</strong> Si alguien te manda un documento con el bloqueo de mayúsculas activado sin querer, convertirlo a minúsculas es cuestión de un clic. Lo que antes requería reescribir cada frase, aquí se resuelve en segundos.</li>
-          <li><strong>Formatear títulos para artículos o presentaciones.</strong> El estilo Title Case, con la primera letra de cada palabra en mayúscula, es habitual en títulos en inglés. Con el botón <em>Capitalizar Cada Palabra</em> puedes aplicarlo a toda una lista de títulos de golpe.</li>
-          <li><strong>Normalizar nombres propios exportados de una base de datos.</strong> Los sistemas de gestión suelen exportar nombres en mayúsculas sostenidas. Capitalizarlos uno a uno llevaría horas; aquí se hace en un solo clic sobre el listado completo.</li>
-          <li><strong>Corregir la puntuación de textos dictados.</strong> Las herramientas de dictado por voz a veces no respetan las mayúsculas al inicio de frase. El botón «Mayúsculas después de punto» recupera esa corrección de forma automática.</li>
-          <li><strong>Estandarizar etiquetas o categorías de un sistema de contenidos.</strong> Si tienes etiquetas mezcladas entre mayúsculas y minúsculas, puedes normalizarlas todas al mismo formato de una sola vez antes de importarlas a tu plataforma.</li>
+          <li><strong>Textos escritos con el bloqueo de mayúsculas puesto.</strong> Un documento entero EN MAYÚSCULAS se corrige con dos clics: «todo minúsculas» y después «Mayúsculas después de punto».</li>
+          <li><strong>Nombres exportados de una base de datos.</strong> Los sistemas de gestión suelen volcar los nombres en mayúsculas sostenidas; «Capitalizar Cada Palabra» los deja presentables sobre el listado completo de una vez.</li>
+          <li><strong>Títulos con formato Title Case.</strong> Para títulos en inglés o etiquetas de producto, la capitalización palabra a palabra se aplica de golpe a toda una lista.</li>
+          <li><strong>Transcripciones y dictados por voz.</strong> Los dictados a menudo llegan sin mayúscula inicial en las frases; «Mayúsculas después de punto» recupera la puntuación correcta automáticamente.</li>
         </ul>
       </section>
 
-      <!-- ── Por qué usar ── -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
+      <!-- ── Pensada para el español ── -->
+      <section class="why-section" aria-label="Por qué esta herramienta">
+        <h2>Pensada para textos en español</h2>
         <p>
-          Cambiar el formato de mayúsculas en un texto largo a mano es uno de esos trabajos mecánicos que nadie debería tener que hacer. Microsoft Word y Google Docs tienen esa función, pero requieren tener abierto el programa y trabajar con un archivo concreto. Esta herramienta funciona desde cualquier navegador, sin instalar nada: copias el texto de donde sea, lo pegas aquí y obtienes el resultado al instante.
+          Las conversiones respetan los caracteres propios del castellano: las vocales con
+          tilde pasan a su versión mayúscula (á → Á, é → É, í → Í, ó → Ó, ú → Ú) y la ñ se
+          convierte en Ñ. Parece obvio, pero muchos conversores pensados para el inglés
+          pierden las tildes o las dejan sin convertir.
         </p>
         <p>
-          A diferencia de soluciones básicas, esta herramienta contempla los caracteres del español de forma correcta. Las vocales con tilde se convierten también a sus versiones en mayúscula (á → Á, é → É, í → Í, ó → Ó, ú → Ú), igual que la ñ → Ñ. Esto marca la diferencia cuando trabajas con nombres propios o textos en castellano que usan estos caracteres con frecuencia.
-        </p>
-        <p>
-          Todo el procesamiento ocurre en tu dispositivo, dentro del navegador. El texto no viaja a ningún servidor ni se almacena en ningún lado. Puedes usarla con borradores sin publicar, datos de trabajo o cualquier contenido sensible sin ninguna preocupación. No requiere registro, no tiene publicidad engañosa y no caduca.
+          Word y Google Docs tienen una función parecida, pero exigen abrir el programa y
+          trabajar sobre un archivo. Aquí copias el texto de donde sea —un email, un CMS,
+          una hoja de cálculo—, lo conviertes y lo devuelves a su sitio. Todo el
+          procesamiento ocurre en tu navegador: el texto no se envía a ningún servidor ni
+          se guarda en ninguna parte, así que puedes usarla con contenido confidencial.
         </p>
       </section>
 
-      <!-- ── FAQ ── -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -935,6 +984,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>

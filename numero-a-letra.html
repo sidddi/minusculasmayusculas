@@ -571,6 +571,28 @@
       footer .container { flex-direction: column; text-align: center; }
       footer nav { justify-content: center; }
     }
+  
+    /* ── Tablas de contenido ── */
+    .table-wrap { overflow-x: auto; margin: 4px 0 10px; }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .content-table th,
+    .content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .content-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .content-table td { color: #3c4043; }
   </style>
 
   <!-- Structured data -->
@@ -719,6 +741,7 @@
             <a href="invertir-texto.html">Invertir Texto</a>
             <a href="quitar-acentos.html">Quitar Acentos</a>
             <a href="eliminar-espacios.html">Eliminar Espacios</a>
+            <a href="texto-aleatorio.html">Texto Aleatorio</a>
           
           </nav>
         </div>
@@ -826,64 +849,80 @@
         </p>
       </section>
 
-      <!-- Cómo funciona -->
-      <section class="how-section" aria-label="Cómo funciona">
-        <h2>Cómo funciona</h2>
+      <!-- ── Qué convierte ── -->
+      <section class="why-section" aria-label="Alcance de la conversión">
+        <h2>Qué convierte y hasta dónde llega</h2>
+        <p>
+          Convierte números enteros desde el cero hasta 999&nbsp;999&nbsp;999&nbsp;999
+          —novecientos noventa y nueve mil millones largos— a su escritura en letras,
+          siguiendo las normas del español. Puedes elegir el <strong>género</strong>
+          («veintiún» / «veintiuna», «doscientos» / «doscientas»), añadir
+          <strong>céntimos</strong> para expresar importes monetarios y obtener el
+          resultado <strong>en mayúsculas</strong>, el formato habitual en documentos
+          legales y cheques.
+        </p>
+      </section>
+
+      <!-- ── Reglas ── -->
+      <section class="how-section" aria-label="Reglas de escritura">
+        <h2>Las reglas de escritura que aplica</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Número</th><th>En letras</th><th>Regla</th></tr></thead>
+            <tbody>
+              <tr><td>21</td><td>veintiuno</td><td>Del 16 al 29 se escribe en una sola palabra</td></tr>
+              <tr><td>31</td><td>treinta y uno</td><td>A partir del 31, las decenas y unidades van separadas por «y»</td></tr>
+              <tr><td>100</td><td>cien</td><td>«Cien» se usa solo para el 100 exacto</td></tr>
+              <tr><td>101</td><td>ciento uno</td><td>En los compuestos se convierte en «ciento»</td></tr>
+              <tr><td>500</td><td>quinientos</td><td>Algunas centenas son irregulares: quinientos, setecientos, novecientos</td></tr>
+              <tr><td>1.000.000</td><td>un millón</td><td>«Millón» es sustantivo: necesita «un» y tiene plural («dos millones»)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Estas reglas parecen menores hasta que hay que escribir «setecientos cuarenta y
+          un mil doscientos treinta y cinco» en un acta. La herramienta las aplica todas de
+          forma consistente, incluida la apócope («veintiún euros», pero «veintiuna
+          páginas»).
+        </p>
+      </section>
+
+      <!-- ── Para qué ── -->
+      <section class="why-section" aria-label="Usos en documentos">
+        <h2>Para cheques, contratos y actas</h2>
+        <p>
+          En los documentos con valor legal la cantidad se escribe en cifras y en letras, y
+          cuando ambas no coinciden suele prevalecer la escrita en letras. La razón es
+          práctica: alterar un «1.500» para convertirlo en «4.500» es fácil; alterar «mil
+          quinientos euros» sin dejar rastro, no. Por eso bancos, notarías y
+          administraciones siguen exigiendo la cantidad en letra.
+        </p>
+        <p>
+          Escribirla a mano invita justo al error que se quiere evitar. Convertir el número
+          automáticamente y pegar el resultado elimina el riesgo de discrepancia entre la
+          cifra y su versión escrita.
+        </p>
+      </section>
+
+      <!-- ── Pasos ── -->
+      <section class="how-section" aria-label="Cómo se usa">
+        <h2>Cómo se usa</h2>
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Escribe el número</strong> — Introduce el número en el campo de texto. Puedes usar punto o coma como separador decimal y punto o coma como separador de miles. La herramienta reconoce formatos como <em>1.500,50</em>, <em>1500.50</em> o <em>1500,50</em>.</span>
+            <span class="step-body"><strong>Escribe el número</strong> en cifras. Para importes con decimales, activa «Con céntimos».</span>
           </li>
           <li>
             <span class="step-num">2</span>
-            <span class="step-body"><strong>Elige el género</strong> — Selecciona <strong>Masculino</strong> si el número acompaña a un sustantivo masculino (euros, días, metros) o <strong>Femenino</strong> si acompaña a uno femenino (pesetas, horas, personas). Esto afecta a «uno/una», «veintiuno/veintiuna» y a las centenas (doscientos/doscientas).</span>
+            <span class="step-body"><strong>Elige el género y el formato</strong>: masculino o femenino, y mayúsculas si el documento lo requiere.</span>
           </li>
           <li>
             <span class="step-num">3</span>
-            <span class="step-body"><strong>Activa las opciones según tu necesidad</strong> — <strong>Con céntimos</strong> añade la parte decimal como «con X céntimos», ideal para facturas. <strong>En mayúsculas</strong> convierte todo el resultado a mayúsculas, como se exige en algunos documentos oficiales.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-body"><strong>Copia el resultado</strong> — El texto aparece al instante en el cuadro azul. Usa el botón <strong>Copiar texto</strong> para llevártelo directamente al portapapeles y pegarlo en tu factura, cheque o contrato.</span>
+            <span class="step-body"><strong>Copia el resultado</strong> y pégalo en el contrato, el acta o el formulario.</span>
           </li>
         </ol>
       </section>
 
-      <!-- Casos de uso -->
-      <section class="use-cases-section" aria-label="Casos de uso">
-        <h2>Casos de uso habituales</h2>
-        <ul class="use-cases-list">
-          <li><strong>Facturas y albaranes.</strong> La normativa fiscal española recomienda o exige en ciertos casos que el importe total aparezca en letras para evitar alteraciones. Con esta herramienta obtienes el texto exacto en segundos, sin riesgo de errores ortográficos en números complejos.</li>
-          <li><strong>Cheques bancarios.</strong> Los cheques requieren escribir la cantidad en letras. Un error en la escritura puede invalidar el documento o generar problemas al cobrarlo. La herramienta genera la forma correcta con la ortografía estándar del español.</li>
-          <li><strong>Contratos de alquiler y compraventa.</strong> En los contratos es habitual indicar el precio o la renta en cifras y, entre paréntesis, en letras. Usar la herramienta garantiza coherencia y evita discrepancias entre ambas formas.</li>
-          <li><strong>Documentos notariales y escrituras.</strong> Los notarios exigen que los importes aparezcan escritos en letras en escrituras de compraventa, hipotecas y otros documentos. La herramienta proporciona la forma oficial en español con la ortografía correcta.</li>
-          <li><strong>Ejercicios de idioma y matemáticas.</strong> Profesores y estudiantes pueden usar la herramienta para comprobar cómo se escribe correctamente un número en español, especialmente los números grandes o los que incluyen ñ y acentos como «dieciséis» o «veintidós».</li>
-        </ul>
-      </section>
-
-      <!-- Por qué usar -->
-      <section class="why-section" aria-label="Por qué usar esta herramienta">
-        <h2>Por qué usar esta herramienta</h2>
-        <p>
-          Escribir números en letras en español tiene más complejidad de lo que parece. Las reglas para
-          los números del 16 al 29 (que se escriben en una sola palabra: dieciséis, veintitrés), la
-          diferencia entre «cien» y «ciento», la apocopación de «uno» a «un» delante de «mil» o «millones»,
-          y la concordancia de género en las centenas (doscientos/doscientas) son fuente habitual de errores.
-        </p>
-        <p>
-          Esta herramienta aplica todas las reglas ortográficas del español de forma automática.
-          No tienes que recordar si se escribe «veintidós» o «veinte y dos» (la forma correcta es
-          la primera), ni si «quinientos» lleva tilde (no la lleva). El resultado siempre sigue
-          la ortografía normativa de la Real Academia Española.
-        </p>
-        <p>
-          Todo el procesamiento se realiza en tu navegador. El número que introduces no se envía
-          a ningún servidor, por lo que puedes usarla con importes confidenciales con total
-          tranquilidad.
-        </p>
-      </section>
-
-      <!-- FAQ -->
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -979,6 +1018,12 @@
     <div class="container">
       <p>© 2026 minusculasmayusculas.com</p>
       <nav aria-label="Pie de página">
+        <a href="sobre.html">Sobre el proyecto</a>
+        <span class="sep">|</span>
+        <a href="contacto.html">Contacto</a>
+        <span class="sep">|</span>
+        <a href="guias.html">Guías</a>
+        <span class="sep">|</span>
         <a href="aviso-legal.html">Aviso legal</a>
         <span class="sep">|</span>
         <a href="politica-privacidad.html">Política de privacidad</a>
