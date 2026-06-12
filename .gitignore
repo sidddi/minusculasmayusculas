@@ -1,0 +1,6 @@
+# Notas internas de trabajo (no desplegar)
+tasks/
+.claude/
+
+# Sistema
+.DS_Store

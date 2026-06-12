@@ -5,7 +5,7 @@
 - **URL principal**: https://minusculasmayusculas.com
 - **Autor**: Siddharta Navarro Castellar
 - **Idioma**: Español
-- **Última actualización**: 2026-04-04
+- **Última actualización**: 2026-06-12
 
 ---
 
@@ -115,12 +115,47 @@ Activa la opción «Eliminar duplicados» antes de pulsar «Ordenar». Se conser
 
 ---
 
+## Otras herramientas
+
+- **Contador de Caracteres** (https://minusculasmayusculas.com/contador-caracteres.html) — Cuenta caracteres con y sin espacios, palabras y frases en tiempo real. Útil para límites de redes sociales, SEO y SMS.
+- **Eliminar Duplicados** (https://minusculasmayusculas.com/eliminar-duplicados.html) — Elimina las líneas repetidas de una lista conservando la primera aparición. Opciones: ignorar mayúsculas, eliminar líneas vacías, ordenar A→Z.
+- **Número a Letras** (https://minusculasmayusculas.com/numero-a-letra.html) — Convierte números (hasta 999 999 999 999) a su escritura en letras según la norma del español. Opciones de género, céntimos y mayúsculas.
+- **Invertir Texto** (https://minusculasmayusculas.com/invertir-texto.html) — Invierte un texto por letras, por palabras o por líneas.
+- **Quitar Acentos** (https://minusculasmayusculas.com/quitar-acentos.html) — Elimina tildes y diéresis del texto, con opción de conservar la ñ y de convertir a minúsculas.
+- **Eliminar Espacios** (https://minusculasmayusculas.com/eliminar-espacios.html) — Limpia espacios múltiples, tabulaciones, líneas vacías y saltos de línea; puede eliminar todos los espacios.
+- **Texto Aleatorio** (https://minusculasmayusculas.com/texto-aleatorio.html) — Genera texto de relleno (lorem ipsum) con vocabulario español real, por palabras, frases o párrafos.
+
+---
+
+## Guías de escritura
+
+Artículos originales sobre normas de escritura del español:
+
+- https://minusculasmayusculas.com/guias.html — Índice de guías
+- https://minusculasmayusculas.com/guia-mayusculas-espanol.html — Cuándo se escribe con mayúscula en español
+- https://minusculasmayusculas.com/guia-tildes-mayusculas.html — Las mayúsculas también llevan tilde
+- https://minusculasmayusculas.com/guia-mayusculas-titulos.html — Mayúsculas en títulos: español frente a inglés
+- https://minusculasmayusculas.com/guia-limites-caracteres.html — Límites de caracteres y cómo aprovecharlos
+- https://minusculasmayusculas.com/guia-escribir-numeros.html — ¿Números en cifras o en letras?
+
+---
+
 ## Páginas del sitio
 
 - https://minusculasmayusculas.com — Convertidor de mayúsculas y minúsculas
 - https://minusculasmayusculas.com/contador-palabras.html — Contador de palabras
+- https://minusculasmayusculas.com/contador-caracteres.html — Contador de caracteres
 - https://minusculasmayusculas.com/buscar-reemplazar.html — Buscar y reemplazar texto
 - https://minusculasmayusculas.com/ordenar-lista.html — Ordenar lista de palabras
+- https://minusculasmayusculas.com/eliminar-duplicados.html — Eliminar líneas duplicadas
+- https://minusculasmayusculas.com/numero-a-letra.html — Convertir números a letras
+- https://minusculasmayusculas.com/invertir-texto.html — Invertir texto
+- https://minusculasmayusculas.com/quitar-acentos.html — Quitar acentos
+- https://minusculasmayusculas.com/eliminar-espacios.html — Eliminar espacios
+- https://minusculasmayusculas.com/texto-aleatorio.html — Generador de texto aleatorio
+- https://minusculasmayusculas.com/guias.html — Guías de escritura
+- https://minusculasmayusculas.com/sobre.html — Sobre el proyecto
+- https://minusculasmayusculas.com/contacto.html — Contacto
 - https://minusculasmayusculas.com/aviso-legal.html — Aviso legal
 - https://minusculasmayusculas.com/politica-privacidad.html — Política de privacidad
 - https://minusculasmayusculas.com/politica-cookies.html — Política de cookies
