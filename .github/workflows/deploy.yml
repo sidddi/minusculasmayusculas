@@ -19,3 +19,4 @@ jobs:
             cd /var/www/minusculasmayusculas.com
             git pull origin main
             rm -f README.md tests.html
+            rm -rf docs scripts

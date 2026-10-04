@@ -58,7 +58,7 @@ Analiza texto en tiempo real y muestra:
 Pega o escribe tu texto en el cuadro. El contador actualiza los resultados al instante, sin necesidad de hacer clic en ningún botón.
 
 **¿Cómo se calcula el tiempo de lectura?**
-Se divide el número de palabras entre 200 (velocidad media de lectura en español). El resultado se muestra en minutos y segundos.
+Se divide el número de palabras entre 200 y se redondea hacia arriba al minuto entero. Es una referencia orientativa.
 
 ---
 
@@ -71,6 +71,7 @@ Busca cualquier palabra o frase en un texto y la sustituye por otra en un solo c
 - **Distinguir mayúsculas/minúsculas** — La búsqueda es exacta cuando está activada. Por ejemplo, «Casa» no encontrará «casa».
 - **Solo palabra completa** — Ignora coincidencias parciales. Por ejemplo, buscar «sol» no afecta a «solar» ni «parasol».
 - **Contador de coincidencias en tiempo real** — Muestra cuántas veces aparece el texto buscado antes de reemplazar.
+- **Usar expresiones regulares** — Busca patrones con sintaxis de JavaScript; en el reemplazo, $1, $2… recuperan grupos y \n o \t insertan salto de línea o tabulador.
 
 ### Preguntas frecuentes
 
@@ -103,7 +104,7 @@ Ordena cualquier lista de texto (un elemento por línea) con cuatro modos:
 - **Por longitud** — De la línea más corta a la más larga
 - **Aleatorio** — Baraja el orden aleatoriamente
 
-Opciones adicionales: eliminar duplicados, ignorar mayúsculas al ordenar, eliminar líneas vacías.
+Opciones adicionales: eliminar duplicados, ignorar mayúsculas al ordenar, eliminar líneas vacías y orden natural de números («tema 2» antes que «tema 10»).
 
 ### Preguntas frecuentes
 
@@ -129,14 +130,24 @@ Activa la opción «Eliminar duplicados» antes de pulsar «Ordenar». Se conser
 
 ## Guías de escritura
 
-Artículos originales sobre normas de escritura del español:
+Artículos originales sobre escritura y edición de texto en español, firmados por Siddharta Navarro Castellar, con ejemplos comprobados y fuentes de la RAE:
 
-- https://minusculasmayusculas.com/guias.html — Índice de guías
+- https://minusculasmayusculas.com/guias.html — Índice de guías por temas
 - https://minusculasmayusculas.com/guia-mayusculas-espanol.html — Cuándo se escribe con mayúscula en español
+- https://minusculasmayusculas.com/guia-errores-mayusculas.html — Errores de mayúsculas en correos, currículums y trabajos
 - https://minusculasmayusculas.com/guia-tildes-mayusculas.html — Las mayúsculas también llevan tilde
-- https://minusculasmayusculas.com/guia-mayusculas-titulos.html — Mayúsculas en títulos: español frente a inglés
-- https://minusculasmayusculas.com/guia-limites-caracteres.html — Límites de caracteres y cómo aprovecharlos
+- https://minusculasmayusculas.com/guia-mayusculas-titulos.html — Mayúsculas en títulos: el estilo español frente al inglés
 - https://minusculasmayusculas.com/guia-escribir-numeros.html — ¿Números en cifras o en letras?
+- https://minusculasmayusculas.com/guia-cantidades-en-letra.html — Cómo escribir cantidades en letra en cheques, contratos y facturas
+- https://minusculasmayusculas.com/guia-numero-a-letra-a-mano.html — Cómo convertir un número a letra a mano, paso a paso
+- https://minusculasmayusculas.com/guia-ordenar-alfabeticamente.html — Cómo ordenar una lista alfabéticamente en español
+- https://minusculasmayusculas.com/guia-eliminar-duplicados.html — Cómo eliminar duplicados de una lista sin perder datos
+- https://minusculasmayusculas.com/guia-limpiar-texto-copiado.html — Cómo limpiar texto copiado de un PDF, Word o una web
+- https://minusculasmayusculas.com/guia-buscar-reemplazar-regex.html — Buscar y reemplazar con expresiones regulares: 15 recetas
+- https://minusculasmayusculas.com/guia-quitar-acentos.html — Quitar acentos: cuándo tiene sentido y cuándo es un error
+- https://minusculasmayusculas.com/guia-texto-de-relleno.html — Texto de relleno: para qué sirve y cómo usarlo bien
+- https://minusculasmayusculas.com/guia-contar-palabras.html — Cómo se cuentan las palabras: por qué cada programa da una cifra
+- https://minusculasmayusculas.com/guia-limites-caracteres.html — Escribir corto: límites de caracteres y cómo aprovecharlos
 
 ---
 

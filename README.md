@@ -17,7 +17,7 @@ Suite de herramientas online gratuitas para trabajar con texto en español: conv
 
 **Contenido editorial:**
 - https://minusculasmayusculas.com/guias.html — Índice de guías de escritura
-- 5 guías originales: mayúsculas en español, tildes en mayúsculas, mayúsculas en títulos, límites de caracteres y números en cifras o letras
+- 15 guías originales agrupadas en cinco temas (mayúsculas y ortografía, números, listas y datos, limpieza de texto, contar y medir)
 
 **Páginas institucionales:** sobre.html (quién hace el sitio), contacto.html, aviso-legal.html, politica-privacidad.html, politica-cookies.html
 
@@ -39,11 +39,7 @@ minusculasmayusculas.com/
 ├── eliminar-espacios.html      # Limpiar espacios múltiples, tabulaciones y líneas vacías
 ├── texto-aleatorio.html        # Generador de texto de relleno en español
 ├── guias.html                  # Índice de guías de escritura
-├── guia-mayusculas-espanol.html    # Guía: cuándo se escribe con mayúscula
-├── guia-tildes-mayusculas.html     # Guía: las mayúsculas también llevan tilde
-├── guia-mayusculas-titulos.html    # Guía: mayúsculas en títulos (español vs inglés)
-├── guia-limites-caracteres.html    # Guía: límites de caracteres por plataforma
-├── guia-escribir-numeros.html      # Guía: números en cifras o en letras
+├── guia-*.html                # 15 guías (generadas con scripts/build_guias.py)
 ├── sobre.html                  # Sobre el proyecto (quién lo hace y principios)
 ├── contacto.html               # Página de contacto
 ├── converter.js                # Lógica de conversión de texto (client-side)
@@ -54,6 +50,8 @@ minusculasmayusculas.com/
 ├── llms.txt                    # Descripción del sitio para IA (GEO: ChatGPT, Claude, Perplexity, Gemini)
 ├── ads.txt                     # Archivo de autorización de vendedores de AdSense
 ├── sitemap.xml                 # Sitemap para buscadores
+├── docs/                       # Auditoría de contenido (no se despliega)
+├── scripts/                    # Generador de guías y utilidades (no se despliega)
 ├── robots.txt                  # Directrices para crawlers
 └── .github/
     └── workflows/
@@ -70,6 +68,13 @@ En junio de 2026, AdSense rechazó el sitio por «contenido de poco valor». Par
 2. **Páginas de confianza.** Se crearon `sobre.html` (quién mantiene el sitio y con qué principios) y `contacto.html` (email funcional), enlazadas desde el footer de todas las páginas.
 3. **Sección de guías.** Cinco artículos originales de escritura en español (600–750 palabras de cuerpo cada uno) más su índice `guias.html`, enlazados desde el footer.
 4. **Footer común** en todas las páginas: Sobre el proyecto | Contacto | Guías | Aviso legal | Política de privacidad | Cookies.
+
+En octubre de 2026, con el sitio aún sin aprobar, se hizo una segunda ronda (rama `adsense-content`, detalle en `docs/auditoria-contenido.md`):
+
+1. **15 guías de 1.200-1.800 palabras** (10 nuevas y las 5 anteriores ampliadas), con autor, fechas, resumen, índice, migas de pan y artículos relacionados.
+2. **Herramientas**: ejemplos de entrada y salida, sección de limitaciones, FAQ propias (sin preguntas repetidas entre páginas) y enlaces a guías. Se corrigieron afirmaciones que no coincidían con el código.
+3. **Mejoras de herramientas**: orden natural en Ordenar lista, modo de expresiones regulares en Buscar y reemplazar, mayúscula tras `?`/`!` y signos de apertura en el convertidor, y corrección de Número a letras (miles de millones y decimales).
+4. **Confianza**: enlace «Guías» en la cabecera, guías destacadas en la home y metodología en `sobre.html`.
 
 Pendiente (manual): comprobar indexación en Search Console y solicitar la revisión de AdSense marcando «Confirmo que he resuelto los problemas».
 
@@ -189,6 +194,16 @@ npx serve .
 ```
 
 Para ejecutar los tests manuales, abre `tests.html` en el navegador.
+
+### Editar o añadir guías
+
+Las guías no se editan en el HTML final. El cuerpo de cada una está en `scripts/guias/<slug>.html` y sus metadatos (título, descripción, fechas, resumen, relacionados) en la lista `GUIAS` de `scripts/build_guias.py`. Después de cambiar algo:
+
+```bash
+python3 scripts/build_guias.py   # regenera guia-*.html y guias.html
+```
+
+Para una guía nueva: crea el fragmento, añade su entrada a `GUIAS` y su URL a `sitemap.xml`. Al revisar una guía, actualiza `modified`.
 
 ---
 
