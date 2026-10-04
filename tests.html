@@ -245,11 +245,22 @@
       );
     });
 
-    test('capitalizarDespuesDePunto', '! y ? no disparan capitalización', function () {
+    test('capitalizarDespuesDePunto', '! y ? seguidos de espacio capitalizan', function () {
       assertEqual(
         capitalizarDespuesDePunto('hola! mundo. test'),
-        'Hola! mundo. Test'
+        'Hola! Mundo. Test'
       );
+    });
+
+    test('capitalizarDespuesDePunto', 'salta signos de apertura ¿ ¡ «', function () {
+      assertEqual(
+        capitalizarDespuesDePunto('¿vienes? sí. ¡qué bien! «hola», dijo.'),
+        '¿Vienes? Sí. ¡Qué bien! «Hola», dijo.'
+      );
+    });
+
+    test('capitalizarDespuesDePunto', 'cierre seguido de coma no capitaliza', function () {
+      assertEqual(capitalizarDespuesDePunto('¿vienes?, preguntó'), '¿Vienes?, preguntó');
     });
 
     test('capitalizarDespuesDePunto', 'sin espacio tras punto — no capitaliza', function () {
@@ -356,6 +367,10 @@
 
     test('capitalizarCadaPalabra', 'texto con números', function () {
       assertEqual(capitalizarCadaPalabra('capítulo 1 del libro'), 'Capítulo 1 Del Libro');
+    });
+
+    test('capitalizarCadaPalabra', 'palabras tras signos de apertura', function () {
+      assertEqual(capitalizarCadaPalabra('«hola» mundo (bien)'), '«Hola» Mundo (Bien)');
     });
 
     test('capitalizarCadaPalabra', 'saltos de línea', function () {

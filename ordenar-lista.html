@@ -853,6 +853,10 @@
             <input type="checkbox" id="opt-trim" checked />
             Eliminar líneas vacías
           </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="opt-numeric" />
+            Orden natural de números (2 antes que 10)
+          </label>
         </div>
 
         <div id="status" class="status-badge empty" aria-live="polite"></div>
@@ -1099,6 +1103,7 @@
       var dedup     = document.getElementById('opt-dedup').checked;
       var ignCase   = document.getElementById('opt-case').checked;
       var trimEmpty = document.getElementById('opt-trim').checked;
+      var numeric   = document.getElementById('opt-numeric').checked;
 
       var lines = text.split('\n');
 
@@ -1116,17 +1121,16 @@
         });
       }
 
+      // Comparación con el alfabeto español (ñ tras n; tildes sin peso propio)
+      var collatorOpts = ignCase ? { sensitivity: 'base', numeric: numeric } : { numeric: numeric };
+
       if (mode === 'az') {
         lines.sort(function(a, b) {
-          return ignCase
-            ? a.localeCompare(b, 'es', { sensitivity: 'base' })
-            : a.localeCompare(b, 'es');
+          return a.localeCompare(b, 'es', collatorOpts);
         });
       } else if (mode === 'za') {
         lines.sort(function(a, b) {
-          return ignCase
-            ? b.localeCompare(a, 'es', { sensitivity: 'base' })
-            : b.localeCompare(a, 'es');
+          return b.localeCompare(a, 'es', collatorOpts);
         });
       } else if (mode === 'length') {
         lines.sort(function(a, b) { return a.length - b.length; });

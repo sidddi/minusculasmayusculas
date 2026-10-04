@@ -1,14 +1,16 @@
 /**
  * Mayúsculas después de punto
  * Convierte la primera letra del texto a mayúscula y capitaliza
- * la primera letra tras cada punto seguido de espacio o tras salto de línea.
+ * la primera letra tras cada punto, cierre de interrogación o exclamación
+ * (o puntos suspensivos) seguido de espacio, y tras cada salto de línea.
+ * Salta los signos de apertura (¿ ¡ « " “ ' ( [) para llegar a la letra.
  */
 function capitalizarDespuesDePunto(text) {
   if (!text) return text;
   return text
     .toLowerCase()
-    .replace(/(^[ \t]*|\.\s+|\n[ \t]*)([^\s])/g, function (match, sep, char) {
-      return sep + char.toUpperCase();
+    .replace(/(^[ \t]*|[.?!…]\s+|\n[ \t]*)([¿¡«"“'(\[]*)([^\s¿¡«"“'(\[])/g, function (match, sep, open, char) {
+      return sep + open + char.toUpperCase();
     });
 }
 
@@ -30,13 +32,14 @@ function todoMayusculas(text) {
 
 /**
  * Capitalizar Cada Palabra
- * Pone en mayúscula la primera letra de cada palabra.
+ * Pone en mayúscula la primera letra de cada palabra, también cuando
+ * la palabra empieza tras un signo de apertura («hola» → «Hola»).
  */
 function capitalizarCadaPalabra(text) {
   if (!text) return text;
   return text
     .toLowerCase()
-    .replace(/(^|\s)(\S)/g, function (match, space, char) {
-      return space + char.toUpperCase();
+    .replace(/(^|\s)([¿¡«"“'(\[]*)(\S)/g, function (match, space, open, char) {
+      return space + open + char.toUpperCase();
     });
 }

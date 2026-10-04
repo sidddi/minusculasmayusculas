@@ -881,6 +881,10 @@
             <input type="checkbox" id="opt-word" />
             Solo palabra completa
           </label>
+          <label class="option-label">
+            <input type="checkbox" id="opt-regex" />
+            Usar expresiones regulares
+          </label>
         </div>
 
         <div id="status" class="status-badge empty" aria-live="polite"></div>
@@ -1121,6 +1125,7 @@
     searchInput.addEventListener('input', updateMatchCount);
     document.getElementById('opt-case').addEventListener('change', updateMatchCount);
     document.getElementById('opt-word').addEventListener('change', updateMatchCount);
+    document.getElementById('opt-regex').addEventListener('change', updateMatchCount);
     textarea.addEventListener('input', updateMatchCount);
 
     function updateCounter() {
@@ -1133,11 +1138,13 @@
     function buildRegex(searchTerm) {
       const caseSensitive = document.getElementById('opt-case').checked;
       const wholeWord     = document.getElementById('opt-word').checked;
+      const useRegex      = document.getElementById('opt-regex').checked;
 
-      // Escape special regex chars
-      const escaped = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // En modo normal se escapan los caracteres especiales; en modo
+      // expresiones regulares el patrón se usa tal cual (con ^ y $ por línea)
+      const escaped = useRegex ? `(?:${searchTerm})` : searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const pattern = wholeWord ? `(?<![\\wáéíóúüñÁÉÍÓÚÜÑ])${escaped}(?![\\wáéíóúüñÁÉÍÓÚÜÑ])` : escaped;
-      const flags   = caseSensitive ? 'g' : 'gi';
+      const flags   = (caseSensitive ? 'g' : 'gi') + (useRegex ? 'm' : '');
 
       return new RegExp(pattern, flags);
     }
@@ -1165,7 +1172,7 @@
           );
         }
       } catch (e) {
-        setStatus('', 'empty');
+        setStatus('Expresión regular no válida', 'not-found');
       }
     }
 
@@ -1187,7 +1194,13 @@
           return;
         }
 
-        textarea.value = text.replace(regex, replaceTerm);
+        // En modo normal el reemplazo es literal ($ no tiene significado especial).
+        // En modo expresiones regulares, $1, $2… recuperan los grupos y \n, \t
+        // insertan un salto de línea o un tabulador.
+        const useRegex = document.getElementById('opt-regex').checked;
+        textarea.value = useRegex
+          ? text.replace(regex, replaceTerm.replace(/\\n/g, '\n').replace(/\\t/g, '\t'))
+          : text.replace(regex, function () { return replaceTerm; });
         updateCounter();
         setStatus(
           count === 1 ? '1 sustitución realizada' : `${count} sustituciones realizadas`,
@@ -1195,7 +1208,7 @@
         );
         textarea.focus();
       } catch (e) {
-        setStatus('', 'empty');
+        setStatus('Expresión regular no válida', 'not-found');
       }
     }
 

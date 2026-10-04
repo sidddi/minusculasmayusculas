@@ -1074,11 +1074,26 @@
       return result;
     }
 
-    function prefijo(n) {
-      var s = grupo(n, false);
-      s = s.replace(/\bveintiuno\b/g, 'veintiún');
-      s = s.replace(/\buno\b/g, 'un');
+    // Forma apocopada para un grupo que precede a «mil» o «millones»:
+    // «veintiún mil», «treinta y un millones». Con fem, las centenas
+    // concuerdan («doscientas mil personas»).
+    function prefijo(n, fem) {
+      var s = grupo(n, fem);
+      s = s.replace(/\bveintiun[oa]\b/g, 'veintiún');
+      s = s.replace(/\bun[oa]\b/g, 'un');
       return s;
+    }
+
+    // De 0 a 999 999
+    function hastaMillon(n, fem) {
+      var parts = [];
+      if (n >= 1000) {
+        var t = Math.floor(n / 1000);
+        parts.push(t === 1 ? 'mil' : prefijo(t, fem) + ' mil');
+        n = n % 1000;
+      }
+      if (n > 0) parts.push(grupo(n, fem));
+      return parts.join(' ');
     }
 
     function numToWords(n, fem) {
@@ -1086,22 +1101,20 @@
       var neg = n < 0;
       n = Math.abs(n);
       var parts = [];
-      if (n >= 1000000000) {
-        var b = Math.floor(n / 1000000000);
-        parts.push(b === 1 ? 'mil millones' : prefijo(b) + ' mil millones');
-        n = n % 1000000000;
-      }
+      // Millones (hasta 999 999 millones): 2 500 000 000 = «dos mil quinientos millones»
       if (n >= 1000000) {
         var m = Math.floor(n / 1000000);
-        parts.push(m === 1 ? 'un millón' : prefijo(m) + ' millones');
+        if (m === 1) {
+          parts.push('un millón');
+        } else {
+          var mw = hastaMillon(m, false)
+            .replace(/\bveintiuno$/, 'veintiún')
+            .replace(/\buno$/, 'un');
+          parts.push(mw + ' millones');
+        }
         n = n % 1000000;
       }
-      if (n >= 1000) {
-        var t = Math.floor(n / 1000);
-        parts.push(t === 1 ? 'mil' : prefijo(t) + ' mil');
-        n = n % 1000;
-      }
-      if (n > 0) parts.push(grupo(n, fem));
+      if (n > 0) parts.push(hastaMillon(n, fem));
       var result = parts.join(' ');
       return neg ? 'menos ' + result : result;
     }
@@ -1172,12 +1185,18 @@
 
       var result = numToWords(parsed.int, fem);
 
-      if (parsed.dec) {
-        var centsStr = (parsed.dec + '0').substring(0, 2);
-        var centsVal = parseInt(centsStr, 10);
-        if (centsVal > 0) {
-          var centsWords = numToWords(centsVal, false);
-          result += currency ? ' con ' + centsWords + ' céntimos' : ' coma ' + centsWords;
+      if (parsed.dec && parseInt(parsed.dec, 10) > 0) {
+        if (currency) {
+          // «1500,5» con céntimos son cincuenta céntimos
+          var centsVal = parseInt((parsed.dec + '0').substring(0, 2), 10);
+          result += ' con ' + numToWords(centsVal, false) + ' céntimos';
+        } else {
+          // Sin céntimos, la parte decimal se lee tal como se escribe:
+          // 3,5 → «tres coma cinco»; 3,05 → «tres coma cero cinco»
+          var decWords = parsed.dec.charAt(0) === '0'
+            ? 'cero ' + numToWords(parseInt(parsed.dec, 10), false)
+            : numToWords(parseInt(parsed.dec, 10), false);
+          result += ' coma ' + decWords;
         }
       }
 
