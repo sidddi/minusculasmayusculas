@@ -14,25 +14,26 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Las mayúsculas también llevan tilde | Guía práctica</title>
-  <meta name="description" content="La regla de la RAE es clara: las mayúsculas se acentúan siempre. De dónde viene el mito de que no llevan tilde, la excepción de las siglas y cómo escribir Á, É, Í, Ó, Ú en cada dispositivo." />
+  <title>Las mayúsculas también llevan tilde: la norma, el mito y cómo escribirlas</title>
+  <meta name="description" content="La RAE es clara: las mayúsculas se acentúan. De dónde viene el mito, la excepción de las siglas, cómo escribir Á, É, Í, Ó, Ú en cada teclado y ejemplos de ambigüedad." />
   <link rel="canonical" href="https://minusculasmayusculas.com/guia-tildes-mayusculas.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://minusculasmayusculas.com/guia-tildes-mayusculas.html" />
-  <meta property="og:title" content="Las mayúsculas también llevan tilde | Guía práctica" />
-  <meta property="og:description" content="La regla de la RAE es clara: las mayúsculas se acentúan siempre. De dónde viene el mito de que no llevan tilde, la excepción de las siglas y cómo escribir Á, É, Í, Ó, Ú en cada dispositivo." />
+  <meta property="og:title" content="Las mayúsculas también llevan tilde: la norma, el mito y cómo escribirlas" />
+  <meta property="og:description" content="La RAE es clara: las mayúsculas se acentúan. De dónde viene el mito, la excepción de las siglas, cómo escribir Á, É, Í, Ó, Ú en cada teclado y ejemplos de ambigüedad." />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="minusculasmayusculas.com" />
   <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas: herramientas de texto online gratuitas" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Las mayúsculas también llevan tilde | Guía práctica" />
-  <meta name="twitter:description" content="La regla de la RAE es clara: las mayúsculas se acentúan siempre. De dónde viene el mito de que no llevan tilde, la excepción de las siglas y cómo escribir Á, É, Í, Ó, Ú en cada dispositivo." />
+  <meta name="twitter:title" content="Las mayúsculas también llevan tilde: la norma, el mito y cómo escribirlas" />
+  <meta name="twitter:description" content="La RAE es clara: las mayúsculas se acentúan. De dónde viene el mito, la excepción de las siglas, cómo escribir Á, É, Í, Ó, Ú en cada teclado y ejemplos de ambigüedad." />
   <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
 
   <style>
@@ -334,33 +335,171 @@
       }
       footer nav { justify-content: center; }
     }
+
+    /* ── Navegación de cabecera ── */
+    .nav-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .nav-link {
+      padding: 8px 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .nav-link:hover { background: var(--primary-light); }
+
+    /* ── Migas de pan ── */
+    .breadcrumbs { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    .breadcrumbs li + li::before { content: '›'; margin-right: 4px; color: var(--border); }
+    .breadcrumbs a { color: var(--muted); }
+    .breadcrumbs a:hover { color: var(--primary); }
+
+    /* ── Firma y fechas ── */
+    .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .byline a { color: var(--primary); }
+
+    /* ── Resumen rápido ── */
+    .resumen {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 0 0 20px;
+    }
+    .resumen h2 { font-size: 1rem !important; margin: 0 0 8px !important; }
+    .resumen ul { margin: 0 0 0 20px !important; }
+    .resumen li { margin-bottom: 4px !important; }
+
+    /* ── Índice ── */
+    .toc {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      margin: 0 0 22px;
+    }
+    .toc h2 { font-size: 0.95rem !important; margin: 0 0 6px !important; }
+    .toc ol { margin: 0 0 0 20px !important; }
+    .toc li { font-size: 0.9rem !important; margin-bottom: 2px !important; }
+
+    /* ── Ejemplos ── */
+    .ejemplo {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: var(--text);
+    }
+    .article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #f1f3f4;
+      padding: 1px 5px;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+    .nota {
+      border-left: 3px solid var(--primary);
+      padding: 4px 0 4px 14px;
+      margin: 0 0 14px;
+    }
+
+    /* ── Cierre del artículo ── */
+    .report {
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 28px;
+    }
+    .related h2 { font-size: 1.1rem !important; }
+    .related ul { list-style: none; margin: 0 !important; }
+    .related li {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 8px !important;
+    }
+    .related li a { font-weight: 600; text-decoration: none; }
+    .related li a:hover { text-decoration: underline; }
+    .related li span { display: block; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Índice de guías ── */
+    .guide-group { margin-bottom: 30px; }
+    .guide-group > h2 { margin-top: 8px !important; }
+    .guide-group > p { margin-bottom: 12px; }
+    .guide-meta { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    @media (max-width: 420px) {
+      .header-bar { flex-wrap: wrap; }
+      .nav-link { padding: 8px 6px; }
+    }
+
+    .guide-list h3 { font-size: 1.02rem; margin: 0 0 6px; }
+    .guide-list h3 a { color: var(--primary); text-decoration: none; }
+    .guide-list h3 a:hover { text-decoration: underline; }
   </style>
   <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Las mayúsculas también llevan tilde",
-    "description": "Qué dice la RAE sobre la acentuación de las mayúsculas, de dónde viene el mito contrario y cómo teclear vocales mayúsculas acentuadas.",
-    "url": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html",
-    "inLanguage": "es",
-    "datePublished": "2026-06-12",
-    "dateModified": "2026-06-12",
-    "author": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "publisher": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "mainEntityOfPage": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html"
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Las mayúsculas también llevan tilde",
+  "description": "La RAE es clara: las mayúsculas se acentúan. De dónde viene el mito, la excepción de las siglas, cómo escribir Á, É, Í, Ó, Ú en cada teclado y ejemplos de ambigüedad.",
+  "url": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html",
+  "inLanguage": "es",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-10-04",
+  "wordCount": 1251,
+  "image": "https://minusculasmayusculas.com/og-image.png",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "mainEntityOfPage": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html"
+}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://minusculasmayusculas.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://minusculasmayusculas.com/guias.html" },
-      { "@type": "ListItem", "position": 3, "name": "Las mayúsculas también llevan tilde", "item": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://minusculasmayusculas.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": "https://minusculasmayusculas.com/guias.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Las mayúsculas también llevan tilde",
+      "item": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html"
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -369,27 +508,36 @@
     <div class="container">
       <div class="header-bar">
         <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
-        <div class="tools-menu">
-          <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
-            Herramientas <span class="caret">&#9662;</span>
-          </button>
-          <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
-            <a href="/">Mayúsculas y Minúsculas</a>
-            <a href="contador-palabras.html">Contador de Palabras</a>
-            <a href="contador-caracteres.html">Contador de Caracteres</a>
-            <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
-            <a href="ordenar-lista.html">Ordenar Lista</a>
-            <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
-            <a href="numero-a-letra.html">Número a Letras</a>
-            <a href="invertir-texto.html">Invertir Texto</a>
-            <a href="quitar-acentos.html">Quitar Acentos</a>
-            <a href="eliminar-espacios.html">Eliminar Espacios</a>
-            <a href="texto-aleatorio.html">Texto Aleatorio</a>
-          </nav>
+        <div class="nav-right">
+          <a class="nav-link" href="guias.html">Guías</a>
+          <div class="tools-menu">
+            <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
+              Herramientas <span class="caret">&#9662;</span>
+            </button>
+            <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
+              <a href="/">Mayúsculas y Minúsculas</a>
+              <a href="contador-palabras.html">Contador de Palabras</a>
+              <a href="contador-caracteres.html">Contador de Caracteres</a>
+              <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+              <a href="ordenar-lista.html">Ordenar Lista</a>
+              <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
+              <a href="numero-a-letra.html">Número a Letras</a>
+              <a href="invertir-texto.html">Invertir Texto</a>
+              <a href="quitar-acentos.html">Quitar Acentos</a>
+              <a href="eliminar-espacios.html">Eliminar Espacios</a>
+              <a href="texto-aleatorio.html">Texto Aleatorio</a>
+            </nav>
+          </div>
         </div>
       </div>
+      <nav class="breadcrumbs" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="guias.html">Guías</a></li>
+          <li aria-current="page">Las mayúsculas también llevan tilde</li>
+        </ol>
+      </nav>
       <h1>Las mayúsculas también llevan tilde</h1>
-      <p class="subtitle"><a href="guias.html">← Todas las guías</a></p>
     </div>
   </header>
   <script>
@@ -419,86 +567,247 @@
   <main>
     <div class="container">
       <article class="article">
-        <p>
-          «Las mayúsculas no llevan tilde» es probablemente la regla ortográfica falsa
-          más extendida del español. Se enseñó en escuelas, se repitió en oficinas y
-          todavía hoy se esgrime con seguridad. La posición de la RAE, sin embargo, no ha
-          cambiado nunca: <strong>las mayúsculas se acentúan exactamente igual que las
-          minúsculas</strong>. <em>África, Óscar, ÍNDICE GENERAL, MENÚ DEL DÍA</em> —todas
-          con su tilde.
+        <p class="byline">
+          Por <a href="sobre.html" rel="author">Siddharta Navarro Castellar</a> ·
+          Publicado el <time datetime="2026-06-12">12 de junio de 2026</time> · Actualizado el <time datetime="2026-10-04">4 de octubre de 2026</time> ·
+          Lectura: 7 min
         </p>
 
-        <h2>De dónde viene el mito</h2>
+        <aside class="resumen" aria-label="Resumen rápido">
+          <h2>Resumen rápido</h2>
+          <ul>
+            <li>Las mayúsculas llevan tilde siempre que la palabra la lleve. Nunca hubo una norma que dijera lo contrario.</li>
+            <li>La única excepción son las siglas escritas enteras en mayúscula: CIA, no CÍA.</li>
+            <li>La eñe y la diéresis también se mantienen: AÑO, PINGÜINO.</li>
+            <li>Si el teclado se te resiste, escribe en minúscula con tildes y convierte el texto después.</li>
+          </ul>
+        </aside>
+
+        <nav class="toc" aria-label="Índice del artículo">
+          <h2>En esta guía</h2>
+          <ol>
+            <li><a href="#de-donde-viene-el-mito">De dónde viene el mito</a></li>
+            <li><a href="#por-que-importa-palabras-que-cambian">Por qué importa: palabras que cambian</a></li>
+            <li><a href="#la-excepcion-real-las-siglas">La excepción real: las siglas</a></li>
+            <li><a href="#la-mayuscula-inicial-tambien">La mayúscula inicial también</a></li>
+            <li><a href="#y-la-ene-y-la-dieresis">¿Y la eñe y la diéresis?</a></li>
+            <li><a href="#como-escribir-mayusculas-con-tilde-en-cada-dispositivo">Cómo escribir mayúsculas con tilde en cada dispositivo</a></li>
+            <li><a href="#el-camino-corto-para-textos-ya-escritos">El camino corto para textos ya escritos</a></li>
+            <li><a href="#asi-quedan-bien-escritos-los-textos-en-mayusculas">Así quedan bien escritos los textos en mayúsculas</a></li>
+            <li><a href="#errores-frecuentes">Errores frecuentes</a></li>
+          </ol>
+        </nav>
+
+<p>
+          «Las mayúsculas no llevan tilde» es probablemente la regla ortográfica falsa más
+          extendida del español. Se enseñó en escuelas, se repitió en oficinas y todavía
+          hoy se defiende con seguridad. La RAE nunca ha dicho eso. Las mayúsculas se
+          acentúan exactamente igual que las minúsculas: <em>África, Óscar, ÍNDICE
+          GENERAL, MENÚ DEL DÍA</em>. Todas con su tilde.
+        </p>
+        <p>
+          La Academia lo repite en su respuesta a la duda
+          <a href="https://www.rae.es/duda-linguistica/las-mayusculas-se-tildan">¿Las
+          mayúsculas se tildan?</a> y en la nota
+          <a href="https://www.rae.es/espanol-al-dia/tilde-en-las-mayusculas">Tilde en las
+          mayúsculas</a>: escribir con mayúscula, sea la inicial o la palabra entera, no
+          exime de poner la tilde.
+        </p>
+
+        <h2 id="de-donde-viene-el-mito">De dónde viene el mito</h2>
         <p>
           El origen es tecnológico, no lingüístico. En la composición tipográfica
-          tradicional, la tilde sobre una mayúscula sobresalía del cuerpo de la letra y
-          rompía la línea, así que muchas imprentas la omitían por limitación material.
-          Las máquinas de escribir heredaron el problema: la tecla muerta del acento no
-          alcanzaba la altura de las mayúsculas, o directamente no existía la combinación.
+          tradicional, una tilde sobre una mayúscula sobresalía por encima de la línea y
+          podía chocar con la de arriba. Muchas imprentas la omitían por una limitación
+          material, no por una norma.
         </p>
         <p>
-          De la limitación práctica se pasó a la costumbre, y de la costumbre a la
-          supuesta regla. La propia RAE lo ha aclarado en repetidas ocasiones: nunca
-          existió tal norma; existía una imposibilidad técnica que los ordenadores
-          eliminaron hace décadas. Hoy no queda ninguna excusa tipográfica.
+          Las máquinas de escribir heredaron el problema. En muchos modelos, la tecla del
+          acento no alcanzaba la altura de una mayúscula o la combinación sencillamente no
+          existía. De la limitación se pasó a la costumbre, y de la costumbre a la
+          supuesta regla.
         </p>
-
-        <h2>La excepción real: las siglas</h2>
         <p>
-          Las siglas escritas íntegramente en mayúsculas no llevan tilde:
-          <em>CIA</em> (y no <em>CÍA</em>), aunque «compañía» la lleve. La razón es que
-          las siglas se leen como secuencias de letras o como palabras nuevas, no como la
-          expresión que abrevian. Ahora bien, cuando una sigla se lexicaliza —se convierte
-          en palabra corriente escrita en minúsculas— recupera las reglas generales de
-          acentuación: <em>láser, radar, ovni</em> (con tilde donde toca: <em>láser</em>).
+          Los ordenadores eliminaron esa limitación hace décadas. Cualquier teclado y
+          cualquier tipografía actual escriben Á, É, Í, Ó y Ú sin esfuerzo. Hoy no queda
+          ninguna excusa técnica.
         </p>
 
-        <h2>Cómo escribir mayúsculas con tilde en cada dispositivo</h2>
+        <h2 id="por-que-importa-palabras-que-cambian">Por qué importa: palabras que cambian</h2>
+        <p>
+          La tilde distingue significados, y en mayúsculas desaparecen otras pistas, como
+          la forma de la palabra. Estos son casos reales de ambigüedad:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Sin tilde</th><th>Puede ser</th></tr></thead>
+            <tbody>
+              <tr><td>PUBLICO</td><td>publico (yo publico), público (adjetivo), publicó (él publicó)</td></tr>
+              <tr><td>ULTIMO</td><td>ultimo (yo ultimo), último (adjetivo), ultimó (él ultimó)</td></tr>
+              <tr><td>CALCULO</td><td>calculo, cálculo, calculó</td></tr>
+              <tr><td>PAPA</td><td>papa (pontífice, patata) o papá</td></tr>
+              <tr><td>SABANA</td><td>sabana (llanura) o sábana (de la cama)</td></tr>
+              <tr><td>INGLES</td><td>inglés (idioma) o ingles (parte del cuerpo)</td></tr>
+              <tr><td>SI</td><td>si (condición) o sí (afirmación)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Un cartel que anuncia <em>CURSO DE INGLES</em> invita al chiste fácil. Un
+          titular que dice <em>EL GOBIERNO PUBLICO EL INFORME</em> obliga a releer. En
+          titulares, señalización y documentos legales, que es donde más se usan las
+          mayúsculas sostenidas, la ambigüedad sale más cara que en ningún otro sitio.
+        </p>
+
+        <p>
+          Si dudas, haz la prueba de la minúscula. Escribe la palabra en minúscula y
+          aplica las reglas de acentuación de siempre. «ATENCION» pasa a «atencion», que
+          es aguda terminada en n y lleva tilde: «atención». Por tanto, «ATENCIÓN». No hay
+          que aprender ninguna regla nueva para las mayúsculas. Basta con no olvidar las
+          de siempre.
+        </p>
+
+        <h2 id="la-excepcion-real-las-siglas">La excepción real: las siglas</h2>
+        <p>
+          Las siglas escritas enteras en mayúscula no llevan tilde. Nunca. Aunque la
+          palabra que abrevian la lleve: <em>CIA</em>, y no «CÍA», aunque «compañía» tenga
+          tilde.
+        </p>
+        <p>
+          La razón es que una sigla no es una palabra corriente. Se lee letra a letra
+          (<em>DNI</em>: de-ene-i) o como una palabra nueva (<em>OTAN</em>), y no como la
+          expresión que abrevia.
+        </p>
+        <p>
+          Cuando una sigla se convierte en palabra común y se escribe en minúscula, pasa a
+          seguir las reglas generales de acentuación. Por eso <em>láser</em> lleva tilde
+          (es llana terminada en r) y <em>radar</em> u <em>ovni</em> no la llevan.
+        </p>
+        <p>
+          No confundas siglas con abreviaturas. Las abreviaturas conservan la tilde de la
+          palabra que abrevian: <em>pág.</em> (página), <em>teléf.</em> (teléfono),
+          <em>Admón.</em> (Administración).
+        </p>
+
+        <h2 id="la-mayuscula-inicial-tambien">La mayúscula inicial también</h2>
+        <p>
+          El error no solo aparece en textos todo en mayúsculas. También en la primera
+          letra de nombres propios que empiezan por vocal tónica: <em>Ángel, Álvaro, Óscar,
+          Úrsula, Ávila, Úbeda, África, Índico</em>. Y en la primera palabra de una frase:
+          <em>Él no lo sabía. Había llovido toda la noche.</em>
+        </p>
+        <p>
+          Este último matiz es útil: la mayúscula nunca añade ni quita tildes. Si en
+          minúscula no la lleva, en mayúscula tampoco. Si en minúscula la lleva, en
+          mayúscula también.
+        </p>
+
+        <h2 id="y-la-ene-y-la-dieresis">¿Y la eñe y la diéresis?</h2>
+        <p>
+          La misma lógica se aplica al resto de signos del español. La eñe conserva su
+          virgulilla en mayúscula: <em>AÑO, ESPAÑA, ARAÑA</em>. Escribir «ANO» donde se
+          quería decir «AÑO» es el ejemplo clásico de por qué el signo no es opcional.
+        </p>
+        <p>
+          La diéresis también se mantiene: <em>PINGÜINO, BILINGÜE, SIGÜENZA</em>. Sin
+          ella, «PINGUINO» se leería «pinguino», con la u muda. Ningún signo del español
+          desaparece por cambiar el tamaño de la letra.
+        </p>
+
+        <h2 id="como-escribir-mayusculas-con-tilde-en-cada-dispositivo">Cómo escribir mayúsculas con tilde en cada dispositivo</h2>
         <div class="table-wrap">
           <table class="content-table">
             <thead><tr><th>Dispositivo</th><th>Cómo</th></tr></thead>
             <tbody>
-              <tr><td>Windows y Mac (teclado español)</td><td>Pulsa la tecla de la tilde (´) y después la vocal con Mayús apretado: ´ + Mayús + a → Á</td></tr>
-              <tr><td>Con Bloq Mayús activado</td><td>La tecla de la tilde sigue funcionando: ´ + a produce Á mientras Bloq Mayús esté activo</td></tr>
-              <tr><td>Móvil (Android y iPhone)</td><td>Activa la flecha de mayúsculas y mantén pulsada la vocal: aparecen las variantes acentuadas</td></tr>
-              <tr><td>Texto ya escrito</td><td>Escribe en minúsculas con sus tildes y conviértelo después (ver abajo)</td></tr>
+              <tr><td>Teclado español (Windows, Mac, Linux)</td><td>Pulsa la tecla de la tilde (´), suéltala y después pulsa Mayús + la vocal. ´ y luego Mayús + a da Á.</td></tr>
+              <tr><td>Con Bloq Mayús activado</td><td>La tecla de la tilde sigue funcionando. ´ y luego a da Á.</td></tr>
+              <tr><td>Windows, cualquier teclado</td><td>Mantén Alt y teclea en el teclado numérico: 0193 (Á), 0201 (É), 0205 (Í), 0211 (Ó), 0218 (Ú), 0209 (Ñ), 0220 (Ü).</td></tr>
+              <tr><td>Mac con teclado inglés</td><td>Opción + e, suelta, y después Mayús + la vocal. Para la Ñ: Opción + n y luego Mayús + n.</td></tr>
+              <tr><td>Móvil (Android y iPhone)</td><td>Activa la flecha de mayúsculas y mantén pulsada la vocal. Aparecen las variantes acentuadas.</td></tr>
+              <tr><td>Texto ya escrito</td><td>Escríbelo en minúsculas con sus tildes y conviértelo después.</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h2>El camino corto para textos ya escritos</h2>
+        <h2 id="el-camino-corto-para-textos-ya-escritos">El camino corto para textos ya escritos</h2>
         <p>
-          Si tienes que poner un texto en mayúsculas —un titular, una cláusula de
-          contrato, un cartel—, no lo reescribas letra a letra peleándote con el teclado.
+          Si tienes que poner un texto en mayúsculas (un titular, una cláusula de
+          contrato, un cartel), no lo reescribas letra a letra peleándote con el teclado.
           Escríbelo en minúsculas con su acentuación normal y pásalo por el
-          <a href="index.html">conversor de mayúsculas</a>: la conversión preserva las
-          tildes (á → Á, é → É) y la eñe (ñ → Ñ), que es justamente donde los conversores
-          pensados para el inglés fallan. El resultado cumple la norma sin esfuerzo
-          adicional.
+          <a href="/">convertidor de mayúsculas</a> con «TODO MAYÚSCULAS».
+        </p>
+        <div class="ejemplo">Entrada:   Atención: la próxima reunión será el miércoles en el salón de actos.
+Resultado: ATENCIÓN: LA PRÓXIMA REUNIÓN SERÁ EL MIÉRCOLES EN EL SALÓN DE ACTOS.</div>
+        <p>
+          La conversión conserva las tildes (á → Á), la eñe (ñ → Ñ) y la diéresis (ü →
+          Ü), que es justamente donde fallan algunos conversores pensados para el inglés.
+          Si partes de un texto bien acentuado, el resultado cumple la norma sin esfuerzo.
+        </p>
+        <p>
+          Lo que la conversión no puede hacer es lo contrario: si el texto original ya
+          está en mayúsculas sin tildes, no hay forma automática de saber si «PUBLICO» era
+          «público» o «publicó». Ahí toca revisar a mano.
         </p>
 
-        <h2>¿Y la eñe y la diéresis?</h2>
+        <h2 id="asi-quedan-bien-escritos-los-textos-en-mayusculas">Así quedan bien escritos los textos en mayúsculas</h2>
         <p>
-          La misma lógica se aplica al resto de signos del español. La eñe conserva su
-          virgulilla en mayúscula (<em>AÑO, ESPAÑA, ARAÑA</em>): escribir <em>ANO</em>
-          donde se quería decir <em>AÑO</em> es el ejemplo canónico —y el más escarmentado
-          en rótulos reales— de por qué el signo no es opcional. La diéresis también se
-          mantiene: <em>PINGÜINO, BILINGÜE, SIGÜENZA</em>. Ningún signo diacrítico del
-          español desaparece por cambiar la caja de la letra; lo único que desapareció en
-          su día fue la capacidad técnica de imprimirlo.
+          Algunos ejemplos de los sitios donde más se ven mayúsculas sostenidas, con la
+          tilde donde corresponde:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Dónde</th><th>Bien escrito</th></tr></thead>
+            <tbody>
+              <tr><td>Rótulo de un comercio</td><td>MENÚ DEL DÍA · ÚLTIMAS UNIDADES · ATENCIÓN AL CLIENTE</td></tr>
+              <tr><td>Señal o cartel</td><td>PROHIBIDO APARCAR CAMIONES · SALIDA DE EMERGENCIA · ZONA DE CARGA Y DESCARGA</td></tr>
+              <tr><td>Contrato</td><td>CLÁUSULA PRIMERA. OBJETO DEL CONTRATO</td></tr>
+              <tr><td>Cabecera de una hoja de cálculo</td><td>NÚMERO DE TELÉFONO · CÓDIGO POSTAL · DIRECCIÓN</td></tr>
+              <tr><td>Portada de un informe</td><td>MEMORIA ANUAL · INFORMACIÓN ECONÓMICA</td></tr>
+              <tr><td>Nombre en una placa</td><td>ÁNGELA MUÑOZ GARCÍA</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Fíjate en que «SALIDA», «CARGA» o «MEMORIA» no llevan tilde: tampoco la llevan
+          en minúscula. La regla no es «poner tildes en las mayúsculas», sino no
+          quitarlas. Lo mismo vale para las versalitas, esas mayúsculas de tamaño reducido
+          que se usan en algunos títulos y en los siglos (<em>siglo XXI</em>): también se
+          acentúan.
         </p>
 
-        <h2>Por qué merece la pena el cuidado</h2>
-        <p>
-          No es purismo: la tilde distingue significados, y en mayúsculas desaparecen
-          otras pistas del contexto. <em>PUBLICO</em> puede ser «publico», «público» o
-          «publicó»; un cartel que anuncia <em>INGLES</em> en una academia invita al
-          chiste fácil. En titulares, señalización y documentos legales —los lugares
-          donde más se usan las mayúsculas sostenidas— la ambigüedad sale más cara que
-          en ningún otro sitio.
+        <h2 id="errores-frecuentes">Errores frecuentes</h2>
+        <ul>
+          <li><strong>Quitar la tilde «porque es mayúscula».</strong> No hay ninguna
+          norma que lo permita.</li>
+          <li><strong>Poner tilde a una sigla.</strong> <em>ONU</em>, <em>CIA</em>,
+          <em>OTAN</em>: nunca llevan.</li>
+          <li><strong>Olvidar la tilde de la inicial.</strong> <em>Álvarez, Ángela,
+          Óscar</em> la llevan aunque sea la primera letra.</li>
+          <li><strong>Usar tipografías sin caracteres españoles.</strong> Algunas fuentes
+          decorativas no incluyen la Á o la Ñ, y el programa las sustituye por otra
+          fuente o por un cuadrado. Comprueba antes de imprimir un cartel.</li>
+          <li><strong>Copiar de un sistema antiguo.</strong> Listados exportados de
+          programas viejos llegan a menudo en mayúsculas sin tildes. Antes de
+          reutilizarlos en un texto, revisa la acentuación.</li>
+        </ul>
+
+        <section class="related" aria-label="Artículos y herramientas relacionadas">
+          <h2>Sigue leyendo</h2>
+          <ul>
+            <li><a href="guia-mayusculas-espanol.html">Cuándo se escribe con mayúscula en español</a><span>La regla general y 25 casos resueltos con ejemplos: cargos, meses, puntos cardinales, instituciones, internet y qué pasa después de los dos puntos.</span></li>
+            <li><a href="guia-quitar-acentos.html">Quitar acentos: cuándo tiene sentido y cuándo es un error</a><span>URLs, nombres de archivo, búsquedas y bases de datos: dónde sí quitar tildes y por qué nunca en un texto para personas.</span></li>
+            <li><a href="guia-mayusculas-titulos.html">Mayúsculas en títulos: el estilo español frente al inglés</a><span>Por qué «Cómo Ganar Amigos» es un calco del inglés, qué excepciones tiene el español y cómo titular webs, vídeos y trabajos.</span></li>
+            <li><a href="/">Convertidor de mayúsculas y minúsculas</a><span>Convierte a mayúsculas conservando tildes, eñes y diéresis.</span></li>
+          </ul>
+        </section>
+
+        <p class="report">
+          ¿Has encontrado un error o una explicación que no se entiende?
+          <a href="contacto.html">Escríbeme</a> y lo corrijo. Las guías se revisan
+          con las obras de la RAE y la FundéuRAE como referencia; puedes leer cómo se
+          preparan en <a href="sobre.html#como-se-hacen-las-guias">Sobre el proyecto</a>.
         </p>
       </article>
-
     </div><!-- /container -->
   </main>
 

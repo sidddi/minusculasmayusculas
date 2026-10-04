@@ -14,25 +14,26 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¿Números en cifras o en letras? Guía práctica</title>
-  <meta name="description" content="Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, la escritura correcta de los números en letras y por qué los contratos los escriben dos veces." />
+  <title>¿Números en cifras o en letras? Guía práctica con ejemplos</title>
+  <meta name="description" content="Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, los ordinales y los errores más frecuentes." />
   <link rel="canonical" href="https://minusculasmayusculas.com/guia-escribir-numeros.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://minusculasmayusculas.com/guia-escribir-numeros.html" />
-  <meta property="og:title" content="¿Números en cifras o en letras? Guía práctica" />
-  <meta property="og:description" content="Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, la escritura correcta de los números en letras y por qué los contratos los escriben dos veces." />
+  <meta property="og:title" content="¿Números en cifras o en letras? Guía práctica con ejemplos" />
+  <meta property="og:description" content="Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, los ordinales y los errores más frecuentes." />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="minusculasmayusculas.com" />
   <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas: herramientas de texto online gratuitas" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="¿Números en cifras o en letras? Guía práctica" />
-  <meta name="twitter:description" content="Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, la escritura correcta de los números en letras y por qué los contratos los escriben dos veces." />
+  <meta name="twitter:title" content="¿Números en cifras o en letras? Guía práctica con ejemplos" />
+  <meta name="twitter:description" content="Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, los ordinales y los errores más frecuentes." />
   <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
 
   <style>
@@ -334,33 +335,171 @@
       }
       footer nav { justify-content: center; }
     }
+
+    /* ── Navegación de cabecera ── */
+    .nav-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .nav-link {
+      padding: 8px 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .nav-link:hover { background: var(--primary-light); }
+
+    /* ── Migas de pan ── */
+    .breadcrumbs { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    .breadcrumbs li + li::before { content: '›'; margin-right: 4px; color: var(--border); }
+    .breadcrumbs a { color: var(--muted); }
+    .breadcrumbs a:hover { color: var(--primary); }
+
+    /* ── Firma y fechas ── */
+    .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .byline a { color: var(--primary); }
+
+    /* ── Resumen rápido ── */
+    .resumen {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 0 0 20px;
+    }
+    .resumen h2 { font-size: 1rem !important; margin: 0 0 8px !important; }
+    .resumen ul { margin: 0 0 0 20px !important; }
+    .resumen li { margin-bottom: 4px !important; }
+
+    /* ── Índice ── */
+    .toc {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      margin: 0 0 22px;
+    }
+    .toc h2 { font-size: 0.95rem !important; margin: 0 0 6px !important; }
+    .toc ol { margin: 0 0 0 20px !important; }
+    .toc li { font-size: 0.9rem !important; margin-bottom: 2px !important; }
+
+    /* ── Ejemplos ── */
+    .ejemplo {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: var(--text);
+    }
+    .article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #f1f3f4;
+      padding: 1px 5px;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+    .nota {
+      border-left: 3px solid var(--primary);
+      padding: 4px 0 4px 14px;
+      margin: 0 0 14px;
+    }
+
+    /* ── Cierre del artículo ── */
+    .report {
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 28px;
+    }
+    .related h2 { font-size: 1.1rem !important; }
+    .related ul { list-style: none; margin: 0 !important; }
+    .related li {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 8px !important;
+    }
+    .related li a { font-weight: 600; text-decoration: none; }
+    .related li a:hover { text-decoration: underline; }
+    .related li span { display: block; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Índice de guías ── */
+    .guide-group { margin-bottom: 30px; }
+    .guide-group > h2 { margin-top: 8px !important; }
+    .guide-group > p { margin-bottom: 12px; }
+    .guide-meta { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    @media (max-width: 420px) {
+      .header-bar { flex-wrap: wrap; }
+      .nav-link { padding: 8px 6px; }
+    }
+
+    .guide-list h3 { font-size: 1.02rem; margin: 0 0 6px; }
+    .guide-list h3 a { color: var(--primary); text-decoration: none; }
+    .guide-list h3 a:hover { text-decoration: underline; }
   </style>
   <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "¿Números en cifras o en letras? Guía práctica",
-    "description": "Cuándo escribir los números en letras y cuándo en cifras según la RAE, con las reglas de formación y el caso de los documentos legales.",
-    "url": "https://minusculasmayusculas.com/guia-escribir-numeros.html",
-    "inLanguage": "es",
-    "datePublished": "2026-06-12",
-    "dateModified": "2026-06-12",
-    "author": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "publisher": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "mainEntityOfPage": "https://minusculasmayusculas.com/guia-escribir-numeros.html"
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "¿Números en cifras o en letras?",
+  "description": "Cuándo se escribe «veinte» y cuándo «20»: la recomendación de la RAE, los casos que van siempre en cifras, los ordinales y los errores más frecuentes.",
+  "url": "https://minusculasmayusculas.com/guia-escribir-numeros.html",
+  "inLanguage": "es",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-10-04",
+  "wordCount": 1229,
+  "image": "https://minusculasmayusculas.com/og-image.png",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "mainEntityOfPage": "https://minusculasmayusculas.com/guia-escribir-numeros.html"
+}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://minusculasmayusculas.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://minusculasmayusculas.com/guias.html" },
-      { "@type": "ListItem", "position": 3, "name": "¿Números en cifras o en letras? Guía práctica", "item": "https://minusculasmayusculas.com/guia-escribir-numeros.html" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://minusculasmayusculas.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": "https://minusculasmayusculas.com/guias.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "¿Números en cifras o en letras?",
+      "item": "https://minusculasmayusculas.com/guia-escribir-numeros.html"
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -369,27 +508,36 @@
     <div class="container">
       <div class="header-bar">
         <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
-        <div class="tools-menu">
-          <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
-            Herramientas <span class="caret">&#9662;</span>
-          </button>
-          <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
-            <a href="/">Mayúsculas y Minúsculas</a>
-            <a href="contador-palabras.html">Contador de Palabras</a>
-            <a href="contador-caracteres.html">Contador de Caracteres</a>
-            <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
-            <a href="ordenar-lista.html">Ordenar Lista</a>
-            <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
-            <a href="numero-a-letra.html">Número a Letras</a>
-            <a href="invertir-texto.html">Invertir Texto</a>
-            <a href="quitar-acentos.html">Quitar Acentos</a>
-            <a href="eliminar-espacios.html">Eliminar Espacios</a>
-            <a href="texto-aleatorio.html">Texto Aleatorio</a>
-          </nav>
+        <div class="nav-right">
+          <a class="nav-link" href="guias.html">Guías</a>
+          <div class="tools-menu">
+            <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
+              Herramientas <span class="caret">&#9662;</span>
+            </button>
+            <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
+              <a href="/">Mayúsculas y Minúsculas</a>
+              <a href="contador-palabras.html">Contador de Palabras</a>
+              <a href="contador-caracteres.html">Contador de Caracteres</a>
+              <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+              <a href="ordenar-lista.html">Ordenar Lista</a>
+              <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
+              <a href="numero-a-letra.html">Número a Letras</a>
+              <a href="invertir-texto.html">Invertir Texto</a>
+              <a href="quitar-acentos.html">Quitar Acentos</a>
+              <a href="eliminar-espacios.html">Eliminar Espacios</a>
+              <a href="texto-aleatorio.html">Texto Aleatorio</a>
+            </nav>
+          </div>
         </div>
       </div>
+      <nav class="breadcrumbs" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="guias.html">Guías</a></li>
+          <li aria-current="page">¿Números en cifras o en letras?</li>
+        </ol>
+      </nav>
       <h1>¿Números en cifras o en letras?</h1>
-      <p class="subtitle"><a href="guias.html">← Todas las guías</a></p>
     </div>
   </header>
   <script>
@@ -419,40 +567,123 @@
   <main>
     <div class="container">
       <article class="article">
-        <p>
+        <p class="byline">
+          Por <a href="sobre.html" rel="author">Siddharta Navarro Castellar</a> ·
+          Publicado el <time datetime="2026-06-12">12 de junio de 2026</time> · Actualizado el <time datetime="2026-10-04">4 de octubre de 2026</time> ·
+          Lectura: 7 min
+        </p>
+
+        <aside class="resumen" aria-label="Resumen rápido">
+          <h2>Resumen rápido</h2>
+          <ul>
+            <li>En textos corrientes, letra para los números que se dicen en una palabra (tres, quince, cien) y cifra para los complejos (1.250).</li>
+            <li>Siempre en cifra: fechas, horas en formato digital, decimales, medidas con símbolo, páginas y artículos de normas.</li>
+            <li>Nada de mezclar a medias: «3.000» o «tres mil», nunca «3 mil». La excepción es millón y superiores: «3 millones».</li>
+            <li>Los ordinales abreviados llevan punto: 1.º, 2.ª, 3.er.</li>
+          </ul>
+        </aside>
+
+        <nav class="toc" aria-label="Índice del artículo">
+          <h2>En esta guía</h2>
+          <ol>
+            <li><a href="#la-recomendacion-general">La recomendación general</a></li>
+            <li><a href="#siempre-en-cifras">Siempre en cifras</a></li>
+            <li><a href="#siempre-en-letra">Siempre en letra</a></li>
+            <li><a href="#como-se-escriben-las-cifras">Cómo se escriben las cifras</a></li>
+            <li><a href="#como-se-forman-los-numeros-en-letras">Cómo se forman los números en letras</a></li>
+            <li><a href="#el-caso-de-los-contratos-y-los-cheques">El caso de los contratos y los cheques</a></li>
+            <li><a href="#los-ordinales-el-terreno-olvidado">Los ordinales, el terreno olvidado</a></li>
+            <li><a href="#ejemplos-resueltos-en-contexto">Ejemplos resueltos en contexto</a></li>
+            <li><a href="#errores-frecuentes">Errores frecuentes</a></li>
+          </ol>
+        </nav>
+
+<p>
           ¿«Tengo 3 hermanos» o «tengo tres hermanos»? ¿«El plazo es de 15 días» o «de
-          quince días»? La elección entre cifras y letras no es estética: hay una
-          recomendación general, una lista de casos que van siempre en cifras y un
-          terreno —el de los documentos legales— donde la respuesta es «las dos cosas a
-          la vez».
+          quince días»? La elección entre cifras y letras no es solo estética. Hay una
+          recomendación general, una lista de casos que van siempre en cifra y otra de
+          casos que van siempre en letra. Y hay un terreno, el de los documentos legales,
+          donde la respuesta es «las dos cosas a la vez».
         </p>
 
-        <h2>La recomendación general</h2>
+        <h2 id="la-recomendacion-general">La recomendación general</h2>
         <p>
-          En textos corrientes (narrativa, prensa, correspondencia), la RAE recomienda
-          escribir <strong>en letras</strong> los números que se expresan en una sola
-          palabra (<em>tres, dieciséis, veintinueve, cien, mil</em>) y los redondos que
-          se dicen en dos (<em>treinta y dos mil... no</em>: dos palabras como
-          <em>treinta y cinco</em> entran en el uso flexible). A partir de ahí, y en
-          cualquier caso para números complejos, <strong>cifras</strong>:
-          <em>Vinieron veinte personas</em>, pero <em>El aforo es de 1.250 personas</em>.
+          La <a href="https://www.rae.es/ortograf%C3%ADa/escritura-con-palabras">Ortografía
+          de la RAE</a> recomienda escribir con palabras, en textos corrientes, estos
+          números:
         </p>
-        <p>
-          En textos científicos y técnicos la convención cambia: las cifras dominan
-          porque la precisión y la comparación importan más que la fluidez de lectura.
-        </p>
-
-        <h2>Siempre en cifras</h2>
         <ul>
-          <li><strong>Fechas y años:</strong> 12 de junio de 2026 (y no «doce de junio»).</li>
-          <li><strong>Números con decimales:</strong> 3,14 — imposibles de manejar en letras.</li>
-          <li><strong>Porcentajes con símbolo:</strong> el 25&nbsp;%. En prosa puede escribirse «el veinticinco por ciento».</li>
-          <li><strong>Medidas con su unidad abreviada:</strong> 5 km, 120 g, 220 V.</li>
-          <li><strong>Numeración de páginas, calles y normas:</strong> página 84, calle Mayor, 7; artículo 14.2.</li>
-          <li><strong>Horas en formato digital:</strong> 18:30 (en prosa: «las seis y media»).</li>
+          <li><strong>Los que se dicen en una sola palabra:</strong> del cero al
+          veintinueve, las decenas (<em>treinta, cuarenta</em>…) y las centenas
+          (<em>cien, doscientos</em>…).</li>
+          <li><strong>Los redondos que se dicen en dos palabras:</strong> <em>trescientos
+          mil, dos millones</em>.</li>
+          <li><strong>Las cantidades aproximadas:</strong> <em>unas cuarenta personas,
+          hace mil años</em>.</li>
+        </ul>
+        <p>
+          El resto, en cifras: <em>Vinieron veinte personas</em>, pero <em>El aforo es de
+          1250 personas</em>. Con un número complejo, la cifra se lee mejor y ocupa menos.
+        </p>
+        <p>
+          En textos científicos, técnicos y estadísticos, la convención cambia: las cifras
+          dominan, porque la precisión y la comparación importan más que la fluidez. Y en
+          prensa cada medio tiene su libro de estilo, que suele fijar un umbral concreto
+          (por ejemplo, letra hasta el nueve o hasta el veinte).
+        </p>
+
+        <h2 id="siempre-en-cifras">Siempre en cifras</h2>
+        <ul>
+          <li><strong>Fechas y años:</strong> 12 de junio de 2026.</li>
+          <li><strong>Números con decimales:</strong> 3,14. Imposibles de manejar en letra
+          dentro de un texto.</li>
+          <li><strong>Porcentajes con símbolo:</strong> el 25 %. En prosa puede escribirse
+          «el veinticinco por ciento».</li>
+          <li><strong>Medidas con su símbolo:</strong> 5 km, 120 g, 220 V. Si escribes la
+          unidad completa, puedes usar letra: «cinco kilómetros».</li>
+          <li><strong>Números de página, de calle, de norma:</strong> página 84, calle
+          Mayor, 7; artículo 14.2.</li>
+          <li><strong>Horas en formato digital:</strong> 18:30. En prosa: «las seis y
+          media».</li>
+          <li><strong>Cantidades en tablas, gráficos y textos con muchas cifras.</strong>
+          Mezclar «tres» con «1250» en la misma comparación dificulta la lectura.</li>
         </ul>
 
-        <h2>Cómo se forman los números en letras</h2>
+        <h2 id="siempre-en-letra">Siempre en letra</h2>
+        <ul>
+          <li><strong>Al empezar una frase.</strong> «Treinta y dos personas firmaron la
+          carta», no «32 personas firmaron la carta». Si queda muy largo, reformula para
+          que el número no vaya al principio.</li>
+          <li><strong>En expresiones fijas:</strong> <em>a las mil maravillas, en un dos
+          por tres, cuatro gatos</em>.</li>
+          <li><strong>En diálogos de novela</strong>, donde se reproduce lo que se dice:
+          «Llegaré a las nueve», le dijo.</li>
+        </ul>
+
+        <h2 id="como-se-escriben-las-cifras">Cómo se escriben las cifras</h2>
+        <h3>Separar los millares</h3>
+        <p>
+          La Ortografía de 2010 recomienda separar los grupos de tres cifras con un
+          espacio fino, no con punto ni coma: <em>1 250 000</em>. Los números de cuatro
+          cifras se escriben sin separar: <em>1250</em>. El punto como separador de
+          millares (<em>1.250.000</em>) sigue siendo muy común en España, sobre todo en
+          documentos económicos, y no se considera un error grave. Lo que no se separa
+          nunca: años (2026), páginas (página 1250), códigos postales (08001) y números
+          de cuenta o de teléfono, que tienen sus propios formatos.
+        </p>
+        <h3>Separar los decimales</h3>
+        <p>
+          La Ortografía admite la coma y el punto como separador decimal, y recomienda el
+          punto para favorecer la unificación internacional. En España lo habitual sigue
+          siendo la coma: <em>3,14</em>. Elige uno y no los mezcles.
+        </p>
+        <h3>El símbolo de porcentaje</h3>
+        <p>
+          Va separado de la cifra por un espacio: <em>25 %</em>, no «25%». Lo mismo con
+          las unidades: <em>5 km</em>, <em>20 °C</em>.
+        </p>
+
+        <h2 id="como-se-forman-los-numeros-en-letras">Cómo se forman los números en letras</h2>
         <p>
           Aquí están los tropiezos clásicos, porque las reglas cambian según el tramo:
         </p>
@@ -460,62 +691,116 @@
           <table class="content-table">
             <thead><tr><th>Tramo</th><th>Regla</th><th>Ejemplos</th></tr></thead>
             <tbody>
-              <tr><td>16–29</td><td>Una sola palabra</td><td>dieciséis, veintiuno, veintinueve</td></tr>
-              <tr><td>31–99</td><td>Decena + «y» + unidad, separado</td><td>treinta y uno, ochenta y siete</td></tr>
-              <tr><td>100</td><td>«Cien» solo para el 100 exacto</td><td>cien páginas</td></tr>
-              <tr><td>101–199</td><td>«Ciento» en los compuestos</td><td>ciento dos, ciento cincuenta</td></tr>
+              <tr><td>16 a 29</td><td>Una sola palabra</td><td>dieciséis, veintiuno, veintinueve</td></tr>
+              <tr><td>31 a 99</td><td>Decena + «y» + unidad, separado</td><td>treinta y uno, ochenta y siete</td></tr>
+              <tr><td>100</td><td>«Cien» para el 100 exacto</td><td>cien páginas</td></tr>
+              <tr><td>101 a 199</td><td>«Ciento» en los compuestos</td><td>ciento dos, ciento cincuenta</td></tr>
               <tr><td>Centenas irregulares</td><td>Formas propias</td><td>quinientos, setecientos, novecientos</td></tr>
               <tr><td>Millones</td><td>«Millón» es sustantivo: necesita «un» y «de»</td><td>un millón de euros, dos millones</td></tr>
             </tbody>
           </table>
         </div>
         <p>
-          Además, «uno» se apocopa ante sustantivo masculino (<em>veintiún días</em>,
-          <em>cuarenta y un euros</em>) y concuerda en femenino
-          (<em>veintiuna páginas</em>). Es el tipo de detalle que delata una redacción
-          descuidada en un documento formal.
+          Además, «uno» se acorta ante sustantivo masculino (<em>veintiún días</em>,
+          <em>cuarenta y un euros</em>) y concuerda en femenino (<em>veintiuna
+          páginas</em>). El método completo, con los casos difíciles, está en la guía para
+          <a href="guia-numero-a-letra-a-mano.html">convertir un número a letra paso a
+          paso</a>.
         </p>
 
-        <h2>El caso de los contratos y los cheques</h2>
+        <h2 id="el-caso-de-los-contratos-y-los-cheques">El caso de los contratos y los cheques</h2>
         <p>
-          Los documentos con valor legal escriben las cantidades dos veces —«1.500&nbsp;€
-          (mil quinientos euros)»— por una razón de seguridad: una cifra se altera con un
-          trazo; una cantidad en letras, no. Cuando ambas versiones no coinciden, la
-          práctica jurídica habitual da prevalencia a la escrita en letras. Eso convierte
-          el error de transcripción en un riesgo real: escribir mal la cantidad en letras
-          puede cambiar el importe efectivo del documento.
+          Los documentos con valor legal escriben las cantidades dos veces: «1500 € (mil
+          quinientos euros)». Es una medida de seguridad. Una cifra se altera con un
+          trazo; una cantidad en letra, no. En cheques y letras de cambio, la ley española
+          dice que, si no coinciden, vale la escrita en letra. Eso convierte un error de
+          transcripción en un riesgo real.
         </p>
         <p>
-          Para esos casos, lo sensato es no escribirla a mano: el
-          <a href="numero-a-letra.html">conversor de números a letras</a> aplica todas
-          las reglas anteriores —incluida la apócope y el género— sobre cualquier número
-          hasta los miles de millones, con opción de céntimos para los importes
-          monetarios y de mayúsculas para el formato de los cheques.
-        </p>
-
-        <h2>Los ordinales, el terreno olvidado</h2>
-        <p>
-          Los ordinales tienen sus propias trampas. La abreviatura correcta lleva punto
-          antes de la letra volada: <em>1.º, 2.ª, 3.er</em> (no <em>1º</em> ni
-          <em>2ª</em>). «Primero» y «tercero» se apocopan ante sustantivo masculino:
-          <em>el primer día, el tercer intento</em>, pero <em>la primera vez</em>. Y a
-          partir de cierto punto, el uso real abandona los ordinales: nadie dice «el
-          quincuagésimo aniversario» fuera de un discurso; se dice «el cincuenta
-          aniversario», y la propia norma admite ese empleo del cardinal. Para los
-          compuestos, ambas grafías son válidas: <em>decimotercero</em> y
-          <em>décimo tercero</em>.
+          Para esos casos, lo sensato es no escribirla de memoria. El
+          <a href="numero-a-letra.html">conversor de números a letras</a> aplica las reglas
+          anteriores, incluida la apócope y el género, con opción de céntimos y de
+          mayúsculas. Y la guía de <a href="guia-cantidades-en-letra.html">cantidades en
+          letra</a> tiene veinte importes resueltos.
         </p>
 
-        <h2>Dos errores frecuentes para cerrar</h2>
+        <h2 id="los-ordinales-el-terreno-olvidado">Los ordinales, el terreno olvidado</h2>
         <p>
-          <strong>«Veinte y uno»</strong> no existe: del 16 al 29 la fusión es
-          obligatoria (<em>veintiuno</em>). Y los millares no se mezclan con letras a
-          medias: <em>«3 mil personas»</em> es incorrecto; o <em>3.000 personas</em>, o
-          <em>tres mil personas</em>. Las combinaciones de cifra y palabra solo se
-          admiten con «millón» y superiores: <em>3 millones de euros</em>.
+          La abreviatura correcta lleva punto antes de la letra volada: <em>1.º, 2.ª,
+          3.er</em>, no «1º» ni «2ª». «Primero» y «tercero» se acortan ante sustantivo
+          masculino: <em>el primer día, el tercer intento</em>, pero <em>la primera
+          vez</em>.
+        </p>
+        <p>
+          A partir de cierto punto, el uso real abandona los ordinales: casi nadie dice
+          «el quincuagésimo aniversario» fuera de un discurso; se dice «el cincuenta
+          aniversario», y la norma admite ese uso del cardinal. Para los ordinales
+          compuestos valen las dos grafías: <em>decimotercero</em> y <em>décimo
+          tercero</em>.
+        </p>
+        <p>
+          Ojo con un error muy extendido: <em>onceavo</em>, <em>doceavo</em> y
+          <em>veinteavo</em> no son ordinales, sino partitivos (una de las once, doce o
+          veinte partes de algo). «Quedó doceavo en la carrera» es incorrecto; lo correcto
+          es «quedó duodécimo» o, de forma más natural, «quedó en el puesto doce».
+        </p>
+
+        <h2 id="ejemplos-resueltos-en-contexto">Ejemplos resueltos en contexto</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Mejorable</th><th>Recomendado</th><th>Motivo</th></tr></thead>
+            <tbody>
+              <tr><td>Tengo 3 hermanos.</td><td>Tengo tres hermanos.</td><td>Se dice en una palabra</td></tr>
+              <tr><td>El plazo es de quince días hábiles desde el 3 de marzo.</td><td>Igual.</td><td>Quince en letra; la fecha, en cifra</td></tr>
+              <tr><td>Asistieron mil doscientas cincuenta personas.</td><td>Asistieron 1250 personas.</td><td>Número complejo</td></tr>
+              <tr><td>Asistieron unas 1000 personas.</td><td>Asistieron unas mil personas.</td><td>Cantidad aproximada</td></tr>
+              <tr><td>15 alumnos suspendieron.</td><td>Quince alumnos suspendieron.</td><td>Inicio de frase</td></tr>
+              <tr><td>La temperatura bajó a cinco grados centígrados bajo cero.</td><td>La temperatura bajó a −5 °C.</td><td>Medida con símbolo, en un texto informativo</td></tr>
+              <tr><td>El IVA es del veintiuno %.</td><td>El IVA es del 21 %.</td><td>El símbolo exige cifra</td></tr>
+              <tr><td>Vive en el 3º piso.</td><td>Vive en el tercer piso / en el 3.er piso.</td><td>Ordinal con apócope y abreviatura con punto</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Ninguna de las versiones de la primera columna es un error grave. Pero un texto
+          que aplica el criterio de forma coherente se lee mejor y transmite cuidado. Si
+          tu empresa o tu universidad tiene un libro de estilo propio, manda sobre estas
+          recomendaciones.
+        </p>
+
+        <h2 id="errores-frecuentes">Errores frecuentes</h2>
+        <ul>
+          <li><strong>«Veinte y uno».</strong> Del 16 al 29 la fusión es obligatoria:
+          <em>veintiuno</em>.</li>
+          <li><strong>«3 mil personas».</strong> Los millares no se mezclan con letras a
+          medias: o <em>3000 personas</em>, o <em>tres mil personas</em>. La combinación
+          de cifra y palabra solo se admite con «millón» y superiores: <em>3 millones de
+          euros</em>.</li>
+          <li><strong>«25%» pegado.</strong> El símbolo va separado: <em>25 %</em>.</li>
+          <li><strong>«1º», «2ª».</strong> Falta el punto: <em>1.º, 2.ª</em>.</li>
+          <li><strong>«Doceavo» como ordinal.</strong> Es partitivo. El ordinal es
+          <em>duodécimo</em>.</li>
+          <li><strong>Mezclar criterios en un mismo texto.</strong> Si escribes «tres
+          capítulos» en una página, no escribas «3 capítulos» en la siguiente.</li>
+        </ul>
+
+        <section class="related" aria-label="Artículos y herramientas relacionadas">
+          <h2>Sigue leyendo</h2>
+          <ul>
+            <li><a href="guia-cantidades-en-letra.html">Cómo escribir cantidades en letra en cheques, contratos y facturas</a><span>Euros y céntimos, «veintiún» o «veintiuna», «cien» o «ciento», millones y 20 importes resueltos, listos para copiar.</span></li>
+            <li><a href="guia-numero-a-letra-a-mano.html">Cómo convertir un número a letra a mano, paso a paso</a><span>Un método en cuatro pasos para escribir cualquier número en palabras, con los casos que más fallan: 21, 100 y 101, 1.001, 1.000.000.</span></li>
+            <li><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres y cómo aprovecharlos</a><span>Los límites de las plataformas más usadas, qué cuenta exactamente como carácter y técnicas concretas para recortar sin perder el mensaje.</span></li>
+            <li><a href="numero-a-letra.html">Número a letras</a><span>Escribe en letras cualquier número hasta 999 999 999 999.</span></li>
+          </ul>
+        </section>
+
+        <p class="report">
+          ¿Has encontrado un error o una explicación que no se entiende?
+          <a href="contacto.html">Escríbeme</a> y lo corrijo. Las guías se revisan
+          con las obras de la RAE y la FundéuRAE como referencia; puedes leer cómo se
+          preparan en <a href="sobre.html#como-se-hacen-las-guias">Sobre el proyecto</a>.
         </p>
       </article>
-
     </div><!-- /container -->
   </main>
 

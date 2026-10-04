@@ -14,25 +14,26 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Escribir corto: límites de caracteres y cómo aprovecharlos</title>
-  <meta name="description" content="Los límites de caracteres de X, Instagram, Google o los SMS, qué cuenta exactamente como carácter y técnicas de recorte para que el mensaje completo quepa en el espacio disponible." />
+  <title>Límites de caracteres en X, SMS, Google y redes: qué cuenta y cómo recortar</title>
+  <meta name="description" content="Los límites de X, SMS, títulos y meta descriptions de Google y otras plataformas, qué cuenta como carácter (tildes en SMS, URLs, emojis) y técnicas para recortar." />
   <link rel="canonical" href="https://minusculasmayusculas.com/guia-limites-caracteres.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://minusculasmayusculas.com/guia-limites-caracteres.html" />
-  <meta property="og:title" content="Escribir corto: límites de caracteres y cómo aprovecharlos" />
-  <meta property="og:description" content="Los límites de caracteres de X, Instagram, Google o los SMS, qué cuenta exactamente como carácter y técnicas de recorte para que el mensaje completo quepa en el espacio disponible." />
+  <meta property="og:title" content="Límites de caracteres en X, SMS, Google y redes: qué cuenta y cómo recortar" />
+  <meta property="og:description" content="Los límites de X, SMS, títulos y meta descriptions de Google y otras plataformas, qué cuenta como carácter (tildes en SMS, URLs, emojis) y técnicas para recortar." />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="minusculasmayusculas.com" />
   <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas: herramientas de texto online gratuitas" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Escribir corto: límites de caracteres y cómo aprovecharlos" />
-  <meta name="twitter:description" content="Los límites de caracteres de X, Instagram, Google o los SMS, qué cuenta exactamente como carácter y técnicas de recorte para que el mensaje completo quepa en el espacio disponible." />
+  <meta name="twitter:title" content="Límites de caracteres en X, SMS, Google y redes: qué cuenta y cómo recortar" />
+  <meta name="twitter:description" content="Los límites de X, SMS, títulos y meta descriptions de Google y otras plataformas, qué cuenta como carácter (tildes en SMS, URLs, emojis) y técnicas para recortar." />
   <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
 
   <style>
@@ -334,33 +335,171 @@
       }
       footer nav { justify-content: center; }
     }
+
+    /* ── Navegación de cabecera ── */
+    .nav-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .nav-link {
+      padding: 8px 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .nav-link:hover { background: var(--primary-light); }
+
+    /* ── Migas de pan ── */
+    .breadcrumbs { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    .breadcrumbs li + li::before { content: '›'; margin-right: 4px; color: var(--border); }
+    .breadcrumbs a { color: var(--muted); }
+    .breadcrumbs a:hover { color: var(--primary); }
+
+    /* ── Firma y fechas ── */
+    .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .byline a { color: var(--primary); }
+
+    /* ── Resumen rápido ── */
+    .resumen {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 0 0 20px;
+    }
+    .resumen h2 { font-size: 1rem !important; margin: 0 0 8px !important; }
+    .resumen ul { margin: 0 0 0 20px !important; }
+    .resumen li { margin-bottom: 4px !important; }
+
+    /* ── Índice ── */
+    .toc {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      margin: 0 0 22px;
+    }
+    .toc h2 { font-size: 0.95rem !important; margin: 0 0 6px !important; }
+    .toc ol { margin: 0 0 0 20px !important; }
+    .toc li { font-size: 0.9rem !important; margin-bottom: 2px !important; }
+
+    /* ── Ejemplos ── */
+    .ejemplo {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: var(--text);
+    }
+    .article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #f1f3f4;
+      padding: 1px 5px;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+    .nota {
+      border-left: 3px solid var(--primary);
+      padding: 4px 0 4px 14px;
+      margin: 0 0 14px;
+    }
+
+    /* ── Cierre del artículo ── */
+    .report {
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 28px;
+    }
+    .related h2 { font-size: 1.1rem !important; }
+    .related ul { list-style: none; margin: 0 !important; }
+    .related li {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 8px !important;
+    }
+    .related li a { font-weight: 600; text-decoration: none; }
+    .related li a:hover { text-decoration: underline; }
+    .related li span { display: block; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Índice de guías ── */
+    .guide-group { margin-bottom: 30px; }
+    .guide-group > h2 { margin-top: 8px !important; }
+    .guide-group > p { margin-bottom: 12px; }
+    .guide-meta { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    @media (max-width: 420px) {
+      .header-bar { flex-wrap: wrap; }
+      .nav-link { padding: 8px 6px; }
+    }
+
+    .guide-list h3 { font-size: 1.02rem; margin: 0 0 6px; }
+    .guide-list h3 a { color: var(--primary); text-decoration: none; }
+    .guide-list h3 a:hover { text-decoration: underline; }
   </style>
   <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Escribir corto: límites de caracteres y cómo aprovecharlos",
-    "description": "Límites de caracteres de las plataformas principales, qué cuenta como carácter y técnicas para recortar texto sin perder el mensaje.",
-    "url": "https://minusculasmayusculas.com/guia-limites-caracteres.html",
-    "inLanguage": "es",
-    "datePublished": "2026-06-12",
-    "dateModified": "2026-06-12",
-    "author": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "publisher": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "mainEntityOfPage": "https://minusculasmayusculas.com/guia-limites-caracteres.html"
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Escribir corto: límites de caracteres y cómo aprovecharlos",
+  "description": "Los límites de X, SMS, títulos y meta descriptions de Google y otras plataformas, qué cuenta como carácter (tildes en SMS, URLs, emojis) y técnicas para recortar.",
+  "url": "https://minusculasmayusculas.com/guia-limites-caracteres.html",
+  "inLanguage": "es",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-10-04",
+  "wordCount": 1271,
+  "image": "https://minusculasmayusculas.com/og-image.png",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "mainEntityOfPage": "https://minusculasmayusculas.com/guia-limites-caracteres.html"
+}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://minusculasmayusculas.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://minusculasmayusculas.com/guias.html" },
-      { "@type": "ListItem", "position": 3, "name": "Escribir corto: límites de caracteres y cómo aprovecharlos", "item": "https://minusculasmayusculas.com/guia-limites-caracteres.html" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://minusculasmayusculas.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": "https://minusculasmayusculas.com/guias.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Escribir corto: límites de caracteres y cómo aprovecharlos",
+      "item": "https://minusculasmayusculas.com/guia-limites-caracteres.html"
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -369,27 +508,36 @@
     <div class="container">
       <div class="header-bar">
         <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
-        <div class="tools-menu">
-          <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
-            Herramientas <span class="caret">&#9662;</span>
-          </button>
-          <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
-            <a href="/">Mayúsculas y Minúsculas</a>
-            <a href="contador-palabras.html">Contador de Palabras</a>
-            <a href="contador-caracteres.html">Contador de Caracteres</a>
-            <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
-            <a href="ordenar-lista.html">Ordenar Lista</a>
-            <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
-            <a href="numero-a-letra.html">Número a Letras</a>
-            <a href="invertir-texto.html">Invertir Texto</a>
-            <a href="quitar-acentos.html">Quitar Acentos</a>
-            <a href="eliminar-espacios.html">Eliminar Espacios</a>
-            <a href="texto-aleatorio.html">Texto Aleatorio</a>
-          </nav>
+        <div class="nav-right">
+          <a class="nav-link" href="guias.html">Guías</a>
+          <div class="tools-menu">
+            <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
+              Herramientas <span class="caret">&#9662;</span>
+            </button>
+            <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
+              <a href="/">Mayúsculas y Minúsculas</a>
+              <a href="contador-palabras.html">Contador de Palabras</a>
+              <a href="contador-caracteres.html">Contador de Caracteres</a>
+              <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+              <a href="ordenar-lista.html">Ordenar Lista</a>
+              <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
+              <a href="numero-a-letra.html">Número a Letras</a>
+              <a href="invertir-texto.html">Invertir Texto</a>
+              <a href="quitar-acentos.html">Quitar Acentos</a>
+              <a href="eliminar-espacios.html">Eliminar Espacios</a>
+              <a href="texto-aleatorio.html">Texto Aleatorio</a>
+            </nav>
+          </div>
         </div>
       </div>
+      <nav class="breadcrumbs" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="guias.html">Guías</a></li>
+          <li aria-current="page">Escribir corto: límites de caracteres y cómo aprovecharlos</li>
+        </ol>
+      </nav>
       <h1>Escribir corto: límites de caracteres y cómo aprovecharlos</h1>
-      <p class="subtitle"><a href="guias.html">← Todas las guías</a></p>
     </div>
   </header>
   <script>
@@ -419,94 +567,213 @@
   <main>
     <div class="container">
       <article class="article">
-        <p>
-          Buena parte de lo que se escribe hoy tiene un tope: la publicación de X, la
-          biografía de Instagram, el título que Google muestra en sus resultados, el SMS
-          del recordatorio de cita. Escribir contra un límite es una habilidad concreta,
-          y empieza por saber dos cosas: cuál es el límite y qué cuenta exactamente para
-          alcanzarlo.
+        <p class="byline">
+          Por <a href="sobre.html" rel="author">Siddharta Navarro Castellar</a> ·
+          Publicado el <time datetime="2026-06-12">12 de junio de 2026</time> · Actualizado el <time datetime="2026-10-04">4 de octubre de 2026</time> ·
+          Lectura: 7 min
         </p>
 
-        <h2>Los límites más habituales</h2>
+        <aside class="resumen" aria-label="Resumen rápido">
+          <h2>Resumen rápido</h2>
+          <ul>
+            <li>Hay límites duros (no te dejan pasar) y límites de truncado (se corta lo que se ve).</li>
+            <li>En X, cada enlace cuenta 23 caracteres y la mayoría de emojis cuentan 2.</li>
+            <li>En un SMS, una sola á, í, ó o ú baja el límite de 160 a 70 caracteres. La ñ y la é no.</li>
+            <li>Pon lo importante al principio. Así sobrevive a cualquier truncado.</li>
+          </ul>
+        </aside>
+
+        <nav class="toc" aria-label="Índice del artículo">
+          <h2>En esta guía</h2>
+          <ol>
+            <li><a href="#limites-duros-y-limites-de-truncado">Límites duros y límites de truncado</a></li>
+            <li><a href="#los-limites-que-si-estan-documentados">Los límites que sí están documentados</a></li>
+            <li><a href="#que-cuenta-como-caracter">Qué cuenta como carácter</a></li>
+            <li><a href="#el-caso-especial-del-seo">El caso especial del SEO</a></li>
+            <li><a href="#tecnicas-de-recorte-que-funcionan">Técnicas de recorte que funcionan</a></li>
+            <li><a href="#los-limites-que-no-avisan">Los límites que no avisan</a></li>
+            <li><a href="#medir-mientras-escribes">Medir mientras escribes</a></li>
+          </ol>
+        </nav>
+
+<p>
+          Buena parte de lo que escribes hoy tiene un tope: la publicación de X, el SMS
+          del recordatorio de cita, el título que Google muestra en sus resultados, el
+          campo de «observaciones» de un formulario. Escribir contra un límite es una
+          habilidad concreta, y empieza por saber dos cosas: cuál es el límite y qué cuenta
+          exactamente para alcanzarlo. La segunda es la que más sorpresas da.
+        </p>
+
+        <h2 id="limites-duros-y-limites-de-truncado">Límites duros y límites de truncado</h2>
+        <p>
+          No todos los límites funcionan igual. Conviene distinguirlos porque se escriben
+          de forma distinta:
+        </p>
+        <ul>
+          <li><strong>Límite duro:</strong> la plataforma no te deja pasar. Un SMS se
+          parte en dos, un formulario no admite más texto, una publicación no se envía.
+          Hay que quedarse dentro.</li>
+          <li><strong>Límite de truncado:</strong> puedes escribir más, pero solo se ve
+          una parte. El resto queda detrás de unos puntos suspensivos o de un «ver más».
+          Aquí la cuestión no es caber, sino que lo importante esté en la parte
+          visible.</li>
+        </ul>
+
+        <h2 id="los-limites-que-si-estan-documentados">Los límites que sí están documentados</h2>
+        <p>
+          Estas cifras proceden de documentación oficial y estaban vigentes al comprobarlas
+          el 4 de octubre de 2026. Las plataformas las cambian sin mucho aviso, así que,
+          si tu texto va justo, comprueba en la propia plataforma.
+        </p>
         <div class="table-wrap">
           <table class="content-table">
-            <thead><tr><th>Dónde</th><th>Límite</th><th>Detalle</th></tr></thead>
+            <thead><tr><th>Dónde</th><th>Límite</th><th>Tipo</th><th>Detalle</th></tr></thead>
             <tbody>
-              <tr><td>Publicación en X (Twitter)</td><td>280 caracteres</td><td>Los enlaces consumen una longitud fija, los acorte o no el servicio</td></tr>
-              <tr><td>Biografía de Instagram</td><td>150 caracteres</td><td>Corte duro: no deja guardar más</td></tr>
-              <tr><td>SMS</td><td>160 caracteres</td><td>Con tildes o eñes puede bajar a 70 por mensaje (ver abajo)</td></tr>
-              <tr><td>Título en resultados de Google</td><td>≈ 60 caracteres</td><td>No es un límite: es truncado visual con puntos suspensivos</td></tr>
-              <tr><td>Meta descripción en Google</td><td>≈ 155 caracteres</td><td>También truncado visual; Google puede reescribirla</td></tr>
-              <tr><td>Titular de LinkedIn</td><td>220 caracteres</td><td>Corte duro</td></tr>
+              <tr><td>Publicación en X (cuenta estándar)</td><td>280 caracteres</td><td>Duro</td><td>Cada enlace cuenta 23 caracteres, sea largo o corto. La mayoría de emojis cuentan 2. Fuente: <a href="https://docs.x.com/fundamentals/counting-characters">documentación de X</a>.</td></tr>
+              <tr><td>SMS con caracteres básicos (GSM-7)</td><td>160 caracteres</td><td>Duro</td><td>Si el mensaje es más largo, se divide en partes de 153.</td></tr>
+              <tr><td>SMS con otros caracteres (UCS-2)</td><td>70 caracteres</td><td>Duro</td><td>Partes de 67 en mensajes largos. Ver el apartado de tildes.</td></tr>
+              <tr><td>Meta descripción en Google</td><td>Sin límite</td><td>Truncado</td><td>Google la corta según el ancho de la pantalla, y puede sustituirla por otro texto de la página. Fuente: <a href="https://developers.google.com/search/docs/appearance/snippet">Google Search Central</a>.</td></tr>
+              <tr><td>Título en resultados de Google</td><td>Sin límite fijo</td><td>Truncado</td><td>Se corta por ancho en píxeles, no por número de caracteres.</td></tr>
             </tbody>
           </table>
         </div>
-
-        <h2>Qué cuenta como carácter</h2>
         <p>
-          Los espacios cuentan, siempre. Los saltos de línea cuentan. Y hay un detalle que
-          afecta de lleno al español: en los SMS, el juego de caracteres básico (GSM-7) no
-          incluye varios caracteres nuestros. Una sola «í» o una «ú» en el mensaje obliga
-          a codificarlo entero en otro formato y el límite por mensaje baja de 160 a 70
-          caracteres. Por eso los SMS comerciales llegan a menudo «sin acentos»: no es
-          dejadez, es aritmética. Para un texto puntual,
-          <a href="quitar-acentos.html">quitar los acentos</a> antes de enviarlo puede
-          ahorrar literalmente la mitad del coste.
-        </p>
-        <p>
-          Los emojis, por su parte, suelen contar como dos caracteres o más, según la
-          plataforma y según el emoji (los compuestos, como las banderas o los que llevan
-          tono de piel, son varios caracteres unidos). Si el texto va justo, el emoji es
-          el primer candidato a salir.
+          Otras redes (Instagram, LinkedIn, TikTok, YouTube) tienen sus propios límites
+          para biografías, descripciones y títulos. No los publican siempre de forma
+          oficial y cambian con frecuencia. Casi todas muestran un contador mientras
+          escribes. Fíate de ese contador antes que de cualquier tabla, incluida esta.
         </p>
 
-        <h2>Técnicas de recorte que funcionan</h2>
+        <h2 id="que-cuenta-como-caracter">Qué cuenta como carácter</h2>
+        <h3>Los espacios y los saltos de línea</h3>
+        <p>
+          Cuentan siempre. Un salto de línea es un carácter más. Por eso un texto con
+          muchos párrafos cortos ocupa más de lo que parece.
+        </p>
+        <h3>Las tildes en un SMS</h3>
+        <p>
+          Aquí está la trampa más grande para quien escribe en español. Un SMS normal usa
+          un juego de caracteres reducido, llamado GSM-7, que permite 160 caracteres por
+          mensaje. Ese juego incluye la <strong>é</strong>, la <strong>ñ</strong>, la
+          <strong>ü</strong>, la <strong>¿</strong> y la <strong>¡</strong>. Pero no
+          incluye la <strong>á</strong>, la <strong>í</strong>, la <strong>ó</strong> ni
+          la <strong>ú</strong>.
+        </p>
+        <p>
+          Basta una de esas letras para que el teléfono codifique el mensaje entero en
+          otro formato (UCS-2), y el límite baja de 160 a 70 caracteres. Un mensaje de 150
+          caracteres con una sola «ó» ya no cabe en un SMS: se envía en tres.
+        </p>
+        <div class="ejemplo">«Su cita es el lunes a las 10:00. Si no puede asistir, llame al 912 345 678.»
+→ 75 caracteres, sin á/í/ó/ú → 1 SMS
+
+«Su cita es el lunes a las 10:00. Si no podrá asistir, llámenos al 912 345 678.»
+→ 78 caracteres, con «á» → 2 SMS (más de 70 en UCS-2)</div>
+        <p>
+          Por eso muchos SMS comerciales llegan sin acentos: no es dejadez, es aritmética.
+          Para un envío masivo, puede ser razonable quitarlos con
+          <a href="quitar-acentos.html">Quitar acentos</a>, conservando la ñ, que sí cabe.
+          Para un mensaje personal, no merece la pena.
+        </p>
+        <h3>Los enlaces en X</h3>
+        <p>
+          X envuelve cada enlace en su acortador, y cada uno cuenta 23 caracteres, aunque
+          la dirección real tenga 10 o 200. Pegar una URL larga no te penaliza, y una
+          corta no te ahorra nada.
+        </p>
+        <h3>Los emojis</h3>
+        <p>
+          Los emojis suelen contar como dos caracteres o más. En X cuentan 2. Otros
+          sistemas, y muchos contadores, cuentan las piezas internas del emoji: una
+          bandera o un emoji con tono de piel está formado por varios caracteres unidos y
+          puede sumar 4, 7 o más. Si el texto va justo, el emoji es el primer candidato a
+          salir.
+        </p>
+
+        <h2 id="el-caso-especial-del-seo">El caso especial del SEO</h2>
+        <p>
+          Los «60 caracteres» del título y los «155» de la meta descripción no son límites
+          oficiales. Son aproximaciones que la comunidad SEO usa porque, en la práctica,
+          esa es la longitud que suele verse completa. Google no corta por número de
+          caracteres, sino por el ancho del texto: una «W» ocupa más que una «i».
+        </p>
+        <p>
+          Además, Google puede ignorar tu meta descripción y mostrar otro fragmento de la
+          página si considera que encaja mejor con la búsqueda. La estrategia sensata es
+          doble: escribe una descripción que tenga sentido completa, y coloca lo
+          importante en la primera mitad, para que sobreviva aunque se corte.
+        </p>
+
+        <h2 id="tecnicas-de-recorte-que-funcionan">Técnicas de recorte que funcionan</h2>
         <ul>
-          <li><strong>Empieza por el final.</strong> En la mayoría de textos informativos, la última frase es despedida o relleno. Fuera primero.</li>
-          <li><strong>Cifras en dígitos:</strong> «3» ocupa un carácter; «tres», cuatro. En textos con límite, los números van en cifra.</li>
-          <li><strong>Caza las muletillas:</strong> «cabe destacar que», «en el día de hoy», «procederemos a realizar» tienen versiones de una palabra: nada, «hoy», «haremos».</li>
-          <li><strong>Voz activa:</strong> «el equipo resolvió el problema» gana once caracteres a «el problema fue resuelto por el equipo».</li>
-          <li><strong>Una idea por mensaje.</strong> Si no cabe, no es un problema de caracteres: son dos mensajes.</li>
+          <li><strong>Empieza por el final.</strong> En la mayoría de textos breves, la
+          última frase es despedida o relleno. Fuera primero.</li>
+          <li><strong>Cifras en dígitos.</strong> «3» ocupa un carácter; «tres», cuatro.
+          En textos con límite, los números van en cifra.</li>
+          <li><strong>Caza las muletillas.</strong> «Cabe destacar que», «en el día de
+          hoy», «procederemos a realizar» tienen versiones de una palabra: nada, «hoy»,
+          «haremos».</li>
+          <li><strong>Voz activa.</strong> «El equipo resolvió el problema» gana ocho
+          caracteres a «el problema fue resuelto por el equipo».</li>
+          <li><strong>Una idea por mensaje.</strong> Si no cabe, no es un problema de
+          caracteres: son dos mensajes.</li>
         </ul>
-
-        <h2>El caso especial del SEO</h2>
+        <div class="ejemplo">Antes (126):  Le informamos de que, a partir del próximo lunes día 12, el horario de atención al público pasará a ser de 9:00 a 14:00 horas.
+Después (63): Desde el lunes 12, el horario de atención será de 9:00 a 14:00.</div>
         <p>
-          Los «límites» de Google merecen una aclaración: el buscador no corta a los 60
-          caracteres exactos, sino al ancho en píxeles del bloque de título, por lo que
-          una W ocupa más «límite» que una i. Los 60 caracteres del título y los 155 de la
-          descripción son aproximaciones seguras, no umbrales oficiales. La estrategia
-          sensata: colocar lo importante en la primera mitad, de modo que aunque el final
-          se trunque, el mensaje sobreviva.
+          El recorte quita la fórmula de entrada («Le informamos de que»), la redundancia
+          («día», «horas», «al público») y el verbo perifrástico («pasará a ser»). El
+          mensaje es el mismo y ocupa la mitad.
         </p>
 
-        <h2>Los límites que no avisan</h2>
+        <h2 id="los-limites-que-no-avisan">Los límites que no avisan</h2>
         <p>
-          Además de los límites publicados, hay topes invisibles que solo se descubren al
-          chocar con ellos. El asunto de un correo electrónico admite cientos de
-          caracteres, pero el móvil muestra unos 30–40 antes de cortar: el asunto
-          eficaz se escribe para esa ventana, no para el límite técnico. Las
-          notificaciones push rondan los 40–50 caracteres visibles según el sistema. Y
-          muchos formularios —direcciones de envío, campos de «observaciones», títulos de
-          anuncios clasificados— imponen topes propios que no documentan en ninguna
-          parte.
+          Además de los publicados, hay topes invisibles que solo descubres al chocar con
+          ellos. El asunto de un correo admite cientos de caracteres, pero en la bandeja
+          de entrada del móvil solo se ve el principio. Las notificaciones del teléfono
+          cortan el texto según el sistema y el tamaño de letra. Y muchos formularios
+          (direcciones de envío, campos de observaciones, títulos de anuncios) imponen
+          topes propios que no documentan en ninguna parte.
         </p>
         <p>
           La consecuencia práctica es siempre la misma: lo importante, delante. Un texto
-          construido para sobrevivir al truncado funciona en todas partes; uno que
-          reserva la clave para el final depende de que nadie lo corte.
+          construido para sobrevivir al truncado funciona en todas partes. Uno que guarda
+          la clave para el final depende de que nadie lo corte.
         </p>
 
-        <h2>Medir mientras se escribe</h2>
+        <h2 id="medir-mientras-escribes">Medir mientras escribes</h2>
         <p>
           Recortar a ciegas y pegar en la plataforma «a ver si cabe» es el método lento.
-          El rápido es escribir con el recuento a la vista: el
-          <a href="contador-caracteres.html">contador de caracteres</a> muestra
-          caracteres con y sin espacios, palabras y frases en tiempo real, de forma que
-          cada recorte se comprueba en el momento, antes de tocar la plataforma de
-          destino.
+          El rápido es escribir con el recuento a la vista. El
+          <a href="contador-caracteres.html">contador de caracteres</a> muestra caracteres
+          con y sin espacios, palabras y frases en tiempo real, y compara el texto con los
+          límites de X, SMS y meta descripción.
+        </p>
+        <p>
+          Una advertencia honesta sobre cualquier contador genérico, incluido ese: cuenta
+          caracteres, no aplica las reglas de cada plataforma. No sabe que un enlace en X
+          vale 23 ni que una «á» cambia la codificación de un SMS. Para esos dos casos,
+          usa las reglas de esta guía o el contador de la propia plataforma.
+        </p>
+
+        <section class="related" aria-label="Artículos y herramientas relacionadas">
+          <h2>Sigue leyendo</h2>
+          <ul>
+            <li><a href="guia-contar-palabras.html">Cómo se cuentan las palabras: por qué cada programa da una cifra</a><span>Guiones, números, URLs y signos sueltos: por qué dos programas dan cifras distintas y qué recuento usar en cada caso.</span></li>
+            <li><a href="guia-quitar-acentos.html">Quitar acentos: cuándo tiene sentido y cuándo es un error</a><span>URLs, nombres de archivo, búsquedas y bases de datos: dónde sí quitar tildes y por qué nunca en un texto para personas.</span></li>
+            <li><a href="guia-escribir-numeros.html">¿Números en cifras o en letras?</a><span>Cuándo se escribe «veinte» y cuándo «20», qué casos van siempre en cifras, cómo se escriben los ordinales y los errores más comunes.</span></li>
+            <li><a href="contador-caracteres.html">Contador de caracteres</a><span>Muestra el recuento frente a los límites de X, SMS, meta description e Instagram.</span></li>
+            <li><a href="quitar-acentos.html">Quitar acentos</a><span>Para dejar un SMS dentro del juego de caracteres básico.</span></li>
+          </ul>
+        </section>
+
+        <p class="report">
+          ¿Has encontrado un error o una explicación que no se entiende?
+          <a href="contacto.html">Escríbeme</a> y lo corrijo. Las guías se revisan
+          con las obras de la RAE y la FundéuRAE como referencia; puedes leer cómo se
+          preparan en <a href="sobre.html#como-se-hacen-las-guias">Sobre el proyecto</a>.
         </p>
       </article>
-
     </div><!-- /container -->
   </main>
 

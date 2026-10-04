@@ -1,0 +1,203 @@
+        <p>
+          Juntas dos listas de contactos, quitas los repetidos y te quedan 412 correos.
+          Envías el boletín. A la mañana siguiente, tres personas te escriben para
+          decirte que lo han recibido dos veces. La herramienta no falló: hizo
+          exactamente lo que le pediste. El problema es que «igual» significa cosas
+          distintas para ti y para un ordenador. Esta guía va de cerrar esa distancia.
+        </p>
+
+        <h2>Qué significa «duplicado» para un ordenador</h2>
+        <p>
+          Para un programa, dos líneas son iguales si tienen exactamente los mismos
+          caracteres, en el mismo orden. Ni uno más. Eso deja fuera muchas repeticiones
+          que una persona ve a la primera:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Línea A</th><th>Línea B</th><th>¿Iguales para el ordenador?</th><th>Qué las separa</th></tr></thead>
+            <tbody>
+              <tr><td>ana@correo.es</td><td>Ana@correo.es</td><td>No</td><td>Una mayúscula</td></tr>
+              <tr><td>José Pérez</td><td>Jose Perez</td><td>No</td><td>Dos tildes</td></tr>
+              <tr><td>Madrid</td><td>Madrid␣</td><td>No</td><td>Un espacio al final</td></tr>
+              <tr><td>Calle Mayor 5</td><td>Calle  Mayor 5</td><td>No</td><td>Un espacio doble</td></tr>
+              <tr><td>Sevilla</td><td>Sevilla</td><td>Puede que no</td><td>Un espacio de no separación que se ve igual que uno normal</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          (El símbolo ␣ marca un espacio que en pantalla no se vería.) Antes de quitar
+          duplicados, por tanto, tienes que decidir qué diferencias te
+          importan. Esa decisión depende del tipo de lista, no de la herramienta.
+        </p>
+
+        <h2>Tres decisiones antes de empezar</h2>
+        <h3>1. ¿Cuentan las mayúsculas?</h3>
+        <p>
+          En la mayoría de listas, no. «Madrid» y «madrid» son la misma ciudad. Lo mismo
+          pasa con los correos electrónicos: en la práctica, los proveedores tratan
+          igual «Ana@correo.es» y «ana@correo.es», así que conviene ignorar las
+          mayúsculas al deduplicarlos.
+        </p>
+        <p>
+          Hay excepciones. Los códigos de producto, las contraseñas, los identificadores
+          de algunos sistemas o las referencias de expediente pueden distinguir «AB12» de
+          «ab12». Si la lista es técnica, pregunta antes de juntarlos.
+        </p>
+        <h3>2. ¿Cuentan las tildes?</h3>
+        <p>
+          Aquí hay que ir con más cuidado. «José Pérez» y «Jose Perez» casi seguro son
+          la misma persona escrita con prisas. Pero «Peña» y «Pena» son dos apellidos
+          distintos, y «Ángeles» y «Angeles» pueden serlo según quién los haya
+          registrado. La tilde y la eñe también son información.
+        </p>
+        <p>
+          Un método seguro: no borres directamente. Crea una copia de la lista sin
+          acentos con <a href="quitar-acentos.html">Quitar acentos</a> (conservando la
+          ñ), quita duplicados en esa copia y compara cuántas líneas te quedan en cada
+          versión. Si la diferencia son tres líneas, revísalas a mano. Si son trescientas,
+          tienes un problema de calidad de datos que merece otra solución.
+        </p>
+        <h3>3. ¿Qué copia se queda?</h3>
+        <p>
+          Cuando una línea está repetida, normalmente se conserva la primera aparición y
+          se descartan las siguientes. Es lo que hace
+          <a href="eliminar-duplicados.html">Eliminar duplicados</a>. Eso tiene una
+          consecuencia: si ignoras las mayúsculas, la versión que sobrevive es la que
+          aparecía antes. Si tu lista tiene «JOSÉ PÉREZ» en la línea 3 y «José Pérez» en
+          la 40, te quedarás con la versión en mayúsculas. Si quieres la otra, normaliza
+          primero el formato de toda la lista.
+        </p>
+
+        <h2>Los duplicados fantasma: espacios que no se ven</h2>
+        <p>
+          Es la causa número uno de «he quitado duplicados y siguen saliendo». Las
+          listas copiadas de una hoja de cálculo, un PDF o una web arrastran caracteres
+          invisibles:
+        </p>
+        <ul>
+          <li><strong>Espacios al final de la línea.</strong> Muy habituales al copiar
+          celdas de Excel o al exportar desde formularios.</li>
+          <li><strong>Espacios dobles en medio.</strong> «Calle  Mayor» con dos espacios.</li>
+          <li><strong>Tabuladores.</strong> Salen al copiar varias columnas.</li>
+          <li><strong>Espacios de no separación.</strong> Las webs y los procesadores de
+          texto los usan para que dos palabras no se separen al final de la línea. Se ven
+          como un espacio normal, pero son otro carácter.</li>
+        </ul>
+        <p>
+          La herramienta de duplicados de este sitio ya compara las líneas sin los
+          espacios del principio y del final. Los espacios dobles en medio y los
+          espacios de no separación sí cuentan como diferencia. Para quitarlos, pasa
+          antes la lista por <a href="eliminar-espacios.html">Eliminar espacios</a>, que
+          convierte los espacios especiales en normales y reduce los dobles a uno.
+        </p>
+
+        <h2>Caso 1: una lista de correos para un envío</h2>
+        <p>
+          Tienes los inscritos de dos formularios. Pegados uno debajo de otro:
+        </p>
+        <div class="ejemplo">lucia.romero@correo.es
+pablo.diaz@empresa.com
+Lucia.Romero@correo.es
+marta.vidal@correo.es
+pablo.diaz@empresa.com␣
+info@asociacion.org</div>
+        <p>
+          Si quitas duplicados sin ignorar mayúsculas y sin limpiar espacios, solo
+          desaparece una línea… o ninguna, según la herramienta. La secuencia correcta:
+        </p>
+        <ol>
+          <li>Eliminar espacios, con «Recortar inicio y final» activado.</li>
+          <li>Eliminar duplicados con «Ignorar mayúsculas».</li>
+        </ol>
+        <div class="ejemplo">lucia.romero@correo.es
+pablo.diaz@empresa.com
+marta.vidal@correo.es
+info@asociacion.org</div>
+        <p>
+          Quedan cuatro direcciones, cada una en la posición de su primera aparición. Un
+          detalle más: <em>info@</em>, <em>contacto@</em> y similares suelen ser buzones
+          compartidos. No son duplicados, pero conviene saber que detrás puede haber
+          varias personas.
+        </p>
+
+        <h2>Caso 2: nombres de personas</h2>
+        <p>
+          Con nombres, la deduplicación automática es un punto de partida, no el final.
+          Estos tres casos son frecuentes y ninguna herramienta los resuelve sola:
+        </p>
+        <ul>
+          <li><strong>Orden distinto:</strong> «Pérez Gómez, Ana» y «Ana Pérez Gómez».
+          Unifica el formato antes.</li>
+          <li><strong>Segundo apellido ausente:</strong> «Ana Pérez» y «Ana Pérez Gómez».
+          Pueden ser la misma persona o dos.</li>
+          <li><strong>Homónimos reales:</strong> dos personas que se llaman igual. Si
+          tienes otro dato (correo, DNI, fecha), deduplica por ese dato y no por el
+          nombre.</li>
+        </ul>
+        <p>
+          La regla práctica: deduplica por el campo que identifica de verdad. En una
+          lista de personas, casi nunca es el nombre.
+        </p>
+
+        <h2>Caso 3: un inventario consolidado</h2>
+        <p>
+          Al juntar referencias de varios almacenes aparecen listas como esta:
+        </p>
+        <div class="ejemplo">TOR-M8-40
+tor-m8-40
+TOR-M8-040
+TOR M8 40
+TOR-M8-40</div>
+        <p>
+          Ignorando mayúsculas, las líneas 1, 2 y 5 se reducen a una. Pero «TOR-M8-040» y
+          «TOR M8 40» siguen ahí. ¿Son la misma pieza? Probablemente. ¿Puedes asegurarlo
+          sin mirar el catálogo? No. En inventarios, quita solo los duplicados exactos de
+          forma automática y lleva el resto a una lista de «posibles duplicados» para
+          revisar. Si las variantes siguen un patrón (un cero de más, espacios en lugar
+          de guiones), puedes normalizarlas antes con
+          <a href="buscar-reemplazar.html">Buscar y reemplazar</a>.
+        </p>
+
+        <h2>Quitar duplicados y ordenar: en qué orden</h2>
+        <p>
+          Si además quieres la lista ordenada, el orden de las operaciones importa poco
+          para el resultado final, con un matiz: si quitas duplicados primero, decides tú
+          qué versión se queda (la primera de la lista original). Si ordenas primero, la
+          que se queda depende del orden alfabético, y entre «JOSÉ» y «José» ganará la
+          que el programa ordene antes.
+        </p>
+        <p>
+          Por eso el flujo recomendado es: limpiar espacios, normalizar formato, quitar
+          duplicados y, al final, <a href="ordenar-lista.html">ordenar</a>. En la
+          <a href="guia-ordenar-alfabeticamente.html">guía de orden alfabético</a> tienes
+          las reglas para ese último paso.
+        </p>
+
+        <h2>Si trabajas en una hoja de cálculo</h2>
+        <p>
+          Excel y Google Sheets tienen su propia función para quitar duplicados, y para
+          tablas con varias columnas es la opción correcta: te deja elegir qué columnas
+          definen un duplicado. Tienen los mismos problemas que cualquier otra
+          herramienta con los espacios invisibles, así que la limpieza previa sigue
+          haciendo falta.
+        </p>
+        <p>
+          Para una sola columna, copiarla, limpiarla en una herramienta de texto y
+          pegarla de vuelta suele ser más rápido. Y tiene una ventaja: ves el resultado
+          completo antes de tocar el archivo original.
+        </p>
+
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li><strong>No guardar la lista original.</strong> Deduplicar es destructivo.
+          Si te equivocas de criterio, necesitas volver atrás.</li>
+          <li><strong>Ignorar tildes por defecto.</strong> Une apellidos que son
+          distintos. Hazlo solo después de revisar.</li>
+          <li><strong>Deduplicar por nombre en lugar de por identificador.</strong>
+          Borra homónimos que son personas distintas.</li>
+          <li><strong>Olvidar las líneas vacías.</strong> Si una lista tiene diez líneas
+          en blanco, cuentan como diez duplicados entre sí. Elimínalas antes o a la vez.</li>
+          <li><strong>Contar mal el resultado.</strong> Compara siempre el número de
+          líneas antes y después. Si esperabas quitar 20 y has quitado 200, para y
+          revisa.</li>
+        </ul>

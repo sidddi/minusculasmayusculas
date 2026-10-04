@@ -15,24 +15,25 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mayúsculas en títulos: el estilo español frente al inglés</title>
-  <meta name="description" content="En inglés los títulos capitalizan casi todas las palabras; en español solo la primera. Qué regla sigue cada idioma, por qué el calco queda mal y cuándo usar cada estilo." />
+  <meta name="description" content="En inglés los títulos capitalizan casi todas las palabras; en español, solo la primera y los nombres propios. Reglas, excepciones, publicaciones, subtítulos y títulos web." />
   <link rel="canonical" href="https://minusculasmayusculas.com/guia-mayusculas-titulos.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://minusculasmayusculas.com/guia-mayusculas-titulos.html" />
   <meta property="og:title" content="Mayúsculas en títulos: el estilo español frente al inglés" />
-  <meta property="og:description" content="En inglés los títulos capitalizan casi todas las palabras; en español solo la primera. Qué regla sigue cada idioma, por qué el calco queda mal y cuándo usar cada estilo." />
+  <meta property="og:description" content="En inglés los títulos capitalizan casi todas las palabras; en español, solo la primera y los nombres propios. Reglas, excepciones, publicaciones, subtítulos y títulos web." />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="minusculasmayusculas.com" />
   <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas: herramientas de texto online gratuitas" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mayúsculas en títulos: el estilo español frente al inglés" />
-  <meta name="twitter:description" content="En inglés los títulos capitalizan casi todas las palabras; en español solo la primera. Qué regla sigue cada idioma, por qué el calco queda mal y cuándo usar cada estilo." />
+  <meta name="twitter:description" content="En inglés los títulos capitalizan casi todas las palabras; en español, solo la primera y los nombres propios. Reglas, excepciones, publicaciones, subtítulos y títulos web." />
   <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
 
   <style>
@@ -334,33 +335,171 @@
       }
       footer nav { justify-content: center; }
     }
+
+    /* ── Navegación de cabecera ── */
+    .nav-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .nav-link {
+      padding: 8px 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .nav-link:hover { background: var(--primary-light); }
+
+    /* ── Migas de pan ── */
+    .breadcrumbs { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    .breadcrumbs li + li::before { content: '›'; margin-right: 4px; color: var(--border); }
+    .breadcrumbs a { color: var(--muted); }
+    .breadcrumbs a:hover { color: var(--primary); }
+
+    /* ── Firma y fechas ── */
+    .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .byline a { color: var(--primary); }
+
+    /* ── Resumen rápido ── */
+    .resumen {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 0 0 20px;
+    }
+    .resumen h2 { font-size: 1rem !important; margin: 0 0 8px !important; }
+    .resumen ul { margin: 0 0 0 20px !important; }
+    .resumen li { margin-bottom: 4px !important; }
+
+    /* ── Índice ── */
+    .toc {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      margin: 0 0 22px;
+    }
+    .toc h2 { font-size: 0.95rem !important; margin: 0 0 6px !important; }
+    .toc ol { margin: 0 0 0 20px !important; }
+    .toc li { font-size: 0.9rem !important; margin-bottom: 2px !important; }
+
+    /* ── Ejemplos ── */
+    .ejemplo {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: var(--text);
+    }
+    .article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #f1f3f4;
+      padding: 1px 5px;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+    .nota {
+      border-left: 3px solid var(--primary);
+      padding: 4px 0 4px 14px;
+      margin: 0 0 14px;
+    }
+
+    /* ── Cierre del artículo ── */
+    .report {
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 28px;
+    }
+    .related h2 { font-size: 1.1rem !important; }
+    .related ul { list-style: none; margin: 0 !important; }
+    .related li {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 8px !important;
+    }
+    .related li a { font-weight: 600; text-decoration: none; }
+    .related li a:hover { text-decoration: underline; }
+    .related li span { display: block; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Índice de guías ── */
+    .guide-group { margin-bottom: 30px; }
+    .guide-group > h2 { margin-top: 8px !important; }
+    .guide-group > p { margin-bottom: 12px; }
+    .guide-meta { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    @media (max-width: 420px) {
+      .header-bar { flex-wrap: wrap; }
+      .nav-link { padding: 8px 6px; }
+    }
+
+    .guide-list h3 { font-size: 1.02rem; margin: 0 0 6px; }
+    .guide-list h3 a { color: var(--primary); text-decoration: none; }
+    .guide-list h3 a:hover { text-decoration: underline; }
   </style>
   <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Mayúsculas en títulos: el estilo español frente al inglés",
-    "description": "Diferencias entre el title case inglés y la norma española de títulos, con ejemplos y recomendaciones prácticas.",
-    "url": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html",
-    "inLanguage": "es",
-    "datePublished": "2026-06-12",
-    "dateModified": "2026-06-12",
-    "author": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "publisher": { "@type": "Person", "name": "Siddharta Navarro Castellar" },
-    "mainEntityOfPage": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html"
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mayúsculas en títulos: el estilo español frente al inglés",
+  "description": "En inglés los títulos capitalizan casi todas las palabras; en español, solo la primera y los nombres propios. Reglas, excepciones, publicaciones, subtítulos y títulos web.",
+  "url": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html",
+  "inLanguage": "es",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-10-04",
+  "wordCount": 1233,
+  "image": "https://minusculasmayusculas.com/og-image.png",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "mainEntityOfPage": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html"
+}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://minusculasmayusculas.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://minusculasmayusculas.com/guias.html" },
-      { "@type": "ListItem", "position": 3, "name": "Mayúsculas en títulos: el estilo español frente al inglés", "item": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://minusculasmayusculas.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": "https://minusculasmayusculas.com/guias.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mayúsculas en títulos: el estilo español frente al inglés",
+      "item": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html"
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -369,27 +508,36 @@
     <div class="container">
       <div class="header-bar">
         <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
-        <div class="tools-menu">
-          <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
-            Herramientas <span class="caret">&#9662;</span>
-          </button>
-          <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
-            <a href="/">Mayúsculas y Minúsculas</a>
-            <a href="contador-palabras.html">Contador de Palabras</a>
-            <a href="contador-caracteres.html">Contador de Caracteres</a>
-            <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
-            <a href="ordenar-lista.html">Ordenar Lista</a>
-            <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
-            <a href="numero-a-letra.html">Número a Letras</a>
-            <a href="invertir-texto.html">Invertir Texto</a>
-            <a href="quitar-acentos.html">Quitar Acentos</a>
-            <a href="eliminar-espacios.html">Eliminar Espacios</a>
-            <a href="texto-aleatorio.html">Texto Aleatorio</a>
-          </nav>
+        <div class="nav-right">
+          <a class="nav-link" href="guias.html">Guías</a>
+          <div class="tools-menu">
+            <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
+              Herramientas <span class="caret">&#9662;</span>
+            </button>
+            <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
+              <a href="/">Mayúsculas y Minúsculas</a>
+              <a href="contador-palabras.html">Contador de Palabras</a>
+              <a href="contador-caracteres.html">Contador de Caracteres</a>
+              <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+              <a href="ordenar-lista.html">Ordenar Lista</a>
+              <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
+              <a href="numero-a-letra.html">Número a Letras</a>
+              <a href="invertir-texto.html">Invertir Texto</a>
+              <a href="quitar-acentos.html">Quitar Acentos</a>
+              <a href="eliminar-espacios.html">Eliminar Espacios</a>
+              <a href="texto-aleatorio.html">Texto Aleatorio</a>
+            </nav>
+          </div>
         </div>
       </div>
+      <nav class="breadcrumbs" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="guias.html">Guías</a></li>
+          <li aria-current="page">Mayúsculas en títulos: el estilo español frente al inglés</li>
+        </ol>
+      </nav>
       <h1>Mayúsculas en títulos: el estilo español frente al inglés</h1>
-      <p class="subtitle"><a href="guias.html">← Todas las guías</a></p>
     </div>
   </header>
   <script>
@@ -419,26 +567,60 @@
   <main>
     <div class="container">
       <article class="article">
-        <p>
-          <em>Cómo Ganar Amigos e Influir Sobre las Personas.</em> Así, con cada palabra
-          en mayúscula, aparece el título en muchas portadas en español. Y así lo marca
-          como error cualquier corrector profesional: ese formato pertenece al inglés. La
-          norma española es más sencilla y más sobria, pero la convivencia diaria con
-          contenido anglosajón hace que ambas se mezclen constantemente.
+        <p class="byline">
+          Por <a href="sobre.html" rel="author">Siddharta Navarro Castellar</a> ·
+          Publicado el <time datetime="2026-06-12">12 de junio de 2026</time> · Actualizado el <time datetime="2026-10-04">4 de octubre de 2026</time> ·
+          Lectura: 7 min
         </p>
 
-        <h2>Qué hace cada idioma</h2>
+        <aside class="resumen" aria-label="Resumen rápido">
+          <h2>Resumen rápido</h2>
+          <ul>
+            <li>En español, un título lleva mayúscula en la primera palabra y en los nombres propios. Nada más.</li>
+            <li>El «title case» (Cada Palabra En Mayúscula) es una convención del inglés.</li>
+            <li>Excepción: los nombres de periódicos, revistas y colecciones sí llevan mayúscula en las palabras significativas.</li>
+            <li>La regla no cambia en webs, vídeos ni presentaciones.</li>
+          </ul>
+        </aside>
+
+        <nav class="toc" aria-label="Índice del artículo">
+          <h2>En esta guía</h2>
+          <ol>
+            <li><a href="#que-hace-cada-idioma">Qué hace cada idioma</a></li>
+            <li><a href="#que-tipos-de-titulo-siguen-esta-regla">Qué tipos de título siguen esta regla</a></li>
+            <li><a href="#las-excepciones-cuando-si-van-varias-mayusculas">Las excepciones: cuándo sí van varias mayúsculas</a></li>
+            <li><a href="#subtitulos">Subtítulos</a></li>
+            <li><a href="#titulos-en-otros-idiomas">Títulos en otros idiomas</a></li>
+            <li><a href="#titulos-en-la-web-paginas-videos-y-articulos">Títulos en la web: páginas, vídeos y artículos</a></li>
+            <li><a href="#que-hacen-los-libros-de-estilo">Qué hacen los libros de estilo</a></li>
+            <li><a href="#aplicar-cada-estilo-sin-teclearlo">Aplicar cada estilo sin teclearlo</a></li>
+            <li><a href="#errores-frecuentes">Errores frecuentes</a></li>
+            <li><a href="#la-regla-para-recordar">La regla para recordar</a></li>
+          </ol>
+        </nav>
+
+<p>
+          <em>Cómo Ganar Amigos e Influir Sobre las Personas.</em> Así, con cada palabra en
+          mayúscula, aparece el título en muchas portadas, webs y presentaciones en
+          español. Y así lo marca como error cualquier corrector profesional: ese formato
+          pertenece al inglés. La norma española es más sencilla y más sobria, pero la
+          convivencia diaria con contenido en inglés hace que las dos se mezclen todo el
+          rato.
+        </p>
+
+        <h2 id="que-hace-cada-idioma">Qué hace cada idioma</h2>
         <p>
-          El inglés usa el llamado <strong>title case</strong>: mayúscula inicial en todas
-          las palabras significativas (sustantivos, verbos, adjetivos, adverbios) y
-          minúscula en las cortas funcionales (artículos, preposiciones breves,
-          conjunciones): <em>The Old Man and the Sea</em>.
+          El inglés usa el llamado <em>title case</em>: mayúscula inicial en todas las
+          palabras importantes (sustantivos, verbos, adjetivos, adverbios) y minúscula en
+          las palabras funcionales cortas (artículos, preposiciones breves,
+          conjunciones). <em>The Old Man and the Sea.</em> Ni siquiera hay una sola regla:
+          cada libro de estilo inglés decide qué preposiciones van en minúscula.
         </p>
         <p>
-          El español usa <strong>mayúscula solo en la primera palabra</strong> del título,
-          más los nombres propios que contenga: <em>El viejo y el mar</em>,
-          <em>Cien años de soledad</em>, <em>La casa de Bernarda Alba</em> (con
-          «Bernarda Alba» en mayúscula por nombre propio, no por estar en el título).
+          El español usa mayúscula solo en la <strong>primera palabra del título</strong>
+          y en los <strong>nombres propios</strong> que contenga: <em>El viejo y el mar,
+          Cien años de soledad, La casa de Bernarda Alba</em>. «Bernarda Alba» va en
+          mayúscula por ser nombre propio, no por estar en el título.
         </p>
         <div class="table-wrap">
           <table class="content-table">
@@ -447,68 +629,178 @@
               <tr><td>One Hundred Years of Solitude</td><td>Cien Años de Soledad</td><td>Cien años de soledad</td></tr>
               <tr><td>How to Win Friends</td><td>Cómo Ganar Amigos</td><td>Cómo ganar amigos</td></tr>
               <tr><td>A Brief History of Time</td><td>Breve Historia del Tiempo</td><td>Breve historia del tiempo</td></tr>
+              <tr><td>The Lord of the Rings</td><td>El Señor de los Anillos</td><td>El señor de los anillos</td></tr>
             </tbody>
           </table>
         </div>
-
-        <h2>La excepción española: las publicaciones periódicas</h2>
         <p>
-          Los nombres de periódicos, revistas y colecciones sí llevan mayúscula en todas
-          sus palabras significativas: <em>El País, La Vanguardia, Muy Interesante,
-          Biblioteca de Autores Españoles</em>. Es la única categoría de «título» donde el
-          español se comporta como el inglés, y la razón es que el nombre completo
-          funciona como nombre propio de la publicación.
+          El último ejemplo es interesante. Muchas ediciones escriben <em>El Señor de los
+          Anillos</em> con mayúsculas porque la editorial lo decidió así en la portada.
+          Pero cuando citas la obra en un texto corrido, la norma general pide <em>El
+          señor de los anillos</em>.
         </p>
 
-        <h2>¿Y los títulos de webs, vídeos y posts?</h2>
+        <h2 id="que-tipos-de-titulo-siguen-esta-regla">Qué tipos de título siguen esta regla</h2>
         <p>
-          La norma no cambia por el medio: un artículo de blog, un vídeo o una página web
-          en español siguen la regla general (mayúscula inicial y nombres propios). El
-          title case en titulares españoles transmite el mismo efecto que cualquier otro
-          calco: aspecto de texto traducido con prisas. Las marcas que lo usan
-          deliberadamente como recurso estético pueden hacerlo —la tipografía publicitaria
-          tiene licencias—, pero conviene saber que es una decisión de diseño, no una
-          opción ortográfica.
+          Todos los títulos de obras de creación y de documentos: libros, películas,
+          series, canciones, discos, cuadros, esculturas, obras de teatro, artículos,
+          ponencias, tesis, informes y capítulos.
+        </p>
+        <div class="ejemplo">Libro:        La sombra del viento
+Película:     Mujeres al borde de un ataque de nervios
+Cuadro:       La rendición de Breda
+Canción:      Mediterráneo
+Tesis:        La influencia del árabe en el léxico agrícola andaluz
+Informe:      Plan estratégico de movilidad urbana 2026-2030</div>
+        <p>
+          En un texto, estos títulos se escriben además en cursiva (los de obras
+          completas) o entre comillas (los de partes de una obra: un capítulo, un poema
+          de un libro, un artículo de una revista).
         </p>
 
-        <h2>Aplicar cada estilo sin teclearlo</h2>
+        <h2 id="las-excepciones-cuando-si-van-varias-mayusculas">Las excepciones: cuándo sí van varias mayúsculas</h2>
+        <h3>Publicaciones periódicas y colecciones</h3>
         <p>
-          Si gestionas contenido en ambos idiomas, el
-          <a href="index.html">conversor de mayúsculas y minúsculas</a> cubre los dos
-          caminos. Para un lote de títulos en inglés, «Capitalizar Cada Palabra» aplica la
-          mayúscula inicial a todas las palabras de una vez (las preposiciones cortas
-          tendrás que bajarlas a mano: la herramienta no distingue categorías
-          gramaticales, y lo advierte). Para normalizar títulos en español que llegaron en
-          title case, la secuencia es «todo minúsculas» seguido de «Mayúsculas después de
-          punto», con un repaso final a los nombres propios.
+          Los nombres de periódicos, revistas y colecciones llevan mayúscula en todas sus
+          palabras significativas: <em>El País, La Vanguardia, Muy Interesante, Biblioteca
+          de Autores Españoles</em>. Es la única categoría de «título» en la que el
+          español se comporta como el inglés. La razón es que el nombre completo funciona
+          como nombre propio de la publicación, no como título de una obra.
+        </p>
+        <h3>Nombres de instituciones, congresos y premios</h3>
+        <p>
+          Tampoco son títulos de obras, sino nombres propios: <em>el Congreso
+          Internacional de la Lengua Española, el Premio Nacional de Narrativa, la Feria
+          del Libro de Madrid</em>. Llevan mayúscula en las palabras significativas.
+        </p>
+        <h3>Leyes y documentos oficiales breves</h3>
+        <p>
+          Los nombres oficiales de leyes y normas suelen llevar mayúscula en sus palabras
+          significativas cuando son cortos: <em>la Ley de Enjuiciamiento Civil, el
+          Código Penal</em>. Cuando el título es muy largo, la mayúscula se queda en la
+          primera palabra.
         </p>
 
-        <h2>Qué hacen los libros de estilo</h2>
+        <h2 id="subtitulos">Subtítulos</h2>
         <p>
-          Los medios en español siguen la norma general sin excepciones relevantes: los
-          titulares de prensa van en «caja de frase» —mayúscula inicial y nombres
-          propios—, igual que los títulos de secciones y artículos. En el mundo
-          académico, las adaptaciones al español de normas como APA piden lo mismo para
-          las referencias bibliográficas: <em>Cien años de soledad</em>, aunque la fuente
-          citada sea inglesa y su portada diga otra cosa.
-        </p>
-        <p>
-          El diseño de interfaces ha llegado a la misma conclusión por su propio camino:
-          las guías de UX writing de las grandes plataformas recomiendan «sentence case»
-          también en inglés para botones, menús y mensajes, porque se lee más rápido y
-          envejece mejor que el title case. El español parte con ventaja: su norma de
-          siempre coincide con la práctica que la industria ha acabado adoptando.
+          Si el subtítulo va separado por un punto, empieza con mayúscula, como cualquier
+          enunciado nuevo: <em>La Celestina. Tragicomedia de Calisto y Melibea</em>. Si va
+          tras dos puntos, el uso varía entre editoriales. Lo importante es elegir un
+          criterio y mantenerlo en todo el documento.
         </p>
 
-        <h2>La regla para recordar</h2>
+        <h2 id="titulos-en-otros-idiomas">Títulos en otros idiomas</h2>
+        <p>
+          Cuando citas en un texto español una obra cuyo título está en otro idioma, se
+          respeta la ortografía de ese idioma. Si escribes sobre un disco de los Beatles,
+          es <em>Let It Be</em>, con sus mayúsculas inglesas. Si citas una novela
+          francesa, sigue las convenciones francesas. La regla española se aplica a los
+          títulos en español, incluidas las traducciones publicadas: <em>El guardián
+          entre el centeno</em>, no «El Guardián entre el Centeno».
+        </p>
+
+        <h2 id="titulos-en-la-web-paginas-videos-y-articulos">Títulos en la web: páginas, vídeos y artículos</h2>
+        <p>
+          La norma no cambia por el medio. Un artículo de blog, un vídeo, un pódcast o una
+          página web en español siguen la regla general:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Calco</th><th>Correcto</th></tr></thead>
+            <tbody>
+              <tr><td>10 Consejos Para Ahorrar en la Factura de la Luz</td><td>10 consejos para ahorrar en la factura de la luz</td></tr>
+              <tr><td>Guía Completa de Excel Para Principiantes</td><td>Guía completa de Excel para principiantes</td></tr>
+              <tr><td>Política De Privacidad</td><td>Política de privacidad</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          El <em>title case</em> en titulares españoles da la misma impresión que
+          cualquier otro calco: texto traducido con prisas. Las marcas que lo usan como
+          recurso estético pueden hacerlo, porque la tipografía publicitaria tiene sus
+          licencias. Pero conviene saber que es una decisión de diseño, no una opción
+          ortográfica.
+        </p>
+        <p>
+          Para el SEO no hay diferencia. Google no valora más un título con mayúsculas en
+          cada palabra. Lo que sí importa es la longitud, porque el buscador corta los
+          títulos largos. Lo tienes en la guía de
+          <a href="guia-limites-caracteres.html">límites de caracteres</a>.
+        </p>
+
+        <h2 id="que-hacen-los-libros-de-estilo">Qué hacen los libros de estilo</h2>
+        <p>
+          Los medios en español siguen la norma general: los titulares de prensa van en
+          «caja de frase», con mayúscula inicial y nombres propios, igual que los títulos
+          de secciones y artículos. En el mundo académico, las adaptaciones al español de
+          normas como APA piden lo mismo para las referencias: <em>Cien años de
+          soledad</em>, aunque la portada de la edición citada diga otra cosa.
+        </p>
+        <p>
+          El diseño de interfaces ha llegado a la misma conclusión por su propio camino.
+          Las guías de estilo de redacción técnica de Google y Microsoft recomiendan
+          mayúscula solo inicial (<em>sentence case</em>) también en inglés, para
+          encabezados, botones y menús, porque se lee más rápido. El español parte con
+          ventaja: su norma de siempre coincide con la práctica que la industria ha
+          acabado adoptando.
+        </p>
+
+        <h2 id="aplicar-cada-estilo-sin-teclearlo">Aplicar cada estilo sin teclearlo</h2>
+        <p>
+          Si gestionas contenido en los dos idiomas, el
+          <a href="/">convertidor de mayúsculas y minúsculas</a> cubre los dos caminos.
+        </p>
+        <ul>
+          <li><strong>Para títulos en inglés:</strong> «Capitalizar Cada Palabra» aplica
+          la mayúscula inicial a todas las palabras de una vez. Las preposiciones y
+          artículos cortos tendrás que bajarlos a mano, porque la herramienta no distingue
+          categorías gramaticales.</li>
+          <li><strong>Para títulos en español que llegaron en title case:</strong> aplica
+          «todo minúsculas» y después «Mayúsculas después de punto». Luego repasa los
+          nombres propios.</li>
+        </ul>
+        <div class="ejemplo">Entrada:     Guía Completa De Excel Para Principiantes
+Paso 1:      guía completa de excel para principiantes
+Paso 2:      Guía completa de excel para principiantes
+A mano:      Guía completa de Excel para principiantes</div>
+
+        <h2 id="errores-frecuentes">Errores frecuentes</h2>
+        <ul>
+          <li><strong>Copiar el formato de la portada.</strong> La portada es diseño. En
+          el texto, aplica la norma.</li>
+          <li><strong>Mayúscula tras los dos puntos en títulos web.</strong> «Excel: Guía
+          Completa» suma dos errores. Mejor «Excel: guía completa».</li>
+          <li><strong>Olvidar los nombres propios.</strong> Al bajar todo a minúscula,
+          «Excel», «Madrid» o «Cervantes» también caen. Revísalos.</li>
+          <li><strong>Mezclar criterios en un mismo documento.</strong> Un índice con unos
+          títulos en <em>title case</em> y otros no es lo primero que se nota.</li>
+        </ul>
+
+        <h2 id="la-regla-para-recordar">La regla para recordar</h2>
         <p>
           En español, un título se escribe como una frase cualquiera: mayúscula al
           empezar, mayúscula en los nombres propios y nada más. Si un título en español
           tiene tres o más mayúsculas y no hay nombres propios a la vista, casi seguro que
           el inglés anda cerca.
         </p>
-      </article>
 
+        <section class="related" aria-label="Artículos y herramientas relacionadas">
+          <h2>Sigue leyendo</h2>
+          <ul>
+            <li><a href="guia-mayusculas-espanol.html">Cuándo se escribe con mayúscula en español</a><span>La regla general y 25 casos resueltos con ejemplos: cargos, meses, puntos cardinales, instituciones, internet y qué pasa después de los dos puntos.</span></li>
+            <li><a href="guia-errores-mayusculas.html">Errores de mayúsculas en correos, currículums y trabajos</a><span>Los fallos que más se repiten en correos formales, currículums y trabajos académicos, con la versión mala, la buena y el motivo.</span></li>
+            <li><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres y cómo aprovecharlos</a><span>Los límites de las plataformas más usadas, qué cuenta exactamente como carácter y técnicas concretas para recortar sin perder el mensaje.</span></li>
+            <li><a href="/">Convertidor de mayúsculas y minúsculas</a><span>Pasa una lista de títulos en «title case» a minúsculas y recupera la mayúscula inicial.</span></li>
+          </ul>
+        </section>
+
+        <p class="report">
+          ¿Has encontrado un error o una explicación que no se entiende?
+          <a href="contacto.html">Escríbeme</a> y lo corrijo. Las guías se revisan
+          con las obras de la RAE y la FundéuRAE como referencia; puedes leer cómo se
+          preparan en <a href="sobre.html#como-se-hacen-las-guias">Sobre el proyecto</a>.
+        </p>
+      </article>
     </div><!-- /container -->
   </main>
 

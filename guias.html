@@ -14,25 +14,26 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guías de escritura en español | Minúsculas y Mayúsculas</title>
-  <meta name="description" content="Guías breves y prácticas sobre mayúsculas, tildes, títulos, límites de caracteres y escritura de números en español, basadas en la norma de la RAE." />
+  <title>Guías de escritura y edición de texto en español | Minúsculas y Mayúsculas</title>
+  <meta name="description" content="Guías prácticas con ejemplos sobre mayúsculas, tildes, números en letra, ordenar listas, eliminar duplicados, limpiar texto y límites de caracteres." />
   <link rel="canonical" href="https://minusculasmayusculas.com/guias.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://minusculasmayusculas.com/guias.html" />
-  <meta property="og:title" content="Guías de escritura en español | Minúsculas y Mayúsculas" />
-  <meta property="og:description" content="Guías breves y prácticas sobre mayúsculas, tildes, títulos, límites de caracteres y escritura de números en español, basadas en la norma de la RAE." />
+  <meta property="og:title" content="Guías de escritura y edición de texto en español | Minúsculas y Mayúsculas" />
+  <meta property="og:description" content="Guías prácticas con ejemplos sobre mayúsculas, tildes, números en letra, ordenar listas, eliminar duplicados, limpiar texto y límites de caracteres." />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="minusculasmayusculas.com" />
   <meta property="og:image" content="https://minusculasmayusculas.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Minúsculas y Mayúsculas — herramientas de texto online gratuitas" />
+  <meta property="og:image:alt" content="Minúsculas y Mayúsculas: herramientas de texto online gratuitas" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Guías de escritura en español | Minúsculas y Mayúsculas" />
-  <meta name="twitter:description" content="Guías breves y prácticas sobre mayúsculas, tildes, títulos, límites de caracteres y escritura de números en español, basadas en la norma de la RAE." />
+  <meta name="twitter:title" content="Guías de escritura y edición de texto en español | Minúsculas y Mayúsculas" />
+  <meta name="twitter:description" content="Guías prácticas con ejemplos sobre mayúsculas, tildes, números en letra, ordenar listas, eliminar duplicados, limpiar texto y límites de caracteres." />
   <meta name="twitter:image" content="https://minusculasmayusculas.com/og-image.png" />
 
   <style>
@@ -334,18 +335,232 @@
       }
       footer nav { justify-content: center; }
     }
+
+    /* ── Navegación de cabecera ── */
+    .nav-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .nav-link {
+      padding: 8px 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .nav-link:hover { background: var(--primary-light); }
+
+    /* ── Migas de pan ── */
+    .breadcrumbs { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    .breadcrumbs li + li::before { content: '›'; margin-right: 4px; color: var(--border); }
+    .breadcrumbs a { color: var(--muted); }
+    .breadcrumbs a:hover { color: var(--primary); }
+
+    /* ── Firma y fechas ── */
+    .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .byline a { color: var(--primary); }
+
+    /* ── Resumen rápido ── */
+    .resumen {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 0 0 20px;
+    }
+    .resumen h2 { font-size: 1rem !important; margin: 0 0 8px !important; }
+    .resumen ul { margin: 0 0 0 20px !important; }
+    .resumen li { margin-bottom: 4px !important; }
+
+    /* ── Índice ── */
+    .toc {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      margin: 0 0 22px;
+    }
+    .toc h2 { font-size: 0.95rem !important; margin: 0 0 6px !important; }
+    .toc ol { margin: 0 0 0 20px !important; }
+    .toc li { font-size: 0.9rem !important; margin-bottom: 2px !important; }
+
+    /* ── Ejemplos ── */
+    .ejemplo {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: var(--text);
+    }
+    .article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #f1f3f4;
+      padding: 1px 5px;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+    .nota {
+      border-left: 3px solid var(--primary);
+      padding: 4px 0 4px 14px;
+      margin: 0 0 14px;
+    }
+
+    /* ── Cierre del artículo ── */
+    .report {
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 28px;
+    }
+    .related h2 { font-size: 1.1rem !important; }
+    .related ul { list-style: none; margin: 0 !important; }
+    .related li {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 8px !important;
+    }
+    .related li a { font-weight: 600; text-decoration: none; }
+    .related li a:hover { text-decoration: underline; }
+    .related li span { display: block; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Índice de guías ── */
+    .guide-group { margin-bottom: 30px; }
+    .guide-group > h2 { margin-top: 8px !important; }
+    .guide-group > p { margin-bottom: 12px; }
+    .guide-meta { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    @media (max-width: 420px) {
+      .header-bar { flex-wrap: wrap; }
+      .nav-link { padding: 8px 6px; }
+    }
+
+    .guide-list h3 { font-size: 1.02rem; margin: 0 0 6px; }
+    .guide-list h3 a { color: var(--primary); text-decoration: none; }
+    .guide-list h3 a:hover { text-decoration: underline; }
   </style>
   <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Guías de escritura en español",
-    "description": "Guías prácticas sobre mayúsculas, tildes, títulos, límites de caracteres y números en español.",
-    "url": "https://minusculasmayusculas.com/guias.html",
-    "inLanguage": "es",
-    "publisher": { "@type": "Person", "name": "Siddharta Navarro Castellar" }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Guías de escritura y edición de texto",
+  "description": "Guías prácticas sobre mayúsculas, tildes, números, listas, limpieza de texto y límites de caracteres en español.",
+  "url": "https://minusculasmayusculas.com/guias.html",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharta Navarro Castellar",
+    "url": "https://minusculasmayusculas.com/sobre.html"
+  },
+  "hasPart": [
+    {
+      "@type": "Article",
+      "headline": "Cuándo se escribe con mayúscula en español",
+      "url": "https://minusculasmayusculas.com/guia-mayusculas-espanol.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Errores de mayúsculas en correos, currículums y trabajos",
+      "url": "https://minusculasmayusculas.com/guia-errores-mayusculas.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Las mayúsculas también llevan tilde",
+      "url": "https://minusculasmayusculas.com/guia-tildes-mayusculas.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Mayúsculas en títulos: el estilo español frente al inglés",
+      "url": "https://minusculasmayusculas.com/guia-mayusculas-titulos.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "¿Números en cifras o en letras?",
+      "url": "https://minusculasmayusculas.com/guia-escribir-numeros.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo escribir cantidades en letra en cheques, contratos y facturas",
+      "url": "https://minusculasmayusculas.com/guia-cantidades-en-letra.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo convertir un número a letra a mano, paso a paso",
+      "url": "https://minusculasmayusculas.com/guia-numero-a-letra-a-mano.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo ordenar una lista alfabéticamente en español",
+      "url": "https://minusculasmayusculas.com/guia-ordenar-alfabeticamente.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo eliminar duplicados de una lista sin perder datos",
+      "url": "https://minusculasmayusculas.com/guia-eliminar-duplicados.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo limpiar texto copiado de un PDF, Word o una web",
+      "url": "https://minusculasmayusculas.com/guia-limpiar-texto-copiado.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Buscar y reemplazar con expresiones regulares: 15 recetas",
+      "url": "https://minusculasmayusculas.com/guia-buscar-reemplazar-regex.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Quitar acentos: cuándo tiene sentido y cuándo es un error",
+      "url": "https://minusculasmayusculas.com/guia-quitar-acentos.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Texto de relleno: para qué sirve y cómo usarlo bien",
+      "url": "https://minusculasmayusculas.com/guia-texto-de-relleno.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo se cuentan las palabras: por qué cada programa da una cifra",
+      "url": "https://minusculasmayusculas.com/guia-contar-palabras.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Escribir corto: límites de caracteres y cómo aprovecharlos",
+      "url": "https://minusculasmayusculas.com/guia-limites-caracteres.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://minusculasmayusculas.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": "https://minusculasmayusculas.com/guias.html"
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -354,27 +569,35 @@
     <div class="container">
       <div class="header-bar">
         <a class="brand" href="/">minusculas<strong>mayusculas</strong>.com</a>
-        <div class="tools-menu">
-          <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
-            Herramientas <span class="caret">&#9662;</span>
-          </button>
-          <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
-            <a href="/">Mayúsculas y Minúsculas</a>
-            <a href="contador-palabras.html">Contador de Palabras</a>
-            <a href="contador-caracteres.html">Contador de Caracteres</a>
-            <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
-            <a href="ordenar-lista.html">Ordenar Lista</a>
-            <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
-            <a href="numero-a-letra.html">Número a Letras</a>
-            <a href="invertir-texto.html">Invertir Texto</a>
-            <a href="quitar-acentos.html">Quitar Acentos</a>
-            <a href="eliminar-espacios.html">Eliminar Espacios</a>
-            <a href="texto-aleatorio.html">Texto Aleatorio</a>
-          </nav>
+        <div class="nav-right">
+          <a class="nav-link" href="guias.html">Guías</a>
+          <div class="tools-menu">
+            <button class="tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
+              Herramientas <span class="caret">&#9662;</span>
+            </button>
+            <nav class="tools-dropdown" id="tools-dropdown" aria-label="Herramientas">
+              <a href="/">Mayúsculas y Minúsculas</a>
+              <a href="contador-palabras.html">Contador de Palabras</a>
+              <a href="contador-caracteres.html">Contador de Caracteres</a>
+              <a href="buscar-reemplazar.html">Buscar y Reemplazar</a>
+              <a href="ordenar-lista.html">Ordenar Lista</a>
+              <a href="eliminar-duplicados.html">Eliminar Duplicados</a>
+              <a href="numero-a-letra.html">Número a Letras</a>
+              <a href="invertir-texto.html">Invertir Texto</a>
+              <a href="quitar-acentos.html">Quitar Acentos</a>
+              <a href="eliminar-espacios.html">Eliminar Espacios</a>
+              <a href="texto-aleatorio.html">Texto Aleatorio</a>
+            </nav>
+          </div>
         </div>
       </div>
-      <h1>Guías de escritura</h1>
-      <p class="subtitle">Respuestas prácticas a dudas frecuentes del español escrito</p>
+      <nav class="breadcrumbs" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li aria-current="page">Guías</li>
+        </ol>
+      </nav>
+      <h1>Guías de escritura y edición de texto</h1>
     </div>
   </header>
   <script>
@@ -403,38 +626,126 @@
 
   <main>
     <div class="container">
-      <article class="article">
+      <div class="article">
         <p>
-          Las herramientas de este sitio resuelven la parte mecánica de trabajar con
-          texto; estas guías resuelven la parte de criterio. Son artículos breves,
-          escritos para responder una duda concreta y volver a lo tuyo, con la norma de
-          la RAE como referencia cuando toca.
+          Las herramientas de este sitio hacen la parte mecánica: convertir, contar,
+          ordenar, limpiar. Estas guías explican la parte de criterio. Cuándo va
+          mayúscula. Cómo se ordena una lista en español. Por qué tu lista sigue teniendo
+          duplicados. Cómo se escribe un importe en un contrato.
         </p>
-      </article>
-
-      <ul class="guide-list">
-        <li>
-          <h2><a href="guia-mayusculas-espanol.html">Cuándo se escribe con mayúscula en español</a></h2>
-          <p>La regla general y los casos que engañan: días de la semana, cargos, idiomas, acontecimientos históricos y qué pasa después de los dos puntos.</p>
-        </li>
-        <li>
-          <h2><a href="guia-tildes-mayusculas.html">Las mayúsculas también llevan tilde</a></h2>
-          <p>De dónde viene el mito de que las mayúsculas no se acentúan, qué dice la RAE y cómo escribir Á, É, Í, Ó, Ú en cada teclado.</p>
-        </li>
-        <li>
-          <h2><a href="guia-mayusculas-titulos.html">Mayúsculas en títulos: el estilo español frente al inglés</a></h2>
-          <p>Por qué «Cómo Ganar Amigos» es un calco del inglés, qué hace cada idioma con sus títulos y cuándo tiene sentido usar cada estilo.</p>
-        </li>
-        <li>
-          <h2><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres y cómo aprovecharlos</a></h2>
-          <p>Los límites de las plataformas más usadas, qué cuenta exactamente como carácter y técnicas concretas para recortar sin perder el mensaje.</p>
-        </li>
-        <li>
-          <h2><a href="guia-escribir-numeros.html">¿Números en cifras o en letras?</a></h2>
-          <p>Cuándo se escribe «veinte» y cuándo «20», qué casos van siempre en cifras y por qué los contratos escriben las cantidades dos veces.</p>
-        </li>
-      </ul>
-
+        <p>
+          Cada guía empieza con un resumen de cuatro líneas, por si solo necesitas la
+          respuesta, y sigue con ejemplos reales y errores frecuentes, por si quieres
+          entenderla. Las normas ortográficas se contrastan con las obras de la RAE.
+          Las escribe y revisa Siddharta Navarro Castellar; puedes leer
+          <a href="sobre.html#como-se-hacen-las-guias">cómo se preparan</a>.
+        </p>
+        <section class="guide-group" aria-labelledby="cat-mayusculas">
+          <h2 id="cat-mayusculas">Mayúsculas y ortografía</h2>
+          <p>Cuándo va mayúscula, por qué las mayúsculas llevan tilde y cómo se escriben los títulos en español.</p>
+          <ul class="guide-list">
+            <li>
+              <h3><a href="guia-mayusculas-espanol.html">Cuándo se escribe con mayúscula en español</a></h3>
+              <p>La regla general y 25 casos resueltos con ejemplos: cargos, meses, puntos cardinales, instituciones, internet y qué pasa después de los dos puntos.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-errores-mayusculas.html">Errores de mayúsculas en correos, currículums y trabajos</a></h3>
+              <p>Los fallos que más se repiten en correos formales, currículums y trabajos académicos, con la versión mala, la buena y el motivo.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-tildes-mayusculas.html">Las mayúsculas también llevan tilde</a></h3>
+              <p>De dónde viene el mito de que las mayúsculas no se acentúan, la excepción de las siglas y cómo escribir Á, É, Í, Ó, Ú en cada teclado.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-mayusculas-titulos.html">Mayúsculas en títulos: el estilo español frente al inglés</a></h3>
+              <p>Por qué «Cómo Ganar Amigos» es un calco del inglés, qué excepciones tiene el español y cómo titular webs, vídeos y trabajos.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+          </ul>
+        </section>
+        <section class="guide-group" aria-labelledby="cat-numeros">
+          <h2 id="cat-numeros">Números</h2>
+          <p>Cifras o letras, cantidades en documentos y el método para pasar un número a palabras sin equivocarte.</p>
+          <ul class="guide-list">
+            <li>
+              <h3><a href="guia-escribir-numeros.html">¿Números en cifras o en letras?</a></h3>
+              <p>Cuándo se escribe «veinte» y cuándo «20», qué casos van siempre en cifras, cómo se escriben los ordinales y los errores más comunes.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-cantidades-en-letra.html">Cómo escribir cantidades en letra en cheques, contratos y facturas</a></h3>
+              <p>Euros y céntimos, «veintiún» o «veintiuna», «cien» o «ciento», millones y 20 importes resueltos, listos para copiar.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-numero-a-letra-a-mano.html">Cómo convertir un número a letra a mano, paso a paso</a></h3>
+              <p>Un método en cuatro pasos para escribir cualquier número en palabras, con los casos que más fallan: 21, 100 y 101, 1.001, 1.000.000.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+          </ul>
+        </section>
+        <section class="guide-group" aria-labelledby="cat-listas">
+          <h2 id="cat-listas">Listas y datos</h2>
+          <p>Ordenar alfabéticamente con criterio español y limpiar listas de repetidos sin perder información.</p>
+          <ul class="guide-list">
+            <li>
+              <h3><a href="guia-ordenar-alfabeticamente.html">Cómo ordenar una lista alfabéticamente en español</a></h3>
+              <p>La ñ, la ch y la ll, las tildes, las mayúsculas y los números: qué dice la norma y por qué los programas fallan.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 8 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-eliminar-duplicados.html">Cómo eliminar duplicados de una lista sin perder datos</a></h3>
+              <p>Por qué dos líneas que parecen iguales no lo son: mayúsculas, tildes y espacios invisibles. Con casos de correos, nombres e inventarios.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+          </ul>
+        </section>
+        <section class="guide-group" aria-labelledby="cat-limpieza">
+          <h2 id="cat-limpieza">Limpieza y edición de texto</h2>
+          <p>Texto copiado de PDF o Word, sustituciones con patrones, acentos y texto de relleno.</p>
+          <ul class="guide-list">
+            <li>
+              <h3><a href="guia-limpiar-texto-copiado.html">Cómo limpiar texto copiado de un PDF, Word o una web</a></h3>
+              <p>Saltos de línea a mitad de frase, espacios de no separación, guiones de corte y comillas mezcladas: de dónde salen y cómo quitarlos.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-buscar-reemplazar-regex.html">Buscar y reemplazar con expresiones regulares: 15 recetas</a></h3>
+              <p>Lo mínimo que necesitas saber de expresiones regulares y 15 recetas probadas con su antes y después.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-quitar-acentos.html">Quitar acentos: cuándo tiene sentido y cuándo es un error</a></h3>
+              <p>URLs, nombres de archivo, búsquedas y bases de datos: dónde sí quitar tildes y por qué nunca en un texto para personas.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-texto-de-relleno.html">Texto de relleno: para qué sirve y cómo usarlo bien</a></h3>
+              <p>Para qué sirve en maquetas, pruebas de software y plantillas, qué alternativas hay al lorem ipsum y cómo evitar que acabe publicado.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+          </ul>
+        </section>
+        <section class="guide-group" aria-labelledby="cat-medir">
+          <h2 id="cat-medir">Contar y medir</h2>
+          <p>Cómo se cuentan palabras y caracteres, y los límites de las plataformas donde escribes.</p>
+          <ul class="guide-list">
+            <li>
+              <h3><a href="guia-contar-palabras.html">Cómo se cuentan las palabras: por qué cada programa da una cifra</a></h3>
+              <p>Guiones, números, URLs y signos sueltos: por qué dos programas dan cifras distintas y qué recuento usar en cada caso.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+            <li>
+              <h3><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres y cómo aprovecharlos</a></h3>
+              <p>Los límites de las plataformas más usadas, qué cuenta exactamente como carácter y técnicas concretas para recortar sin perder el mensaje.</p>
+              <span class="guide-meta">Actualizada el <time datetime="2026-10-04">4 de octubre de 2026</time> · 7 min de lectura</span>
+            </li>
+          </ul>
+        </section>
+      </div>
     </div><!-- /container -->
   </main>
 

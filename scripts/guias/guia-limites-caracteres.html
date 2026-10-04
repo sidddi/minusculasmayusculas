@@ -1,0 +1,159 @@
+        <p>
+          Buena parte de lo que escribes hoy tiene un tope: la publicación de X, el SMS
+          del recordatorio de cita, el título que Google muestra en sus resultados, el
+          campo de «observaciones» de un formulario. Escribir contra un límite es una
+          habilidad concreta, y empieza por saber dos cosas: cuál es el límite y qué cuenta
+          exactamente para alcanzarlo. La segunda es la que más sorpresas da.
+        </p>
+
+        <h2>Límites duros y límites de truncado</h2>
+        <p>
+          No todos los límites funcionan igual. Conviene distinguirlos porque se escriben
+          de forma distinta:
+        </p>
+        <ul>
+          <li><strong>Límite duro:</strong> la plataforma no te deja pasar. Un SMS se
+          parte en dos, un formulario no admite más texto, una publicación no se envía.
+          Hay que quedarse dentro.</li>
+          <li><strong>Límite de truncado:</strong> puedes escribir más, pero solo se ve
+          una parte. El resto queda detrás de unos puntos suspensivos o de un «ver más».
+          Aquí la cuestión no es caber, sino que lo importante esté en la parte
+          visible.</li>
+        </ul>
+
+        <h2>Los límites que sí están documentados</h2>
+        <p>
+          Estas cifras proceden de documentación oficial y estaban vigentes al comprobarlas
+          el 4 de octubre de 2026. Las plataformas las cambian sin mucho aviso, así que,
+          si tu texto va justo, comprueba en la propia plataforma.
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Dónde</th><th>Límite</th><th>Tipo</th><th>Detalle</th></tr></thead>
+            <tbody>
+              <tr><td>Publicación en X (cuenta estándar)</td><td>280 caracteres</td><td>Duro</td><td>Cada enlace cuenta 23 caracteres, sea largo o corto. La mayoría de emojis cuentan 2. Fuente: <a href="https://docs.x.com/fundamentals/counting-characters">documentación de X</a>.</td></tr>
+              <tr><td>SMS con caracteres básicos (GSM-7)</td><td>160 caracteres</td><td>Duro</td><td>Si el mensaje es más largo, se divide en partes de 153.</td></tr>
+              <tr><td>SMS con otros caracteres (UCS-2)</td><td>70 caracteres</td><td>Duro</td><td>Partes de 67 en mensajes largos. Ver el apartado de tildes.</td></tr>
+              <tr><td>Meta descripción en Google</td><td>Sin límite</td><td>Truncado</td><td>Google la corta según el ancho de la pantalla, y puede sustituirla por otro texto de la página. Fuente: <a href="https://developers.google.com/search/docs/appearance/snippet">Google Search Central</a>.</td></tr>
+              <tr><td>Título en resultados de Google</td><td>Sin límite fijo</td><td>Truncado</td><td>Se corta por ancho en píxeles, no por número de caracteres.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Otras redes (Instagram, LinkedIn, TikTok, YouTube) tienen sus propios límites
+          para biografías, descripciones y títulos. No los publican siempre de forma
+          oficial y cambian con frecuencia. Casi todas muestran un contador mientras
+          escribes. Fíate de ese contador antes que de cualquier tabla, incluida esta.
+        </p>
+
+        <h2>Qué cuenta como carácter</h2>
+        <h3>Los espacios y los saltos de línea</h3>
+        <p>
+          Cuentan siempre. Un salto de línea es un carácter más. Por eso un texto con
+          muchos párrafos cortos ocupa más de lo que parece.
+        </p>
+        <h3>Las tildes en un SMS</h3>
+        <p>
+          Aquí está la trampa más grande para quien escribe en español. Un SMS normal usa
+          un juego de caracteres reducido, llamado GSM-7, que permite 160 caracteres por
+          mensaje. Ese juego incluye la <strong>é</strong>, la <strong>ñ</strong>, la
+          <strong>ü</strong>, la <strong>¿</strong> y la <strong>¡</strong>. Pero no
+          incluye la <strong>á</strong>, la <strong>í</strong>, la <strong>ó</strong> ni
+          la <strong>ú</strong>.
+        </p>
+        <p>
+          Basta una de esas letras para que el teléfono codifique el mensaje entero en
+          otro formato (UCS-2), y el límite baja de 160 a 70 caracteres. Un mensaje de 150
+          caracteres con una sola «ó» ya no cabe en un SMS: se envía en tres.
+        </p>
+        <div class="ejemplo">«Su cita es el lunes a las 10:00. Si no puede asistir, llame al 912 345 678.»
+→ 75 caracteres, sin á/í/ó/ú → 1 SMS
+
+«Su cita es el lunes a las 10:00. Si no podrá asistir, llámenos al 912 345 678.»
+→ 78 caracteres, con «á» → 2 SMS (más de 70 en UCS-2)</div>
+        <p>
+          Por eso muchos SMS comerciales llegan sin acentos: no es dejadez, es aritmética.
+          Para un envío masivo, puede ser razonable quitarlos con
+          <a href="quitar-acentos.html">Quitar acentos</a>, conservando la ñ, que sí cabe.
+          Para un mensaje personal, no merece la pena.
+        </p>
+        <h3>Los enlaces en X</h3>
+        <p>
+          X envuelve cada enlace en su acortador, y cada uno cuenta 23 caracteres, aunque
+          la dirección real tenga 10 o 200. Pegar una URL larga no te penaliza, y una
+          corta no te ahorra nada.
+        </p>
+        <h3>Los emojis</h3>
+        <p>
+          Los emojis suelen contar como dos caracteres o más. En X cuentan 2. Otros
+          sistemas, y muchos contadores, cuentan las piezas internas del emoji: una
+          bandera o un emoji con tono de piel está formado por varios caracteres unidos y
+          puede sumar 4, 7 o más. Si el texto va justo, el emoji es el primer candidato a
+          salir.
+        </p>
+
+        <h2>El caso especial del SEO</h2>
+        <p>
+          Los «60 caracteres» del título y los «155» de la meta descripción no son límites
+          oficiales. Son aproximaciones que la comunidad SEO usa porque, en la práctica,
+          esa es la longitud que suele verse completa. Google no corta por número de
+          caracteres, sino por el ancho del texto: una «W» ocupa más que una «i».
+        </p>
+        <p>
+          Además, Google puede ignorar tu meta descripción y mostrar otro fragmento de la
+          página si considera que encaja mejor con la búsqueda. La estrategia sensata es
+          doble: escribe una descripción que tenga sentido completa, y coloca lo
+          importante en la primera mitad, para que sobreviva aunque se corte.
+        </p>
+
+        <h2>Técnicas de recorte que funcionan</h2>
+        <ul>
+          <li><strong>Empieza por el final.</strong> En la mayoría de textos breves, la
+          última frase es despedida o relleno. Fuera primero.</li>
+          <li><strong>Cifras en dígitos.</strong> «3» ocupa un carácter; «tres», cuatro.
+          En textos con límite, los números van en cifra.</li>
+          <li><strong>Caza las muletillas.</strong> «Cabe destacar que», «en el día de
+          hoy», «procederemos a realizar» tienen versiones de una palabra: nada, «hoy»,
+          «haremos».</li>
+          <li><strong>Voz activa.</strong> «El equipo resolvió el problema» gana ocho
+          caracteres a «el problema fue resuelto por el equipo».</li>
+          <li><strong>Una idea por mensaje.</strong> Si no cabe, no es un problema de
+          caracteres: son dos mensajes.</li>
+        </ul>
+        <div class="ejemplo">Antes (126):  Le informamos de que, a partir del próximo lunes día 12, el horario de atención al público pasará a ser de 9:00 a 14:00 horas.
+Después (63): Desde el lunes 12, el horario de atención será de 9:00 a 14:00.</div>
+        <p>
+          El recorte quita la fórmula de entrada («Le informamos de que»), la redundancia
+          («día», «horas», «al público») y el verbo perifrástico («pasará a ser»). El
+          mensaje es el mismo y ocupa la mitad.
+        </p>
+
+        <h2>Los límites que no avisan</h2>
+        <p>
+          Además de los publicados, hay topes invisibles que solo descubres al chocar con
+          ellos. El asunto de un correo admite cientos de caracteres, pero en la bandeja
+          de entrada del móvil solo se ve el principio. Las notificaciones del teléfono
+          cortan el texto según el sistema y el tamaño de letra. Y muchos formularios
+          (direcciones de envío, campos de observaciones, títulos de anuncios) imponen
+          topes propios que no documentan en ninguna parte.
+        </p>
+        <p>
+          La consecuencia práctica es siempre la misma: lo importante, delante. Un texto
+          construido para sobrevivir al truncado funciona en todas partes. Uno que guarda
+          la clave para el final depende de que nadie lo corte.
+        </p>
+
+        <h2>Medir mientras escribes</h2>
+        <p>
+          Recortar a ciegas y pegar en la plataforma «a ver si cabe» es el método lento.
+          El rápido es escribir con el recuento a la vista. El
+          <a href="contador-caracteres.html">contador de caracteres</a> muestra caracteres
+          con y sin espacios, palabras y frases en tiempo real, y compara el texto con los
+          límites de X, SMS y meta descripción.
+        </p>
+        <p>
+          Una advertencia honesta sobre cualquier contador genérico, incluido ese: cuenta
+          caracteres, no aplica las reglas de cada plataforma. No sabe que un enlace en X
+          vale 23 ni que una «á» cambia la codificación de un SMS. Para esos dos casos,
+          usa las reglas de esta guía o el contador de la propia plataforma.
+        </p>

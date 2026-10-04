@@ -1,0 +1,175 @@
+        <p>
+          Copias un párrafo de un PDF, lo pegas en tu documento y aparece troceado, con
+          saltos de línea a mitad de frase. Copias una tabla de una web y llegan espacios
+          que no se borran. Pegas un texto de Word en un formulario y las comillas se
+          convierten en símbolos raros. No es mala suerte. Cada formato guarda el texto a
+          su manera, y al copiar te llevas también sus costumbres. Esta guía explica de
+          dónde sale cada problema y en qué orden conviene limpiarlo.
+        </p>
+
+        <h2>Por qué el texto copiado llega sucio</h2>
+        <h3>Los PDF guardan líneas, no párrafos</h3>
+        <p>
+          Un PDF es, sobre todo, una descripción de dónde va cada trozo de texto en la
+          página. Muchos no guardan la idea de «párrafo». Guardan líneas sueltas
+          colocadas una debajo de otra. Al copiar, cada final de línea se convierte en
+          un salto de línea real, aunque la frase continúe. Si el documento estaba
+          justificado y con guiones de corte, también te llevas los guiones.
+        </p>
+        <p>
+          Los PDF tienen otro truco: las ligaduras. Algunas tipografías dibujan «fi» o
+          «fl» como un solo carácter. Al copiar, ese carácter puede llegar tal cual
+          (<code>ﬁ</code>), y entonces la palabra «oficina» ya no se encuentra con el
+          buscador, porque técnicamente no contiene una f y una i.
+        </p>
+        <h3>Word y los procesadores de texto añaden tipografía</h3>
+        <p>
+          Word cambia automáticamente las comillas rectas por comillas tipográficas
+          (“ ”), los guiones dobles por rayas y, en algunos casos, inserta espacios de no
+          separación para que dos palabras no queden separadas al final de una línea.
+          Todo eso es correcto dentro del documento. El problema llega al pegarlo en un
+          sitio que espera texto simple.
+        </p>
+        <h3>Las webs traen caracteres invisibles</h3>
+        <p>
+          El código de una página web usa con frecuencia espacios de no separación
+          (<code>&amp;nbsp;</code>) para controlar la maquetación. A veces incluye
+          espacios de anchura cero, que no ocupan nada en pantalla. Y al copiar tablas,
+          las columnas llegan separadas por tabuladores.
+        </p>
+
+        <h2>Los problemas, uno a uno</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Problema</th><th>Cómo se ve</th><th>De dónde sale</th></tr></thead>
+            <tbody>
+              <tr><td>Saltos de línea a mitad de frase</td><td>Párrafos partidos en renglones</td><td>PDF</td></tr>
+              <tr><td>Guiones de corte</td><td>«infor- mación»</td><td>PDF justificado</td></tr>
+              <tr><td>Espacios dobles</td><td>«dos  espacios»</td><td>Revisiones, texto justificado</td></tr>
+              <tr><td>Espacios de no separación</td><td>Nada. Parecen espacios normales</td><td>Webs, Word</td></tr>
+              <tr><td>Espacios de anchura cero</td><td>Nada en absoluto</td><td>Webs, mensajería</td></tr>
+              <tr><td>Tabuladores</td><td>Huecos grandes</td><td>Tablas y hojas de cálculo</td></tr>
+              <tr><td>Comillas mezcladas</td><td>"rectas", “inglesas” y «angulares» en el mismo texto</td><td>Varias fuentes juntas</td></tr>
+              <tr><td>Ligaduras</td><td>«oﬁcina» que el buscador no encuentra</td><td>PDF</td></tr>
+              <tr><td>Líneas vacías de más</td><td>Huecos irregulares entre párrafos</td><td>Webs, correos</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Los espacios invisibles son los peores, porque no los ves y causan fallos en
+          otra parte: una búsqueda que no encuentra la palabra, una lista con
+          <a href="guia-eliminar-duplicados.html">duplicados que no se van</a>, una
+          celda que la hoja de cálculo no reconoce como número.
+        </p>
+
+        <h2>El flujo de limpieza, en orden</h2>
+        <p>
+          El orden importa. Si unes las líneas antes de arreglar los guiones de corte,
+          te quedan palabras como «infor- mación». Si quitas las líneas vacías antes de
+          unir las líneas partidas, pierdes la separación entre párrafos. Este es el
+          orden que funciona:
+        </p>
+        <ol>
+          <li><strong>Normaliza los espacios especiales.</strong>
+          <a href="eliminar-espacios.html">Eliminar espacios</a> convierte los espacios de
+          no separación y otros espacios Unicode en espacios normales en cuanto pegas el
+          texto. Los espacios de anchura cero (U+200B) no los toca: búscalos con
+          <a href="buscar-reemplazar.html">Buscar y reemplazar</a> en modo expresiones
+          regulares con el patrón <code>​</code> y reemplaza por nada.</li>
+          <li><strong>Recompón los guiones de corte.</strong> Con expresiones regulares,
+          busca <code>([a-záéíóúüñ])-\n([a-záéíóúüñ])</code> y reemplaza por
+          <code>$1$2</code>.</li>
+          <li><strong>Une las líneas partidas conservando los párrafos.</strong> Busca
+          <code>([^\n])\n(?!\n)</code> y reemplaza por <code>$1␣</code> (un espacio tras
+          el $1). Si el PDF no dejaba líneas en blanco entre párrafos, este paso lo
+          convierte todo en un solo bloque; en ese caso, separa los párrafos a mano
+          después.</li>
+          <li><strong>Reduce espacios múltiples y recorta los extremos.</strong> Las
+          casillas «Espacios múltiples → uno» y «Recortar inicio y final» de Eliminar
+          espacios.</li>
+          <li><strong>Unifica las comillas.</strong> Decide un estilo (en español, las
+          angulares « » son la primera opción) y sustituye las demás. Las recetas 11 y 12
+          de la <a href="guia-buscar-reemplazar-regex.html">guía de expresiones
+          regulares</a> lo hacen.</li>
+          <li><strong>Deshaz las ligaduras.</strong> Busca <code>ﬁ</code> y reemplaza por
+          <code>fi</code>; busca <code>ﬂ</code> y reemplaza por <code>fl</code>.</li>
+          <li><strong>Revisa y compara.</strong> Cuenta las palabras antes y después con
+          el <a href="contador-palabras.html">contador de palabras</a>. Si la cifra baja
+          mucho, algo se ha perdido. Si sube, puede que se hayan separado palabras
+          unidas.</li>
+        </ol>
+
+        <h2>Ejemplo completo: un párrafo de un PDF</h2>
+        <p>Así llega un párrafo copiado de un informe en PDF:</p>
+        <div class="ejemplo">La  oﬁcina  de  atención  al  ciudadano  amplía  su
+horario  a  partir  del  próximo  lunes.  La  infor-
+mación  completa  está  disponible  en  la  web
+municipal.
+
+El  nuevo  horario  será  de  8:00  a  20:00.</div>
+        <p>Después de los pasos 2, 3, 4 y 6:</p>
+        <div class="ejemplo">La oficina de atención al ciudadano amplía su horario a partir del próximo lunes. La información completa está disponible en la web municipal.
+
+El nuevo horario será de 8:00 a 20:00.</div>
+        <p>
+          Fíjate en dos cosas. La línea en blanco entre los dos párrafos se ha
+          conservado, porque el paso 3 solo une saltos de línea sueltos. Y «oficina» ya
+          se puede encontrar con el buscador.
+        </p>
+
+        <h2>Casos especiales</h2>
+        <h3>Guiones que sí son parte de la palabra</h3>
+        <p>
+          El paso 2 no distingue un guion de corte de un guion de verdad. Si el texto
+          tiene compuestos como «franco-alemán» o «teórico-práctico» y alguno cae justo al
+          final de una línea, perderá su guion. En textos técnicos o con muchos
+          compuestos, busca primero las coincidencias y revísalas una a una antes de
+          reemplazar.
+        </p>
+        <h3>Listas y viñetas</h3>
+        <p>
+          Al copiar listas de un PDF, cada viñeta llega como un carácter suelto («•»,
+          «▪», «◦»). Si unes las líneas, las viñetas acaban en medio del párrafo. Haz
+          primero un reemplazo de la viñeta por un salto de línea seguido de un guion, o
+          quítalas si vas a reconstruir la lista a mano.
+        </p>
+        <h3>Tablas</h3>
+        <p>
+          Una tabla copiada de una web llega con tabuladores entre columnas. Si la vas a
+          pegar en una hoja de cálculo, no los quites: los tabuladores son justamente lo
+          que la hoja usa para repartir las columnas. Si la vas a convertir en texto,
+          cámbialos por punto y coma o por un espacio.
+        </p>
+        <h3>Texto en mayúsculas</h3>
+        <p>
+          Los encabezados de algunos documentos se copian en mayúsculas sostenidas.
+          Pásalos por el <a href="/">convertidor de mayúsculas y minúsculas</a> con
+          «todo minúsculas» y luego «Mayúsculas después de punto», y repasa los nombres
+          propios a mano.
+        </p>
+
+        <h2>Cómo evitar parte del problema</h2>
+        <ul>
+          <li><strong>Pega sin formato.</strong> En la mayoría de programas,
+          Ctrl + Mayús + V (o Cmd + Mayús + Opción + V en Mac) pega solo el texto. Evita
+          los estilos, aunque no los espacios raros.</li>
+          <li><strong>Busca otra fuente.</strong> Si el PDF se generó desde una web o un
+          documento editable, el original suele dar un texto mucho más limpio.</li>
+          <li><strong>Copia por párrafos.</strong> En PDF de varias columnas, copiar la
+          página entera mezcla columnas. Copia columna a columna.</li>
+          <li><strong>Desconfía del texto escaneado.</strong> Si el PDF es una imagen
+          pasada por reconocimiento de caracteres, habrá letras confundidas («rn» por
+          «m», «l» por «1»). Ninguna limpieza automática lo arregla; hay que releer.</li>
+        </ul>
+
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li><strong>Quitar todos los saltos de línea de golpe.</strong> Pierdes los
+          párrafos. Usa la receta que respeta las líneas en blanco.</li>
+          <li><strong>Limpiar el texto original.</strong> Trabaja sobre una copia.</li>
+          <li><strong>Dar por buena la primera pasada.</strong> Lee el resultado. Los
+          problemas que quedan suelen estar en cifras, nombres propios y guiones.</li>
+          <li><strong>Olvidar los espacios invisibles.</strong> Si una búsqueda no
+          encuentra una palabra que estás viendo, sospecha de un espacio de no separación
+          o de una ligadura.</li>
+        </ul>

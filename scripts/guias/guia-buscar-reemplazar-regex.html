@@ -1,0 +1,240 @@
+        <p>
+          Buscar «2025» y cambiarlo por «2026» lo hace cualquiera. Pero ¿y si quieres
+          cambiar todas las fechas de formato, de 04/10/2026 a 2026-10-04? ¿O unir las
+          líneas que un PDF ha partido sin tocar los párrafos? Ahí el buscar y reemplazar
+          normal no llega. Necesitas describir un patrón, no un texto fijo. Eso es una
+          expresión regular. Parece críptico al principio, pero con diez símbolos
+          resuelves casi todo lo que vas a necesitar al editar texto.
+        </p>
+        <p class="nota">
+          Todas las recetas de esta guía se pueden probar en
+          <a href="buscar-reemplazar.html">Buscar y reemplazar</a> activando la casilla
+          «Usar expresiones regulares». Usan la sintaxis de JavaScript, la misma de muchos
+          editores de código. Otros programas tienen pequeñas variaciones: algunos
+          escriben la referencia a un grupo como <code>\1</code> en lugar de
+          <code>$1</code>, y otros no admiten construcciones como <code>(?!…)</code>.
+        </p>
+
+        <h2>Lo mínimo que necesitas saber</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Símbolo</th><th>Significa</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td><code>.</code></td><td>Cualquier carácter (menos el salto de línea)</td><td><code>c.sa</code> encuentra casa, cosa, cesa</td></tr>
+              <tr><td><code>\d</code></td><td>Un dígito del 0 al 9</td><td><code>\d\d</code> encuentra 04, 31, 99</td></tr>
+              <tr><td><code>\s</code></td><td>Un espacio, tabulador o salto de línea</td><td><code>a\sb</code> encuentra «a b»</td></tr>
+              <tr><td><code>\n</code>, <code>\t</code></td><td>Salto de línea, tabulador</td><td><code>\n\n</code> es una línea en blanco</td></tr>
+              <tr><td><code>+</code></td><td>Lo anterior, una o más veces</td><td><code>\d+</code> encuentra 7, 42, 2026</td></tr>
+              <tr><td><code>*</code></td><td>Lo anterior, cero o más veces</td><td><code>ab*</code> encuentra a, ab, abbb</td></tr>
+              <tr><td><code>?</code></td><td>Lo anterior es opcional</td><td><code>colou?r</code> encuentra color y colour</td></tr>
+              <tr><td><code>{2,}</code></td><td>Lo anterior, dos o más veces</td><td><code>\d{4}</code> son exactamente cuatro dígitos</td></tr>
+              <tr><td><code>[ ]</code></td><td>Uno de los caracteres de dentro</td><td><code>[aeiou]</code> es cualquier vocal sin tilde</td></tr>
+              <tr><td><code>[^ ]</code></td><td>Cualquiera excepto los de dentro</td><td><code>[^,]+</code> es «todo hasta la coma»</td></tr>
+              <tr><td><code>( )</code></td><td>Agrupa y captura</td><td><code>(\d{4})</code> guarda el año para reutilizarlo</td></tr>
+              <tr><td><code>^</code>, <code>$</code></td><td>Inicio y final de línea</td><td><code>^\d+</code> es un número al principio de la línea</td></tr>
+              <tr><td><code>\</code></td><td>Quita el significado especial al siguiente símbolo</td><td><code>\.</code> es un punto de verdad</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          La pieza que más juego da son los paréntesis. Todo lo que capturas con
+          <code>( )</code> lo puedes reutilizar en el reemplazo: <code>$1</code> es el
+          primer grupo, <code>$2</code> el segundo, y así sucesivamente. Con eso puedes
+          reordenar partes de un texto sin reescribirlas.
+        </p>
+        <p>
+          Un aviso sobre el español: <code>\w</code> («carácter de palabra») solo cubre
+          letras sin tilde, dígitos y el guion bajo en la mayoría de motores. No incluye
+          la á ni la ñ. Si necesitas letras españolas, escríbelas en un grupo:
+          <code>[a-záéíóúüñ]</code>.
+        </p>
+
+        <h2>Recetas para limpiar espacios y líneas</h2>
+        <h3>1. Reducir espacios dobles a uno</h3>
+        <div class="ejemplo">Buscar:     ␣{2,}        (un espacio y luego {2,})
+Reemplazar: ␣            (un espacio)
+Antes:      Hola,   ¿qué  tal?
+Después:    Hola, ¿qué tal?</div>
+        <h3>2. Quitar los espacios al final de cada línea</h3>
+        <div class="ejemplo">Buscar:     [ \t]+$
+Reemplazar: (nada)
+Antes:      uno␣␣␣
+            dos␣
+Después:    uno
+            dos</div>
+        <h3>3. Dejar como máximo una línea en blanco entre párrafos</h3>
+        <div class="ejemplo">Buscar:     \n{3,}
+Reemplazar: \n\n
+Antes:      párrafo uno
+
+
+
+            párrafo dos
+Después:    párrafo uno
+
+            párrafo dos</div>
+        <h3>4. Unir líneas partidas sin romper los párrafos</h3>
+        <p>
+          Es la receta estrella para texto copiado de un PDF. Une cada salto de línea
+          suelto con un espacio, pero respeta las líneas en blanco que separan párrafos.
+        </p>
+        <div class="ejemplo">Buscar:     ([^\n])\n(?!\n)
+Reemplazar: $1␣
+Antes:      El texto del PDF se
+            corta al final de
+            cada línea.
+
+            Nuevo párrafo.
+Después:    El texto del PDF se corta al final de cada línea.
+
+            Nuevo párrafo.</div>
+        <p>
+          El trozo <code>(?!\n)</code> significa «siempre que no venga otro salto
+          detrás». Es lo que protege los párrafos.
+        </p>
+        <h3>5. Recomponer palabras cortadas con guion</h3>
+        <div class="ejemplo">Buscar:     ([a-záéíóúüñ])-\n([a-záéíóúüñ])
+Reemplazar: $1$2
+Antes:      la infor-
+            mación del docu-
+            mento
+Después:    la información del documento</div>
+        <p>
+          Haz esta receta <em>antes</em> de la número 4. Si unes las líneas primero, los
+          guiones de corte quedarán como «infor- mación». Y revisa el resultado: un
+          compuesto como «franco-alemán» que caiga justo al final de línea perdería su
+          guion.
+        </p>
+
+        <h2>Recetas para fechas, números y nombres</h2>
+        <h3>6. Fecha DD/MM/AAAA a formato ISO (AAAA-MM-DD)</h3>
+        <div class="ejemplo">Buscar:     (\d{2})/(\d{2})/(\d{4})
+Reemplazar: $3-$2-$1
+Antes:      Firmado el 04/10/2026 y vence el 31/12/2027.
+Después:    Firmado el 2026-10-04 y vence el 2027-12-31.</div>
+        <p>
+          El formato ISO se ordena bien alfabéticamente, por eso se usa en nombres de
+          archivo y en hojas de cálculo.
+        </p>
+        <h3>7. Y al revés: de ISO a DD/MM/AAAA</h3>
+        <div class="ejemplo">Buscar:     (\d{4})-(\d{2})-(\d{2})
+Reemplazar: $3/$2/$1
+Antes:      2026-10-04
+Después:    04/10/2026</div>
+        <h3>8. Invertir «Apellidos, Nombre» a «Nombre Apellidos»</h3>
+        <div class="ejemplo">Buscar:     ^([^,\n]+), *(.+)$
+Reemplazar: $2 $1
+Antes:      García López, Ana
+            Ruiz, Pablo
+Después:    Ana García López
+            Pablo Ruiz</div>
+        <h3>9. Dar formato a teléfonos de nueve cifras</h3>
+        <div class="ejemplo">Buscar:     \b(\d{3}) ?(\d{2}) ?(\d{2}) ?(\d{2})\b
+Reemplazar: $1 $2 $3 $4
+Antes:      Llama al 612345678 o al 912 34 56 78
+Después:    Llama al 612 34 56 78 o al 912 34 56 78</div>
+        <h3>10. Quitar la numeración del principio de cada línea</h3>
+        <div class="ejemplo">Buscar:     ^\d+[.)][ \t]*
+Reemplazar: (nada)
+Antes:      1. Pan
+            2) Leche
+            10. Huevos
+Después:    Pan
+            Leche
+            Huevos</div>
+        <p>
+          Útil antes de <a href="ordenar-lista.html">ordenar una lista</a>: si dejas los
+          números, la lista se queda en el orden de la numeración.
+        </p>
+
+        <h2>Recetas de tipografía y formato</h2>
+        <h3>11. Comillas rectas a comillas angulares</h3>
+        <div class="ejemplo">Buscar:     "([^"\n]*)"
+Reemplazar: «$1»
+Antes:      Dijo "ya voy" y salió con "prisa".
+Después:    Dijo «ya voy» y salió con «prisa».</div>
+        <p>
+          La RAE recomienda las comillas angulares como primera opción en textos
+          impresos. Si un texto tiene comillas sin cerrar, esta receta empareja mal
+          las siguientes. Cuenta las coincidencias antes de reemplazar: deben ser las
+          que esperas.
+        </p>
+        <h3>12. Comillas tipográficas inglesas a angulares</h3>
+        <div class="ejemplo">Buscar:     “([^”\n]*)”
+Reemplazar: «$1»
+Antes:      Lo llamó “el proyecto”.
+Después:    Lo llamó «el proyecto».</div>
+        <h3>13. Quitar el espacio antes de un signo de puntuación</h3>
+        <div class="ejemplo">Buscar:     ␣+([,.;:!?])
+Reemplazar: $1
+Antes:      Hola , ¿qué tal ? Bien .
+Después:    Hola, ¿qué tal? Bien.</div>
+        <p>
+          En español no se deja espacio antes de coma, punto, punto y coma, dos puntos
+          ni signos de cierre. Es un error típico de textos que vienen del francés, que
+          sí lo usa.
+        </p>
+
+        <h2>Recetas para datos</h2>
+        <h3>14. Ocultar direcciones de correo</h3>
+        <div class="ejemplo">Buscar:     [\w.+-]+@[\w-]+(\.[\w-]+)+
+Reemplazar: [correo]
+Antes:      Escribe a ana.ruiz@empresa.es o a info@web.com.
+Después:    Escribe a [correo] o a [correo].</div>
+        <p>
+          Sirve para compartir un texto o un registro sin datos personales. No es una
+          anonimización completa: nombres, teléfonos y direcciones siguen ahí.
+        </p>
+        <h3>15. Convertir columnas separadas por tabulador en punto y coma</h3>
+        <div class="ejemplo">Buscar:     \t
+Reemplazar: ;
+Antes:      nombre→ciudad        (→ es un tabulador)
+            Ana→Soria
+Después:    nombre;ciudad
+            Ana;Soria</div>
+        <p>
+          Al copiar celdas de una hoja de cálculo, las columnas llegan separadas por
+          tabuladores. Con punto y coma tienes un CSV que las hojas de cálculo en
+          español abren directamente.
+        </p>
+        <p>
+          (En los ejemplos, ␣ marca un espacio que en pantalla no se vería.)
+        </p>
+
+        <h2>Cómo trabajar sin romper nada</h2>
+        <ol>
+          <li><strong>Guarda una copia del original.</strong> Un patrón demasiado amplio
+          puede tocar cientos de sitios en un segundo.</li>
+          <li><strong>Busca antes de reemplazar.</strong> Escribe el patrón y mira el
+          número de coincidencias. Si esperabas 12 y salen 340, el patrón es demasiado
+          general.</li>
+          <li><strong>Empieza por un fragmento.</strong> Prueba la receta con cinco
+          líneas antes de pasarla por el documento entero.</li>
+          <li><strong>Ojo con las mayúsculas.</strong> Si no activas «Distinguir
+          mayúsculas», <code>[a-z]</code> también encuentra letras mayúsculas.</li>
+          <li><strong>Escapa los símbolos que busques literalmente.</strong> Para buscar
+          un punto, un paréntesis o un signo de interrogación de verdad, pon delante una
+          barra: <code>\.</code>, <code>\(</code>, <code>\?</code>.</li>
+        </ol>
+
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li><strong>El punto que lo abarca todo.</strong> <code>.*</code> es «cualquier
+          cosa», y es avaricioso: se come todo lo que puede. <code>".*"</code> en
+          <em>"a" y "b"</em> encuentra una sola coincidencia, desde la primera comilla
+          hasta la última. Usa <code>"[^"]*"</code> para quedarte dentro de cada par.</li>
+          <li><strong>Olvidar los límites.</strong> <code>\d{4}</code> encuentra «2026»,
+          pero también las cuatro primeras cifras de «202612». Añade <code>\b</code>
+          (límite de palabra) a los lados si quieres números sueltos.</li>
+          <li><strong>Confiar en <code>\w</code> con texto español.</strong> No incluye
+          letras con tilde ni la ñ.</li>
+          <li><strong>Usar <code>$1</code> sin paréntesis.</strong> Si el patrón no tiene
+          grupos, <code>$1</code> no tiene nada que recuperar.</li>
+        </ul>
+        <p>
+          Si solo necesitas limpiar espacios, no hace falta escribir patrones:
+          <a href="eliminar-espacios.html">Eliminar espacios</a> hace las recetas 1, 2 y
+          4 con casillas. Y si el texto viene de un PDF, la
+          <a href="guia-limpiar-texto-copiado.html">guía de limpieza de texto copiado</a>
+          explica el orden en que conviene aplicar cada paso.
+        </p>

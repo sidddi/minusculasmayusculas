@@ -1,0 +1,241 @@
+        <p>
+          Ordenar una lista parece la tarea más mecánica del mundo. Hasta que la ordenas
+          con un programa y «Ávila» aparece después de «Zamora». O «tema 10» se cuela
+          entre «tema 1» y «tema 2». O la lista de la clase pone a «Ñúñez» antes que a
+          «Nadal». Ninguno de esos resultados es un fallo tuyo. Son reglas distintas
+          chocando entre sí, y en cuanto sabes cuáles son, dejas de pelearte con ellas.
+        </p>
+
+        <h2>Las reglas del orden alfabético en español</h2>
+        <p>
+          El abecedario español tiene 27 letras. La que lo distingue de casi todos los
+          demás es la ñ, que va <strong>entre la n y la o</strong>. Por tanto, «peña» va
+          después de «pensar», no al lado de «pena»:
+        </p>
+        <div class="ejemplo">pena
+penal
+pensar
+peña
+peñón</div>
+        <p>
+          La segunda regla sorprende a quien aprendió el alfabeto antes de los noventa.
+          La <strong>ch</strong> y la <strong>ll</strong> ya no tienen un lugar propio.
+          En 1994, el X Congreso de la Asociación de Academias de la Lengua Española
+          acordó ordenarlas dentro de la c y de la l, como dos letras normales. La
+          <a href="https://www.rae.es/espanol-al-dia/exclusion-de-ch-y-ll-del-abecedario">RAE
+          lo explica aquí</a>, y la Ortografía de 2010 terminó de sacarlas del
+          abecedario porque no son letras, sino dígrafos. Así que «chico» va entre
+          «cerdo» y «cine», y «llama» va entre «litro» y «lobo».
+        </p>
+        <p>
+          Si consultas un diccionario antiguo, verás la ch como capítulo aparte, después
+          de la c. No está mal: es el criterio de su época. Pero si hoy entregas una
+          lista así, parecerá un error.
+        </p>
+
+        <h2>Tildes y mayúsculas: no cuentan (casi)</h2>
+        <p>
+          En el orden alfabético, «á» se ordena como «a» y «Á» como «a». La tilde y la
+          mayúscula no cambian la posición de una palabra. Solo sirven para desempatar
+          cuando dos palabras son idénticas salvo por ese detalle.
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Lista original</th><th>Bien ordenada</th></tr></thead>
+            <tbody>
+              <tr><td>zorro<br>Ávila<br>avión<br>Árbol<br>abeja</td><td>abeja<br>Árbol<br>Ávila<br>avión<br>zorro</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          «Árbol» va antes que «Ávila» porque la segunda letra decide: r va antes que v.
+          Y «Ávila» va antes que «avión» porque, a igualdad de letras hasta la «i», la
+          l va antes que la o. La tilde de la Á no entra en la cuenta.
+        </p>
+        <p>
+          ¿Y cuando dos palabras solo se diferencian por la tilde o la mayúscula? Por
+          ejemplo, «camion», «camión» y «Camión». La norma alfabética no fija un orden
+          para ese empate, porque en un diccionario casi nunca ocurre. Los programas
+          que siguen las convenciones de Unicode ponen primero la forma sin tilde, luego
+          la que lleva tilde, y entre mayúscula y minúscula, primero la minúscula. Es un
+          criterio razonable. Lo importante es que estén juntas.
+        </p>
+
+        <h2>Por qué los programas ordenan mal</h2>
+        <p>
+          Un ordenador guarda cada carácter como un número. La «A» es el 65, la «a» el 97,
+          la «z» el 122 y la «Á» el 193. Si un programa ordena comparando esos números,
+          sin más, el resultado es este:
+        </p>
+        <div class="ejemplo">Entrada:  zorro, Ávila, avión, Ñandú, nube
+Por código de carácter:  avión, nube, zorro, Ávila, Ñandú</div>
+        <p>
+          Todas las palabras que empiezan con mayúscula acentuada o con Ñ acaban al
+          final, detrás de la z. Es el fallo más común de las herramientas pensadas para
+          el inglés y de mucho código escrito deprisa.
+        </p>
+        <p>
+          Lo puedes comprobar en dos lenguajes muy usados. En JavaScript,
+          <code>["zorro", "Ávila", "avión"].sort()</code> devuelve
+          <code>["avión", "zorro", "Ávila"]</code>. En Python,
+          <code>sorted(["Ávila", "avión", "zorro"])</code> da exactamente lo mismo. Los
+          dos comparan códigos, no letras.
+        </p>
+        <p>
+          La solución es usar una comparación que conozca el idioma. En JavaScript:
+        </p>
+        <div class="ejemplo">lista.sort((a, b) => a.localeCompare(b, "es"));
+// ["Ávila", "avión", "zorro"]</div>
+        <p>
+          En Python, la biblioteca estándar depende de que el sistema tenga instalada la
+          configuración regional española (<code>locale.strxfrm</code>). Cuando no la
+          tiene, la vía fiable es una biblioteca de ordenación Unicode como PyICU. Si
+          trabajas con bases de datos, el equivalente es la «collation»: una columna
+          con collation española ordena bien; una con collation binaria, no.
+        </p>
+
+        <h2>Hojas de cálculo: qué revisar</h2>
+        <p>
+          Excel y Google Sheets ordenan teniendo en cuenta el idioma, así que las tildes
+          no suelen dar problemas. El resultado depende de la configuración regional del
+          archivo o de la cuenta. Si dudas, no lo des por supuesto: haz una prueba de
+          diez segundos.
+        </p>
+        <ol>
+          <li>Escribe en una columna: <em>oso, Ñandú, nube, Ávila, avión, chico, cosa</em>.</li>
+          <li>Ordena de la A a la Z.</li>
+          <li>El resultado correcto es: <em>Ávila, avión, chico, cosa, nube, Ñandú, oso</em>.</li>
+        </ol>
+        <p>
+          Si «Ñandú» aparece mezclado con las palabras en n, o «chico» va después de
+          «cosa», la configuración no es la española. Dos problemas más que se ven a
+          menudo en hojas de cálculo:
+        </p>
+        <ul>
+          <li><strong>Celdas con espacios delante.</strong> « Martínez», con un espacio
+          inicial, se ordena antes que «Alonso». A simple vista no se nota.</li>
+          <li><strong>Números guardados como texto.</strong> Si una columna mezcla números
+          de verdad con números escritos como texto, la hoja los ordena en dos bloques
+          separados.</li>
+        </ul>
+
+        <h2>Números dentro del texto: el orden natural</h2>
+        <p>
+          El orden alfabético compara carácter a carácter. Para él, «10» empieza por
+          «1», así que va antes que «2». Por eso pasa esto:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Lista</th><th>Orden alfabético</th><th>Orden natural</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>tema 2<br>tema 10<br>tema 1<br>tema 3</td>
+                <td>tema 1<br>tema 10<br>tema 2<br>tema 3</td>
+                <td>tema 1<br>tema 2<br>tema 3<br>tema 10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          El <strong>orden natural</strong> lee las cifras seguidas como un número
+          completo. Es lo que esperas en nombres de archivo («foto2.jpg» antes que
+          «foto10.jpg»), capítulos, versiones o expedientes.
+        </p>
+        <p>
+          Hay dos maneras de conseguirlo. La primera es rellenar con ceros:
+          «tema 01», «tema 02», «tema 10». Así el orden alfabético y el natural
+          coinciden, y funciona en cualquier programa. Es la mejor opción si tú decides
+          los nombres. La segunda es usar una herramienta con orden natural, como la
+          opción «Orden natural de números» de
+          <a href="ordenar-lista.html">Ordenar lista</a>. En código, en JavaScript basta
+          con añadir una opción: <code>a.localeCompare(b, "es", { numeric: true })</code>.
+        </p>
+
+        <h2>Casos especiales: apellidos, artículos y siglas</h2>
+        <p>
+          La norma alfabética resuelve letras. Lo que no resuelve es <em>qué palabra</em>
+          va primero. Eso depende de cómo escribas cada entrada, y es donde se cometen
+          más errores en listados de personas.
+        </p>
+        <h3>Apellidos con partícula</h3>
+        <p>
+          ¿«de la Fuente» va en la d o en la f? Las dos opciones existen. Muchas
+          bibliotecas y libros de estilo ordenan por el apellido sin la partícula
+          («Fuente, Ana de la»), y muchos registros administrativos lo hacen tal como
+          está escrito. No hay una respuesta única. La regla práctica es elegir un
+          criterio, aplicarlo a toda la lista y, si es un documento oficial, preguntar
+          cuál usa la institución.
+        </p>
+        <p>
+          Si ordenas la lista tal como está escrita y sin distinguir mayúsculas, el
+          resultado es este. Fíjate en que los espacios cuentan: «de la Fuente» va antes
+          que «Delgado» porque el espacio va antes que cualquier letra.
+        </p>
+        <div class="ejemplo">de la Fuente, Ana
+de León, Marta
+Del Río, Luis
+Delgado, Pilar</div>
+        <h3>Títulos que empiezan por artículo</h3>
+        <p>
+          En una lista de libros o películas, «El Quijote» y «La Regenta» quedan en la e y
+          en la l. Los catálogos suelen ordenar sin el artículo inicial («Quijote, El»).
+          Si tu lista es para consulta, ese criterio ayuda. Si es para leerla de corrido,
+          deja los títulos tal cual.
+        </p>
+        <h3>Siglas y números iniciales</h3>
+        <p>
+          Las siglas se ordenan letra a letra, como una palabra más: «ONU» va entre
+          «onda» y «opción». Las entradas que empiezan por cifra («3D», «2.ª edición»)
+          van por delante de todas las letras en casi todos los programas. Si eso
+          molesta, escribe la cifra en letra o pon esas entradas en un bloque aparte.
+        </p>
+
+        <h2>Errores frecuentes y cómo evitarlos</h2>
+        <ul>
+          <li><strong>Espacios invisibles al principio.</strong> Una línea que empieza
+          por espacio se va al principio de la lista. Pasa la lista por
+          <a href="eliminar-espacios.html">Eliminar espacios</a> con «Recortar inicio y
+          final» antes de ordenar.</li>
+          <li><strong>Duplicados que no parecen duplicados.</strong> «García» y
+          «garcía» quedan juntos, pero ninguno desaparece. Decide si quieres conservar
+          los dos y, si no, usa <a href="eliminar-duplicados.html">Eliminar duplicados</a>
+          con «Ignorar mayúsculas».</li>
+          <li><strong>Mezclar nombre y apellido.</strong> «Ana López» y «López, Ana» no
+          se ordenan igual. Unifica el formato antes de ordenar.</li>
+          <li><strong>Ordenar una lista numerada.</strong> Si cada línea empieza por
+          «1.», «2.», «3.»… al ordenar mantendrás los números pegados al texto. Quita la
+          numeración, ordena y vuelve a numerar.</li>
+          <li><strong>Confiar sin comprobar.</strong> Antes de ordenar una lista de
+          quinientos nombres, prueba con la lista de control de arriba. Diez segundos te
+          dicen si el programa sabe español.</li>
+        </ul>
+
+        <h2>Ejemplo completo: una lista de asistentes</h2>
+        <p>
+          Una lista copiada de un formulario suele venir así, con un espacio delante en
+          una línea, un nombre repetido y mayúsculas mezcladas:
+        </p>
+        <div class="ejemplo"> Núñez Soler, Irene
+álvarez Gil, Pablo
+Nadal Ruiz, Sara
+Chamorro Vela, Luis
+ÁLVAREZ GIL, PABLO
+Cuesta Mora, Elena</div>
+        <p>
+          El proceso tiene tres pasos. Primero, recorta los espacios de inicio y final.
+          Segundo, pon cada nombre en el mismo formato con el
+          <a href="/">convertidor de mayúsculas</a> («Capitalizar Cada Palabra»).
+          Tercero, ordena de la A a la Z marcando «Eliminar duplicados» e «Ignorar
+          mayúsculas». El resultado:
+        </p>
+        <div class="ejemplo">Álvarez Gil, Pablo
+Chamorro Vela, Luis
+Cuesta Mora, Elena
+Nadal Ruiz, Sara
+Núñez Soler, Irene</div>
+        <p>
+          «Chamorro» va antes que «Cuesta» porque la ch ya no es letra aparte. «Nadal»
+          va antes que «Núñez» porque la a va antes que la u; la ñ de Núñez no llega a
+          contar. Y «Álvarez» abre la lista pese a la tilde. Es el orden que esperaría
+          cualquier persona que lea la lista.
+        </p>
