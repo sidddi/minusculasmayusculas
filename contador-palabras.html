@@ -642,7 +642,7 @@
         "name": "¿Cómo contar palabras online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega o escribe tu texto en el cuadro de arriba y el contador mostrará automáticamente el número de palabras, caracteres, frases y párrafos al instante, sin necesidad de hacer clic en ningún botón."
+          "text": "Pega o escribe tu texto en el cuadro de arriba. El contador mostrará automáticamente el número de palabras, caracteres, frases y párrafos al instante, sin necesidad de hacer clic en ningún botón."
         }
       },
       {
@@ -658,7 +658,7 @@
         "name": "¿Cuántas palabras tiene una página?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Una página estándar en Word o procesador de textos tiene aproximadamente 250-300 palabras con márgenes y espaciado normal. En formato académico (doble espacio) suelen ser unas 250 palabras por página."
+          "text": "No hay una cifra fija: depende de la tipografía, el tamaño de letra, el interlineado y los márgenes. Un mismo texto puede ocupar una página o dos según la plantilla. Si necesitas saberlo para un encargo concreto, pega un texto que ocupe exactamente una página en tu plantilla y cuéntalo aquí: esa es tu referencia."
         }
       },
       {
@@ -666,31 +666,31 @@
         "name": "¿Cuántas palabras por minuto se leen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La velocidad lectora media de un adulto es de aproximadamente 200 palabras por minuto en lectura comprensiva. El tiempo de lectura que muestra esta herramienta está calculado con esa referencia."
+          "text": "Depende mucho del lector y del texto: una crónica se lee más rápido que un contrato. Esta herramienta usa 200 palabras por minuto como referencia redonda y prudente. Tómala como orden de magnitud («unos cinco minutos»), no como una medida exacta."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Hay límite de palabras?",
+        "name": "¿Cuenta los números y las siglas como palabras?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. La herramienta no tiene límite de palabras ni de caracteres. Al funcionar directamente en tu navegador, el único límite es la memoria disponible en tu dispositivo, lo que en la práctica permite analizar textos de cualquier longitud habitual."
+          "text": "Sí. Todo bloque de caracteres separado por espacios es una palabra: «2026» es una, «3 000» son dos, «ONU» es una y «EE. UU.» son dos. Las rayas sueltas entre espacios también cuentan. En la tabla de casos dudosos de esta página tienes más ejemplos."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Funciona con textos en español?",
+        "name": "¿Por qué me salen más párrafos de los que tengo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, está optimizado para el español. Reconoce correctamente palabras con tildes (á, é, í, ó, ú), la ñ y otros caracteres propios del idioma. También funciona con cualquier otro idioma basado en alfabeto latino."
+          "text": "Porque cada línea con texto cuenta como un párrafo. Si has copiado el texto de un PDF o de un correo, probablemente cada renglón termina en un salto de línea. Únelos con Eliminar espacios (opción «Eliminar saltos de línea») y vuelve a pegar el texto."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cómo calcula el tiempo de lectura?",
+        "name": "¿Puedo contar solo una parte del texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "El tiempo de lectura se calcula dividiendo el número de palabras entre 200, que es la velocidad lectora media de un adulto en lectura comprensiva. El resultado se redondea hacia arriba al minuto entero más cercano."
+          "text": "El contador analiza todo lo que hay en el cuadro, no una selección. Para contar una parte, pega solo ese fragmento. Si trabajas en Word o Google Docs, allí sí puedes seleccionar un trozo y ver su recuento."
         }
       },
       {
@@ -698,7 +698,7 @@
         "name": "¿Cuenta los caracteres con o sin espacios?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Los dos. La herramienta muestra por separado el total de caracteres incluyendo espacios y el total sin espacios. Esto es útil porque algunas plataformas usan una medida y otras la otra."
+          "text": "Los dos. La herramienta muestra por separado el total de caracteres incluyendo espacios y el total sin espacios. Esto es útil porque algunas plataformas usan una medida y otras la otra: Twitter y LinkedIn, por ejemplo, cuentan los espacios."
         }
       },
       {
@@ -714,7 +714,7 @@
         "name": "¿Funciona también para otros idiomas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. El contador funciona con cualquier texto en alfabeto latino: inglés, francés, italiano, alemán, portugués, etc. El tiempo de lectura usa la referencia de 200 palabras por minuto, que es válida para la mayoría de idiomas occidentales."
+          "text": "Sí, con cualquier idioma que separe las palabras con espacios: inglés, francés, catalán, alemán, portugués. En idiomas que no usan espacios entre palabras, como el chino o el japonés, el recuento de palabras no tiene sentido; usa el de caracteres."
         }
       }
     ]
@@ -871,38 +871,42 @@
         <h2>Cómo cuenta esta herramienta</h2>
         <p>
           Una <strong>palabra</strong> es cualquier secuencia de caracteres separada por
-          espacios o saltos de línea; una <strong>frase</strong> se delimita por puntos,
-          interrogaciones y exclamaciones; y un <strong>párrafo</strong>, por líneas en
-          blanco. El <strong>tiempo de lectura</strong> se estima a 200 palabras por
-          minuto, la velocidad media de un lector adulto en pantalla.
+          espacios, tabuladores o saltos de línea. Una <strong>frase</strong> termina en un
+          punto, un cierre de interrogación o un cierre de exclamación. Cada
+          <strong>línea con texto</strong> cuenta como un párrafo. El <strong>tiempo de
+          lectura</strong> divide las palabras entre 200 y redondea hacia arriba: es una
+          referencia redonda y conservadora, no una medida de tu velocidad.
         </p>
         <p>
-          Es el mismo criterio que usan los procesadores de texto, así que el resultado
-          coincidirá con el de Word o Google Docs en la práctica totalidad de los casos.
+          El criterio de palabra es parecido al de los procesadores de texto, así que en un
+          texto normal el resultado coincide con el de Word o Google Docs o se queda muy
+          cerca. Las diferencias aparecen en los casos límite que ves en la tabla de abajo.
           Las cifras se actualizan en tiempo real: no hay botón de «contar».
         </p>
       </section>
 
       <!-- ── Extensiones ── -->
       <section class="how-section" aria-label="Extensiones de referencia">
-        <h2>Extensiones orientativas según el tipo de texto</h2>
+        <h2>Cómo cuenta los casos dudosos</h2>
         <div class="table-wrap">
           <table class="content-table">
-            <thead><tr><th>Tipo de texto</th><th>Extensión habitual</th></tr></thead>
+            <thead><tr><th>Texto</th><th>Palabras</th><th>Frases</th><th>Por qué</th></tr></thead>
             <tbody>
-              <tr><td>Meta descripción para buscadores</td><td>20–25 palabras</td></tr>
-              <tr><td>Publicación de LinkedIn</td><td>150–300 palabras</td></tr>
-              <tr><td>Nota de prensa</td><td>400–600 palabras</td></tr>
-              <tr><td>Artículo de blog con intención SEO</td><td>800–1.500 palabras</td></tr>
-              <tr><td>Ensayo o trabajo académico breve</td><td>1.500–2.500 palabras</td></tr>
-              <tr><td>Capítulo de novela</td><td>2.000–5.000 palabras</td></tr>
+              <tr><td>franco-alemán</td><td>1</td><td>1</td><td>El guion no separa</td></tr>
+              <tr><td>El tren — dijo — llegó tarde.</td><td>7</td><td>1</td><td>Cada raya entre espacios cuenta como palabra</td></tr>
+              <tr><td>3 000 000 de euros</td><td>5</td><td>1</td><td>Cada bloque de cifras separado por espacio cuenta</td></tr>
+              <tr><td>EE. UU.</td><td>2</td><td>2</td><td>Los puntos de las abreviaturas cortan frases</td></tr>
+              <tr><td>El Sr. García llegó a las 9.30. Bien.</td><td>8</td><td>4</td><td>«Sr.» y «9.30» añaden dos cortes de frase</td></tr>
+              <tr><td>¿Vienes? ¡Claro!</td><td>2</td><td>2</td><td>Los signos de cierre terminan frase</td></tr>
             </tbody>
           </table>
         </div>
         <p>
-          Son rangos orientativos, no reglas. Pero cuando un encargo dice «unas 800
-          palabras» o una convocatoria fija «máximo 2.000», la diferencia entre cumplir o
-          no se decide aquí, no a ojo.
+          El recuento de palabras es fiable; el de frases es aproximado en textos con muchas
+          abreviaturas, horas o decimales con punto. Si un encargo te pide un número exacto
+          de palabras, compruébalo además con el programa que use quien lo va a revisar. La
+          <a href="guia-contar-palabras.html">guía sobre cómo se cuentan las palabras</a>
+          explica dónde ver el recuento en Word y Google Docs.
         </p>
       </section>
 
@@ -936,6 +940,31 @@
         </ol>
       </section>
 
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones</h2>
+        <ul class="plain-list">
+          <li><strong>Los párrafos se cuentan por líneas.</strong> Un texto copiado de un PDF,
+          con un salto de línea al final de cada renglón, dará muchos más párrafos de los
+          reales. Une antes las líneas con <a href="eliminar-espacios.html">Eliminar
+          espacios</a> o con la receta de la <a href="guia-limpiar-texto-copiado.html">guía de
+          limpieza</a>.</li>
+          <li><strong>No excluye partes del texto.</strong> Si pegas título, notas al pie y
+          bibliografía, cuenta todo. Pega solo lo que te piden contar.</li>
+          <li><strong>Los caracteres son unidades de JavaScript.</strong> La mayoría de emojis
+          cuentan como dos caracteres, y algunos compuestos como más.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-contar-palabras.html">Cómo se cuentan las palabras</a><span>Por qué Word, Google Docs y un contador online dan cifras distintas, y cuál usar en cada caso.</span></li>
+          <li><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres</a><span>Cuando el límite no es de palabras sino de caracteres.</span></li>
+          <li><a href="contador-caracteres.html">Contador de caracteres</a><span>Con barras de progreso para X, SMS, meta descripción e Instagram.</span></li>
+          <li><a href="eliminar-espacios.html">Eliminar espacios</a><span>Une líneas partidas para que el recuento de párrafos sea real.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -960,48 +989,42 @@
         <details>
           <summary>¿Cuántas palabras tiene una página?</summary>
           <p>
-            Una página estándar en Word o procesador de textos tiene aproximadamente 250–300
-            palabras con márgenes y espaciado normal. En formato académico (doble espacio) suelen
-            ser unas 250 palabras por página.
+            No hay una cifra fija: depende de la tipografía, el tamaño de letra, el interlineado y los márgenes. Un mismo texto puede ocupar una página o dos según la plantilla. Si necesitas saberlo para un encargo concreto, pega un texto que ocupe exactamente una página en tu plantilla y cuéntalo aquí: esa es tu referencia.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cuántas palabras por minuto se leen?</summary>
           <p>
-            La velocidad lectora media de un adulto es de aproximadamente 200 palabras por minuto
-            en lectura comprensiva. El tiempo de lectura que muestra esta herramienta está
-            calculado con esa referencia.
+            Depende mucho del lector y del texto: una crónica se lee más rápido que un contrato. Esta herramienta usa 200 palabras por minuto como referencia redonda y prudente. Tómala como orden de magnitud («unos cinco minutos»), no como una medida exacta.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Hay límite de palabras?</summary>
+          <summary>¿Cuenta los números y las siglas como palabras?</summary>
           <p>
-            No. La herramienta no tiene límite de palabras ni de caracteres. Al funcionar
-            directamente en tu navegador, el único límite es la memoria disponible en tu
-            dispositivo, lo que en la práctica permite analizar textos de cualquier longitud habitual.
+            Sí. Todo bloque de caracteres separado por espacios es una palabra: «2026» es una, «3 000» son dos, «ONU» es una y «EE. UU.» son dos. Las rayas sueltas entre espacios también cuentan. En la tabla de casos dudosos de esta página tienes más ejemplos.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Funciona con textos en español?</summary>
+          <summary>¿Por qué me salen más párrafos de los que tengo?</summary>
           <p>
-            Sí, está optimizado para el español. Reconoce correctamente palabras con tildes
-            (á, é, í, ó, ú), la ñ y otros caracteres propios del idioma. También funciona
-            con cualquier otro idioma basado en alfabeto latino.
+            Porque cada línea con texto cuenta como un párrafo. Si has copiado el texto de un PDF o de un correo, probablemente cada renglón termina en un salto de línea. Únelos con <a href="eliminar-espacios.html">Eliminar espacios</a> (opción «Eliminar saltos de línea») y vuelve a pegar el texto.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Cómo calcula el tiempo de lectura?</summary>
+          <summary>¿Puedo contar solo una parte del texto?</summary>
           <p>
-            El tiempo de lectura se calcula dividiendo el número de palabras entre 200, que
-            es la velocidad lectora media de un adulto en lectura comprensiva. El resultado
-            se redondea hacia arriba al minuto entero más cercano, de modo que un texto de
-            50 palabras aparece como 1 min.
+            El contador analiza todo lo que hay en el cuadro, no una selección. Para contar una parte, pega solo ese fragmento. Si trabajas en Word o Google Docs, allí sí puedes seleccionar un trozo y ver su recuento.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cuenta los caracteres con o sin espacios?</summary>
@@ -1024,11 +1047,10 @@
         <details>
           <summary>¿Funciona también para otros idiomas?</summary>
           <p>
-            Sí. El contador funciona con cualquier texto en alfabeto latino: inglés, francés,
-            italiano, alemán, portugués, etc. El tiempo de lectura usa la referencia de 200
-            palabras por minuto, que es válida para la mayoría de idiomas occidentales.
+            Sí, con cualquier idioma que separe las palabras con espacios: inglés, francés, catalán, alemán, portugués. En idiomas que no usan espacios entre palabras, como el chino o el japonés, el recuento de palabras no tiene sentido; usa el de caracteres.
           </p>
         </details>
+
       </section>
 
     </div><!-- /container -->

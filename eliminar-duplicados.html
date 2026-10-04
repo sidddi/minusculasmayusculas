@@ -615,7 +615,7 @@
         "name": "¿Cómo eliminar duplicados de una lista online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega tu lista en el cuadro de texto, con un elemento por línea. Pulsa «Eliminar duplicados» y la herramienta eliminará todas las líneas repetidas, conservando solo la primera aparición de cada elemento."
+          "text": "Copia la columna o la lista, con cada elemento en su propia línea, y pégala arriba. Al pulsar Eliminar duplicados, cada línea repetida desaparece y se queda la primera vez que aparece. Debajo verás cuántas líneas únicas quedan y cuántas se han quitado."
         }
       },
       {
@@ -623,7 +623,7 @@
         "name": "¿La comparación tiene en cuenta las mayúsculas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Por defecto no. Con la opción «Ignorar mayúsculas» activada, «Manzana» y «manzana» se consideran duplicados y solo se conserva una. Si desactivas esta opción, se tratan como elementos distintos y ambos se conservan."
+          "text": "Por defecto no. Con la opción Ignorar mayúsculas activada, «Manzana» y «manzana» se consideran duplicados y solo se conserva una. Si desactivas esta opción, se tratan como elementos distintos y ambos se conservan."
         }
       },
       {
@@ -631,7 +631,7 @@
         "name": "¿Se elimina solo una copia o todas las repeticiones?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Se elimina todas las repeticiones y se conserva solo la primera aparición de cada elemento. Si «manzana» aparece 5 veces, el resultado contendrá una sola vez «manzana»."
+          "text": "Se eliminan todas las repeticiones y se conserva solo la primera aparición de cada elemento. Si «manzana» aparece 5 veces, el resultado contendrá una sola vez «manzana»."
         }
       },
       {
@@ -639,7 +639,7 @@
         "name": "¿Puedo también ordenar la lista al eliminar duplicados?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Activa la opción «Ordenar A→Z» y los elementos únicos se ordenarán alfabéticamente en el mismo paso. Si prefieres mantener el orden original, deja esta opción desactivada."
+          "text": "Sí. Activa la opción Ordenar A→Z y los elementos únicos se ordenarán alfabéticamente en el mismo paso. Si prefieres mantener el orden original, deja esta opción desactivada."
         }
       },
       {
@@ -647,23 +647,23 @@
         "name": "¿Qué pasa con las líneas vacías?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Con la opción «Eliminar líneas vacías» activada (por defecto), las líneas en blanco se eliminan del resultado. Si la desactivas, las líneas vacías se conservan y se tratan como cualquier otro elemento (por lo que solo queda una si hay varias)."
+          "text": "Con la opción Eliminar líneas vacías activada (por defecto), las líneas en blanco se eliminan del resultado. Si la desactivas, las líneas vacías se conservan y se tratan como cualquier otro elemento (por lo que solo queda una si hay varias)."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Hay límite en el número de líneas?",
+        "name": "¿«José» y «Jose» cuentan como duplicados?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No hay ningún límite. La herramienta funciona directamente en el navegador y puede procesar listas de miles de elementos sin problemas en cualquier dispositivo moderno."
+          "text": "No. Las tildes y la ñ siempre cuentan como diferencia, porque a menudo distinguen nombres reales («Peña» y «Pena»). Si en tu caso son errores de escritura, compara una copia de la lista sin acentos y revisa a mano las líneas que desaparezcan."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se envían mis datos a algún servidor?",
+        "name": "He quitado duplicados y siguen apareciendo. ¿Por qué?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Todo el procesamiento ocurre directamente en tu navegador. El texto que introduces nunca sale de tu dispositivo, por lo que puedes usarla con datos confidenciales sin ninguna preocupación."
+          "text": "Casi siempre hay una diferencia que no se ve: un espacio doble en medio de la línea, un espacio de no separación copiado de una web, una tilde o una mayúscula (si no marcaste «Ignorar mayúsculas»). Límpiala antes en Eliminar espacios con las opciones por defecto y repite la operación."
         }
       },
       {
@@ -806,10 +806,11 @@
           botón y obtienes la lista limpia, sin duplicados y lista para copiar.
         </p>
         <p>
-          Es ideal para limpiar listas de correos electrónicos, nombres, palabras clave,
-          URLs o cualquier conjunto de datos donde hayan entrado repeticiones al combinar
-          fuentes diferentes. La herramienta te indica cuántos duplicados ha encontrado
-          y cuántos elementos únicos quedan.
+          Las repeticiones aparecen casi siempre al juntar listas: dos formularios de
+          inscripción, tres exportaciones de contactos, las palabras clave de varias
+          herramientas. Al terminar, la herramienta te dice cuántas líneas únicas quedan y
+          cuántos duplicados ha quitado, para que puedas comprobar que la cifra tiene
+          sentido antes de usar la lista.
         </p>
       </section>
 
@@ -824,11 +825,12 @@
         </p>
         <p>
           Dos matices importantes. Primero, la casilla <strong>«Ignorar mayúsculas»</strong>
-          hace que «Madrid» y «madrid» cuenten como la misma línea. Segundo, un espacio
-          invisible al final de una línea la convierte en «distinta» a ojos de cualquier
-          comparador; si tu lista viene de un Excel o un PDF, pásala antes por
-          <a href="eliminar-espacios.html">Eliminar Espacios</a> y te ahorrarás duplicados
-          fantasma.
+          hace que «Madrid» y «madrid» cuenten como la misma línea. Segundo, la comparación
+          ya ignora los espacios al principio y al final de cada línea, que son los que más
+          llegan al copiar de una hoja de cálculo. Lo que sí cuenta como diferencia es un
+          espacio doble en medio («Calle  Mayor») o un espacio de no separación copiado de
+          una web. Si sospechas de ellos, pasa antes la lista por
+          <a href="eliminar-espacios.html">Eliminar espacios</a>.
         </p>
       </section>
 
@@ -870,7 +872,7 @@
         <ol class="steps-list">
           <li>
             <span class="step-num">1</span>
-            <span class="step-body"><strong>Pega la lista</strong> con un elemento por línea.</span>
+            <span class="step-body"><strong>Pega la columna o la lista</strong>: una entrada en cada línea.</span>
           </li>
           <li>
             <span class="step-num">2</span>
@@ -883,17 +885,68 @@
         </ol>
       </section>
 
+      <section class="why-section" aria-label="Más ejemplos">
+        <h2>Tres casos que conviene ver antes de empezar</h2>
+        <h3>Mayúsculas distintas</h3>
+        <div class="ejemplo">Entrada:                     Sevilla / SEVILLA / sevilla / Cádiz
+Con «Ignorar mayúsculas»:    Sevilla / Cádiz
+Sin «Ignorar mayúsculas»:    Sevilla / SEVILLA / sevilla / Cádiz</div>
+        <p>
+          Con la casilla activada se queda la primera versión que aparece. Si prefieres
+          otra, unifica antes el formato con el <a href="/">convertidor de mayúsculas</a>.
+        </p>
+        <h3>Tildes distintas</h3>
+        <div class="ejemplo">Entrada:     José Pérez / Jose Perez
+Resultado:   José Pérez / Jose Perez   (no se consideran iguales)</div>
+        <p>
+          Las tildes cuentan siempre. Es una decisión deliberada: «Peña» y «Pena» son
+          apellidos distintos. Si sabes que en tu lista las diferencias de tilde son errores,
+          haz una copia sin acentos con <a href="quitar-acentos.html">Quitar acentos</a>,
+          quita duplicados en esa copia y compara cuántas líneas quedan en cada versión.
+        </p>
+        <h3>Espacios en los extremos</h3>
+        <div class="ejemplo">Entrada:     «Bilbao» / «  Bilbao» / «Bilbao  »
+Resultado:   «Bilbao»   (los espacios del principio y del final no cuentan)</div>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Lo que esta herramienta no hace</h2>
+        <ul class="plain-list">
+          <li><strong>No compara por columnas.</strong> Si pegas varias columnas de una hoja de
+          cálculo, cada línea completa es un elemento. Para deduplicar por una sola columna
+          (por ejemplo, por correo electrónico), pega solo esa columna o usa la función de
+          duplicados de la propia hoja de cálculo.</li>
+          <li><strong>No detecta duplicados «parecidos».</strong> «Ana Pérez» y «Pérez, Ana»
+          son líneas distintas. También «TOR-M8-40» y «TOR M8 40».</li>
+          <li><strong>No guarda la lista original.</strong> El resultado sustituye al texto
+          del cuadro. Copia la lista original a otro sitio antes de empezar.</li>
+          <li><strong>Las líneas vacías cuentan como duplicadas entre sí</strong> si desactivas
+          «Eliminar líneas vacías»: quedará una sola.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-eliminar-duplicados.html">Cómo eliminar duplicados de una lista sin perder datos</a><span>Casos reales con correos, nombres e inventarios, y las decisiones que hay que tomar antes de borrar.</span></li>
+          <li><a href="guia-limpiar-texto-copiado.html">Cómo limpiar texto copiado de un PDF, Word o una web</a><span>De dónde salen los espacios invisibles que crean duplicados fantasma.</span></li>
+          <li><a href="guia-ordenar-alfabeticamente.html">Cómo ordenar una lista alfabéticamente en español</a><span>El paso siguiente, una vez la lista está limpia.</span></li>
+          <li><a href="ordenar-lista.html">Ordenar lista</a><span>Ordena el resultado con el alfabeto español, con orden natural para números.</span></li>
+          <li><a href="eliminar-espacios.html">Eliminar espacios</a><span>Quita espacios dobles y de no separación que impiden detectar repetidos.</span></li>
+          <li><a href="quitar-acentos.html">Quitar acentos</a><span>Crea una copia sin tildes para encontrar «José» y «Jose».</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
         <details>
           <summary>¿Cómo eliminar duplicados de una lista online?</summary>
           <p>
-            Pega tu lista en el cuadro de texto, con un elemento por línea. Pulsa
-            <strong>Eliminar duplicados</strong> y la herramienta eliminará todas las
-            líneas repetidas, conservando solo la primera aparición de cada elemento.
+            Copia la columna o la lista, con cada elemento en su propia línea, y pégala arriba. Al pulsar <strong>Eliminar duplicados</strong>, cada línea repetida desaparece y se queda la primera vez que aparece. Debajo verás cuántas líneas únicas quedan y cuántas se han quitado.
           </p>
         </details>
+
 
         <details>
           <summary>¿La comparación tiene en cuenta las mayúsculas?</summary>
@@ -934,22 +987,20 @@
         </details>
 
         <details>
-          <summary>¿Hay límite en el número de líneas?</summary>
+          <summary>¿«José» y «Jose» cuentan como duplicados?</summary>
           <p>
-            No hay ningún límite. La herramienta funciona directamente en el navegador
-            y puede procesar listas de miles de elementos sin problemas en cualquier
-            dispositivo moderno.
+            No. Las tildes y la ñ siempre cuentan como diferencia, porque a menudo distinguen nombres reales («Peña» y «Pena»). Si en tu caso son errores de escritura, compara una copia de la lista sin acentos y revisa a mano las líneas que desaparezcan.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Se envían mis datos a algún servidor?</summary>
+          <summary>He quitado duplicados y siguen apareciendo. ¿Por qué?</summary>
           <p>
-            No. Todo el procesamiento ocurre directamente en tu navegador. El texto que
-            introduces nunca sale de tu dispositivo, por lo que puedes usarla con datos
-            confidenciales sin ninguna preocupación.
+            Casi siempre hay una diferencia que no se ve: un espacio doble en medio de la línea, un espacio de no separación copiado de una web, una tilde o una mayúscula (si no marcaste «Ignorar mayúsculas»). Límpiala antes en <a href="eliminar-espacios.html">Eliminar espacios</a> con las opciones por defecto y repite la operación.
           </p>
         </details>
+
 
         <details>
           <summary>¿Puedo usarla para limpiar listas de Excel o Word?</summary>

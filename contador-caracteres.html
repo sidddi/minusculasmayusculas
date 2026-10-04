@@ -641,7 +641,7 @@
         "name": "¿Cómo contar los caracteres de un texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega o escribe tu texto en el campo de esta herramienta. El contador se actualiza al instante y muestra los caracteres totales (con espacios), los caracteres sin espacios, las palabras, las frases y los párrafos."
+          "text": "Pega o escribe el texto en el cuadro. El contador se actualiza con cada tecla y muestra cuatro cifras: caracteres con espacios, caracteres sin espacios, palabras y frases. Debajo, las barras indican cuánto ocupa el texto frente a los límites de X, SMS, meta descripción e Instagram."
         }
       },
       {
@@ -649,7 +649,7 @@
         "name": "¿Cuál es la diferencia entre caracteres con y sin espacios?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Los caracteres con espacios incluyen todos los espacios en blanco entre palabras. Los caracteres sin espacios cuentan solo las letras, números y signos de puntuación, excluyendo cualquier espacio. Twitter, Instagram y la mayoría de redes sociales cuentan los espacios."
+          "text": "Los caracteres con espacios incluyen todos los espacios en blanco entre palabras. Los caracteres sin espacios cuentan solo las letras, números y signos de puntuación, excluyendo cualquier espacio. Twitter, Instagram y la mayoría de redes sociales cuentan los espacios dentro de su límite."
         }
       },
       {
@@ -657,7 +657,7 @@
         "name": "¿Cuántos caracteres permite Twitter/X?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Twitter (ahora X) permite un máximo de 280 caracteres por tuit para las cuentas normales. Las cuentas de pago (X Premium) tienen límites más altos. La herramienta muestra en tiempo real cuántos caracteres te quedan o cuántos has superado."
+          "text": "Twitter (ahora X) permite un máximo de 280 caracteres por tuit para las cuentas normales. Las cuentas de pago (X Premium) tienen límites más altos para artículos largos. La herramienta muestra en tiempo real cuántos caracteres te quedan o cuántos has superado."
         }
       },
       {
@@ -665,7 +665,7 @@
         "name": "¿Cuántos caracteres debe tener una meta description para SEO?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Google recorta las meta descriptions que superan aproximadamente 155-160 caracteres. Se recomienda mantenerlas entre 120 y 155 caracteres para que se muestren completas en los resultados de búsqueda. Esta herramienta incluye un indicador específico para este límite."
+          "text": "Google no fija un máximo: según su documentación, la descripción puede tener cualquier longitud y el buscador la recorta según el ancho de la pantalla. Los 155 caracteres de la barra son una aproximación práctica de lo que suele verse completo. Escribe una descripción que tenga sentido entera y pon lo importante al principio."
         }
       },
       {
@@ -673,7 +673,7 @@
         "name": "¿Cuántos caracteres caben en un SMS?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Un SMS estándar tiene un límite de 160 caracteres usando la codificación GSM-7. Si el mensaje incluye caracteres especiales, emojis o letras con acento (en algunas operadoras), el límite baja a 70 caracteres por segmento. Los mensajes más largos se envían en varios SMS y se cobran como mensajes múltiples."
+          "text": "Un SMS admite 160 caracteres si todo el texto está en el juego básico GSM-7. En ese juego están la ñ, la é, la ü, la ¿ y la ¡; faltan la á, la í, la ó y la ú. Basta una de ellas, o un emoji, para que el teléfono cambie de codificación y el máximo quede en 70. Los mensajes más largos se dividen en partes de 153 o de 67 caracteres, y cada parte se cobra como un SMS."
         }
       },
       {
@@ -681,15 +681,23 @@
         "name": "¿Cuántos caracteres permite Instagram en una publicación?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Instagram permite hasta 2.200 caracteres en el texto de cada publicación. Sin embargo, solo muestra las primeras 125 caracteres antes del botón «más», por lo que es recomendable poner la información más importante al inicio."
+          "text": "El formulario de Instagram admite hasta 2.200 caracteres en el texto de una publicación, y la barra de esta herramienta usa esa cifra. En el feed solo se ve el principio antes de «más», y cuánto se ve depende del dispositivo. Pon el mensaje principal en la primera línea."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se envía mi texto a algún servidor?",
+        "name": "¿Cuenta los emojis como un carácter?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Todo el recuento se realiza directamente en tu navegador mediante JavaScript. El texto que introduces nunca sale de tu dispositivo ni se almacena en ningún servidor."
+          "text": "No siempre. La herramienta cuenta las posiciones que ocupa el texto en el navegador: la mayoría de emojis ocupan 2, un emoji con tono de piel ocupa 4 y una bandera, también 4. Cada plataforma tiene su regla (X cuenta casi todos como 2), así que, si vas justo, deja margen o quita el emoji."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se cuentan las frases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La herramienta cuenta como frases los segmentos terminados en punto (.), signo de exclamación (!) o signo de interrogación (?). Las abreviaturas y los puntos en números pueden añadir un margen mínimo de error, pero el resultado es fiable para textos de longitud normal."
         }
       }
     ]
@@ -901,10 +909,12 @@
           </table>
         </div>
         <p>
-          Los límites cambian con el tiempo y algunos no son cortes duros sino puntos donde
-          el texto se trunca con puntos suspensivos, como ocurre en los resultados de
-          Google. La práctica recomendable es quedarse un 5–10&nbsp;% por debajo del límite
-          para no jugársela con la última palabra.
+          Los límites cambian con el tiempo y algunos no son cortes duros, sino puntos donde
+          el texto se trunca con puntos suspensivos, como ocurre en los resultados de Google.
+          Los de X, SMS y Google están documentados por las propias plataformas; los de
+          Instagram, LinkedIn y YouTube son los que muestran sus formularios y pueden
+          cambiar sin aviso. Si vas justo, comprueba en la plataforma y deja un margen de
+          unos pocos caracteres.
         </p>
       </section>
 
@@ -938,17 +948,66 @@
         </ul>
       </section>
 
+      <section class="why-section" aria-label="Ejemplos de recuento">
+        <h2>Qué cuenta y cuánto: ejemplos</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Texto</th><th>Con espacios</th><th>Sin espacios</th><th>Nota</th></tr></thead>
+            <tbody>
+              <tr><td>Hola, ¿qué tal?</td><td>15</td><td>13</td><td>Los signos ¿ y ? cuentan</td></tr>
+              <tr><td>Año nuevo</td><td>9</td><td>8</td><td>La ñ y las tildes son un carácter cada una</td></tr>
+              <tr><td>dos líneas<br>de texto</td><td>19</td><td>16</td><td>El salto de línea cuenta como carácter con espacios</td></tr>
+              <tr><td>😀</td><td>2</td><td>2</td><td>La mayoría de emojis ocupan dos posiciones</td></tr>
+              <tr><td>🇪🇸</td><td>4</td><td>4</td><td>Las banderas son dos caracteres especiales de dos posiciones</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          La cifra «sin espacios» descuenta espacios, tabuladores y saltos de línea. Es la que
+          usan algunas tarifas de traducción y corrección. La cifra «con espacios» es la que
+          importa para casi todos los límites de plataformas.
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Lo que el contador no sabe</h2>
+        <p>
+          Este contador cuenta caracteres tal como los guarda el navegador. No aplica las
+          reglas especiales de cada plataforma, y en tres casos el número real puede ser
+          distinto:
+        </p>
+        <ul class="plain-list">
+          <li><strong>Enlaces en X.</strong> X cuenta cada enlace como 23 caracteres, sea cual
+          sea su longitud real. Aquí cuenta la longitud real.</li>
+          <li><strong>Emojis en X.</strong> X cuenta la mayoría de emojis como 2, incluso los
+          compuestos. Aquí una bandera suma 4 y una familia, más.</li>
+          <li><strong>Tildes en SMS.</strong> La barra del SMS asume 160 caracteres. Con una
+          sola á, í, ó o ú, el límite real baja a 70. La ñ, la é y la ü no cambian nada. Lo
+          explica la <a href="guia-limites-caracteres.html">guía de límites de
+          caracteres</a>.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres y cómo aprovecharlos</a><span>Qué cuenta en cada plataforma y técnicas de recorte con ejemplos.</span></li>
+          <li><a href="guia-contar-palabras.html">Cómo se cuentan las palabras</a><span>Cuando el límite es de palabras y no de caracteres.</span></li>
+          <li><a href="quitar-acentos.html">Quitar acentos</a><span>Para que un SMS masivo no pase de 160 a 70 caracteres por mensaje.</span></li>
+          <li><a href="contador-palabras.html">Contador de palabras</a><span>Palabras, frases, párrafos y tiempo de lectura.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
         <details>
           <summary>¿Cómo contar los caracteres de un texto?</summary>
           <p>
-            Pega o escribe tu texto en el campo de esta herramienta. El contador se actualiza
-            al instante y muestra los caracteres totales (con espacios), los caracteres sin
-            espacios, las palabras, las frases y los párrafos.
+            Pega o escribe el texto en el cuadro. El contador se actualiza con cada tecla y muestra cuatro cifras: caracteres con espacios, caracteres sin espacios, palabras y frases. Debajo, las barras indican cuánto ocupa el texto frente a los límites de X, SMS, meta descripción e Instagram.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cuál es la diferencia entre caracteres con y sin espacios?</summary>
@@ -973,44 +1032,34 @@
         <details>
           <summary>¿Cuántos caracteres debe tener una meta description para SEO?</summary>
           <p>
-            Google recorta las meta descriptions que superan aproximadamente
-            <strong>155-160 caracteres</strong>. Se recomienda mantenerlas entre 120 y 155
-            caracteres para que se muestren completas en los resultados de búsqueda. Esta
-            herramienta incluye un indicador específico para este límite que te avisa cuando
-            te acercas al máximo.
+            Google no fija un máximo: según su <a href="https://developers.google.com/search/docs/appearance/snippet">documentación</a>, la descripción puede tener cualquier longitud y el buscador la recorta según el ancho de la pantalla. Los 155 caracteres de la barra son una aproximación práctica de lo que suele verse completo. Escribe una descripción que tenga sentido entera y pon lo importante al principio.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cuántos caracteres caben en un SMS?</summary>
           <p>
-            Un SMS estándar tiene un límite de <strong>160 caracteres</strong> usando la
-            codificación GSM-7. Si el mensaje incluye caracteres especiales, emojis o algunas
-            letras con acento (dependiendo de la operadora), el límite puede bajar a 70
-            caracteres por segmento. Los mensajes más largos se envían en varios SMS y se
-            cobran como mensajes múltiples.
+            Un SMS admite 160 caracteres si todo el texto está en el juego básico GSM-7. En ese juego están la ñ, la é, la ü, la ¿ y la ¡; faltan la á, la í, la ó y la ú. Basta una de ellas, o un emoji, para que el teléfono cambie de codificación y el máximo quede en 70. Los mensajes más largos se dividen en partes de 153 o de 67 caracteres, y cada parte se cobra como un SMS.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cuántos caracteres permite Instagram en una publicación?</summary>
           <p>
-            Instagram permite hasta <strong>2.200 caracteres</strong> en el texto de cada
-            publicación. Sin embargo, solo muestra las primeras 125 caracteres antes del
-            botón «más», por lo que es recomendable poner la información más importante y
-            el gancho al inicio del texto.
+            El formulario de Instagram admite hasta 2.200 caracteres en el texto de una publicación, y la barra de esta herramienta usa esa cifra. En el feed solo se ve el principio antes de «más», y cuánto se ve depende del dispositivo. Pon el mensaje principal en la primera línea.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Se envía mi texto a algún servidor?</summary>
+          <summary>¿Cuenta los emojis como un carácter?</summary>
           <p>
-            No. Todo el recuento se realiza directamente en tu navegador mediante JavaScript.
-            El texto que introduces nunca sale de tu dispositivo ni se almacena en ningún
-            servidor externo, por lo que puedes usarlo con contenido confidencial sin
-            ninguna preocupación.
+            No siempre. La herramienta cuenta las posiciones que ocupa el texto en el navegador: la mayoría de emojis ocupan 2, un emoji con tono de piel ocupa 4 y una bandera, también 4. Cada plataforma tiene su regla (X cuenta casi todos como 2), así que, si vas justo, deja margen o quita el emoji.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cómo se cuentan las frases?</summary>

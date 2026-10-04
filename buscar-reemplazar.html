@@ -745,10 +745,10 @@
       },
       {
         "@type": "Question",
-        "name": "¿Se envía mi texto a algún servidor?",
+        "name": "¿Cómo inserto un salto de línea en el reemplazo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Toda la operación ocurre en tu navegador. El texto que introduces nunca sale de tu dispositivo, por lo que puedes usar esta herramienta con total privacidad y sin necesidad de conexión una vez cargada la página."
+          "text": "Activa «Usar expresiones regulares» y escribe \\n en el campo «Reemplazar por». Por ejemplo, buscar ; y reemplazar por \\n convierte «pan; leche; huevos» en una lista de tres líneas. Para un tabulador, usa \\t."
         }
       },
       {
@@ -756,15 +756,15 @@
         "name": "¿Puedo eliminar una palabra sin poner nada en su lugar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Simplemente deja el campo Reemplazar por en blanco y pulsa Reemplazar todo. La herramienta borrará todas las apariciones del texto buscado sin dejar ningún carácter en su lugar."
+          "text": "Sí. Simplemente deja el campo Reemplazar por en blanco y pulsa «Reemplazar todo». La herramienta borrará todas las apariciones del texto buscado sin dejar ningún carácter en su lugar."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cuántas sustituciones puedo hacer en un mismo texto?",
+        "name": "¿Puedo reemplazar solo algunas apariciones y no todas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No hay límite. La herramienta procesa todo el texto de una vez y reemplaza todas las coincidencias encontradas. Si tu texto tiene cientos de repeticiones de la misma palabra, las cambiará todas en un instante."
+          "text": "No: «Reemplazar todo» cambia todas las coincidencias de una vez. La solución es afinar la búsqueda para que solo coincida lo que quieres cambiar. Por ejemplo, en lugar de «Juan», busca «Juan García»; o activa «Solo palabra completa» para que «sol» no afecte a «solamente»."
         }
       },
       {
@@ -780,23 +780,23 @@
         "name": "¿Puedo buscar frases enteras, no solo palabras sueltas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Por supuesto. El campo de búsqueda acepta palabras, frases o cualquier fragmento de texto, incluyendo espacios y signos de puntuación. Por ejemplo, puedes buscar «según lo acordado en la reunión» y reemplazarlo por una referencia concreta al documento."
+          "text": "Por supuesto. El campo de búsqueda acepta palabras, frases o cualquier fragmento de texto, incluyendo espacios y signos de puntuación. Por ejemplo, puedes buscar «según lo acordado en la reunión» y reemplazarlo por una referencia concreta al documento donde quedó registrado."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Hay límite en la cantidad de texto que puedo procesar?",
+        "name": "¿Por qué no encuentra una palabra que estoy viendo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No hay ningún límite impuesto por la herramienta. El procesamiento depende del navegador y del dispositivo, pero para textos habituales de trabajo —incluso documentos de varios miles de palabras— funciona sin problemas en cualquier ordenador o móvil moderno."
+          "text": "Suele haber un carácter invisible: un espacio de no separación en lugar de un espacio normal, un salto de línea a mitad de la frase o una ligadura (la «ﬁ» de algunos PDF, que parece «fi» pero es un solo carácter). También puede ser una tilde: «publico» no encuentra «público». Prueba a buscar un trozo más corto de la palabra, o limpia antes el texto con Eliminar espacios."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Funciona en el móvil o la tableta?",
+        "name": "¿Qué pasa si escribo un $ en el reemplazo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, la herramienta está adaptada para pantallas pequeñas. Puedes pegar texto desde el portapapeles del móvil, hacer la búsqueda y el reemplazo, y copiar el resultado. Es especialmente útil para editar textos rápidos cuando no tienes el ordenador a mano."
+          "text": "En el modo normal, nada especial: se inserta tal cual, así que puedes reemplazar «EUR» por «$» sin problemas. En el modo de expresiones regulares, $1, $2… insertan los grupos capturados y $& inserta la coincidencia completa. Para un $ literal en ese modo, escribe $$."
         }
       }
     ]
@@ -1038,6 +1038,65 @@
         </p>
       </section>
 
+      <section class="why-section" aria-label="Expresiones regulares">
+        <h2>Modo expresiones regulares: cuando el texto cambia pero el patrón no</h2>
+        <p>
+          Con la casilla <strong>«Usar expresiones regulares»</strong>, el campo «Buscar»
+          deja de buscar un texto fijo y pasa a buscar un patrón. Sirve para cambios que no
+          podrías hacer con una sola palabra: todas las fechas, todos los números al principio
+          de línea, todas las líneas partidas. Tres ejemplos probados:
+        </p>
+        <div class="ejemplo">Cambiar fechas de 04/10/2026 a 2026-10-04
+  Buscar:     (\d{2})/(\d{2})/(\d{4})
+  Reemplazar: $3-$2-$1
+
+Quitar la numeración «1.», «2)» del principio de cada línea
+  Buscar:     ^\d+[.)][ \t]*
+  Reemplazar: (vacío)
+
+Dejar como máximo una línea en blanco entre párrafos
+  Buscar:     \n{3,}
+  Reemplazar: \n\n</div>
+        <p>
+          En el reemplazo, <code>$1</code>, <code>$2</code>… recuperan lo que capturaste
+          entre paréntesis, y <code>\n</code> y <code>\t</code> insertan un salto de línea y
+          un tabulador. Los símbolos <code>^</code> y <code>$</code> marcan el principio y el
+          final de cada línea. La sintaxis es la de JavaScript. Si el patrón tiene un error,
+          verás «Expresión regular no válida» en lugar del número de coincidencias. Tienes 15
+          recetas más en la <a href="guia-buscar-reemplazar-regex.html">guía de expresiones
+          regulares</a>.
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones</h2>
+        <ul class="plain-list">
+          <li><strong>No hay deshacer.</strong> «Reemplazar todo» cambia el texto del cuadro.
+          Si te equivocas, pega de nuevo el original. Antes de reemplazar, mira el número de
+          coincidencias: si esperabas 4 y salen 40, revisa la búsqueda.</li>
+          <li><strong>Reemplaza todas las apariciones a la vez.</strong> No puedes saltarte
+          una. Si solo quieres cambiar algunas, haz la búsqueda más específica (añade la
+          palabra de al lado, o usa «Solo palabra completa»).</li>
+          <li><strong>«Solo palabra completa» entiende como letras</strong> las de la a a la z,
+          las vocales con tilde, la ü y la ñ. Otras letras, como la ç o la à, se tratan como
+          separadores.</li>
+          <li><strong>Sin «Distinguir mayúsculas», no adapta la mayúscula.</strong> Si
+          reemplazas «casa» por «hogar», «Casa» al principio de frase también pasará a
+          «hogar», en minúscula. Haz dos pasadas con la casilla activada si te importa.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-buscar-reemplazar-regex.html">Buscar y reemplazar con expresiones regulares: 15 recetas</a><span>Espacios, fechas, comillas, teléfonos y saltos de línea, con antes y después.</span></li>
+          <li><a href="guia-limpiar-texto-copiado.html">Cómo limpiar texto copiado de un PDF, Word o una web</a><span>Un flujo completo de limpieza en el que este reemplazo hace la mitad del trabajo.</span></li>
+          <li><a href="guia-errores-mayusculas.html">Errores de mayúsculas en correos, currículums y trabajos</a><span>Los fallos que conviene corregir de una vez en todo el documento.</span></li>
+          <li><a href="eliminar-espacios.html">Eliminar espacios</a><span>Para limpiar espacios dobles y líneas vacías sin escribir patrones.</span></li>
+          <li><a href="/">Convertidor de mayúsculas y minúsculas</a><span>Cuando lo que hay que cambiar es el formato de mayúsculas de todo el texto.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -1072,13 +1131,12 @@
         </details>
 
         <details>
-          <summary>¿Se envía mi texto a algún servidor?</summary>
+          <summary>¿Cómo inserto un salto de línea en el reemplazo?</summary>
           <p>
-            No. Toda la operación ocurre en tu navegador. El texto que introduces nunca
-            sale de tu dispositivo, por lo que puedes usar esta herramienta con total
-            privacidad y sin necesidad de conexión una vez cargada la página.
+            Activa «Usar expresiones regulares» y escribe <code>\n</code> en el campo «Reemplazar por». Por ejemplo, buscar <code>; </code> y reemplazar por <code>\n</code> convierte «pan; leche; huevos» en una lista de tres líneas. Para un tabulador, usa <code>\t</code>.
           </p>
         </details>
+
 
         <details>
           <summary>¿Puedo eliminar una palabra sin poner nada en su lugar?</summary>
@@ -1090,13 +1148,12 @@
         </details>
 
         <details>
-          <summary>¿Cuántas sustituciones puedo hacer en un mismo texto?</summary>
+          <summary>¿Puedo reemplazar solo algunas apariciones y no todas?</summary>
           <p>
-            No hay límite. La herramienta procesa todo el texto de una vez y reemplaza todas
-            las coincidencias encontradas. Si tu texto tiene cientos de repeticiones de la
-            misma palabra, las cambiará todas en un instante.
+            No: «Reemplazar todo» cambia todas las coincidencias de una vez. La solución es afinar la búsqueda para que solo coincida lo que quieres cambiar. Por ejemplo, en lugar de «Juan», busca «Juan García»; o activa «Solo palabra completa» para que «sol» no afecte a «solamente».
           </p>
         </details>
+
 
         <details>
           <summary>¿Funciona bien con acentos, eñes y otros caracteres especiales?</summary>
@@ -1118,24 +1175,20 @@
         </details>
 
         <details>
-          <summary>¿Hay límite en la cantidad de texto que puedo procesar?</summary>
+          <summary>¿Por qué no encuentra una palabra que estoy viendo?</summary>
           <p>
-            No hay ningún límite impuesto por la herramienta. El procesamiento depende del
-            navegador y del dispositivo que uses, pero para textos habituales de trabajo
-            —incluso documentos de varios miles de palabras— funciona sin problemas en
-            cualquier ordenador o móvil moderno.
+            Suele haber un carácter invisible: un espacio de no separación en lugar de un espacio normal, un salto de línea a mitad de la frase o una ligadura (la «ﬁ» de algunos PDF, que parece «fi» pero es un solo carácter). También puede ser una tilde: «publico» no encuentra «público». Prueba a buscar un trozo más corto de la palabra, o limpia antes el texto con <a href="eliminar-espacios.html">Eliminar espacios</a>.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Funciona en el móvil o la tableta?</summary>
+          <summary>¿Qué pasa si escribo un $ en el reemplazo?</summary>
           <p>
-            Sí, la herramienta está adaptada para pantallas pequeñas. Puedes pegar texto
-            desde el portapapeles del móvil, hacer la búsqueda y el reemplazo, y copiar el
-            resultado. Es especialmente útil para editar textos rápidos cuando no tienes el
-            ordenador a mano.
+            En el modo normal, nada especial: se inserta tal cual, así que puedes reemplazar «EUR» por «$» sin problemas. En el modo de expresiones regulares, <code>$1</code>, <code>$2</code>… insertan los grupos capturados y <code>$&amp;</code> inserta la coincidencia completa. Para un $ literal en ese modo, escribe <code>$$</code>.
           </p>
         </details>
+
       </section>
 
     </div><!-- /container -->

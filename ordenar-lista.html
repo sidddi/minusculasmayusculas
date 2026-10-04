@@ -683,31 +683,31 @@
         "name": "¿Cómo ordenar una lista alfabéticamente online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega tu lista en el cuadro de texto, con un elemento por línea. Selecciona la opción «A → Z» y pulsa «Ordenar». La herramienta ordenará al instante todas las líneas de forma alfabética, respetando los caracteres del español como la ñ y las letras acentuadas."
+          "text": "Pega tu lista en el cuadro de texto, con un elemento por línea. Selecciona la opción A → Z y pulsa Ordenar. La herramienta ordenará al instante todas las líneas de forma alfabética, respetando los caracteres del español como la ñ y las letras acentuadas."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cómo eliminar duplicados de una lista?",
+        "name": "¿Qué línea se queda si elimino duplicados mientras ordeno?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Activa la opción «Eliminar duplicados» antes de pulsar «Ordenar». La herramienta eliminará automáticamente todas las líneas repetidas, conservando solo una ocurrencia de cada elemento."
+          "text": "Se queda la primera aparición en la lista original, y después se ordena. Si «JOSÉ PÉREZ» aparece antes que «José Pérez» y tienes marcado «Ignorar mayúsculas», sobrevive la versión en mayúsculas. Si quieres conservar la otra, unifica antes el formato con el convertidor de mayúsculas."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se tienen en cuenta las mayúsculas al ordenar?",
+        "name": "¿Se tienen en cuenta las mayúsculas y las tildes al ordenar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Por defecto el orden ignora si las letras son mayúsculas o minúsculas, de modo que «manzana» y «Manzana» se tratan igual. Si quieres que las mayúsculas vayan primero (orden ASCII), desactiva la opción «Ignorar mayúsculas»."
+          "text": "Con «Ignorar mayúsculas» activado (por defecto), «ávila», «Ávila» y «Avila» se consideran equivalentes para ordenar. Si lo desactivas, el orden general sigue siendo el alfabético español, y solo cuando dos líneas se diferencian únicamente por mayúsculas o tildes se aplica un desempate fijo: primero la minúscula, luego la mayúscula y después la acentuada (ab, Ab, AB, áb). No es el orden de los códigos de carácter: «Ávila» nunca acaba detrás de la z."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se envían mis datos a algún servidor?",
+        "name": "¿Dónde van la ñ, la ch y la ll?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Todo el procesamiento ocurre directamente en tu navegador. El texto que introduces nunca sale de tu dispositivo."
+          "text": "La ñ va entre la n y la o: «nube, Ñandú, oso». Desde un acuerdo de las academias de 1994, la ch y la ll se alfabetizan como dos letras: «chico» se ordena dentro de la c (entre «cerdo» y «cine») y «llama» dentro de la l. Lo explica la RAE en esta nota."
         }
       },
       {
@@ -715,7 +715,7 @@
         "name": "¿Puedo ordenar frases con varias palabras, no solo palabras sueltas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Cada línea se trata como un elemento único, independientemente de cuántas palabras tenga. Puedes ordenar frases completas, títulos o nombres con apellidos, siempre que cada elemento ocupe su propia línea."
+          "text": "Sí. Cada línea se trata como un elemento único, independientemente de cuántas palabras tenga. Puedes ordenar frases completas, títulos, nombres con apellidos o cualquier texto de múltiples palabras, siempre que cada elemento ocupe su propia línea."
         }
       },
       {
@@ -723,7 +723,7 @@
         "name": "¿Cómo funciona el orden «Por longitud»?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Con esta opción, los elementos se ordenan de más corto a más largo según el número de caracteres de cada línea. Es útil para ver qué entradas son más concisas o detectar elementos muy largos que quizás conviene acortar."
+          "text": "Con esta opción, los elementos se ordenan de más corto a más largo según el número de caracteres de cada línea. Es útil para ver qué entradas son más concisas, detectar elementos muy largos que quizás conviene acortar, o simplemente dar a la lista una estructura visual diferente."
         }
       },
       {
@@ -739,15 +739,15 @@
         "name": "¿Puedo deshacer una ordenación?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La herramienta no tiene función de deshacer. Si necesitas volver al orden original, lo más práctico es tener guardada la lista de origen antes de ordenar."
+          "text": "La herramienta no tiene función de deshacer. Si necesitas volver al orden original, lo más práctico es tener guardada la lista de origen antes de ordenar. Por eso conviene conservar el texto original en otro lugar por si necesitas comparar."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Hay límite en el número de elementos que puedo ordenar?",
+        "name": "¿Por qué «tema 10» aparece antes que «tema 2»?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No hay ningún límite en el número de líneas. La ordenación funciona directamente en el navegador y es capaz de manejar listas de miles de elementos sin problemas en cualquier dispositivo moderno."
+          "text": "Porque el orden alfabético compara carácter a carácter, y «10» empieza por «1». Marca «Orden natural de números» y las cifras seguidas se compararán como números completos: tema 1, tema 2, tema 10. Si los nombres los decides tú, otra solución es rellenar con ceros (tema 01, tema 02, tema 10), que funciona en cualquier programa."
         }
       },
       {
@@ -755,7 +755,7 @@
         "name": "¿Funciona con listas en otros idiomas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. La herramienta usa el algoritmo de comparación lingüística del navegador, que soporta muchos idiomas. Para listas en español usa específicamente el orden del alfabeto español, con la ñ en su lugar correcto."
+          "text": "Ordena cualquier texto, pero siempre con las reglas del español. Para la mayoría de listas en inglés, francés o portugués el resultado es el esperado. En idiomas con letras propias al final del alfabeto, como la å del sueco o la ø del danés, esas letras no ocuparán el lugar que les da su idioma."
         }
       }
     ]
@@ -927,10 +927,10 @@
           ordenación y pulsa el botón. El resultado aparece en el mismo cuadro, listo para copiar.
         </p>
         <p>
-          Es perfecta para ordenar listas de la compra, nombres de personas, etiquetas, resultados
-          de una encuesta o cualquier conjunto de datos de texto. La herramienta respeta los
-          caracteres del español: la ñ se ordena correctamente entre la n y la o, y las
-          letras acentuadas (á, é, í, ó, ú) se tratan según el alfabeto español.
+          Ordena con las reglas del alfabeto español: la ñ va entre la n y la o, la ch y la ll
+          se ordenan dentro de la c y de la l, y una palabra con tilde («Ávila») queda junto a
+          la misma palabra sin tilde, no al final de la lista. Si la lista lleva números
+          («tema 2», «tema 10»), activa el orden natural para que el 2 vaya antes que el 10.
         </p>
       </section>
 
@@ -999,6 +999,64 @@
         </ul>
       </section>
 
+      <section class="why-section" aria-label="Ejemplos">
+        <h2>Ejemplos de entrada y salida</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Lista pegada</th><th>Opciones</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>oso<br>Ñandú<br>nube<br>Ávila<br>avión</td><td>A → Z</td><td>Ávila<br>avión<br>nube<br>Ñandú<br>oso</td></tr>
+              <tr><td>cosa<br>llama<br>chico<br>luz</td><td>A → Z</td><td>chico<br>cosa<br>llama<br>luz</td></tr>
+              <tr><td>tema 10<br>tema 2<br>tema 1</td><td>A → Z</td><td>tema 1<br>tema 10<br>tema 2</td></tr>
+              <tr><td>tema 10<br>tema 2<br>tema 1</td><td>A → Z + orden natural</td><td>tema 1<br>tema 2<br>tema 10</td></tr>
+              <tr><td>Madrid<br>madrid<br>Bilbao</td><td>A → Z + eliminar duplicados + ignorar mayúsculas</td><td>Bilbao<br>Madrid</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          El segundo ejemplo sorprende a quien aprendió el abecedario antes de 1994: «chico» va
+          antes que «cosa» porque la ch ya no es una letra aparte. El tercero muestra por qué
+          existe el orden natural: sin él, la comparación es carácter a carácter y «10» empieza
+          por «1».
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones que conviene conocer</h2>
+        <ul class="plain-list">
+          <li><strong>Los espacios al principio de una línea cuentan.</strong> Una línea que
+          empieza por un espacio se va al principio de la lista. Si tu lista viene de una hoja
+          de cálculo, pásala antes por <a href="eliminar-espacios.html">Eliminar espacios</a>
+          con «Recortar inicio y final».</li>
+          <li><strong>Ordena la línea tal como está escrita.</strong> No sabe que «de la Fuente,
+          Ana» debería ir en la f según algunos criterios, ni quita el artículo de «El
+          Quijote». Si necesitas ese criterio, reescribe las entradas antes de ordenar.</li>
+          <li><strong>Al eliminar duplicados aquí, solo se ignoran las mayúsculas.</strong>
+          «José» y «Jose» o «Madrid» y «Madrid␣» (con un espacio al final) se conservan como
+          líneas distintas. Para una limpieza más fina, usa
+          <a href="eliminar-duplicados.html">Eliminar duplicados</a>, que además ignora los
+          espacios de los extremos.</li>
+          <li><strong>El orden «Por longitud» cuenta caracteres</strong>, espacios incluidos.
+          Dos líneas de la misma longitud mantienen su orden relativo.</li>
+          <li><strong>El modo aleatorio sirve para turnos y sorteos informales.</strong> Usa el
+          generador de números aleatorios del navegador, que no está pensado para sorteos con
+          valor legal ni para criptografía.</li>
+          <li><strong>Siempre usa las reglas del español.</strong> En una lista en sueco, la å
+          no irá al final del alfabeto como manda el sueco.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-ordenar-alfabeticamente.html">Cómo ordenar una lista alfabéticamente en español</a><span>Las reglas de la ñ, la ch, las tildes y los números, y por qué tantos programas ordenan mal.</span></li>
+          <li><a href="guia-eliminar-duplicados.html">Cómo eliminar duplicados sin perder datos</a><span>Qué hacer con mayúsculas, tildes y espacios invisibles antes de ordenar.</span></li>
+          <li><a href="eliminar-duplicados.html">Eliminar duplicados</a><span>Quita repeticiones conservando el orden original, si no quieres reordenar la lista.</span></li>
+          <li><a href="eliminar-espacios.html">Eliminar espacios</a><span>Limpia los espacios del principio de línea que descolocan el orden.</span></li>
+          <li><a href="buscar-reemplazar.html">Buscar y reemplazar</a><span>Quita la numeración («1.», «2.») de cada línea antes de ordenar, con una expresión regular.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -1013,32 +1071,28 @@
         </details>
 
         <details>
-          <summary>¿Cómo eliminar duplicados de una lista?</summary>
+          <summary>¿Qué línea se queda si elimino duplicados mientras ordeno?</summary>
           <p>
-            Activa la opción <strong>Eliminar duplicados</strong> antes de pulsar
-            <strong>Ordenar</strong>. La herramienta eliminará automáticamente todas las
-            líneas repetidas, conservando solo una ocurrencia de cada elemento.
+            Se queda la primera aparición en la lista original, y después se ordena. Si «JOSÉ PÉREZ» aparece antes que «José Pérez» y tienes marcado «Ignorar mayúsculas», sobrevive la versión en mayúsculas. Si quieres conservar la otra, unifica antes el formato con el <a href="/">convertidor de mayúsculas</a>.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Se tienen en cuenta las mayúsculas al ordenar?</summary>
+          <summary>¿Se tienen en cuenta las mayúsculas y las tildes al ordenar?</summary>
           <p>
-            Per defecto el orden ignora si las letras son mayúsculas o minúsculas, de
-            modo que <em>«manzana»</em> y <em>«Manzana»</em> se tratan igual. Si quieres
-            que las mayúsculas vayan primero (orden ASCII), desactiva la opción
-            <strong>Ignorar mayúsculas</strong>.
+            Con «Ignorar mayúsculas» activado (por defecto), «ávila», «Ávila» y «Avila» se consideran equivalentes para ordenar. Si lo desactivas, el orden general sigue siendo el alfabético español, y solo cuando dos líneas se diferencian únicamente por mayúsculas o tildes se aplica un desempate fijo: primero la minúscula, luego la mayúscula y después la acentuada (<em>ab, Ab, AB, áb</em>). No es el orden de los códigos de carácter: «Ávila» nunca acaba detrás de la z.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Se envían mis datos a algún servidor?</summary>
+          <summary>¿Dónde van la ñ, la ch y la ll?</summary>
           <p>
-            No. Todo el procesamiento ocurre directamente en tu navegador. El texto que
-            introduces nunca sale de tu dispositivo, por lo que puedes usarla con listas
-            de datos confidenciales sin ninguna preocupación.
+            La ñ va entre la n y la o: «nube, Ñandú, oso». Desde un acuerdo de las academias de 1994, la ch y la ll se alfabetizan como dos letras: «chico» se ordena dentro de la c (entre «cerdo» y «cine») y «llama» dentro de la l. Lo explica la RAE en <a href="https://www.rae.es/espanol-al-dia/exclusion-de-ch-y-ll-del-abecedario">esta nota</a>.
           </p>
         </details>
+
 
         <details>
           <summary>¿Puedo ordenar frases con varias palabras, no solo palabras sueltas?</summary>
@@ -1080,23 +1134,20 @@
         </details>
 
         <details>
-          <summary>¿Hay límite en el número de elementos que puedo ordenar?</summary>
+          <summary>¿Por qué «tema 10» aparece antes que «tema 2»?</summary>
           <p>
-            No hay ningún límite en el número de líneas. La ordenación funciona directamente
-            en el navegador y es capaz de manejar listas de miles de elementos sin problemas
-            en cualquier dispositivo moderno.
+            Porque el orden alfabético compara carácter a carácter, y «10» empieza por «1». Marca «Orden natural de números» y las cifras seguidas se compararán como números completos: tema 1, tema 2, tema 10. Si los nombres los decides tú, otra solución es rellenar con ceros (tema 01, tema 02, tema 10), que funciona en cualquier programa.
           </p>
         </details>
+
 
         <details>
           <summary>¿Funciona con listas en otros idiomas?</summary>
           <p>
-            Sí. La herramienta usa el algoritmo de comparación lingüística del navegador,
-            que soporta muchos idiomas. Para listas en español usa específicamente el orden
-            del alfabeto español. Para otros idiomas también ordenará correctamente según
-            sus propias reglas alfabéticas.
+            Ordena cualquier texto, pero siempre con las reglas del español. Para la mayoría de listas en inglés, francés o portugués el resultado es el esperado. En idiomas con letras propias al final del alfabeto, como la å del sueco o la ø del danés, esas letras no ocuparán el lugar que les da su idioma.
           </p>
         </details>
+
       </section>
 
     </div>

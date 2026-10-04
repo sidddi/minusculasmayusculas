@@ -695,7 +695,7 @@
         "name": "¿Cuántas palabras, frases o párrafos puedo generar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Puedes elegir entre 10 y 500 unidades (palabras, frases o párrafos). El límite está pensado para mantener la fluidez de la herramienta, pero cubre la gran mayoría de casos de uso habituales en diseño y desarrollo."
+          "text": "Puedes elegir entre 1 y 500 unidades. El límite está pensado para mantener la fluidez de la herramienta, pero cubre la gran mayoría de casos de uso habituales en diseño y desarrollo. Para textos más largos, puedes generar varias veces y combinar los resultados."
         }
       },
       {
@@ -703,7 +703,7 @@
         "name": "¿El texto generado tiene algún significado?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. El texto se genera de forma aleatoria combinando palabras reales del español, por lo que puede sonar extraño o carecer de coherencia semántica. Su único propósito es servir como relleno visual: ocupa espacio con texto en español sin transmitir un mensaje concreto."
+          "text": "No. El texto se genera combinando palabras reales del español de forma aleatoria, por lo que puede sonar extraño o carecer de coherencia semántica. Su único propósito es servir como relleno visual: ocupa espacio con texto en español sin transmitir un mensaje concreto."
         }
       },
       {
@@ -716,10 +716,18 @@
       },
       {
         "@type": "Question",
-        "name": "¿Los datos se envían a algún servidor?",
+        "name": "¿Por qué algunas frases son preguntas o exclamaciones?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. La herramienta funciona íntegramente en tu navegador mediante JavaScript. No se envía ningún dato a servidores externos. Todo el procesamiento es local, lo que garantiza privacidad y permite que la herramienta funcione sin conexión a internet una vez cargada la página."
+          "text": "Para que el relleno se parezca más a un texto real, que no está hecho solo de frases afirmativas. Una de cada tres frases termina en signo de interrogación o de exclamación, y siempre lleva también el signo de apertura (¿ ¡), como pide la ortografía del español. Así ves cómo se comportan esos signos en tu tipografía."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Incluye tildes y caracteres especiales del español?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El vocabulario utilizado incluye palabras con tildes (como también, después, número, así, más), la letra ñ (en palabras como año, niño, español) y otros caracteres propios del idioma. Esto hace que el texto sea más representativo de cómo quedará la tipografía con contenido real en español."
         }
       }
     ]
@@ -875,7 +883,7 @@
         <p>
           Este generador construye frases con vocabulario español real: artículos,
           preposiciones, sustantivos y verbos comunes, con sus tildes y su longitud de
-          palabra natural. El texto no significa nada —es relleno y debe notarse— pero se
+          palabra natural. El texto no significa nada (es relleno y debe notarse), pero se
           comporta tipográficamente como el español que ocupará su lugar.
         </p>
       </section>
@@ -906,15 +914,15 @@
       <section class="why-section" aria-label="Origen del texto de relleno">
         <h2>De dónde viene la costumbre del texto de relleno</h2>
         <p>
-          El «lorem ipsum» procede de un pasaje de Cicerón deliberadamente desordenado, que
-          los impresores usan desde hace siglos como texto de muestra y que la industria
-          gráfica popularizó definitivamente en el siglo XX con los catálogos de
-          tipografías y las hojas de transferencia. Su gracia es justamente que no se
-          entiende: el ojo evalúa la composición sin distraerse leyendo.
+          El «lorem ipsum» procede de un pasaje de <em>De finibus bonorum et malorum</em>, de
+          Cicerón (45 a. C.), recortado a mitad de palabra y desordenado. La leyenda del impresor
+          renacentista que ya lo usaba no tiene pruebas; su rastro seguro empieza con los
+          catálogos tipográficos de los años sesenta. Su gracia es justamente que
+          no se entiende: el ojo evalúa la composición sin distraerse leyendo.
         </p>
         <p>
-          Un relleno en español conserva esa virtud —las frases generadas no significan
-          nada— y elimina el inconveniente de que el cliente pregunte por qué su web está
+          Un relleno en español conserva esa virtud (las frases generadas no significan
+          nada) y elimina el inconveniente de que el cliente pregunte por qué su web está
           «en latín». Para presentaciones a cliente final, suele funcionar mejor.
         </p>
       </section>
@@ -936,6 +944,60 @@
             <span class="step-body"><strong>Copia el resultado</strong> y pégalo en tu maqueta, plantilla o documento de prueba.</span>
           </li>
         </ol>
+      </section>
+
+      <section class="why-section" aria-label="Cómo genera el texto">
+        <h2>Cómo se genera el texto</h2>
+        <p>
+          El generador no copia frases de ningún sitio. Combina al azar un vocabulario de
+          unas 270 palabras españolas frecuentes: artículos, preposiciones, sustantivos,
+          verbos en infinitivo y adjetivos, con sus tildes y eñes. Cada unidad sigue una
+          regla sencilla:
+        </p>
+        <ul class="plain-list">
+          <li><strong>Palabras:</strong> exactamente las que pides, con la primera en
+          mayúscula y un punto al final.</li>
+          <li><strong>Frases:</strong> entre 6 y 15 palabras cada una. Dos de cada tres
+          terminan en punto; el resto son interrogativas o exclamativas, con su signo de
+          apertura (¿ ¡) como corresponde en español.</li>
+          <li><strong>Párrafos:</strong> entre 3 y 6 frases cada uno, separados por una línea
+          en blanco.</li>
+        </ul>
+        <p>Así queda una petición de dos frases:</p>
+        <div class="ejemplo">Proceso información para tiempo conocer nuevo resultado digital ciudad. ¿Gente sistema volver también cultura entre después método?</div>
+        <p>
+          Cada pulsación produce un texto distinto, y puedes pedir hasta 500 unidades de una
+          vez. Si necesitas más, genera varias veces y pega los resultados seguidos.
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Para qué no sirve</h2>
+        <ul class="plain-list">
+          <li><strong>No es gramatical.</strong> Las palabras se combinan sin concordancia ni
+          sintaxis. Sirve para medir espacio y ritmo, no para probar un corrector o un
+          traductor.</li>
+          <li><strong>No incluye cifras, nombres propios ni comas.</strong> Si tu diseño tiene
+          que aguantar precios, fechas o nombres largos, añádelos a mano. La
+          <a href="guia-texto-de-relleno.html">guía de texto de relleno</a> tiene una lista de
+          casos extremos para probar.</li>
+          <li><strong>Las palabras se repiten.</strong> Con un vocabulario limitado, en textos
+          largos verás palabras repetidas. No afecta a la maqueta, pero se nota si alguien lo
+          lee.</li>
+          <li><strong>No es contenido.</strong> Publicarlo en una web real, aunque sea de forma
+          provisional, es una mala idea: para un lector y para un buscador es texto sin
+          sentido.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-texto-de-relleno.html">Texto de relleno: para qué sirve y cómo usarlo bien</a><span>Alternativas al lorem ipsum, cuánto relleno pedir y cómo evitar que acabe publicado.</span></li>
+          <li><a href="guia-limites-caracteres.html">Escribir corto: límites de caracteres</a><span>Para dimensionar titulares, botones y descripciones con límites reales.</span></li>
+          <li><a href="contador-palabras.html">Contador de palabras</a><span>Mide cuánto ocupa el texto real que sustituirá al relleno.</span></li>
+          <li><a href="contador-caracteres.html">Contador de caracteres</a><span>Para probar campos de formulario con un número exacto de caracteres.</span></li>
+        </ul>
       </section>
 
       <section class="faq-section" aria-label="Preguntas frecuentes">
@@ -998,13 +1060,12 @@
         </details>
 
         <details>
-          <summary>¿Los datos se envían a algún servidor?</summary>
+          <summary>¿Por qué algunas frases son preguntas o exclamaciones?</summary>
           <p>
-            No. La herramienta funciona íntegramente en tu navegador mediante JavaScript. No se envía
-            ningún dato a servidores externos. Todo el procesamiento es local, lo que garantiza privacidad
-            y permite que la herramienta funcione sin conexión a internet una vez cargada la página.
+            Para que el relleno se parezca más a un texto real, que no está hecho solo de frases afirmativas. Una de cada tres frases termina en signo de interrogación o de exclamación, y siempre lleva también el signo de apertura (¿ ¡), como pide la ortografía del español. Así ves cómo se comportan esos signos en tu tipografía.
           </p>
         </details>
+
 
         <details>
           <summary>¿Incluye tildes y caracteres especiales del español?</summary>
@@ -1104,7 +1165,10 @@
       var frase = palabras.join(' ');
       frase = frase.charAt(0).toUpperCase() + frase.slice(1);
       var puntuacion = ['.', '.', '.', '.', '!', '?'];
-      frase += puntuacion[Math.floor(Math.random() * puntuacion.length)];
+      var cierre = puntuacion[Math.floor(Math.random() * puntuacion.length)];
+      // En español, interrogación y exclamación se abren y se cierran
+      var apertura = cierre === '?' ? '¿' : (cierre === '!' ? '¡' : '');
+      frase = apertura + frase + cierre;
       return frase;
     }
 

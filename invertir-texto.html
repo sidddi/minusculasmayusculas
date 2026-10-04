@@ -627,7 +627,7 @@
         "name": "¿Cuál es la diferencia entre invertir letras, palabras y líneas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Invertir letras voltea cada carácter: 'hola mundo' → 'odnum aloh'. Invertir palabras mantiene las letras de cada palabra pero invierte su orden: 'hola mundo' → 'mundo hola'. Invertir líneas mantiene cada línea intacta pero invierte el orden en que aparecen."
+          "text": "Invertir letras voltea cada carácter: «hola mundo» → «odnum aloh». Invertir palabras mantiene las letras de cada palabra pero invierte su orden: «hola mundo» → «mundo hola». Invertir líneas mantiene cada línea intacta pero invierte el orden en que aparecen, de modo que la última línea pasa a ser la primera."
         }
       },
       {
@@ -640,26 +640,26 @@
       },
       {
         "@type": "Question",
-        "name": "¿El texto se envía a algún servidor?",
+        "name": "¿Invertir palabras respeta los saltos de línea?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. La inversión se realiza completamente en tu navegador. El texto que introduces nunca sale de tu dispositivo."
+          "text": "Sí. El modo «Invertir palabras» trabaja línea a línea: da la vuelta a las palabras de cada línea, pero las líneas se quedan en su sitio. Si quieres también el orden inverso de las líneas, aplica después «Invertir líneas» al resultado."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Funciona con acentos, ñ y caracteres especiales?",
+        "name": "¿Funciona con acentos, ñ y emojis?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. La herramienta trata correctamente todos los caracteres Unicode, incluyendo vocales con tilde (á, é, í, ó, ú), la ñ, signos de puntuación y emojis."
+          "text": "Con tildes, eñes, diéresis y emojis sencillos, sí: cada uno se mueve como una sola letra. Los emojis compuestos (con tono de piel, banderas, familias) se rompen al invertir letras, porque están formados por varias piezas que cambian de orden. Si tu texto los lleva, usa el modo de palabras o de líneas, que no los separa."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Hay un límite de texto que puedo invertir?",
+        "name": "¿Cómo compruebo si una frase es un palíndromo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No hay un límite estricto. La herramienta funciona en el navegador y puede manejar textos largos sin problema, aunque textos muy extensos (más de 100.000 caracteres) pueden tardar un instante en procesarse."
+          "text": "Prepara la frase quitando tildes con Quitar acentos (activa «Convertir a minúsculas») y los espacios con Eliminar espacios («Eliminar todos los espacios»). Pega el resultado aquí con «Invertir letras». Si sale lo mismo, es un palíndromo: «dabalearrozalazorraelabad» lo es."
         }
       },
       {
@@ -667,7 +667,7 @@
         "name": "¿Qué es un palíndromo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha que de derecha a izquierda. Por ejemplo: 'ojo', 'radar', 'Ana'. Para comprobar si una palabra es un palíndromo, inviértela con esta herramienta y compara el resultado con el original."
+          "text": "Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha que de derecha a izquierda. Ejemplos en español: «ojo», «radar», «Ana», «reconocer». Para comprobar si una palabra es un palíndromo, inviértela con esta herramienta y compara el resultado con el original: si son iguales, es un palíndromo."
         }
       }
     ]
@@ -819,9 +819,10 @@
           pulsar ningún botón.
         </p>
         <p>
-          Todo el procesamiento ocurre directamente en tu navegador, por lo que el texto que introduces
-          nunca se envía a ningún servidor. Puedes usarla con textos confidenciales con total tranquilidad.
-          Funciona con cualquier idioma, incluyendo caracteres con tilde, la ñ y emojis.
+          Respeta las letras del español: «añoranza» invertida es «aznaroña», con la eñe y las
+          tildes en su sitio. Con emojis sencillos también funciona. Los emojis compuestos
+          (banderas, tonos de piel, familias) son la excepción, y más abajo explicamos por
+          qué.
         </p>
       </section>
 
@@ -894,6 +895,59 @@
         </ol>
       </section>
 
+      <section class="why-section" aria-label="Signos y espacios">
+        <h2>Qué pasa con los signos y los espacios</h2>
+        <p>
+          Cada modo trata la puntuación de una forma distinta, y conviene saberlo antes de
+          copiar el resultado:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Modo</th><th>Entrada</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>Letras</td><td>¿Qué tal?</td><td>?lat éuQ¿</td></tr>
+              <tr><td>Palabras</td><td>Hola, ¿qué tal?</td><td>tal? ¿qué Hola,</td></tr>
+              <tr><td>Palabras</td><td>uno␣␣dos (dos espacios)</td><td>dos␣␣uno</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Al invertir letras, los signos de apertura y cierre se intercambian de lugar:
+          el «¿» acaba al final. Al invertir palabras, la coma y los signos viajan pegados a
+          su palabra, porque la herramienta separa solo por espacios. Si quieres una frase
+          invertida que se lea bien, revisa la puntuación a mano.
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones</h2>
+        <ul class="plain-list">
+          <li><strong>Emojis compuestos.</strong> Un emoji con tono de piel (👍🏽) o una bandera
+          están hechos de varias piezas. Al invertir letras, las piezas cambian de orden y el
+          emoji se rompe: verás el color suelto y el emoji por separado.</li>
+          <li><strong>Tildes «sueltas».</strong> Algunos textos copiados de PDF o de ciertos
+          sistemas guardan la «é» como una «e» seguida de una tilde independiente. Al
+          invertir letras, esa tilde puede acabar sobre la letra de al lado.</li>
+          <li><strong>No es texto en espejo ni boca abajo.</strong> Invierte el orden, pero
+          cada letra conserva su forma normal. Para efectos de letras volteadas hacen falta
+          caracteres especiales, y muchas aplicaciones no los muestran bien.</li>
+          <li><strong>Invertir líneas no es ordenar de la Z a la A.</strong> Solo da la vuelta
+          al orden que ya tenías. Para un orden alfabético inverso, usa
+          <a href="ordenar-lista.html">Ordenar lista</a> con «Z → A».</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-ordenar-alfabeticamente.html">Cómo ordenar una lista alfabéticamente en español</a><span>Si lo que necesitas es un orden alfabético y no solo dar la vuelta a la lista.</span></li>
+          <li><a href="guia-quitar-acentos.html">Quitar acentos: cuándo tiene sentido</a><span>Útil para preparar candidatos a palíndromo, que se comparan sin tildes.</span></li>
+          <li><a href="ordenar-lista.html">Ordenar lista</a><span>Orden alfabético A → Z o Z → A con las reglas del español.</span></li>
+          <li><a href="quitar-acentos.html">Quitar acentos</a><span>Quita tildes antes de comprobar un palíndromo.</span></li>
+          <li><a href="eliminar-espacios.html">Eliminar espacios</a><span>Con «Eliminar todos los espacios», prepara una frase para compararla letra a letra.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -927,32 +981,28 @@
         </details>
 
         <details>
-          <summary>¿El texto se envía a algún servidor?</summary>
+          <summary>¿Invertir palabras respeta los saltos de línea?</summary>
           <p>
-            No. La inversión se realiza completamente en tu navegador mediante JavaScript.
-            El texto que introduces nunca sale de tu dispositivo, por lo que puedes usarla
-            con textos confidenciales sin ninguna preocupación.
+            Sí. El modo «Invertir palabras» trabaja línea a línea: da la vuelta a las palabras de cada línea, pero las líneas se quedan en su sitio. Si quieres también el orden inverso de las líneas, aplica después «Invertir líneas» al resultado.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Funciona con acentos, ñ y caracteres especiales?</summary>
+          <summary>¿Funciona con acentos, ñ y emojis?</summary>
           <p>
-            Sí. La herramienta trabaja con cadenas Unicode y trata correctamente todos los
-            caracteres del español: vocales con tilde (á, é, í, ó, ú), la ñ, signos de
-            puntuación y emojis. No hay riesgo de que los caracteres especiales se corrompan
-            o desaparezcan.
+            Con tildes, eñes, diéresis y emojis sencillos, sí: cada uno se mueve como una sola letra. Los emojis compuestos (con tono de piel, banderas, familias) se rompen al invertir letras, porque están formados por varias piezas que cambian de orden. Si tu texto los lleva, usa el modo de palabras o de líneas, que no los separa.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Hay un límite de texto que puedo invertir?</summary>
+          <summary>¿Cómo compruebo si una frase es un palíndromo?</summary>
           <p>
-            No hay un límite estricto. La herramienta funciona directamente en el navegador y
-            puede manejar textos largos sin problema. Textos muy extensos (más de 100.000
-            caracteres) pueden tardar un instante en procesarse, pero el resultado será correcto.
+            Prepara la frase quitando tildes con <a href="quitar-acentos.html">Quitar acentos</a> (activa «Convertir a minúsculas») y los espacios con <a href="eliminar-espacios.html">Eliminar espacios</a> («Eliminar todos los espacios»). Pega el resultado aquí con «Invertir letras». Si sale lo mismo, es un palíndromo: «dabalearrozalazorraelabad» lo es.
           </p>
         </details>
+
 
         <details>
           <summary>¿Qué es un palíndromo?</summary>

@@ -649,7 +649,7 @@
         "name": "¿Cómo eliminar los espacios dobles de un texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega el texto en el campo de entrada con la opción «Espacios múltiples → uno» activada (lo está por defecto). El resultado aparece al instante en el cuadro inferior con todos los espacios consecutivos reducidos a uno solo. Pulsa «Copiar resultado» para llevártelo al portapapeles."
+          "text": "Pega el texto en el campo de entrada con la opción Espacios múltiples → uno activada (lo está por defecto). El resultado aparece al instante en el cuadro inferior con todos los espacios consecutivos reducidos a uno solo. Pulsa Copiar resultado para llevártelo al portapapeles."
         }
       },
       {
@@ -657,7 +657,7 @@
         "name": "¿Cómo quitar los saltos de línea de un texto copiado de un PDF?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Activa la opción «Eliminar saltos de línea». Los saltos que el PDF inserta al final de cada línea se sustituyen por un espacio, de forma que el texto vuelve a ser un párrafo continuo. Combínala con «Espacios múltiples → uno» para un resultado limpio."
+          "text": "Activa Eliminar saltos de línea. Cada salto se sustituye por un espacio y el texto vuelve a ser continuo. Combínala con Espacios múltiples → uno. Ten en cuenta que también se unen los párrafos: si quieres conservarlos, usa la receta con expresión regular del apartado de limitaciones."
         }
       },
       {
@@ -665,7 +665,7 @@
         "name": "¿Puedo eliminar todos los espacios de un texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Activa la opción «Eliminar todos los espacios» y el resultado no contendrá ningún espacio ni tabulación. Es útil para limpiar códigos, números de cuenta, referencias o identificadores que se han copiado con espacios intercalados."
+          "text": "Sí. Activa la opción Eliminar todos los espacios y el resultado no contendrá ningún espacio ni tabulación. Es útil para limpiar códigos, números de cuenta, referencias o identificadores que se han copiado con espacios intercalados."
         }
       },
       {
@@ -681,23 +681,31 @@
         "name": "¿Por qué mi texto copiado de Word o de una web tiene espacios raros?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Word, las páginas web y los PDF suelen usar espacios de no separación ( ), tabulaciones y saltos de línea invisibles para maquetar el contenido. Al copiar y pegar, esos caracteres viajan con el texto. Esta herramienta los normaliza: convierte los espacios de no separación en espacios normales antes de aplicar el resto de opciones."
+          "text": "Word, las páginas web y los PDF suelen usar espacios de no separación, tabulaciones y saltos de línea invisibles para maquetar el contenido. Al copiar y pegar, esos caracteres viajan con el texto. Esta herramienta los normaliza: convierte los espacios de no separación en espacios normales antes de aplicar el resto de opciones."
         }
       },
       {
         "@type": "Question",
-        "name": "¿La herramienta funciona con textos largos?",
+        "name": "¿En qué orden se aplican las opciones?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Todo el procesamiento se realiza en tu navegador con JavaScript, por lo que puede manejar documentos de decenas de miles de caracteres sin problema y sin esperas de subida o descarga."
+          "text": "Primero se normalizan los espacios especiales, después se eliminan las tabulaciones (si está activado), se unen los saltos de línea, se borran las líneas vacías, se recortan los extremos de cada línea y se reducen los espacios múltiples. Si activas Eliminar todos los espacios, esta se aplica al final y prevalece sobre las demás opciones de espacios."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se envía mi texto a algún servidor?",
+        "name": "¿Cómo uno las líneas de un PDF sin perder los párrafos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. La limpieza se realiza directamente en tu navegador. El texto que introduces nunca sale de tu dispositivo, por lo que puedes usar la herramienta con documentos confidenciales con total tranquilidad."
+          "text": "Esta herramienta no distingue un salto de renglón de un salto de párrafo. Para hacerlo, ve a Buscar y reemplazar, activa «Usar expresiones regulares», busca ([^\\n])\\n(?!\\n) y reemplaza por $1 seguido de un espacio. Une los saltos sueltos y respeta las líneas en blanco entre párrafos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Quita los espacios de no separación y otros espacios especiales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Antes de aplicar cualquier opción, convierte en espacios normales el espacio de no separación, el espacio de cifra y el espacio estrecho de no separación, que son los que más llegan al copiar de Word o de una web. Lo que no quita son los espacios de anchura cero (U+200B), que no ocupan nada: búscalos con \\u200B en el modo de expresiones regulares de Buscar y reemplazar."
         }
       }
     ]
@@ -893,7 +901,7 @@
               <tr><td>Eliminar líneas vacías</td><td>Borra las líneas en blanco que separan párrafos</td></tr>
               <tr><td>Eliminar saltos de línea</td><td>Une todas las líneas en un único párrafo corrido</td></tr>
               <tr><td>Eliminar tabulaciones</td><td>Sustituye cada tabulador por un espacio normal</td></tr>
-              <tr><td>Eliminar todos los espacios</td><td>«h o l a» pasa a «hola» — útil para códigos y referencias</td></tr>
+              <tr><td>Eliminar todos los espacios</td><td>«h o l a» pasa a «hola». Útil para códigos y referencias</td></tr>
             </tbody>
           </table>
         </div>
@@ -947,6 +955,71 @@
         </ul>
       </section>
 
+      <section class="why-section" aria-label="Ejemplos">
+        <h2>Tres limpiezas habituales, con su resultado</h2>
+        <h3>Un párrafo copiado de un PDF</h3>
+        <div class="ejemplo">Entrada:
+La  reunión  se  celebrará
+en  la  sala  3  a  las
+10:00.
+
+Opciones: Espacios múltiples → uno, Eliminar saltos de línea
+Resultado:
+La reunión se celebrará en la sala 3 a las 10:00.</div>
+        <h3>Una columna pegada desde una hoja de cálculo</h3>
+        <div class="ejemplo">Entrada (con espacios al final y filas vacías):
+Madrid␣␣
+␣Sevilla
+
+Bilbao␣
+
+Opciones: Recortar inicio y final, Eliminar líneas vacías
+Resultado:
+Madrid
+Sevilla
+Bilbao</div>
+        <h3>Un IBAN escrito en bloques</h3>
+        <div class="ejemplo">Entrada:    ES91 2100 0418 4502 0005 1332
+Opción:     Eliminar todos los espacios
+Resultado:  ES9121000418450200051332</div>
+        <p>
+          (El símbolo ␣ marca un espacio que en pantalla no verías.) En el segundo caso,
+          los espacios del final son justo los que hacen que una lista tenga
+          <a href="eliminar-duplicados.html">duplicados que no se van</a>.
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones</h2>
+        <ul class="plain-list">
+          <li><strong>«Eliminar saltos de línea» une todo en un solo párrafo.</strong> Si el
+          texto tiene varios párrafos separados por una línea en blanco, también se unen. Para
+          unir solo las líneas partidas y conservar los párrafos, usa en
+          <a href="buscar-reemplazar.html">Buscar y reemplazar</a> el modo de expresiones
+          regulares: busca <code>([^\n])\n(?!\n)</code> y reemplaza por
+          <code>$1&nbsp;</code> (con un espacio al final).</li>
+          <li><strong>No recompone palabras cortadas con guion</strong> al final de línea
+          («infor- mación»). La <a href="guia-limpiar-texto-copiado.html">guía de limpieza de
+          texto copiado</a> tiene la receta.</li>
+          <li><strong>No quita los espacios de anchura cero</strong> (U+200B), que algunas webs
+          y aplicaciones de mensajería insertan sin que se vean. Se buscan con la expresión
+          regular <code>\u200B</code> en Buscar y reemplazar.</li>
+          <li><strong>«Eliminar todos los espacios» no toca los saltos de línea.</strong> Si
+          quieres una sola línea sin espacios, activa también «Eliminar saltos de línea».</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-limpiar-texto-copiado.html">Cómo limpiar texto copiado de un PDF, Word o una web</a><span>De dónde sale cada problema y en qué orden conviene arreglarlo.</span></li>
+          <li><a href="guia-buscar-reemplazar-regex.html">Buscar y reemplazar con expresiones regulares</a><span>Las limpiezas que necesitan un patrón: guiones de corte, párrafos, comillas.</span></li>
+          <li><a href="guia-eliminar-duplicados.html">Cómo eliminar duplicados sin perder datos</a><span>Por qué los espacios invisibles impiden detectar repetidos.</span></li>
+          <li><a href="eliminar-duplicados.html">Eliminar duplicados</a><span>El paso siguiente con una lista ya limpia.</span></li>
+          <li><a href="contador-palabras.html">Contador de palabras</a><span>Comprueba que la limpieza no ha perdido texto.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -963,12 +1036,10 @@
         <details>
           <summary>¿Cómo quitar los saltos de línea de un texto copiado de un PDF?</summary>
           <p>
-            Activa la opción <strong>Eliminar saltos de línea</strong>. Los saltos que el PDF
-            inserta al final de cada línea se sustituyen por un espacio, de forma que el texto
-            vuelve a ser un párrafo continuo. Combínala con <strong>Espacios múltiples → uno</strong>
-            para un resultado limpio.
+            Activa <strong>Eliminar saltos de línea</strong>. Cada salto se sustituye por un espacio y el texto vuelve a ser continuo. Combínala con <strong>Espacios múltiples → uno</strong>. Ten en cuenta que también se unen los párrafos: si quieres conservarlos, usa la receta con expresión regular del apartado de limitaciones.
           </p>
         </details>
+
 
         <details>
           <summary>¿Puedo eliminar todos los espacios de un texto?</summary>
@@ -1010,22 +1081,20 @@
         </details>
 
         <details>
-          <summary>¿La herramienta funciona con textos largos?</summary>
+          <summary>¿Cómo uno las líneas de un PDF sin perder los párrafos?</summary>
           <p>
-            Sí. Todo el procesamiento se realiza en tu navegador con JavaScript, por lo que puede
-            manejar documentos de decenas de miles de caracteres sin problema y sin esperas de
-            subida o descarga.
+            Esta herramienta no distingue un salto de renglón de un salto de párrafo. Para hacerlo, ve a <a href="buscar-reemplazar.html">Buscar y reemplazar</a>, activa «Usar expresiones regulares», busca <code>([^\n])\n(?!\n)</code> y reemplaza por <code>$1</code> seguido de un espacio. Une los saltos sueltos y respeta las líneas en blanco entre párrafos.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Se envía mi texto a algún servidor?</summary>
+          <summary>¿Quita los espacios de no separación y otros espacios especiales?</summary>
           <p>
-            No. La limpieza se realiza directamente en tu navegador. El texto que introduces
-            nunca sale de tu dispositivo, por lo que puedes usar la herramienta con documentos
-            confidenciales con total tranquilidad.
+            Sí. Antes de aplicar cualquier opción, convierte en espacios normales el espacio de no separación, el espacio de cifra y el espacio estrecho de no separación, que son los que más llegan al copiar de Word o de una web. Lo que no quita son los espacios de anchura cero (U+200B), que no ocupan nada: búscalos con <code>\u200B</code> en el modo de expresiones regulares de Buscar y reemplazar.
           </p>
         </details>
+
       </section>
 
     </div>

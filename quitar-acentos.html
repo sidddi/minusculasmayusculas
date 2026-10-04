@@ -634,7 +634,7 @@
         "name": "¿Cómo quitar los acentos de un texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pega o escribe el texto en el cuadro de la izquierda. El resultado sin acentos aparece al instante en el cuadro de la derecha. Pulsa 'Copiar resultado' para llevártelo al portapapeles."
+          "text": "Pega o escribe el texto en el cuadro de la izquierda. El resultado sin acentos aparece al instante en el cuadro de la derecha. Pulsa Copiar resultado para llevártelo al portapapeles."
         }
       },
       {
@@ -642,7 +642,7 @@
         "name": "¿Qué caracteres elimina esta herramienta?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Elimina todos los diacríticos del alfabeto latino: tildes españolas (á, é, í, ó, ú), la diéresis (ü, ï, ö), cedillas (ç→c), caracteres con circunflejo (â, ê, î, ô, û), con grave (à, è, ì, ò, ù) y muchos más de otros idiomas europeos. La ñ puede conservarse opcionalmente."
+          "text": "Elimina todos los diacríticos del alfabeto latino: tildes españolas (á, é, í, ó, ú), diéresis (ü, ï, ö), cedillas (ç→c), caracteres con circunflejo (â, ê, î, ô, û), con acento grave (à, è, ì, ò, ù), tilde de la ñ y muchos más de otros idiomas europeos. La ñ puede conservarse opcionalmente."
         }
       },
       {
@@ -650,7 +650,7 @@
         "name": "¿Para qué sirve eliminar los acentos de un texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Los textos sin acentos son necesarios cuando se generan URLs (los acentos se codifican como %C3%A1 y similares), slugs para CMS, nombres de archivo, identificadores en bases de datos, o datos que deben ser compatibles con sistemas que solo aceptan ASCII básico."
+          "text": "Los textos sin acentos son necesarios cuando se generan URLs (los acentos se codifican como %C3%A1 y similares), slugs para CMS, nombres de archivo, identificadores en bases de datos, o datos que deben ser compatibles con sistemas que solo aceptan ASCII básico. También se usa para búsquedas insensibles a tildes y para importar datos a sistemas legacy."
         }
       },
       {
@@ -658,15 +658,15 @@
         "name": "¿Puedo conservar la ñ al quitar los acentos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Activa la opción 'Conservar ñ' y la herramienta eliminará los acentos del resto de letras pero dejará la ñ intacta. Esto es útil cuando el sistema de destino soporta la ñ pero no otros caracteres acentuados."
+          "text": "Sí. Activa la opción Conservar ñ y la herramienta eliminará los acentos del resto de letras pero dejará la ñ intacta. Esto es útil cuando el sistema de destino soporta la ñ pero no otros caracteres acentuados, o cuando el texto tiene que seguir siendo legible en español."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se envía mi texto a algún servidor?",
+        "name": "¿Cómo se genera un slug a partir de un título con acentos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Todo el procesamiento se realiza directamente en tu navegador mediante JavaScript. El texto que introduces nunca sale de tu dispositivo ni se almacena en ningún lugar."
+          "text": "Pega el título y marca Convertir a minúsculas (y Conservar ñ solo si tu sistema la admite). Copia el resultado y, en Buscar y reemplazar, cambia los espacios por guiones. Quita a mano los signos sueltos (¿ ? : ,). «Café con Leche: la receta» queda como «cafe-con-leche-la-receta»."
         }
       },
       {
@@ -674,7 +674,31 @@
         "name": "¿Funciona con otros idiomas además del español?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. La herramienta reconoce y elimina diacríticos de francés (è, ê, ç), alemán (ä, ö, ü), portugués (ã, õ, â), italiano, catalán, gallego y muchos otros idiomas europeos basados en el alfabeto latino."
+          "text": "Sí, con los que usan letras latinas con diacríticos: francés (è, ê, ç), portugués (ã, õ, â), alemán (ä, ö, ü), catalán (à, ï; la ela geminada l·l no cambia), italiano, rumano o checo. La excepción son las letras que no son «letra más marca», como la ø danesa, la ł polaca, la ß alemana o la æ: esas se conservan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo recuperar las tildes después?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No de forma automática. Muchas palabras solo se distinguen por la tilde («publico», «público», «publicó»; «sabana», «sábana»), así que ningún programa puede saber cuál era la original. Trabaja siempre sobre una copia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La herramienta modifica letras que no son vocales acentuadas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Solo quita las marcas añadidas a una letra base: la ç pasa a c y la ñ a n (salvo que marques «Conservar ñ»). Las letras que no se forman así, como ø, ł o ß, no cambian. Los números, los espacios y los signos de puntuación tampoco."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Sirve para que un SMS no se cobre doble?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Un SMS admite 160 caracteres solo si todas las letras están en el juego básico GSM-7, que no incluye la á, la í, la ó ni la ú. Quitar los acentos (marcando «Conservar ñ», porque la ñ sí está en ese juego) devuelve el límite a 160. Hazlo solo en envíos masivos: en un mensaje personal, la ortografía vale más que un SMS."
         }
       }
     ]
@@ -844,7 +868,7 @@
               <tr><td>á, é, í, ó, ú</td><td>a, e, i, o, u</td></tr>
               <tr><td>Á, É, Í, Ó, Ú</td><td>A, E, I, O, U</td></tr>
               <tr><td>ü, Ü</td><td>u, U</td></tr>
-              <tr><td>ñ, Ñ</td><td>n, N — solo si desactivas «Conservar ñ»</td></tr>
+              <tr><td>ñ, Ñ</td><td>n, N (salvo que marques «Conservar ñ»)</td></tr>
             </tbody>
           </table>
         </div>
@@ -889,6 +913,52 @@
             <span class="step-body"><strong>Copia el resultado</strong> desde el cuadro «Texto sin acentos» con el botón «Copiar resultado».</span>
           </li>
         </ol>
+      </section>
+
+      <section class="why-section" aria-label="Ejemplos">
+        <h2>Ejemplos según las opciones</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Entrada</th><th>Opciones</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>Canción del niño pingüino</td><td>Ninguna</td><td>Cancion del nino pinguino</td></tr>
+              <tr><td>Canción del niño pingüino</td><td>Conservar ñ</td><td>Cancion del niño pinguino</td></tr>
+              <tr><td>Educación Pública 2026</td><td>Convertir a minúsculas</td><td>educacion publica 2026</td></tr>
+              <tr><td>Crème brûlée, Łódź, Straße</td><td>Ninguna</td><td>Creme brulee, Łodz, Straße</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          El último ejemplo muestra el límite de la herramienta: quita las marcas que se
+          añaden a una letra (tildes, diéresis, circunflejos, cedillas), pero no toca las
+          letras que son propias de otro idioma, como la ł polaca o la ß alemana.
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones</h2>
+        <ul class="plain-list">
+          <li><strong>No convierte letras propias de otros idiomas:</strong> ø, ł, ß, æ, œ y đ
+          se quedan como están. Si el sistema de destino no las admite, sustitúyelas con
+          <a href="buscar-reemplazar.html">Buscar y reemplazar</a> (por ejemplo, ß por ss).</li>
+          <li><strong>No crea el slug completo.</strong> Quita acentos y pasa a minúsculas, pero
+          no cambia los espacios por guiones ni quita signos como «¿» o «:».</li>
+          <li><strong>No tiene vuelta atrás.</strong> «publico» puede ser «público», «publico» o
+          «publicó». Guarda el texto original si lo vas a necesitar.</li>
+          <li><strong>La ñ se convierte en n por defecto.</strong> Marca «Conservar ñ» si el
+          destino la admite: «año» sin la eñe cambia de significado.</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-quitar-acentos.html">Quitar acentos: cuándo tiene sentido y cuándo es un error</a><span>URLs, archivos, bases de datos y SMS frente a textos para personas.</span></li>
+          <li><a href="guia-tildes-mayusculas.html">Las mayúsculas también llevan tilde</a><span>Por qué la tilde no es opcional en un texto que va a leer alguien.</span></li>
+          <li><a href="guia-limites-caracteres.html">Límites de caracteres</a><span>Qué letras sacan un SMS del juego de caracteres básico.</span></li>
+          <li><a href="buscar-reemplazar.html">Buscar y reemplazar</a><span>Para cambiar espacios por guiones y terminar un slug.</span></li>
+          <li><a href="eliminar-duplicados.html">Eliminar duplicados</a><span>Para cruzar listas una vez normalizadas sin tildes.</span></li>
+        </ul>
       </section>
 
       <section class="faq-section" aria-label="Preguntas frecuentes">
@@ -936,49 +1006,42 @@
         <details>
           <summary>¿Cómo se genera un slug a partir de un título con acentos?</summary>
           <p>
-            Activa las opciones <strong>Conservar ñ</strong> si quieres mantenerla (o no, si el sistema
-            no la admite) y <strong>Convertir a minúsculas</strong>. Pega el título, copia el resultado
-            y sustituye los espacios por guiones en tu CMS. Por ejemplo, «Café con Leche» quedaría como
-            «cafe-con-leche» listo para usar como URL.
+            Pega el título y marca <strong>Convertir a minúsculas</strong> (y <strong>Conservar ñ</strong> solo si tu sistema la admite). Copia el resultado y, en <a href="buscar-reemplazar.html">Buscar y reemplazar</a>, cambia los espacios por guiones. Quita a mano los signos sueltos (¿ ? : ,). «Café con Leche: la receta» queda como «cafe-con-leche-la-receta».
           </p>
         </details>
+
 
         <details>
           <summary>¿Funciona con otros idiomas además del español?</summary>
           <p>
-            Sí. La herramienta reconoce y elimina diacríticos de francés (<em>è, ê, ç</em>), alemán
-            (<em>ä, ö, ü</em>), portugués (<em>ã, õ, â</em>), italiano, catalán, gallego, polaco,
-            checo y muchos otros idiomas europeos basados en el alfabeto latino.
+            Sí, con los que usan letras latinas con diacríticos: francés (è, ê, ç), portugués (ã, õ, â), alemán (ä, ö, ü), catalán (à, ï; la ela geminada l·l no cambia), italiano, rumano o checo. La excepción son las letras que no son «letra más marca», como la ø danesa, la ł polaca, la ß alemana o la æ: esas se conservan.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Se envía mi texto a algún servidor?</summary>
+          <summary>¿Puedo recuperar las tildes después?</summary>
           <p>
-            No. Todo el procesamiento se realiza directamente en tu navegador mediante JavaScript.
-            El texto que introduces nunca sale de tu dispositivo ni se almacena en ningún lugar,
-            por lo que puedes usarla con datos sensibles sin ninguna preocupación.
+            No de forma automática. Muchas palabras solo se distinguen por la tilde («publico», «público», «publicó»; «sabana», «sábana»), así que ningún programa puede saber cuál era la original. Trabaja siempre sobre una copia.
           </p>
         </details>
+
 
         <details>
           <summary>¿La herramienta modifica letras que no son vocales acentuadas?</summary>
           <p>
-            La herramienta solo elimina los diacríticos (las marcas que se añaden a las letras base)
-            pero conserva la letra base. Por ejemplo, <em>ç</em> se convierte en <em>c</em> y <em>ø</em>
-            se convierte en <em>o</em>. Las letras sin diacríticos, los números, los espacios y los
-            signos de puntuación no se modifican en ningún caso.
+            Solo quita las marcas añadidas a una letra base: la <em>ç</em> pasa a <em>c</em> y la <em>ñ</em> a <em>n</em> (salvo que marques «Conservar ñ»). Las letras que no se forman así, como <em>ø</em>, <em>ł</em> o <em>ß</em>, no cambian. Los números, los espacios y los signos de puntuación tampoco.
           </p>
         </details>
 
+
         <details>
-          <summary>¿Hay límite de texto que puedo procesar?</summary>
+          <summary>¿Sirve para que un SMS no se cobre doble?</summary>
           <p>
-            No. La herramienta no tiene ningún límite de longitud. Al funcionar completamente en el
-            navegador, el único límite es la memoria de tu dispositivo, lo que en la práctica permite
-            procesar textos de cualquier longitud habitual, incluyendo documentos de varios miles de palabras.
+            Sí. Un SMS admite 160 caracteres solo si todas las letras están en el juego básico GSM-7, que no incluye la á, la í, la ó ni la ú. Quitar los acentos (marcando «Conservar ñ», porque la ñ sí está en ese juego) devuelve el límite a 160. Hazlo solo en envíos masivos: en un mensaje personal, la ortografía vale más que un SMS.
           </p>
         </details>
+
 
       </section>
 

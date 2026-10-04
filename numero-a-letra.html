@@ -691,7 +691,7 @@
         "name": "¿Puedo convertir cantidades con decimales o céntimos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Escribe el número con decimales usando punto o coma (por ejemplo 1500,50 o 1500.50). Si activas la opción «Con céntimos», el resultado mostrará «mil quinientos con cincuenta céntimos», ideal para facturas y cheques."
+          "text": "Sí. Escribe el número con coma o con punto decimal (1500,50 o 1500.50). Con Con céntimos activado, el resultado es «mil quinientos con cincuenta céntimos». Sin esa opción, la parte decimal se lee tal como está escrita: 3,5 es «tres coma cinco» y 3,05, «tres coma cero cinco»."
         }
       },
       {
@@ -699,7 +699,7 @@
         "name": "¿Para qué sirve escribir un número en letras?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "En España y Latinoamérica es obligatorio o habitual escribir las cantidades en letras en documentos como facturas, cheques, contratos de alquiler, escrituras notariales y recibos. Así se evitan alteraciones fraudulentas del importe."
+          "text": "Para que el importe de un documento no se pueda alterar con un trazo. En cheques y letras de cambio, la ley española da por buena la cantidad escrita en letra si no coincide con la cifra. En contratos, recibos y actas es una costumbre muy extendida, aunque no una obligación general. Y en textos corrientes, la ortografía recomienda la letra para los números que se dicen en una sola palabra."
         }
       },
       {
@@ -707,7 +707,7 @@
         "name": "¿Cuál es el número máximo que puedo convertir?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La herramienta soporta números de hasta 999 999 999 999 (novecientos noventa y nueve mil novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve)."
+          "text": "La herramienta soporta números de hasta 999 999 999 999 (novecientos noventa y nueve mil novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve). Es más que suficiente para cualquier uso práctico."
         }
       },
       {
@@ -723,15 +723,15 @@
         "name": "¿Puedo obtener el resultado en mayúsculas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Activa la opción «En mayúsculas» y el resultado se mostrará completamente en mayúsculas, por ejemplo: MIL QUINIENTOS EUROS CON CINCUENTA CÉNTIMOS."
+          "text": "Sí. Activa la opción En mayúsculas y el resultado se mostrará completamente en mayúsculas, por ejemplo: «MIL QUINIENTOS CON CINCUENTA CÉNTIMOS». Algunos documentos oficiales exigen este formato."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Se envían mis datos a algún servidor?",
+        "name": "¿Por qué el resultado no dice «euros»?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. La conversión se realiza directamente en tu navegador. El número que introduces nunca sale de tu dispositivo."
+          "text": "Porque la herramienta no sabe qué estás contando: puede ser dinero, personas o páginas, y cada sustantivo cambia la concordancia. Añade la unidad tú mismo y revisa el final: «veintiuno» pasa a «veintiún euros» y a «veintiuna páginas». En la guía de cantidades en letra tienes el formato completo con céntimos."
         }
       },
       {
@@ -740,6 +740,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "En español: mil (1.000), un millón (1.000.000), mil millones (1.000.000.000). A diferencia del inglés, en español «billón» equivale a un millón de millones (10¹²), no a mil millones. Por eso 1.000.000.000 se dice «mil millones» y no «un billón»."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Por qué «cien» unas veces y «ciento» otras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "«Cien» se usa para el 100 justo y también ante «mil» y «millones»: cien mil, cien millones. «Ciento» se usa cuando siguen decenas o unidades: ciento uno, ciento cincuenta. La herramienta aplica la regla en todos los grupos: 100 100 es «cien mil cien»."
         }
       }
     ]
@@ -891,10 +899,10 @@
           pulsar ningún botón. Funciona con números enteros, decimales y cantidades con céntimos.
         </p>
         <p>
-          Es especialmente útil para redactar facturas, cheques, contratos y documentos legales
-          donde es necesario escribir la cantidad en letras. Con la opción «Con céntimos» puedes
-          obtener directamente el formato «mil quinientos con cincuenta céntimos», listo para
-          copiar y pegar en tu documento.
+          Sirve para lo que se escribe dos veces: el importe de un cheque, la renta de un
+          contrato de alquiler, el total de un recibo, los votos de un acta. Con la opción
+          «Con céntimos», 1500,50 se convierte en «mil quinientos con cincuenta céntimos»; sin
+          ella, 3,05 se lee como decimal: «tres coma cero cinco».
         </p>
       </section>
 
@@ -903,7 +911,7 @@
         <h2>Qué convierte y hasta dónde llega</h2>
         <p>
           Convierte números enteros desde el cero hasta 999&nbsp;999&nbsp;999&nbsp;999
-          —novecientos noventa y nueve mil millones largos— a su escritura en letras,
+          (casi un billón) a su escritura en letras,
           siguiendo las normas del español. Puedes elegir el <strong>género</strong>
           («veintiún» / «veintiuna», «doscientos» / «doscientas»), añadir
           <strong>céntimos</strong> para expresar importes monetarios y obtener el
@@ -940,11 +948,12 @@
       <section class="why-section" aria-label="Usos en documentos">
         <h2>Para cheques, contratos y actas</h2>
         <p>
-          En los documentos con valor legal la cantidad se escribe en cifras y en letras, y
-          cuando ambas no coinciden suele prevalecer la escrita en letras. La razón es
-          práctica: alterar un «1.500» para convertirlo en «4.500» es fácil; alterar «mil
-          quinientos euros» sin dejar rastro, no. Por eso bancos, notarías y
-          administraciones siguen exigiendo la cantidad en letra.
+          En los documentos con valor legal la cantidad se escribe en cifras y en letras. La
+          razón es práctica: alterar un «1.500» para convertirlo en «4.500» es fácil; alterar
+          «mil quinientos euros» sin dejar rastro, no. En cheques y letras de cambio, la
+          <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-14880">Ley Cambiaria y del
+          Cheque</a> establece que, si las dos versiones no coinciden, vale la escrita en
+          letra (artículos 115 y 7).
         </p>
         <p>
           Escribirla a mano invita justo al error que se quiere evitar. Convertir el número
@@ -972,6 +981,59 @@
         </ol>
       </section>
 
+      <section class="why-section" aria-label="Ejemplos">
+        <h2>Ejemplos con cada opción</h2>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Escribes</th><th>Opciones</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>21</td><td>Masculino</td><td>veintiuno</td></tr>
+              <tr><td>21</td><td>Femenino</td><td>veintiuna</td></tr>
+              <tr><td>200000</td><td>Femenino</td><td>doscientas mil</td></tr>
+              <tr><td>2500000000</td><td>Masculino</td><td>dos mil quinientos millones</td></tr>
+              <tr><td>1215,5</td><td>Con céntimos</td><td>mil doscientos quince con cincuenta céntimos</td></tr>
+              <tr><td>3,05</td><td>Sin céntimos</td><td>tres coma cero cinco</td></tr>
+              <tr><td>950</td><td>En mayúsculas</td><td>NOVECIENTOS CINCUENTA</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          El resultado no incluye la unidad. Escribe tú «euros», «personas» o «acciones»
+          detrás, y ten en cuenta el «un»: la herramienta escribe «veintiuno», que ante un
+          sustantivo masculino se convierte en «veintiún euros». Ante «mil» y «millones» ya lo
+          hace sola: «veintiún mil», «treinta y un millones».
+        </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Limitaciones</h2>
+        <ul class="plain-list">
+          <li><strong>Hasta dos decimales.</strong> Con tres cifras tras el separador, la
+          herramienta entiende que es un separador de millares: «3,141» se lee como 3141. Para
+          un decimal largo, escribe solo los dos primeros o redondea.</li>
+          <li><strong>No escribe la unidad ni ajusta el «un».</strong> Ni «euros» ni «veintiún»
+          al final: los añades tú según el sustantivo.</li>
+          <li><strong>Con «Femenino», los millones siguen en masculino</strong>, porque
+          «millón» es un sustantivo masculino: «doscientos millones de personas». Es lo
+          correcto, aunque sorprenda.</li>
+          <li><strong>Ante «mil» con femenino usa la forma corta.</strong> Escribe «veintiún mil
+          personas», que la RAE admite igual que «veintiuna mil personas».</li>
+          <li><strong>No convierte ordinales</strong> (primero, vigésimo) ni fracciones
+          (un tercio).</li>
+        </ul>
+      </section>
+
+      <section class="related-section" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <ul class="related-list">
+          <li><a href="guia-cantidades-en-letra.html">Cómo escribir cantidades en letra en cheques, contratos y facturas</a><span>Euros y céntimos, «veintiún» o «veintiuna» y 20 importes resueltos.</span></li>
+          <li><a href="guia-numero-a-letra-a-mano.html">Cómo convertir un número a letra a mano</a><span>El método de los grupos de tres cifras, para entender (y comprobar) el resultado.</span></li>
+          <li><a href="guia-escribir-numeros.html">¿Números en cifras o en letras?</a><span>Cuándo escribir «veinte» y cuándo «20» en un texto corriente.</span></li>
+          <li><a href="contador-caracteres.html">Contador de caracteres</a><span>Comprueba si el importe en letra cabe en un campo de formulario con límite.</span></li>
+          <li><a href="/">Convertidor de mayúsculas y minúsculas</a><span>Si necesitas el resultado en otro formato de mayúsculas, como solo la inicial.</span></li>
+        </ul>
+      </section>
+
       <section class="faq-section" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
 
@@ -986,21 +1048,18 @@
         <details>
           <summary>¿Puedo convertir cantidades con decimales o céntimos?</summary>
           <p>
-            Sí. Escribe el número con decimales usando punto o coma (por ejemplo <em>1500,50</em> o
-            <em>1500.50</em>). Si activas la opción <strong>Con céntimos</strong>, el resultado mostrará
-            <em>«mil quinientos con cincuenta céntimos»</em>, ideal para facturas y cheques.
+            Sí. Escribe el número con coma o con punto decimal (<em>1500,50</em> o <em>1500.50</em>). Con <strong>Con céntimos</strong> activado, el resultado es <em>«mil quinientos con cincuenta céntimos»</em>. Sin esa opción, la parte decimal se lee tal como está escrita: <em>3,5</em> es «tres coma cinco» y <em>3,05</em>, «tres coma cero cinco».
           </p>
         </details>
+
 
         <details>
           <summary>¿Para qué sirve escribir un número en letras?</summary>
           <p>
-            En España y Latinoamérica es obligatorio o habitual en documentos como facturas,
-            cheques, contratos de alquiler, escrituras notariales y recibos. Escribir la cantidad
-            en letras evita alteraciones fraudulentas del importe y es un requisito legal en
-            muchos tipos de documentos.
+            Para que el importe de un documento no se pueda alterar con un trazo. En cheques y letras de cambio, la ley española da por buena la cantidad escrita en letra si no coincide con la cifra. En contratos, recibos y actas es una costumbre muy extendida, aunque no una obligación general. Y en textos corrientes, la <a href="guia-escribir-numeros.html">ortografía recomienda la letra</a> para los números que se dicen en una sola palabra.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cuál es el número máximo que puedo convertir?</summary>
@@ -1031,13 +1090,12 @@
         </details>
 
         <details>
-          <summary>¿Se envían mis datos a algún servidor?</summary>
+          <summary>¿Por qué el resultado no dice «euros»?</summary>
           <p>
-            No. La conversión se realiza directamente en tu navegador. El número que introduces
-            nunca sale de tu dispositivo, por lo que puedes usarla con importes confidenciales
-            sin ninguna preocupación.
+            Porque la herramienta no sabe qué estás contando: puede ser dinero, personas o páginas, y cada sustantivo cambia la concordancia. Añade la unidad tú mismo y revisa el final: «veintiuno» pasa a «veintiún euros» y a «veintiuna páginas». En la guía de <a href="guia-cantidades-en-letra.html">cantidades en letra</a> tienes el formato completo con céntimos.
           </p>
         </details>
+
 
         <details>
           <summary>¿Cómo se escriben los números grandes en español?</summary>
@@ -1052,12 +1110,10 @@
         <details>
           <summary>¿Por qué «cien» unas veces y «ciento» otras?</summary>
           <p>
-            <em>«Cien»</em> se usa cuando el número es exactamente 100 o cuando precede a un sustantivo
-            (<em>cien euros</em>, <em>cien personas</em>). <em>«Ciento»</em> se usa cuando va seguido
-            de decenas o unidades (<em>ciento uno</em>, <em>ciento cincuenta</em>). Esta herramienta
-            aplica la regla automáticamente.
+            <em>«Cien»</em> se usa para el 100 justo y también ante «mil» y «millones»: <em>cien mil</em>, <em>cien millones</em>. <em>«Ciento»</em> se usa cuando siguen decenas o unidades: <em>ciento uno</em>, <em>ciento cincuenta</em>. La herramienta aplica la regla en todos los grupos: 100 100 es «cien mil cien».
           </p>
         </details>
+
       </section>
 
     </div>

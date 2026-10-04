@@ -641,7 +641,7 @@
         "name": "¿Cómo pasar texto a mayúsculas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Copia tu texto y pégalo en el cuadro. Después haz clic en el botón TODO MAYÚSCULAS. La herramienta convertirá al instante cada letra a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ."
+          "text": "Copia tu texto y pégalo en el cuadro de arriba. Después haz clic en el botón TODO MAYÚSCULAS. La herramienta convertirá al instante cada letra a su versión en mayúscula, incluyendo letras con tilde como Á, É, Í, Ó, Ú y la Ñ."
         }
       },
       {
@@ -665,7 +665,7 @@
         "name": "¿Cuándo usar mayúsculas después de punto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Según la normativa ortográfica del español, tras un punto y seguido o al inicio de un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de texto en minúsculas que no respeta esta regla, usa el botón Mayúsculas después de punto para corregirlo automáticamente."
+          "text": "La ortografía del español pide mayúscula al empezar un texto, después de punto y después de un cierre de interrogación o exclamación que termina la frase («¿Vienes? Te espero»). El botón Mayúsculas después de punto aplica esas tres reglas, salta los signos de apertura (¿ ¡ «) y pone mayúscula también al principio de cada línea. Las reglas completas están en la guía de cuándo se escribe con mayúscula."
         }
       },
       {
@@ -673,7 +673,7 @@
         "name": "¿Funciona con caracteres del español como la ñ o las tildes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, todas las conversiones tienen en cuenta los caracteres propios del español. La «ñ» se convierte en «Ñ», la «á» en «Á», y así con todas las vocales acentuadas. No hay que hacer ninguna configuración adicional."
+          "text": "Sí, todas las conversiones tienen en cuenta los caracteres propios del español. La «ñ» se convierte en «Ñ», la «á» en «Á», y así con todas las vocales acentuadas. No hay que hacer ninguna configuración adicional: el idioma está incorporado por defecto."
         }
       },
       {
@@ -681,7 +681,7 @@
         "name": "¿Puedo aplicar más de una conversión al mismo texto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Puedes, por ejemplo, convertir primero a minúsculas y después aplicar «Mayúsculas después de punto». Cada vez que pulsas un botón, la conversión se aplica sobre el texto que hay en ese momento en el cuadro."
+          "text": "Sí. Puedes, por ejemplo, convertir primero a minúsculas y después aplicar «Mayúsculas después de punto». Cada vez que pulsas un botón, la conversión se aplica sobre el texto que hay en ese momento en el cuadro, por lo que puedes encadenar varias operaciones."
         }
       },
       {
@@ -689,7 +689,7 @@
         "name": "¿Qué diferencia hay entre «Capitalizar Cada Palabra» y «Mayúsculas después de punto»?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "«Capitalizar Cada Palabra» pone en mayúscula la primera letra de todas las palabras, incluyendo artículos y preposiciones. «Mayúsculas después de punto» solo pone en mayúscula la primera letra de cada frase, que es lo que corresponde gramaticalmente en español."
+          "text": "«Capitalizar Cada Palabra» pone en mayúscula la primera letra de todas las palabras, incluidos artículos y preposiciones: es el estilo de los títulos en inglés. «Mayúsculas después de punto» solo pone mayúscula al empezar cada frase, que es lo que corresponde en un texto normal en español, también en los títulos."
         }
       },
       {
@@ -843,11 +843,11 @@
           nada ni crear una cuenta: pega tu texto, elige el formato y listo.
         </p>
         <p>
-          Es perfecta para corregir textos que han llegado en el formato equivocado, dar
-          formato a títulos, preparar contenidos para redes sociales o simplemente corregir
-          el bloqueo de mayúsculas accidental. Funciona con todos los caracteres del español,
-          incluyendo vocales con tilde (á, é, í, ó, ú), mayúsculas acentuadas (Á, É, Í, Ó, Ú)
-          y la ñ.
+          Lo que más se arregla aquí: un correo escrito con el bloqueo de mayúsculas puesto,
+          un listado de nombres que salió de una base de datos EN MAYÚSCULAS, un titular en
+          inglés que hay que poner en «Title Case». Las tildes, la ñ y la ü se mantienen en
+          todas las conversiones, y los signos de apertura (¿ ¡ «) no impiden que la palabra
+          siguiente reciba su mayúscula.
         </p>
       </section>
 
@@ -905,7 +905,7 @@
           <li><strong>Textos escritos con el bloqueo de mayúsculas puesto.</strong> Un documento entero EN MAYÚSCULAS se corrige con dos clics: «todo minúsculas» y después «Mayúsculas después de punto».</li>
           <li><strong>Nombres exportados de una base de datos.</strong> Los sistemas de gestión suelen volcar los nombres en mayúsculas sostenidas; «Capitalizar Cada Palabra» los deja presentables sobre el listado completo de una vez.</li>
           <li><strong>Títulos con formato Title Case.</strong> Para títulos en inglés o etiquetas de producto, la capitalización palabra a palabra se aplica de golpe a toda una lista.</li>
-          <li><strong>Transcripciones y dictados por voz.</strong> Los dictados a menudo llegan sin mayúscula inicial en las frases; «Mayúsculas después de punto» recupera la puntuación correcta automáticamente.</li>
+          <li><strong>Transcripciones y dictados por voz.</strong> Los dictados a menudo llegan sin mayúscula inicial en las frases; «Mayúsculas después de punto» la recupera tras cada punto, interrogación o exclamación.</li>
         </ul>
       </section>
 
@@ -920,11 +920,57 @@
         </p>
         <p>
           Word y Google Docs tienen una función parecida, pero exigen abrir el programa y
-          trabajar sobre un archivo. Aquí copias el texto de donde sea —un email, un CMS,
-          una hoja de cálculo—, lo conviertes y lo devuelves a su sitio. Todo el
+          trabajar sobre un archivo. Aquí copias el texto de donde sea (un email, un CMS,
+          una hoja de cálculo), lo conviertes y lo devuelves a su sitio. Todo el
           procesamiento ocurre en tu navegador: el texto no se envía a ningún servidor ni
           se guarda en ninguna parte, así que puedes usarla con contenido confidencial.
         </p>
+      </section>
+
+      <section class="why-section" aria-label="Limitaciones">
+        <h2>Lo que una conversión automática no puede saber</h2>
+        <p>
+          El convertidor aplica reglas mecánicas. No entiende el texto, así que hay casos en
+          los que el resultado necesita un repaso:
+        </p>
+        <div class="table-wrap">
+          <table class="content-table">
+            <thead><tr><th>Entrada</th><th>Botón</th><th>Resultado</th><th>Qué revisar</th></tr></thead>
+            <tbody>
+              <tr><td>HOLA, SOY ANA. VIVO EN MADRID.</td><td>Mayúsculas después de punto</td><td>Hola, soy ana. Vivo en madrid.</td><td>Los nombres propios quedan en minúscula</td></tr>
+              <tr><td>LA ONU Y LA OTAN</td><td>Capitalizar Cada Palabra</td><td>La Onu Y La Otan</td><td>Las siglas pierden sus mayúsculas</td></tr>
+              <tr><td>compré pan, leche, etc. y volví.</td><td>Mayúsculas después de punto</td><td>Compré pan, leche, etc. Y volví.</td><td>El punto de una abreviatura se toma como final de frase</td></tr>
+              <tr><td>josé-maría o'donnell</td><td>Capitalizar Cada Palabra</td><td>José-maría O'donnell</td><td>Tras un guion o un apóstrofo no pone mayúscula</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Tampoco pone mayúscula después de los dos puntos de un saludo («Estimada Ana:»)
+          salvo que la frase siguiente empiece en otra línea, que es lo habitual en una
+          carta. Y «Capitalizar Cada Palabra» sigue el estilo inglés: en español, los títulos
+          solo llevan mayúscula en la primera palabra y en los nombres propios. Lo explica la
+          <a href="guia-mayusculas-titulos.html">guía de mayúsculas en títulos</a>.
+        </p>
+      </section>
+
+      <section class="related-section" aria-label="Guías destacadas">
+        <h2>Guías para escribir mejor</h2>
+        <ul class="related-list">
+          <li><a href="guia-mayusculas-espanol.html">Cuándo se escribe con mayúscula en español</a><span>25 casos resueltos: cargos, meses, puntos cardinales, instituciones, internet.</span></li>
+          <li><a href="guia-tildes-mayusculas.html">Las mayúsculas también llevan tilde</a><span>De dónde viene el mito, la excepción de las siglas y cómo escribir Á en cada teclado.</span></li>
+          <li><a href="guia-ordenar-alfabeticamente.html">Cómo ordenar una lista alfabéticamente en español</a><span>La ñ, la ch, las tildes y los números, y por qué los programas fallan.</span></li>
+          <li><a href="guia-cantidades-en-letra.html">Cómo escribir cantidades en letra</a><span>Cheques, contratos y facturas, con 20 importes resueltos.</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:0.92rem;"><a href="guias.html">Ver todas las guías →</a></p>
+      </section>
+
+      <section class="related-section" aria-label="Otras herramientas útiles">
+        <h2>Otras herramientas útiles</h2>
+        <ul class="related-list">
+          <li><a href="contador-caracteres.html">Contador de caracteres</a><span>Comprueba si un titular en mayúsculas cabe en el límite de X, un SMS o una meta descripción.</span></li>
+          <li><a href="buscar-reemplazar.html">Buscar y reemplazar</a><span>Corrige una mayúscula indebida («Lunes», «Director») en todo el texto de una vez.</span></li>
+          <li><a href="quitar-acentos.html">Quitar acentos</a><span>Para URLs y nombres de archivo, nunca para textos que vaya a leer alguien.</span></li>
+        </ul>
       </section>
 
       <section class="faq-section" aria-label="Preguntas frecuentes">
@@ -962,12 +1008,10 @@
         <details>
           <summary>¿Cuándo usar mayúsculas después de punto?</summary>
           <p>
-            Según la normativa ortográfica del español, tras un punto y seguido o al inicio de
-            un párrafo la primera letra debe escribirse en mayúscula. Si tienes un bloque de
-            texto en minúsculas que no respeta esta regla, usa el botón
-            <strong>Mayúsculas después de punto</strong> para corregirlo automáticamente.
+            La ortografía del español pide mayúscula al empezar un texto, después de punto y después de un cierre de interrogación o exclamación que termina la frase («¿Vienes? Te espero»). El botón <strong>Mayúsculas después de punto</strong> aplica esas tres reglas, salta los signos de apertura (¿ ¡ «) y pone mayúscula también al principio de cada línea. Las reglas completas están en la guía de <a href="guia-mayusculas-espanol.html">cuándo se escribe con mayúscula</a>.
           </p>
         </details>
+
 
         <details>
           <summary>¿Funciona con caracteres del español como la ñ o las tildes?</summary>
@@ -991,12 +1035,10 @@
         <details>
           <summary>¿Qué diferencia hay entre «Capitalizar Cada Palabra» y «Mayúsculas después de punto»?</summary>
           <p>
-            «Capitalizar Cada Palabra» pone en mayúscula la primera letra de <em>todas</em> las
-            palabras, incluyendo artículos y preposiciones. «Mayúsculas después de punto» solo
-            pone en mayúscula la primera letra de cada frase, que es lo que corresponde
-            gramaticalmente en español.
+            «Capitalizar Cada Palabra» pone en mayúscula la primera letra de todas las palabras, incluidos artículos y preposiciones: es el estilo de los títulos en inglés. «Mayúsculas después de punto» solo pone mayúscula al empezar cada frase, que es lo que corresponde en un texto normal en español, también en los títulos.
           </p>
         </details>
+
 
         <details>
           <summary>¿Hay límite de texto que puedo convertir?</summary>
