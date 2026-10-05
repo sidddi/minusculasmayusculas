@@ -380,6 +380,18 @@
       .header-bar { flex-wrap: wrap; }
       .nav-link { padding: 8px 6px; }
     }
+      .foto-autor {
+      float: right;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 0 12px 18px;
+      background: var(--primary-light);
+    }
+    @media (max-width: 520px) {
+      .foto-autor { float: none; display: block; margin: 0 0 14px; width: 96px; height: 96px; }
+    }
   </style>
   <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
@@ -390,7 +402,12 @@
     "description": "Qué es minusculasmayusculas.com, quién lo mantiene y con qué principios.",
     "url": "https://minusculasmayusculas.com/sobre.html",
     "inLanguage": "es",
-    "publisher": { "@type": "Person", "name": "Siddharta Navarro Castellar" }
+    "publisher": {
+      "@type": "Person",
+      "name": "Siddharta Navarro Castellar",
+      "url": "https://minusculasmayusculas.com/sobre.html",
+      "sameAs": ["https://siddhartanavarro.com/blog"]
+    }
   }
   </script>
 </head>
@@ -472,14 +489,33 @@
           texto de relleno produce castellano, no latín.
         </p>
 
-        <h2>Quién lo mantiene</h2>
+        <h2 id="sobre-mi">Sobre mí</h2>
+        <img class="foto-autor"
+             src="https://siddhartanavarro.com/wp-content/uploads/2022/06/IMG_4498_2.jpeg"
+             alt="Foto de Siddharta Navarro" width="120" height="120" loading="lazy" decoding="async">
         <p>
-          El sitio lo desarrolla y mantiene <strong>Siddharta Navarro Castellar</strong>
-          como proyecto personal. No hay una empresa detrás ni un equipo de redacción:
-          las herramientas, los textos y las <a href="guias.html">guías de escritura</a>
-          salen de las mismas manos, lo que tiene una ventaja práctica: si algo está roto
-          o mal explicado, se corrige rápido. Puedes escribir a través de la
-          <a href="contacto.html">página de contacto</a>.
+          Me llamo <strong>Siddharta Navarro</strong> y vivo en el área de Barcelona. Llevo
+          más de veinte años trabajando en tecnología. Empecé como desarrollador backend en
+          Java. Después cofundé una empresa de desarrollo web y la dirigí durante once años,
+          con un equipo de unos diez programadores de software libre. Más tarde pasé a
+          producto, como Product Owner y Product Manager en empresas de producto digital,
+          impulsando la experimentación y proyectos con inteligencia artificial. Hoy trabajo
+          como consultor de IA en el sector público.
+        </p>
+        <p>
+          minusculasmayusculas.com es un proyecto propio, en marcha desde marzo de 2026.
+          Quería tener a mano herramientas de texto sencillas que hicieran bien lo básico en
+          castellano, gratis y sin registro. Están pensadas para quien escribe en español a
+          diario (en una oficina, en clase, en una web) y necesita resolver una tarea mecánica
+          en segundos: cambiar mayúsculas, ordenar una lista, contar palabras. Las
+          herramientas, las <a href="guias.html">guías</a> y los textos los hago yo, así que
+          si algo está roto o mal explicado, lo corrijo.
+        </p>
+        <p>
+          Fuera de la pantalla, me gustan los juegos de mesa, sobre todo el Carcassonne. Si
+          quieres comentarme algo de la web, escríbeme desde la
+          <a href="contacto.html">página de contacto</a>. También tengo un
+          <a href="https://siddhartanavarro.com/blog">blog personal</a>.
         </p>
 
         <h2>Los tres principios del sitio</h2>
